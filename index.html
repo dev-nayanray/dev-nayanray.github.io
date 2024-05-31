@@ -36,6 +36,41 @@
             text-decoration: none;
             color: #0366d6;
         }
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
         /* Chat styles */
         #chat {
             margin-top: 20px;
@@ -55,13 +90,40 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
-        #chat-input {
-            width: calc(100% - 60px);
+        form {
+            display: flex;
+            align-items: center;
             padding: 10px;
-            margin-right: 10px;
+            background-color: #f1f1f1;
+            border-top: 1px solid #ddd;
+            border-radius: 0 0 5px 5px;
         }
-        #chat-send {
-            padding: 10px 20px;
+        .chat-controls button, .chat-controls textarea {
+            border: none;
+            outline: none;
+            background: none;
+        }
+        .chat-controls textarea {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 20px;
+            resize: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        .chat-controls button {
+            margin: 0 5px;
+            color: #888;
+            cursor: pointer;
+        }
+        .chat-controls button:hover {
+            color: #000;
+        }
+        .chat-controls .send-button {
+            color: #0b93f6;
+        }
+        .chat-controls .send-button:hover {
+            color: #0078e7;
         }
     </style>
 </head>
@@ -104,12 +166,37 @@
         <ul id="repo-list" class="repo-list"></ul>
     </div>
 
-    <!-- Chat Section -->
-    <div id="chat" class="w-full max-w-md mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <div id="chat-messages"></div>
-        <div class="flex">
-            <input type="text" id="chat-input" placeholder="Type a message..." class="flex-grow border border-gray-300 p-2 rounded" />
-            <button id="chat-send" class="bg-blue-500 text-white p-2 rounded">Send</button>
+    <!-- Modal for Chat Section -->
+    <div id="chat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="chat" class="w-full mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div id="chat-messages"></div>
+                <form class="chat-controls">
+                    <label for="chat" class="sr-only">Your message</label>
+                    <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                            <path fill="currentColor" d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 1H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"/>
+                        </svg>
+                        <span class="sr-only">Upload image</span>
+                    </button>
+                    <button type="button" class="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.408 7.5h.01m-6.876 0h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM4.6 11a5.5 5.5 0 0 0 10.81 0H4.6Z"/>
+                        </svg>
+                        <span class="sr-only">Add emoji</span>
+                    </button>
+                    <textarea id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
+                    <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
+                        <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                            <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
+                        </svg>
+                        <span class="sr-only">Send message</span>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -126,7 +213,7 @@
                     document.getElementById('profile-name').textContent = data.name;
                     document.getElementById('profile-bio').textContent = data.bio;
                     document.getElementById('profile-follow').href = data.html_url;
-                    document.getElementById('profile-message').href = data.html_url;
+                    // document.getElementById('profile-message').href = data.html_url;
                 })
                 .catch(error => console.error('Error fetching the GitHub data:', error));
     
@@ -144,12 +231,31 @@
                 })
                 .catch(error => console.error('Error fetching the GitHub repos:', error));
     
+            // Modal functionality
+            const modal = document.getElementById('chat-modal');
+            const btn = document.getElementById('profile-message');
+            const span = document.getElementsByClassName('close')[0];
+    
+            btn.onclick = function() {
+                modal.style.display = 'block';
+            }
+    
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+    
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
             // WebSocket setup for chat
             const socket = new WebSocket('ws://localhost:3001'); // Updated to port 3001
     
             const chatMessages = document.getElementById('chat-messages');
-            const chatInput = document.getElementById('chat-input');
-            const chatSend = document.getElementById('chat-send');
+            const chatInput = document.getElementById('chat');
+            const chatForm = document.querySelector('.chat-controls');
     
             socket.addEventListener('message', (event) => {
                 const message = document.createElement('div');
@@ -158,16 +264,11 @@
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             });
     
-            chatSend.addEventListener('click', () => {
+            chatForm.addEventListener('submit', (event) => {
+                event.preventDefault();
                 const message = chatInput.value;
                 socket.send(message);
                 chatInput.value = '';
-            });
-    
-            chatInput.addEventListener('keyup', (event) => {
-                if (event.key === 'Enter') {
-                    chatSend.click();
-                }
             });
         });
     </script>
