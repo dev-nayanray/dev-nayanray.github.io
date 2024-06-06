@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>common-large-royalty-free</title>
+    <g id="common-large-royalty-free" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" stroke="#111517" stroke-width="2.11933423">
+            <g id="medal" transform="translate(16.000000, 5.000000)">
+                <path d="M48.671313,42.9474853 L68.5435334,81.1057759 L52.246991,76.7339968 L46.5855212,92.6460731 L26.7063324,54.474402 L48.671313,42.9474853 Z" id="Path" fill="#F08481" stroke-linejoin="round"></path>
+                <path d="M19.3445591,42.9465695 L41.3112848,54.474402 L21.432096,92.6460731 L15.7716898,76.7369864 L-0.460056794,81.1476032 L19.3445591,42.9465695 Z" id="Path" fill="#F08481" stroke-linejoin="round"></path>
+                <ellipse id="Oval" fill="#F3AF2B" fill-rule="nonzero" cx="34" cy="34.1304943" rx="34" ry="34.1304943"></ellipse>
+                <ellipse id="Oval" fill="#F8CF80" fill-rule="nonzero" cx="34.0088086" cy="34.129275" rx="24.8931185" ry="24.9886599"></ellipse>
+                <path d="M34.0088086,22.6378986 L38.982261,32.9690678 L49.9326337,30.4757421 L44.5873803,44.2373268 L23.4302369,44.2373268 L18.0849834,30.4757421 L29.0353562,32.9690678 L34.0088086,22.6378986 Z" id="Path" fill="#F3AF2B" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
