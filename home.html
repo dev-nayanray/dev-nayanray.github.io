@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+   
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+</head>
+<body class="transition-colors duration-500">
+  <header class="p-4 flex justify-between items-center bg-primary">
+    <div class="container mx-auto flex items-center justify-between px-4">
+      <a href="#" class="text-2xl font-bold text-red-600 dark:text-blue-400">
+        <img class="h-12" src="assets/logo-removebg-preview.png" alt="Logo">
+      </a>
+      <nav class="space-x-4">
+        <a href="#" class="nav-link text-2xl hover:text-accent">Home</a>
+        <a href="#" class="nav-link text-2xl hover:text-accent">About</a>
+        <a href="#" class="nav-link text-2xl hover:text-accent">Services</a>
+        <a href="#" class="nav-link text-2xl hover:text-accent">Contact</a>
+      </nav>
+    
+    <button id="theme-toggle" class="p-2 bg-secondary rounded-full">
+      <i id="theme-toggle-dark-icon" class="fas fa-moon hidden text-accent"></i>
+      <i id="theme-toggle-light-icon" class="fas fa-sun text-accent"></i>
+    </button>
+  </div>
+  </header>
+
+  <!-- Main content goes here -->
+  <main class="p-8">
+    <section class="relative bg-cover bg-center bg-blue-900 py-20 animated-bg" style="background-image: url('assets/9307751.png'); ">
+      <div class="container mx-auto text-center ">
+        <h1 class="text-5xl font-bold mb-4 text-white">Welcome to Our Professional Service</h1>
+        <p class="text-xl mb-8">Providing top-notch solutions for your business needs</p>
+        <a href="#" class="bg-accent text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-secondary transition duration-300">Get Started</a>
+        <i class="fas fa-spinner fa-spin text-white text-4xl mt-4"></i> 
+        
+         <div class="h-32 w-32 rounded-full border border-gradient absolute right-32 top-16 animated-div outer-circle"></div>
+         <div class="h-32 w-32 rounded-full border border-gradient absolute left-16 top-16 animated-div inner-circle"></div>
+         <div class="h-32 w-32 rounded-full border border-gradient absolute left-32 top-32 animated-div "></div>
+         <div class="h-16 w-16 rounded-lg bg-blue-300 absolute right-32 top-16 animated-div inner-circle"></div>
+         <div class="h-8 w-8 rounded-lg bg-black-300 absolute right-32 top-4 animated-div outer-circle"></div>
+         
+
+         
+         
+      </div>
+    </section>
+    
+    
+      <section class="py-20">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-12">Our Features</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
+              <div class="text-blue-600 mb-4">
+                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 100 12 6 6 0 000-12zm-3 5a3 3 0 116 0 3 3 0 01-6 0z" /></svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Feature One</h3>
+              <p class="text-gray-700">Description of feature one.</p>
+            </div>
+            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
+              <div class="text-blue-600 mb-4">
+                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a7 7 0 00-7 7v5.56a1.5 1.5 0 001.128 1.457l4.57 1.142a1.5 1.5 0 00.685 0l4.57-1.142A1.5 1.5 0 0018 14.56V9a7 7 0 00-7-7H9z" /></svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Feature Two</h3>
+              <p class="text-gray-700">Description of feature two.</p>
+            </div>
+            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
+              <div class="text-blue-600 mb-4">
+                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M12 7h4a2 2 0 012 2v6a2 2 0 01-2 2h-4V7zM4 7h4v10H4a2 2 0 01-2-2V9a2 2 0 012-2z" /></svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Feature Three</h3>
+              <p class="text-gray-700">Description of feature three.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" py-20">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+              <p class="text-gray-700 mb-4">"This service is amazing! It helped our business grow significantly."</p>
+              <div class="flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Client 1" class="w-12 h-12 rounded-full mr-4">
+                <div>
+                  <h4 class="text-lg font-bold">Client 1</h4>
+                  <p class="text-gray-600">CEO, Company A</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+              <p class="text-gray-700 mb-4">"Highly recommend this service to anyone looking for quality and professionalism."</p>
+              <div class="flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Client 2" class="w-12 h-12 rounded-full mr-4">
+                <div>
+                  <h4 class="text-lg font-bold">Client 2</h4>
+                  <p class="text-gray-600">CTO, Company B</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+              <p class="text-gray-700 mb-4">"Fantastic experience! The team was professional and efficient."</p>
+              <div class="flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Client 3" class="w-12 h-12 rounded-full mr-4">
+                <div>
+                  <h4 class="text-lg font-bold">Client 3</h4>
+                  <p class="text-gray-600">COO, Company C</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <section >
+        <h2 class="text-xl font-bold text-center">Turn Information Into Actionable Insights</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 p-8 ">
+          <div class="p-4 bg-secondary rounded">
+            <div class="flex items-center">
+              <i class="fas fa-paint-brush fa-2x text-accent mr-4"></i>
+              <h3 class="font-semibold">UI/UX Design</h3>
+            </div>
+            <p>Transform user experiences with cutting-edge design principles.</p>
+          </div>
+          <div class="p-4 bg-secondary rounded">
+            <div class="flex items-center">
+              <i class="fas fa-code fa-2x text-accent mr-4"></i>
+              <h3 class="font-semibold">Web Development</h3>
+            </div>
+            <p>Build responsive and dynamic websites using modern technologies.</p>
+          </div>
+          <div class="p-4 bg-secondary rounded">
+            <div class="flex items-center">
+              <i class="fas fa-chart-line fa-2x text-accent mr-4"></i>
+              <h3 class="font-semibold">SEO & Marketing</h3>
+            </div>
+            <p>Optimize your web presence and reach a larger audience effectively.</p>
+          </div>
+          <div class="p-4 bg-secondary rounded">
+            <div class="flex items-center">
+              <i class="fas fa-cogs fa-2x text-accent mr-4"></i>
+              <h3 class="font-semibold">Technology Solutions</h3>
+            </div>
+            <p>Implement robust tech solutions for seamless operations.</p>
+          </div>
+        </div>
+      </section>
+      
+    
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Recognitions</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+        <div class="p-4 bg-secondary rounded">
+          <h3 class="font-semibold">UI/UX Design</h3>
+          <p>Awarded 2023</p>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <h3 class="font-semibold">Graphic Design</h3>
+          <p>Awarded 2022</p>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <h3 class="font-semibold">Web Development</h3>
+          <p>Awarded 2021</p>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <h3 class="font-semibold">Mobile App</h3>
+          <p>Awarded 2020</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Look at my work & give your feedback</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+        <div class="p-4 bg-secondary rounded">
+          <img src="project1.jpg" alt="Project 1">
+          <h3 class="font-semibold mt-2">GestaltGo Portfolio</h3>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <img src="project2.jpg" alt="Project 2">
+          <h3 class="font-semibold mt-2">Luxury Modern Website</h3>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <img src="project3.jpg" alt="Project 3">
+          <h3 class="font-semibold mt-2">GestaltGo Portfolio</h3>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <img src="project4.jpg" alt="Project 4">
+          <h3 class="font-semibold mt-2">Luxury Modern Website</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Hundred Clients</h2>
+      <div class="p-4 bg-secondary rounded">
+        <p>"We have purchased over 1000 items from Pablo, and each item has been crafted with the utmost precision."</p>
+        <p class="mt-2 font-semibold">- Happy Client</p>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Flexible Pricing Plan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        <div class="p-4 bg-secondary rounded">
+          <h3 class="font-semibold">$19 / hour</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>UI/UX Design</li>
+            <li>Web Development</li>
+            <li>SEO & Marketing</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <h3 class="font-semibold">$39 / hour</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>UI/UX Design</li>
+            <li>Web Development</li>
+            <li>SEO & Marketing</li>
+            <li>Technology Solutions</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <h3 class="font-semibold">$59 / hour</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>UI/UX Design</li>
+            <li>Web Development</li>
+            <li>SEO & Marketing</li>
+            <li>Technology Solutions</li>
+            <li>Custom Solutions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Let's make your brand brilliant!</h2>
+      <form class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" placeholder="Name" class="p-2 bg-secondary rounded">
+        <input type="email" placeholder="Email" class="p-2 bg-secondary rounded">
+        <input type="tel" placeholder="Phone" class="p-2 bg-secondary rounded">
+        <textarea placeholder="Message" class="p-2 bg-secondary rounded"></textarea>
+        <button type="submit" class="p-2 bg-accent text-white rounded">Send Message</button>
+      </form>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Latest News & Blog</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        <div class="p-4 bg-secondary rounded">
+          <img src="blog1.jpg" alt="Blog 1">
+          <h3 class="font-semibold mt-2">12 unique examples of portfolio websites</h3>
+          <p class="mt-2">Showcasing the best portfolio websites.</p>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <img src="blog2.jpg" alt="Blog 2">
+          <h3 class="font-semibold mt-2">Essential features for a successful website</h3>
+          <p class="mt-2">Must-have features for a professional website.</p>
+        </div>
+        <div class="p-4 bg-secondary rounded">
+          <img src="blog3.jpg" alt="Blog 3">
+          <h3 class="font-semibold mt-2">How to get more clients</h3>
+          <p class="mt-2">Effective strategies to attract more clients.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // JavaScript for theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+    // Change the icons inside the button based on previous settings
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      darkIcon.classList.remove('hidden');
+    } else {
+      lightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      darkIcon.classList.toggle('hidden');
+      lightIcon.classList.toggle('hidden');
+      if (localStorage.getItem('theme')) {
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        }
+      } else {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+    });
+  </script>
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto text-center">
+      <p class="mb-4">&copy; 2024 Your Company. All rights reserved.</p>
+      <div class="space-x-4">
+        <a href="#" class="hover:text-blue-400">Facebook</a>
+        <a href="#" class="hover:text-blue-400">Twitter</a>
+        <a href="#" class="hover:text-blue-400">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

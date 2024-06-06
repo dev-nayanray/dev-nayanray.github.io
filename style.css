@@ -1,0 +1,173 @@
+/* Define light and dark theme colors */
+    :root {
+      --bg-color: linear-gradient(135deg, #0e75dc, #f9f7f7);
+      --text-color: #000000;
+      --primary-color: linear-gradient(135deg, #0d75dc, #dedede);
+      --secondary-color: linear-gradient(135deg, #e9ecef, #dcdde1);
+      --accent-color: #007bff;
+    }
+    .dark {
+      --bg-color: #302929;
+      --text-color: #ffffff;
+      --primary-color: linear-gradient(135deg, #a2cbf5, #b62020);
+      --secondary-color: linear-gradient(135deg, #0a7bec, #b90707);
+      --accent-color: #17a2b8;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.5s, color 0.5s;
+    }
+    .bg-primary {
+      background: var(--primary-color);
+    }
+    .bg-secondary {
+      background: var(--secondary-color);
+    }
+    .text-accent {
+      color: var(--accent-color);
+    }
+    /* Custom CSS for toggling icons visibility */
+    #theme-toggle-dark-icon.hidden,
+    #theme-toggle-light-icon.hidden {
+      display: none;
+    }
+    nav a:hover {
+      color: var(--accent-color-light);
+    }
+
+    .dark nav a:hover {
+      color: var(--accent-color-dark);
+    }
+
+    .hover\:bg-primary:hover {
+      background-color: var(--primary-color-light);
+    }
+
+    .dark .hover\:bg-primary:hover {
+      background-color: var(--primary-color-dark);
+    }
+
+    .hover\:bg-secondary:hover {
+      background-color: var(--secondary-color-light);
+    }
+
+    .dark .hover\:bg-secondary:hover {
+      background-color: var(--secondary-color-dark);
+    }
+
+    .hover\:text-accent:hover {
+      color: var(--accent-color-light);
+    }
+
+    .dark .hover\:text-accent:hover {
+      color: var(--accent-color-dark);
+    }
+    .animated-bg {
+  animation: colorChange 5s infinite alternate; /* Change color every 5 seconds */
+}
+
+@keyframes colorChange {
+  0% { background-color: #a3a3fa; } /* Start color: gold */
+  50% { background-color: #656cad; } /* Middle color: dark orange */
+  100% { background-color: #2c5097; } /* End color: orange red */
+}
+.animated-div {
+  animation: bounce 1s infinite alternate; /* Bounce animation for 1 second, alternates infinitely */
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); } /* Start position */
+  100% { transform: translateY(-10px); } /* End position */
+}
+.border-gradient {
+  border: 2px solid;
+  border-image: linear-gradient(to right, #87CEEB, #00BFFF); /* Gradient border */
+  border-image-slice: 1; /* Ensures the entire border is covered by the gradient */
+  width: 100px;
+  height: 100px;
+}
+
+.animated-border {
+  border: 2px solid;
+  animation: borderAnimation 3s linear infinite alternate; /* Border color animation */
+}
+
+@keyframes borderAnimation {
+  0% { border-color: #1511e8; } /* Start color: gray */
+  100% { border-color: #ec1010; } /* End color: black */
+}
+.inner-circle,
+.outer-circle {
+  position: absolute;
+  
+  background-color: rgb(53, 79, 135);
+}
+
+.inner-circle {
+  animation: innerEffect 3s infinite alternate ease-in-out;
+}
+
+.outer-circle {
+  right: 320px;
+  top: 100px;
+  animation: outerEffect 3s infinite alternate ease-in-out;
+}
+
+@keyframes innerEffect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes outerEffect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.circle-container {
+  position: relative;
+    /* Adjust container height as needed */
+}
+
+.circle {
+  position: absolute;
+  width: 50px; /* Adjust circle size as needed */
+  height: 50px; /* Adjust circle size as needed */
+  background-color: red; /* Adjust circle color as needed */
+  border-radius: 50%; /* Creates a circle shape */
+}
+
+.circle:nth-child(1) {
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+
+.circle:nth-child(2) {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle:nth-child(3) {
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.circle:nth-child(4) {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
