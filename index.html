@@ -1,383 +1,444 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-   
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello!I am Nayan Ray</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for dark mode */
+        .dark .dark\:bg-gray-900 {
+            background-color: #1a202c;
+        }
+        .dark .dark\:text-white {
+            color: #fff;
+        }
+        .dark .dark\:bg-gray-800 {
+            background-color: #2d3748;
+        }
+        .dark .dark\:text-gray-400 {
+            color: #cbd5e0;
+        }
+        /* Fixed header styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        .header-spacing {
+            height: 80px; /* Adjust based on header height */
+        }
+    </style>
 </head>
-<body class="transition-colors duration-500">
-  <header class="p-4 flex justify-between items-center bg-primary">
-    <div class="container mx-auto flex items-center justify-between px-4">
-      <a href="#" class="text-2xl font-bold text-red-600 dark:text-blue-400">
-        <img class="h-12" src="assets/logo-removebg-preview.png" alt="Logo">
-      </a>
-      <nav class="space-x-4">
-        <a href="#" class="nav-link text-2xl hover:text-accent">Home</a>
-        <a href="#" class="nav-link text-2xl hover:text-accent">About</a>
-        <a href="#" class="nav-link text-2xl hover:text-accent">Services</a>
-        <a href="#" class="nav-link text-2xl hover:text-accent">Contact</a>
-      </nav>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Header Section -->
+    <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Nayan Ray</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-gray-900 dark:text-white">Home</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white">About</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white">Services</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white">Portfolio</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
-    <button id="theme-toggle" class="p-2 bg-secondary rounded-full">
-      <i id="theme-toggle-dark-icon" class="fas fa-moon hidden text-accent"></i>
-      <i id="theme-toggle-light-icon" class="fas fa-sun text-accent"></i>
-    </button>
-  </div>
-  </header>
-
-  <!-- Main content goes here -->
-  <main class="p-8">
-    <section class="relative bg-cover bg-center bg-blue-900 py-20 animated-bg" style="background-image: url('assets/9307751.png'); ">
-      <div class="container mx-auto text-center ">
-        <h1 class="text-5xl font-bold mb-4 text-white">Welcome to Our Professional Service</h1>
-        <p class="text-xl mb-8">Providing top-notch solutions for your business needs</p>
-        <a href="#" class="bg-accent text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-secondary transition duration-300">Get Started</a>
-        <i class="fas fa-spinner fa-spin text-white text-4xl mt-4"></i> 
+    <!-- Spacer to account for fixed header -->
+    <div class="header-spacing"></div>
+    <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
+        <!-- Background SVG Border -->
+        <div class="absolute inset-0">
+            <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
+        </div>
         
-         <div class="h-32 w-32 rounded-full border border-gradient absolute right-32 top-16 animated-div outer-circle"></div>
-         <div class="h-32 w-32 rounded-full border border-gradient absolute left-16 top-16 animated-div inner-circle"></div>
-         <div class="h-32 w-32 rounded-full border border-gradient absolute left-32 top-32 animated-div "></div>
-         <div class="h-16 w-16 rounded-lg bg-blue-300 absolute right-32 top-16 animated-div inner-circle"></div>
-         <div class="h-8 w-8 rounded-lg bg-black-300 absolute right-32 top-4 animated-div outer-circle"></div>
-         
-
-         
-         
-      </div>
-    </section>
-    
-    
-      <section class="py-20">
-        <div class="container mx-auto">
-          <h2 class="text-3xl font-bold text-center mb-12">Our Features</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div class="text-blue-600 mb-4">
-                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 100 12 6 6 0 000-12zm-3 5a3 3 0 116 0 3 3 0 01-6 0z" /></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Feature One</h3>
-              <p class="text-gray-700">Description of feature one.</p>
-            </div>
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div class="text-blue-600 mb-4">
-                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a7 7 0 00-7 7v5.56a1.5 1.5 0 001.128 1.457l4.57 1.142a1.5 1.5 0 00.685 0l4.57-1.142A1.5 1.5 0 0018 14.56V9a7 7 0 00-7-7H9z" /></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Feature Two</h3>
-              <p class="text-gray-700">Description of feature two.</p>
-            </div>
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div class="text-blue-600 mb-4">
-                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M12 7h4a2 2 0 012 2v6a2 2 0 01-2 2h-4V7zM4 7h4v10H4a2 2 0 01-2-2V9a2 2 0 012-2z" /></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Feature Three</h3>
-              <p class="text-gray-700">Description of feature three.</p>
-            </div>
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div class="text-blue-600 mb-4">
-                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 100 12 6 6 0 000-12zm-3 5a3 3 0 116 0 3 3 0 01-6 0z" /></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Feature One</h3>
-              <p class="text-gray-700">Description of feature one.</p>
-            </div>
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div class="text-blue-600 mb-4">
-                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a7 7 0 00-7 7v5.56a1.5 1.5 0 001.128 1.457l4.57 1.142a1.5 1.5 0 00.685 0l4.57-1.142A1.5 1.5 0 0018 14.56V9a7 7 0 00-7-7H9z" /></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Feature Two</h3>
-              <p class="text-gray-700">Description of feature two.</p>
-            </div>
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div class="text-blue-600 mb-4">
-                <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M12 7h4a2 2 0 012 2v6a2 2 0 01-2 2h-4V7zM4 7h4v10H4a2 2 0 01-2-2V9a2 2 0 012-2z" /></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Feature Three</h3>
-              <p class="text-gray-700">Description of feature three.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    
-      <section class="py-20">
-        <div class="container mx-auto">
-          <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-12">What Our Clients Say</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-8 shadow-xl rounded-lg transition-transform transform hover:scale-105">
-              <p class="text-gray-800 mb-6 italic">"This service is amazing! It helped our business grow significantly."</p>
-              <div class="flex items-center">
-                <img src="https://via.placeholder.com/50" alt="Client 1" class="w-16 h-16 rounded-full border-2 border-gray-300 mr-4">
+        <!-- Content -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div>
-                  <h4 class="text-xl font-bold text-gray-900">Client 1</h4>
-                  <p class="text-gray-600">CEO, Company A</p>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Hello, I'm Nayan Ray</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Product Designer | Based in Bangladesh</p>
+                    <a href="#contact" class="mt-6 inline-block bg-yellow-500 text-white py-2 px-4 rounded">Let's Talk</a>
                 </div>
-              </div>
-            </div>
-            <div class="bg-white p-8 shadow-xl rounded-lg transition-transform transform hover:scale-105">
-              <p class="text-gray-800 mb-6 italic">"Highly recommend this service to anyone looking for quality and professionalism."</p>
-              <div class="flex items-center">
-                <img src="https://via.placeholder.com/50" alt="Client 2" class="w-16 h-16 rounded-full border-2 border-gray-300 mr-4">
                 <div>
-                  <h4 class="text-xl font-bold text-gray-900">Client 2</h4>
-                  <p class="text-gray-600">CTO, Company B</p>
+                    <img src="assets/IMG-20220318-WA0032.jpg" alt="Nayan Ray" class="rounded-full shadow-lg">
                 </div>
-              </div>
             </div>
-            <div class="bg-white p-8 shadow-xl rounded-lg transition-transform transform hover:scale-105">
-              <p class="text-gray-800 mb-6 italic">"Fantastic experience! The team was professional and efficient."</p>
-              <div class="flex items-center">
-                <img src="https://via.placeholder.com/50" alt="Client 3" class="w-16 h-16 rounded-full border-2 border-gray-300 mr-4">
-                <div>
-                  <h4 class="text-xl font-bold text-gray-900">Client 3</h4>
-                  <p class="text-gray-600">COO, Company C</p>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="bg-gray-50 dark:bg-gray-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">My Specialties</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-center h-20 w-20 mb-4 bg-yellow-100 dark:bg-yellow-600 text-yellow-600 dark:text-yellow-100 rounded-full">
+                        <!-- Icon placeholder -->
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m4 0V6m0 6v6m0-6h6m-6 0H5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Web Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Creating user-friendly mobile app interfaces.</p>
                 </div>
-              </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-center h-20 w-20 mb-4 bg-green-100 dark:bg-green-600 text-green-600 dark:text-green-100 rounded-full">
+                        <!-- Icon placeholder -->
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9m-9 0H3m9-18v18m0 0l-3-3m3 3l3-3"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Wordpress Developer</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Designing intuitive and engaging user experiences.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-center h-20 w-20 mb-4 bg-blue-100 dark:bg-blue-600 text-blue-600 dark:text-blue-100 rounded-full">
+                        <!-- Icon placeholder -->
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5V8m0 4v5.5m0-5.5H8.5m3.5 0H16m-3.5 0V8m0 4H8.5M16 12h-3.5M4.5 12h7M16 4.5V8m0 4v5.5m0-5.5h3.5M8.5 12H5m7-7.5V8m0 4v5.5M4.5 12h7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Web Development</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Building responsive and dynamic websites.</p>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      
-      <section class="py-20 ">
-        <div class="container mx-auto">
-          <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-12">Turn Information Into Actionable Insights</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-8">
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <i class="fas fa-paint-brush fa-2x text-blue-500 mr-4"></i>
-                <h3 class="text-xl font-semibold text-gray-900">UI/UX Design</h3>
-              </div>
-              <p class="text-gray-700">Transform user experiences with cutting-edge design principles.</p>
-            </div>
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <i class="fas fa-code fa-2x text-green-500 mr-4"></i>
-                <h3 class="text-xl font-semibold text-gray-900">Web Development</h3>
-              </div>
-              <p class="text-gray-700">Build responsive and dynamic websites using modern technologies.</p>
-            </div>
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <i class="fas fa-chart-line fa-2x text-red-500 mr-4"></i>
-                <h3 class="text-xl font-semibold text-gray-900">SEO & Marketing</h3>
-              </div>
-              <p class="text-gray-700">Optimize your web presence and reach a larger audience effectively.</p>
-            </div>
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <i class="fas fa-cogs fa-2x text-yellow-500 mr-4"></i>
-                <h3 class="text-xl font-semibold text-gray-900">Technology Solutions</h3>
-              </div>
-              <p class="text-gray-700">Implement robust tech solutions for seamless operations.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      
+    </section>
     
-      <section class="py-20 mt-8">
-        <div class="container mx-auto">
-          <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-12">Recognitions</h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <svg class="w-8 h-8 text-blue-500 mr-4 transition-colors duration-300 hover:text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17.24l.76 2.54c.18.6.94.81 1.38.38l1.68-1.68a1.4 1.4 0 012.02 0l1.68 1.68c.44.43 1.2.22 1.38-.38l.76-2.54c.17-.58-.11-1.21-.68-1.49l-2.36-.95a1.4 1.4 0 01-.82-1.82l.76-2.54a1.4 1.4 0 00-.68-1.49l-2.36-.95a1.4 1.4 0 00-1.64 0l-2.36.95a1.4 1.4 0 00-.68 1.49l.76 2.54a1.4 1.4 0 01-.82 1.82l-2.36.95c-.57.28-.85.91-.68 1.49z"></path>
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-900">UI/UX Design</h3>
-              </div>
-              <p class="text-gray-700">Awarded 2023</p>
-            </div>
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <svg class="w-8 h-8 text-green-500 mr-4 transition-colors duration-300 hover:text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h6l1.29-3.26a1 1 0 01.95-.74h4.52c.46 0 .87.3.97.74L18 10h3c.55 0 1 .45 1 1v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7c0-.55.45-1 1-1z"></path>
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-900">Graphic Design</h3>
-              </div>
-              <p class="text-gray-700">Awarded 2022</p>
-            </div>
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <svg class="w-8 h-8 text-red-500 mr-4 transition-colors duration-300 hover:text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7a4 4 0 118 0v3h-2a2 2 0 00-2 2v5h-2v-5a2 2 0 00-2-2H8V7z"></path>
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-900">Web Development</h3>
-              </div>
-              <p class="text-gray-700">Awarded 2021</p>
-            </div>
-            <div class="p-8 bg-white rounded-lg shadow-xl transition-transform transform hover:scale-105">
-              <div class="flex items-center mb-4">
-                <svg class="w-8 h-8 text-yellow-500 mr-4 transition-colors duration-300 hover:text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z"></path>
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-900">Mobile App</h3>
-              </div>
-              <p class="text-gray-700">Awarded 2020</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
 
-      <section class="container mx-auto my-8">
-        <h2 class="text-3xl font-bold text-center mb-6">Check Out My Latest Work</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="assets/9307751.png  " alt="Project 1" class="w-full">
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">GestaltGo Portfolio</h3>
-              <p class="text-gray-700">Description of Project 1</p>
-            </div>
-          </div>
-          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="assets/9307751.png" alt="Project 2" class="w-full">
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">Luxury Modern Website</h3>
-              <p class="text-gray-700">Description of Project 2</p>
-            </div>
-          </div>
-          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="assets/9307751.png" alt="Project 3" class="w-full">
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">GestaltGo Portfolio</h3>
-              <p class="text-gray-700">Description of Project 3</p>
-            </div>
-          </div>
-          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="assets/9307751.png" alt="Project 4" class="w-full">
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">Luxury Modern Website</h3>
-              <p class="text-gray-700">Description of Project 4</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-    <section class="mt-8">
-      <h2 class="text-xl font-bold">Hundred Clients</h2>
-      <div class="p-4 bg-secondary rounded">
-        <p>"We have purchased over 1000 items from Pablo, and each item has been crafted with the utmost precision."</p>
-        <p class="mt-2 font-semibold">- Happy Client</p>
-      </div>
-    </section>
-
-    <section class="mt-8">
-      <h2 class="text-xl font-bold">Flexible Pricing Plan</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-        <div class="p-4 bg-secondary rounded">
-          <h3 class="font-semibold">$19 / hour</h3>
-          <ul class="mt-2 list-disc list-inside">
-            <li>UI/UX Design</li>
-            <li>Web Development</li>
-            <li>SEO & Marketing</li>
-          </ul>
-        </div>
-        <div class="p-4 bg-secondary rounded">
-          <h3 class="font-semibold">$39 / hour</h3>
-          <ul class="mt-2 list-disc list-inside">
-            <li>UI/UX Design</li>
-            <li>Web Development</li>
-            <li>SEO & Marketing</li>
-            <li>Technology Solutions</li>
-          </ul>
-        </div>
-        <div class="p-4 bg-secondary rounded">
-          <h3 class="font-semibold">$59 / hour</h3>
-          <ul class="mt-2 list-disc list-inside">
-            <li>UI/UX Design</li>
-            <li>Web Development</li>
-            <li>SEO & Marketing</li>
-            <li>Technology Solutions</li>
-            <li>Custom Solutions</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="mt-8  py-12 px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-8">Let's make your brand brilliant!</h2>
-      <form class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <input type="text" placeholder="Name" class="p-4 bg-gray-200 rounded">
-        <input type="email" placeholder="Email" class="p-4 bg-gray-200 rounded">
-        <input type="tel" placeholder="Phone" class="p-4 bg-gray-200 rounded">
-        <textarea placeholder="Message" class="p-4 bg-gray-200 rounded"></textarea>
-        <button type="submit" class="p-4 center bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300 ease-in-out">Send Message</button>
-      </form>
-    </section>
-
-    <section class="mt-8">
-      <h2 class="text-xl font-bold">Latest News & Blog</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-        <div class="p-4 bg-secondary rounded">
-          <img src="assets/9307751.png" alt="Blog 1">
-          <h3 class="font-semibold mt-2">12 unique examples of portfolio websites</h3>
-          <p class="mt-2">Showcasing the best portfolio websites.</p>
-        </div>
-        <div class="p-4 bg-secondary rounded">
-          <img src="assets/9307751.png" alt="Blog 2">
-          <h3 class="font-semibold mt-2">Essential features for a successful website</h3>
-          <p class="mt-2">Must-have features for a professional website.</p>
-        </div>
-        <div class="p-4 bg-secondary rounded">
-          <img src="assets/9307751.png" alt="Blog 3">
-          <h3 class="font-semibold mt-2">How to get more clients</h3>
-          <p class="mt-2">Effective strategies to attract more clients.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    // JavaScript for theme toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-    // Change the icons inside the button based on previous settings
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-      darkIcon.classList.remove('hidden');
-    } else {
-      lightIcon.classList.remove('hidden');
-    }
-
-    themeToggle.addEventListener('click', () => {
-      darkIcon.classList.toggle('hidden');
-      lightIcon.classList.toggle('hidden');
-      if (localStorage.getItem('theme')) {
-        if (localStorage.getItem('theme') === 'light') {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        }
-      } else {
-        if (document.documentElement.classList.contains('dark')) {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        }
-      }
-    });
-  </script>
-  <footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto text-center">
-      <p class="mb-4">&copy; 2024 Your Company. All rights reserved.</p>
-      <div class="space-x-4">
-        <a href="#" class="hover:text-blue-400">Facebook</a>
-        <a href="#" class="hover:text-blue-400">Twitter</a>
-        <a href="#" class="hover:text-blue-400">LinkedIn</a>
-      </div>
+<!-- Experience Section -->
+<section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
+    <!-- Background SVG Border -->
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover opacity-10 dark:opacity-5" src="assets/border.svg" alt="Background Border">
     </div>
-  </footer>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Experience</h2>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="w-12 h-12 flex items-center justify-center bg-blue-600 rounded-full mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">12+ Years of Experience</h3>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Synergistically foster timely methods of empowerment.</p>
+            </div>
+            <div class="flex flex-col items-center md:items-end text-center md:text-right bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="w-12 h-12 flex items-center justify-center bg-blue-600 rounded-full mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Award-Winning Designs</h3>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Unleash synergistic value.</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
+
+ <!-- Portfolio Section -->
+<section class="bg-gray-100 dark:bg-gray-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">My Recent Work</h2>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Explore some of the projects I've worked on recently.</p>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/WP-project-manager-1024x639.png" alt="Basilik Finance App" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basilik Finance App</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Designed a comprehensive finance app.</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/download.jpg" alt="Oxilex Dashboard Design" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Oxilex Dashboard Design</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Created an intuitive dashboard for Oxilex.</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/images (1).jpg" alt="Basilik Finance App" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basilik Finance App</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Designed a comprehensive finance app.</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/modern-website-design-examples.jpg " alt="Oxilex Dashboard Design" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Oxilex Dashboard Design</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Created an intuitive dashboard for Oxilex.</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/images (2).jpg" alt="Basilik Finance App" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basilik Finance App</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Designed a comprehensive finance app.</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/website-template-design-projects.jpg" alt="Oxilex Dashboard Design" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Oxilex Dashboard Design</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Created an intuitive dashboard for Oxilex.</p>
+                </div>
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+    </div>
+</section>
+
+
+    <!-- Testimonials Section -->
+<section class="bg-white dark:bg-gray-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Client Feedback</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">Here's what our clients have to say about our work.</p>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/IMG-20220318-WA0032.jpg    " alt="John Doe" class="w-16 h-16 rounded-full mx-auto">
+                <p class="mt-4 text-gray-600 dark:text-gray-400">"Synergistically build client feedback."</p>
+                <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">John Doe</h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">CEO, CompanyName</p>
+            </div>
+            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/IMG-20220318-WA0032.jpg" alt="Jane Smith" class="w-16 h-16 rounded-full mx-auto">
+                <p class="mt-4 text-gray-600 dark:text-gray-400">"Holisticly create alternative frameworks."</p>
+                <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Jane Smith</h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">CTO, AnotherCompany</p>
+            </div>
+            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="assets/IMG-20220318-WA0032.jpg" alt="Alex Johnson" class="w-16 h-16 rounded-full mx-auto">
+                <p class="mt-4 text-gray-600 dark:text-gray-400">"Unleash cross-media integration."</p>
+                <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Alex Johnson</h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">Marketing Head, DifferentCompany</p>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
+    </div>
+</section>
+
+
+    <!-- Blog Section -->
+<!-- Recent Blog Posts Section -->
+<section class="bg-gray-100 dark:bg-gray-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Recent Blog Posts</h2>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg" src="assets/360_F_354178616_uSdqA6i1A1vkkskFPKOoxQOED0ZMIcn3.jpg" alt="Blog Post Image 1" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Post Title 1</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Collaboratively leverage.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg" src="assets/360_F_354178616_uSdqA6i1A1vkkskFPKOoxQOED0ZMIcn3.jpg" alt="Blog Post Image 2" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Post Title 2</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Monotonectally build.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg" src="assets/360_F_354178616_uSdqA6i1A1vkkskFPKOoxQOED0ZMIcn3.jpg" alt="Blog Post Image 3" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Post Title 3</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Synergistically innovate.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Add more blog post cards as needed -->
+        </div>
+    </div>
+</section>
+
+
+ <!-- Pricing Section -->
+ <section class="bg-white dark:bg-gray-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Plans and Pricing</h2>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Basic Plan -->
+            <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Basic Plan</h5>
+                <div class="flex items-baseline text-gray-900 dark:text-white">
+                    <span class="text-3xl font-semibold">$</span>
+                    <span class="text-5xl font-extrabold tracking-tight">19</span>
+                    <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
+                </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="flex items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">1 team member</span>
+                    </li>
+                    <li class="flex">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">10GB Cloud storage</span>
+                    </li>
+                    <li class="flex">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Email support</span>
+                    </li>
+                    <li class="flex line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 ms-3">Priority support</span>
+                    </li>
+                </ul>
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose plan</button>
+            </div>
+            <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Stander Plan</h5>
+                <div class="flex items-baseline text-gray-900 dark:text-white">
+                    <span class="text-3xl font-semibold">$</span>
+                    <span class="text-5xl font-extrabold tracking-tight">19</span>
+                    <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
+                </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="flex items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">1 team member</span>
+                    </li>
+                    <li class="flex">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">10GB Cloud storage</span>
+                    </li>
+                    <li class="flex">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Email support</span>
+                    </li>
+                    <li class="flex line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 ms-3">Priority support</span>
+                    </li>
+                </ul>
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose plan</button>
+            </div>
+            <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Premium Plan</h5>
+                <div class="flex items-baseline text-gray-900 dark:text-white">
+                    <span class="text-3xl font-semibold">$</span>
+                    <span class="text-5xl font-extrabold tracking-tight">19</span>
+                    <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
+                </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="flex items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">1 team member</span>
+                    </li>
+                    <li class="flex">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">10GB Cloud storage</span>
+                    </li>
+                    <li class="flex">
+                        <svg class="flex-shrink-0 w-4 h-4 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Email support</span>
+                    </li>
+                    <li class="flex line-through decoration-gray-500">
+                        <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-base font-normal leading-tight text-gray-500 ms-3">Priority support</span>
+                    </li>
+                </ul>
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose plan</button>
+            </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Get in Touch</h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">I'd love to hear from you.</p>
+            <a href="mailto:example@example.com" class="mt-6 inline-block bg-yellow-500 text-white py-2 px-4 rounded">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-white dark:bg-gray-900 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <p class="text-gray-900 dark:text-white">&copy; 2024 Mark Henry. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-900 dark:text-white">LinkedIn</a>
+                <a href="#" class="text-gray-900 dark:text-white">Twitter</a>
+                <a href="#" class="text-gray-900 dark:text-white">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="dark-mode-toggle" class="fixed bottom-4 right-4 bg-yellow-500 text-white py-2 px-4 rounded">
+        Toggle Dark Mode
+    </button>
+
+    <script>
+        // Toggle dark mode
+        const toggle = document.getElementById('dark-mode-toggle');
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
 </body>
 </html>
