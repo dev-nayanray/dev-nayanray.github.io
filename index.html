@@ -43,6 +43,48 @@
         .laptop-screen:hover .laptop-screen-border {
             border-image: linear-gradient(90deg, pink, orange, purple, cyan) 1;
         }
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-25%); }
+            100% { transform: translateX(0); }
+        }
+
+        .gradient-bg-animation {
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(173,216,230,1) 50%, rgba(0,191,255,1) 100%);
+            background-size: 200% 200%;
+            animation: gradientBackground 15s ease infinite;
+        }
+
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(270deg, #ff8a00, #e52e71, #ff0066);
+            background-size: 600% 600%;
+            animation: wave 10s linear infinite;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .wave:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: inherit;
+            animation: wave 10s linear infinite;
+            opacity: 0.2;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
@@ -65,21 +107,22 @@
     <!-- Spacer to account for fixed header -->
     <div class="header-spacing"></div>
   
-    <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
+    <section class="relative py-12 overflow-hidden gradient-bg-animation">
         <!-- Background SVG Border -->
         <div class="absolute inset-0">
             <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
         </div>
-        
+        <div class="absolute inset-0 wave"></div>
+
         <!-- Content -->
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-48">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 lg:space-x-48">
                 <div>
                     <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Hello, I'm Nayan Ray</h2>
                     <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Product Designer | Based in Bangladesh</p>
-                    <a href="#contact" class="mt-6 inline-block bg-yellow-500 text-white py-2 px-4 rounded">Let's Talk</a>
+                    <a href="#contact" class="mt-6 inline-block bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition-all duration-300">Let's Talk</a>
                 </div>
-             <div class="relative mx-auto my-12 max-w-screen-md p-4 bg-gray-100 dark:bg-gray-800 rounded-lg laptop-frame shadow-lg">
+                <div class="relative mx-auto my-12 max-w-screen-md p-4 bg-gray-100 dark:bg-gray-800 rounded-lg laptop-frame shadow-lg">
                     <!-- Laptop Body -->
                     <div class="relative bg-gray-200 dark:bg-gray-700 rounded-t-lg p-4 lg:p-8">
                         <!-- Laptop Bezel -->
@@ -96,11 +139,22 @@
                         <div class="absolute inset-x-0 bottom-4 lg:bottom-6 mx-auto w-1/3 h-2 bg-gray-500 dark:bg-gray-400 rounded"></div>
                     </div>
                 </div>
+            </div>
+            <div class="flex justify-center space-x-6 mt-8">
+                <!-- WordPress SVG Icon -->
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#0078D4" d="M24 3C12.952 3 4 11.952 4 23s8.952 20 20 20 20-8.952 20-20S35.048 3 24 3zm0 38c-9.941 0-18-8.059-18-18s8.059-18 18-18 18 8.059 18 18-8.059 18-18 18zm-.612-23.765l-.348-.847-.348.847c-1.068 2.587-4.38 10.63-5.784 13.954h12.316c-.358-.76-.698-1.501-1.021-2.192l-1.975-4.43h-3.787l3.787-8.485H23.61zm.998 2.435l1.557 3.494h-3.114l1.557-3.494zm1.975-6.822c-.926 0-1.678.75-1.678 1.678s.752 1.678 1.678 1.678c.926 0 1.678-.75 1.678-1.678s-.752-1.678-1.678-1.678zm4.313 8.834l3.104 7.27 3.126-7.27H31.9zm-.657-2.435l-3.757 8.485h3.757l3.757-8.485h-3.757zm-2.435 5.848c-.252 0-.5-.098-.687-.283-.188-.187-.285-.435-.285-.687s.097-.5.283-.687c.187-.187.435-.285.687-.285s.5.098.687.283c.187.187.285.435.285.687s-.098.5-.283.687c-.187.187-.435.285-.687.285z"/></svg>
 
+                <!-- HTML SVG Icon -->
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#E44D26" d="M41.23 4.62H6.77L9.43 39.49 23.96 43.1 38.57 39.49 41.23 4.62z"/><path fill="#F16529" d="M24 5.82V39.49L35.68 36.59 38.07 7.41H24z"/><path fill="#EBEBEB" d="M24 18.69H15.92l.45 4.96H24v4.96h-7.85l.67 6.67 7.18 2.15v-4.96H24V27.51H16.13l-.45-4.96H24V18.69z"/></svg>
+
+                <!-- CSS SVG Icon -->
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#1572B6" d="M5.86 4.38h36.29L38.14 39.02 23.96 43.7 9.86 39.02 5.86 4.38z"/><path fill="#33A9DC" d="M24 40.98l11.92-3.46L37.4 7.85H24V40.98z"/><path fill="#FFF" d="M32.27 17.28l.9-3.81H23.96v3.81h8.31zm-6.31 5.31h-6.3l.29 3.81h6.01v3.82H16.66l-.44 4.95 7.74 2.25v-4.95h6.31v-.01H29.23l-1.44 8.09-9.83 2.81-9.83-2.81-1.43-8.09 9.83-2.81h9.83v.01l-.14.76H32.96L34.96 12H13.17l-1.41 7.41h6.31l.4 2.21H14.91L14.26 25.02l-4.33 4.27L14.02 9.55h24l-3.34 15.61-7.07 3.43 4.16 2.08z"/></svg>
+
+                <!-- Tailwind CSS SVG Icon -->
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#38B2AC" d="M22.96 9.15c-4.05 0-7.11 1.92-9.19 5.78 2.03-1.89 4.05-2.57 6.05-2.06 1.44.35 2.76 1.45 4.16 3.48 2.08 2.98 4.16 4.4 6.27 4.48 4.05 0 7.11-1.92 9.19-5.78-2.03 1.89-4.05 2.57-6.05 2.06-1.44-.35-2.76-1.45-4.16-3.48-2.08-2.98-4.16-4.4-6.27-4.48zM11.61 24.06c-4.05 0-7.11 1.92-9.19 5.78 2.03-1.89 4.05-2.57 6.05-2.06 1.44.35 2.76 1.45 4.16 3.48 2.08 2.98 4.16 4.4 6.27 4.48 4.05 0 7.11-1.92 9.19-5.78-2.03 1.89-4.05 2.57-6.05 2.06-1.44-.35-2.76-1.45-4.16-3.48-2.08-2.98-4.16-4.4-6.27-4.48z"/></svg>
             </div>
         </div>
-    </section>
-
+    </section>    
     <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
         <!-- Background SVG Border -->
         <div class="absolute inset-0">
