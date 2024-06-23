@@ -137,16 +137,11 @@
         max-width: 70%; /* Limit width of message bubbles */
     }
 .dark-mode-icon {
-    /* Use dark mode icon styles */
-    background-image: url('dark-icon.svg');
-    /* Add other styles as needed */
-}
-
-.light-mode-icon {
-    /* Use light mode icon styles */
-    background-image: url('light-icon.svg');
-    /* Add other styles as needed */
-}
+            display: none; /* Hide dark mode icon by default */
+        }
+        .light-mode-icon {
+            display: inline; /* Show light mode icon by default */
+        }
 
     </style>
 </head>
@@ -165,31 +160,43 @@
             </ul>
         </nav>
         <button id="dark-mode-toggle" class="bg-yellow-500 text-white py-2 px-4 rounded">
+        <span class="light-mode-icon">☀️</span>
+        <span class="dark-mode-icon">🌙</span>
         Toggle Dark Mode
     </button>
-    </div>
-</header>
 
     <script>
         const darkModeToggle = document.getElementById('dark-mode-toggle');
+        let darkMode = false;
 
-darkModeToggle.addEventListener('click', function() {
-    // Toggle dark mode or light mode
-    if (darkModeToggle.classList.contains('dark-mode')) {
-        // Switch to light mode
-        darkModeToggle.classList.remove('dark-mode');
-        darkModeToggle.classList.add('light-mode');
-        darkModeToggle.textContent = 'Toggle Light Mode'; // Update button text if needed
-    } else {
-        // Switch to dark mode
-        darkModeToggle.classList.remove('light-mode');
-        darkModeToggle.classList.add('dark-mode');
-        darkModeToggle.textContent = 'Toggle Dark Mode'; // Update button text if needed
-    }
-});
+        darkModeToggle.addEventListener('click', () => {
+            darkMode = !darkMode;
+            applyMode();
+        });
 
+        function applyMode() {
+            const lightModeIcon = document.querySelector('.light-mode-icon');
+            const darkModeIcon = document.querySelector('.dark-mode-icon');
+
+            if (darkMode) {
+                lightModeIcon.style.display = 'none';
+                darkModeIcon.style.display = 'inline';
+                // Apply dark mode styles or classes here
+                document.body.style.backgroundColor = '#333'; // Example dark mode background color
+                document.body.style.color = '#fff'; // Example dark mode text color
+            } else {
+                lightModeIcon.style.display = 'inline';
+                darkModeIcon.style.display = 'none';
+                // Apply light mode styles or classes here
+                document.body.style.backgroundColor = '#fff'; // Example light mode background color
+                document.body.style.color = '#333'; // Example light mode text color
+            }
+        }
     </script>
-    <!-- Spacer to account for fixed header -->
+    </div>
+</header>
+
+    
     <div class="header-spacing"></div>
   
     <section class="relative py-12 overflow-hidden gradient-bg-animation">
