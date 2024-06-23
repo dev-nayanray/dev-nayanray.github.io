@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayan Ray - Web Developer | Ndevs</title>
+    <meta name="keywords" content="Nayan Ray, web developer, web designer, Wordpress developer, portfolio, projects, front-end development, back-end development, responsive design, HTML, CSS, JavaScript, PHP, jQuery, Bootstrap, UI/UX design, website maintenance, SEO optimization, blog development, e-commerce websites, custom WordPress themes, graphic design, mobile app development, freelance web developer, digital marketing, social media integration, web analytics, CMS customization, website security, web hosting, domain management, online portfolio, creative web solutions, professional web design, dynamic websites, static websites, website redesign, website optimization, web accessibility, user experience, website speed optimization, CMS development, HTML5, CSS3, PHP frameworks, content management systems, online presence, website updates, web application development">
     <meta name="description" content="Nayan Ray is a talented web developer specializing in Web Designer & Wordpress Developer . Explore my portfolio and projects.">
     
     <!-- Open Graph / Facebook -->
@@ -16,15 +17,25 @@
     <meta name="twitter:title" content="Nayan Ray - Web Developer">
     <meta name="twitter:description" content="Talented web developer specializing in [mention your specialties]. Explore my portfolio and projects.">
     <meta name="twitter:image" content="https://www.yourwebsite.com/path/to/image.jpg">
+
+
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://dev-nayanray.github.io/">
+    <link rel="icon" type="image/png" href="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg">
     
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
     
     <!-- JavaScript (if needed) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
 
     <style>
         /* Custom styles for dark mode */
@@ -106,6 +117,37 @@
             animation: wave 10s linear infinite;
             opacity: 0.2;
         }
+         .testimonial-card {
+            background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
+            transition: transform 0.3s ease-in-out;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .slick-prev, .slick-next {
+            font-size: 2rem;
+            color: #4b5563;
+        }
+        /* Additional custom styles */
+    .message-container {
+        max-height: 70vh; /* Limit chat container height */
+    }
+    .message-bubble {
+        max-width: 70%; /* Limit width of message bubbles */
+    }
+.dark-mode-icon {
+    /* Use dark mode icon styles */
+    background-image: url('dark-icon.svg');
+    /* Add other styles as needed */
+}
+
+.light-mode-icon {
+    /* Use light mode icon styles */
+    background-image: url('light-icon.svg');
+    /* Add other styles as needed */
+}
+
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
@@ -122,10 +164,31 @@
                 <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Contact</a></li>
             </ul>
         </nav>
+        <button id="dark-mode-toggle" class="bg-yellow-500 text-white py-2 px-4 rounded">
+        Toggle Dark Mode
+    </button>
     </div>
 </header>
 
-    
+    <script>
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+darkModeToggle.addEventListener('click', function() {
+    // Toggle dark mode or light mode
+    if (darkModeToggle.classList.contains('dark-mode')) {
+        // Switch to light mode
+        darkModeToggle.classList.remove('dark-mode');
+        darkModeToggle.classList.add('light-mode');
+        darkModeToggle.textContent = 'Toggle Light Mode'; // Update button text if needed
+    } else {
+        // Switch to dark mode
+        darkModeToggle.classList.remove('light-mode');
+        darkModeToggle.classList.add('dark-mode');
+        darkModeToggle.textContent = 'Toggle Dark Mode'; // Update button text if needed
+    }
+});
+
+    </script>
     <!-- Spacer to account for fixed header -->
     <div class="header-spacing"></div>
   
@@ -140,8 +203,9 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 lg:space-x-48">
                 <div>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Hello, I'm Nayan Ray</h2>
-                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Product Designer | Based in Bangladesh</p>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-gray">Hello, I'm Nayan Ray</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Web & WordPress Developer | Based in Bangladesh</p>
+                    <p class="w-[410px] mx-auto mt-4 text-gray-700 dark:text-gray-300">With a passion for creating seamless and visually appealing digital experiences, I am a dedicated Web and WordPress Developer with a proven track record of delivering high-quality websites and custom solutions. My expertise lies in leveraging the power of WordPress to build dynamic, user-friendly websites that meet the unique needs of each client.</p>
                     <a href="#contact" class="mt-6 inline-block bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition-all duration-300">Let's Talk</a>
                 </div>
                 <div class="relative mx-auto my-12 max-w-screen-md p-4 bg-gray-100 dark:bg-gray-800 rounded-lg laptop-frame shadow-lg">
@@ -219,10 +283,6 @@
         </div>
     </section>
     
-
-  
-
-
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
     <!-- Background SVG Border -->
     <div class="absolute inset-0">
@@ -235,42 +295,42 @@
             <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img src="assets/WP-project-manager-1024x639.png" alt="Basilik Finance App" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basilik Finance App</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Basilik Finance App</h3>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">Designed a comprehensive finance app.</p>
                 </div>
             </div>
             <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img src="assets/download.jpg" alt="Oxilex Dashboard Design" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Oxilex Dashboard Design</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Oxilex Dashboard Design</h3>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">Created an intuitive dashboard for Oxilex.</p>
                 </div>
             </div>
             <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img src="assets/images (1).jpg" alt="Basilik Finance App" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basilik Finance App</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Basilik Finance App</h3>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">Designed a comprehensive finance app.</p>
                 </div>
             </div>
             <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img src="assets/modern-website-design-examples.jpg " alt="Oxilex Dashboard Design" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Oxilex Dashboard Design</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Oxilex Dashboard Design</h3>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">Created an intuitive dashboard for Oxilex.</p>
                 </div>
             </div>
             <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img src="assets/images (2).jpg" alt="Basilik Finance App" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basilik Finance App</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Basilik Finance App</h3>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">Designed a comprehensive finance app.</p>
                 </div>
             </div>
             <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img src="assets/website-template-design-projects.jpg" alt="Oxilex Dashboard Design" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Oxilex Dashboard Design</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Oxilex Dashboard Design</h3>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">Created an intuitive dashboard for Oxilex.</p>
                 </div>
             </div>
@@ -278,183 +338,348 @@
         </div>
     </div>
 </section>
-    
-  <section class="py-16">
-        <div class="container mx-auto px-6 lg:px-8">
-            <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-12 text-center">Experience</h2>
-            
-            <!-- Skills -->
-            <div class="mb-16">
-                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-start">
-                        <div class="flex items-center mb-4">
-                            <svg class="h-8 w-8 text-gray-900 dark:text-white mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-4.553a2.121 2.121 0 10-3-3L12 7 9 4l-2 2-4-4v14h14l-4-4 2-2 3 3 3-3-1.553-1.553z"></path></svg>
-                            <h4 class="text-2xl font-bold text-gray-900 dark:text-white">HTML, CSS, Tailwind CSS</h4>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400">Experience in creating responsive designs with modern CSS frameworks.</p>
+<section class="relative bg-gray-100 dark:bg-gray-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Order My Gig</h2>
+        <p class="mt-4 text-gray-600 dark:text-gray-400 text-center">Check out my gig offerings and place an order to get top-notch service.</p>
+        <div id="gig-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Gigs will be dynamically inserted here -->
+        </div>
+        <div class="mt-8 text-center">
+            <p class="text-gray-600 dark:text-gray-400">Visit my Fiverr profile to see all my gigs: <a href="https://www.fiverr.com/wp_nayanray" class="text-blue-500 hover:underline">wp_nayanray</a></p>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function() {
+    async function fetchGigs() {
+        // Example data, replace with actual fetch from your API or scraping method
+        return [
+            {
+                title: "Web Design and Development",
+                description: "Professional web design and development services tailored to your needs.",
+                image: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/379000629/original/a129948e89f603af40ef6d7a4eb36806721ba7aa/professional-wordpress-coupon-and-deals-website-development.png",
+                url: "https://www.fiverr.com/wp_nayanray",
+                price: "$200",
+                rating: "4.8",
+                ratingCount: "150"
+            },
+            {
+                title: "CMS Services",
+                description: "Creative graphic design solutions to make your brand stand out.",
+                image: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/379000629/original/a129948e89f603af40ef6d7a4eb36806721ba7aa/professional-wordpress-coupon-and-deals-website-development.png",
+                url: "https://www.fiverr.com/wp_nayanray",
+                price: "$150",
+                rating: "4.7",
+                ratingCount: "100"
+            },
+            {
+                title: "SEO Optimization",
+                description: "Improve your website's search engine ranking with expert SEO services.",
+                image: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/379000629/original/a129948e89f603af40ef6d7a4eb36806721ba7aa/professional-wordpress-coupon-and-deals-website-development.png",
+                url: "https://www.fiverr.com/wp_nayanray",
+                price: "$120",
+                rating: "4.9",
+                ratingCount: "200"
+            }
+        ];
+    }
+
+    function renderGigs(gigs) {
+        const gigContainer = document.getElementById("gig-container");
+        gigs.forEach(gig => {
+            const gigElement = document.createElement("div");
+            gigElement.classList.add("bg-white", "dark:bg-gray-700", "p-6", "rounded-lg", "shadow-lg", "hover:shadow-xl", "transition-shadow", "duration-300");
+            gigElement.innerHTML = `
+                <img src="${gig.image}" alt="${gig.title}" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">${gig.title}</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">${gig.description}</p>
+                    <p class="mt-2 text-gray-800 dark:text-gray-200 font-bold">${gig.price}</p>
+                    <div class="flex items-center mt-2">
+                        <span class="text-yellow-500">${'★'.repeat(Math.floor(gig.rating))}</span>
+                        <span class="text-gray-600 dark:text-gray-400 ml-2">${gig.rating} (${gig.ratingCount})</span>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-start">
-                        <div class="flex items-center mb-4">
-                            <svg class="h-8 w-8 text-gray-900 dark:text-white mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h4v4H8v-4zM16 8h4v4h-4V8zM4 4h4v4H4V4zM8 8h4v4H8V8z"></path></svg>
-                            <h4 class="text-2xl font-bold text-gray-900 dark:text-white">JavaScript, jQuery</h4>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400">Proficient in JavaScript and using jQuery for dynamic web functionalities.</p>
-                    </div>
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-start">
-                        <div class="flex items-center mb-4">
-                            <svg class="h-8 w-8 text-gray-900 dark:text-white mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <h4 class="text-2xl font-bold text-gray-900 dark:text-white">SQL, PHP</h4>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400">Experienced in database management and backend development.</p>
-                    </div>
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-start">
-                        <div class="flex items-center mb-4">
-                            <svg class="h-8 w-8 text-gray-900 dark:text-white mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.05 3.958l-1.122 1.121a4 4 0 00-.95 4.197l-2.197 2.196a4 4 0 00-4.197.95l-1.122 1.122a4 4 0 10-1.293 1.293l1.122-1.122a4 4 0 004.197-.95l2.196 2.197a4 4 0 004.197.95l1.122 1.122a4 4 0 101.293-1.293l-1.122-1.122a4 4 0 00-.95-4.197l2.197-2.196a4 4 0 004.197-.95l1.122-1.122a4 4 0 00-1.293-1.293z"></path></svg>
-                            <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Theme Development</h4>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400">Skilled in developing custom themes for various platforms.</p>
-                    </div>
-                     <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-start">
+                    <a href="${gig.url}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300">Order Now</a>
+                </div>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <a href="https://facebook.com" class="text-blue-500 hover:underline"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" class="text-blue-400 hover:underline"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com" class="text-blue-600 hover:underline"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            `;
+            gigContainer.appendChild(gigElement);
+        });
+    }
+
+    const gigs = await fetchGigs();
+    renderGigs(gigs);
+});
+</script>
+
+<!-- Font Awesome for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<section class="py-12 bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto px-6 lg:px-8">
+        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-12 text-center">Experience</h2>
+        
+        <!-- Skills -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Skill Block -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <div class="px-6 py-8">
                     <div class="flex items-center mb-4">
-                        <svg class="h-8 w-8 text-gray-900 dark:text-white mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m-9 5h18"></path></svg>
-                        <h4 class="text-2xl font-bold text-gray-900 dark:text-white">BSc in CSE (Running)</h4>
+                        <svg class="h-12 w-12 text-blue-600 dark:text-blue-400 mr-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-4.553a2.121 2.121 0 10-3-3L12 7 9 4l-2 2-4-4v14h14l-4-4 2-2 3 3 3-3-1.553-1.553z"></path>
+                        </svg>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white">HTML, CSS, Tailwind CSS</h4>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400">North University of Bangladesh, 2021 - Present</p>
-                </div>  
-                 
-            </div>
-             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="flex flex-col items-center md:items-start text-center md:text-left bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-600 rounded-full mb-4">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Experience in creating responsive designs with modern CSS frameworks.</p>
+                    <div class="mt-6">
+                        <div class="relative pt-1">
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 dark:text-blue-400 bg-blue-200 dark:bg-blue-600">Proficiency</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-blue-600 dark:text-blue-400">85%</span>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200 dark:bg-blue-600">
+                                <div style="width:85%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">5+ Years of Experience</h3>
-                <p class="mt-4 text-gray-600 dark:text-gray-400">Synergistically foster timely methods of empowerment.</p>
-            </div>
-            <div class="flex flex-col items-center md:items-end text-center md:text-right bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-600 rounded-full mb-4">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Award-Winning Designs</h3>
-                <p class="mt-4 text-gray-600 dark:text-gray-400">Unleash synergistic value.</p>
             </div>
             
+            <!-- Skill Block -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <div class="px-6 py-8">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-12 w-12 text-blue-600 dark:text-blue-400 mr-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h4v4H8v-4zM16 8h4v4h-4V8zM4 4h4v4H4V4zM8 8h4v4H8V8z"></path>
+                        </svg>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white">JavaScript, jQuery</h4>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Proficient in JavaScript and using jQuery for dynamic web functionalities.</p>
+                    <div class="mt-6">
+                        <div class="relative pt-1">
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 dark:text-blue-400 bg-blue-200 dark:bg-blue-600">Proficiency</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-blue-600 dark:text-blue-400">75%</span>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200 dark:bg-blue-600">
+                                <div style="width:75%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill Block -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <div class="px-6 py-8">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-12 w-12 text-blue-600 dark:text-blue-400 mr-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white">SQL, PHP</h4>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Experienced in database management and backend development.</p>
+                    <div class="mt-6">
+                        <div class="relative pt-1">
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 dark:text-blue-400 bg-blue-200 dark:bg-blue-600">Proficiency</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-blue-600 dark:text-blue-400">70%</span>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200 dark:bg-blue-600">
+                                <div style="width:70%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        <!-- Additional Experience Details -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Experience Block -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="w-12 h-12 flex items-center justify-center bg-blue-600 rounded-full mb-4">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M15.133 10.632v-1.8a5.407 5.407 0 0 0-4.154-5.262.955.955 0 0 0 .021-.106V1.1a1 1 0 0 0-2 0v2.364a.944.944 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C4.867 13.018 3 13.614 3 14.807 3 15.4 3 16 3.538 16h12.924C17 16 17 15.4 17 14.807c0-1.193-1.867-1.789-1.867-4.175Zm-13.267-.8a1 1 0 0 1-1-1 9.424 9.424 0 0 1 2.517-6.39A1.001 1.001 0 1 1 4.854 3.8a7.431 7.431 0 0 0-1.988 5.037 1 1 0 0 1-1 .995Zm16.268 0a1 1 0 0 1-1-1A7.431 7.431 0 0 0 15.146 3.8a1 1 0 0 1 1.471-1.354 9.425 9.425 0 0 1 2.517 6.391 1 1 0 0 1-1 .995ZM6.823 17a3.453 3.453 0 0 0 6.354 0H6.823Z"/>
+</svg>
+
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">1+ Years of Experience</h3>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Coupon Theme Developer & Supporter</p>
+            </div>
+            
+            <!-- Education Block -->
+            <div class="flex flex-col items-center md:items-end text-center md:text-right bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="w-12 h-12 flex items-center justify-center bg-blue-600 rounded-full mb-4">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M9 19V.352A3.451 3.451 0 0 0 7.5 0a3.5 3.5 0 0 0-3.261 2.238A3.5 3.5 0 0 0 2.04 6.015a3.518 3.518 0 0 0-.766 1.128c-.042.1-.064.209-.1.313a3.34 3.34 0 0 0-.106.344 3.463 3.463 0 0 0 .02 1.468A4.016 4.016 0 0 0 .3 10.5l-.015.036a3.861 3.861 0 0 0-.216.779A3.968 3.968 0 0 0 0 12a4.032 4.032 0 0 0 .107.889 4 4 0 0 0 .2.659c.006.014.015.027.021.041a3.85 3.85 0 0 0 .417.727c.105.146.219.284.342.415.072.076.148.146.225.216.1.091.205.179.315.26.11.081.2.14.308.2.02.013.039.028.059.04v.053a3.506 3.506 0 0 0 3.03 3.469 3.426 3.426 0 0 0 4.154.577A.972.972 0 0 1 9 19Zm10.934-7.68a3.956 3.956 0 0 0-.215-.779l-.017-.038a4.016 4.016 0 0 0-.79-1.235 3.417 3.417 0 0 0 .017-1.468 3.387 3.387 0 0 0-.1-.333c-.034-.108-.057-.22-.1-.324a3.517 3.517 0 0 0-.766-1.128 3.5 3.5 0 0 0-2.202-3.777A3.5 3.5 0 0 0 12.5 0a3.451 3.451 0 0 0-1.5.352V19a.972.972 0 0 1-.184.546 3.426 3.426 0 0 0 4.154-.577A3.506 3.506 0 0 0 18 15.5v-.049c.02-.012.039-.027.059-.04.106-.064.208-.13.308-.2s.214-.169.315-.26c.077-.07.153-.14.225-.216a4.007 4.007 0 0 0 .459-.588c.115-.176.215-.361.3-.554.006-.014.015-.027.021-.041.087-.213.156-.434.205-.659.013-.057.024-.115.035-.173.046-.237.07-.478.073-.72a3.948 3.948 0 0 0-.066-.68Z"/>
+</svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">BSc in Computer Science (In Progress)</h3>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">North University of Business & Technology Khulna, 2024 - Present</p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
 <section class="bg-white dark:bg-gray-900 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">Our Team</h2>
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <!-- Team Member 1 -->
-           <div class="team-member">
-    <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
-    <div class="mt-4 text-center">
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
-        <div class="flex justify-center mt-4">
-            <!-- Social Media Icons -->
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
-                <i class="fab fa-facebook-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
-                <i class="fab fa-twitter-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
-                <i class="fab fa-instagram-square text-2xl"></i>
-            </a>
-            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
-                <i class="fab fa-linkedin text-2xl"></i>
-            </a>
-        </div>
-        <!-- Contact Us Button -->
-        <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition-colors duration-300">Contact Us</a>
-    </div>
-</div>
-
-            <div class="team-member">
-    <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
-    <div class="mt-4 text-center">
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
-        <div class="flex justify-center mt-4">
-            <!-- Social Media Icons -->
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
-                <i class="fab fa-facebook-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
-                <i class="fab fa-twitter-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
-                <i class="fab fa-instagram-square text-2xl"></i>
-            </a>
-            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
-                <i class="fab fa-linkedin text-2xl"></i>
-            </a>
-        </div>
-        <!-- Contact Us Button -->
-        <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition-colors duration-300">Contact Us</a>
-    </div>
-</div>
-
-            <div class="team-member">
-    <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
-    <div class="mt-4 text-center">
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
-        <div class="flex justify-center mt-4">
-            <!-- Social Media Icons -->
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
-                <i class="fab fa-facebook-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
-                <i class="fab fa-twitter-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
-                <i class="fab fa-instagram-square text-2xl"></i>
-            </a>
-            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
-                <i class="fab fa-linkedin text-2xl"></i>
-            </a>
-        </div>
-        <!-- Contact Us Button -->
-        <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition-colors duration-300">Contact Us</a>
-    </div>
-</div>
-<div class="team-member">
-    <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
-    <div class="mt-4 text-center">
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
-        <div class="flex justify-center mt-4">
-            <!-- Social Media Icons -->
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
-                <i class="fab fa-facebook-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
-                <i class="fab fa-twitter-square text-2xl"></i>
-            </a>
-            <a href="#" class="mr-4 text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
-                <i class="fab fa-instagram-square text-2xl"></i>
-            </a>
-            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
-                <i class="fab fa-linkedin text-2xl"></i>
-            </a>
-        </div>
-        <!-- Contact Us Button -->
-        <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition-colors duration-300">Contact Us</a>
-    </div>
-</div>
+            <!-- Team Member -->
+            <div class="team-member bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-yellow-500 transition duration-300">
+                <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
+                    <div class="flex justify-center mt-4 space-x-4">
+                        <!-- Social Media Icons as SVG -->
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zM8.5 18v-6H6V9h2.5V7.5a2.5 2.5 0 1 1 5 0V9h2.5v3h-2.5v6h-3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zm-5 14h-1v-2h1v2zm0-3h-1V9h1v4zm2 3h-1v-5h1v5zm2-6h-1v1h-1V8h-1V7h1V6h1v1h1v1zm1 2h-1V9h1v4zm1-5h-1v2h1V7zm0 3h-1v2h1V9zm0 3h-1v2h1v-2zm1-6v1h-1v1h-1v1h-1v-1H9v-1H8V9H7V8h1V7h1V6h1V5h1V4h1v1h1v1h1v1h1v1h1v1h1zm-2 7h-1v1h-1v-1H9v1H8v-1H7v1H6v-1h1v-1H6V9h1V8h1v1h1V8h1v1h1V8h1v1h1v1zm-3-2h1v1h-1v-1z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Contact Us Button -->
+                    <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition-colors duration-300">Contact Us</a>
+                </div>
+            </div>
+             <div class="team-member bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-yellow-500 transition duration-300">
+                <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
+                    <div class="flex justify-center mt-4 space-x-4">
+                        <!-- Social Media Icons as SVG -->
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zM8.5 18v-6H6V9h2.5V7.5a2.5 2.5 0 1 1 5 0V9h2.5v3h-2.5v6h-3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zm-5 14h-1v-2h1v2zm0-3h-1V9h1v4zm2 3h-1v-5h1v5zm2-6h-1v1h-1V8h-1V7h1V6h1v1h1v1zm1 2h-1V9h1v4zm1-5h-1v2h1V7zm0 3h-1v2h1V9zm0 3h-1v2h1v-2zm1-6v1h-1v1h-1v1h-1v-1H9v-1H8V9H7V8h1V7h1V6h1V5h1V4h1v1h1v1h1v1h1v1h1v1h1zm-2 7h-1v1h-1v-1H9v1H8v-1H7v1H6v-1h1v-1H6V9h1V8h1v1h1V8h1v1h1V8h1v1h1v1zm-3-2h1v1h-1v-1z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Contact Us Button -->
+                    <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition-colors duration-300">Contact Us</a>
+                </div>
+            </div>
+             <div class="team-member bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-yellow-500 transition duration-300">
+                <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
+                    <div class="flex justify-center mt-4 space-x-4">
+                        <!-- Social Media Icons as SVG -->
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zM8.5 18v-6H6V9h2.5V7.5a2.5 2.5 0 1 1 5 0V9h2.5v3h-2.5v6h-3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zm-5 14h-1v-2h1v2zm0-3h-1V9h1v4zm2 3h-1v-5h1v5zm2-6h-1v1h-1V8h-1V7h1V6h1v1h1v1zm1 2h-1V9h1v4zm1-5h-1v2h1V7zm0 3h-1v2h1V9zm0 3h-1v2h1v-2zm1-6v1h-1v1h-1v1h-1v-1H9v-1H8V9H7V8h1V7h1V6h1V5h1V4h1v1h1v1h1v1h1v1h1v1h1zm-2 7h-1v1h-1v-1H9v1H8v-1H7v1H6v-1h1v-1H6V9h1V8h1v1h1V8h1v1h1V8h1v1h1v1zm-3-2h1v1h-1v-1z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Contact Us Button -->
+                    <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition-colors duration-300">Contact Us</a>
+                </div>
+            </div>
+             <div class="team-member bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-yellow-500 transition duration-300">
+                <img src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Team Member 1" class="w-full h-auto rounded-lg">
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">CEO & Founder</p>
+                    <div class="flex justify-center mt-4 space-x-4">
+                        <!-- Social Media Icons as SVG -->
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zM8.5 18v-6H6V9h2.5V7.5a2.5 2.5 0 1 1 5 0V9h2.5v3h-2.5v6h-3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 7H16a1 1 0 0 0-.8.4 5 5 0 0 1 .2 1.3c0 .6-.1 1.1-.3 1.6-.3.6-.6 1-1 1.4-.4.4-.8.7-1.4.9-.5.2-1 .3-1.6.3-.6 0-1.1-.1-1.6-.3a3.9 3.9 0 0 1-1.4-1 4.5 4.5 0 0 1-.9-1.4c-.2-.5-.3-1-.3-1.6 0-.5 0-1 .2-1.3a1 1 0 0 0-.4-.4c-.2-.1-.3-.2-.4-.3a2.3 2.3 0 0 1-.3-.5l-.1-.3v-.6a6.6 6.6 0 0 1 .1-1.1c.1-.4.2-.7.5-1 .2-.3.5-.5.8-.7.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.3-.1s.9 0 1.3.1c.4.1.8.2 1.1.4.3.2.6.4.8.7.3.3.4.6.5 1a6.6 6.6 0 0 1 .1 1.1v.6l-.1.3c-.1.2-.2.4-.3.5-.1.1-.2.2-.4.3zm-1.9 5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5.5-5.2c-.1-.3-.2-.6-.4-.9-.3-.3-.6-.6-.9-.8a3.4 3.4 0 0 0-1.1-.5c-.4-.1-.9-.2-1.4-.2-.5 0-1 .1-1.4.2a3.4 3.4 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-5.6 5.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zm6.6 1.4c-.3-.2-.6-.5-.8-.8-.2-.3-.4-.6-.5-.9-.1-.3-.2-.6-.3-.9a3.5 3.5 0 0 0-1.1.5c-.3.2-.6.5-.9.8-.3.3-.6.6-.8.9-.2.3-.4.6-.5.9-.1.3-.2.6-.3.9a3.5 3.5 0 0 0 0 2.3c.1.3.2.6.4.9.3.3.6.6.9.8.3.2.6.4.9.5.4.1.9.2 1.4.2.5 0 1-.1 1.4-.2.4-.1.8-.3 1.1-.5.3-.2.6-.5.8-.8.2-.3.4-.6.5-.9.1-.3.2-.6.3-.9a3.5 3.5 0 0 0 0-2.3c-.1-.3-.2-.6-.4-.9zm-6.6 1.3a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zm-5 14h-1v-2h1v2zm0-3h-1V9h1v4zm2 3h-1v-5h1v5zm2-6h-1v1h-1V8h-1V7h1V6h1v1h1v1zm1 2h-1V9h1v4zm1-5h-1v2h1V7zm0 3h-1v2h1V9zm0 3h-1v2h1v-2zm1-6v1h-1v1h-1v1h-1v-1H9v-1H8V9H7V8h1V7h1V6h1V5h1V4h1v1h1v1h1v1h1v1h1v1h1zm-2 7h-1v1h-1v-1H9v1H8v-1H7v1H6v-1h1v-1H6V9h1V8h1v1h1V8h1v1h1V8h1v1h1v1zm-3-2h1v1h-1v-1z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Contact Us Button -->
+                    <a href="mailto:john@example.com" class="inline-block mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition-colors duration-300">Contact Us</a>
+                </div>
+            </div> 
 
             <!-- Repeat for other team members -->
         </div>
     </div>
 </section>
+
+
 <section class="bg-gray-100 dark:bg-gray-800 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">My Products</h2>
@@ -466,7 +691,7 @@
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.86 12.73L11 13V7h2v5.15l3.56 1.58-.7 1.79z"/>
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">User Menu Plugin</h3>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-blue-400 mb-2">User Menu Plugin</h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">Short description of the plugin. Highlight the main features and benefits.</p>
                 <div class="flex mb-4">
                     <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -486,7 +711,7 @@
                     </svg>
                 </div>
                 <a href="#" class="inline-block bg-blue-500 text-white py-2 px-4 rounded">Download</a>
-                <span class="text-green-500 mt-2">Free Download</span>
+                <span class="text-green-500 mt-2">Documentation</span>
             </div>
             <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col items-center text-center">
                 <div class="mb-4">
@@ -494,7 +719,7 @@
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.86 12.73L11 13V7h2v5.15l3.56 1.58-.7 1.79z"/>
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">E-commerce Theme</h3>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-blue-900 mb-2">E-commerce Theme</h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">Short description of the theme. Highlight the main features and benefits.</p>
                 <div class="flex mb-4">
                     <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -522,7 +747,7 @@
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.86 12.73L11 13V7h2v5.15l3.56 1.58-.7 1.79z"/>
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Affiliate Theme</h3>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-blue-900 mb-2">Affiliate Theme</h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">Short description of the product. Highlight the main features and benefits.</p>
                 <div class="flex mb-4">
                     <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -549,38 +774,46 @@
     </div>
 </section>
 
-    <!-- Testimonials Section -->
-    <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
-        <!-- Background SVG Border -->
-        <div class="absolute inset-0">
-            <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
-        </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Client Feedback</h2>
-        <p class="mt-2 text-gray-600 dark:text-gray-400 text-center">Here's what our clients have to say about our work.</p>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <img src="assets/IMG-20220318-WA0032.jpg    " alt="John Doe" class="w-16 h-16 rounded-full mx-auto">
-                <p class="mt-4 text-gray-600 dark:text-gray-400">"Synergistically build client feedback."</p>
-                <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">John Doe</h3>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">CEO, CompanyName</p>
+ <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
+    <!-- Background SVG Border -->
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white text-center">Client Feedback</h2>
+        <p class="mt-2 text-lg text-gray-600 dark:text-gray-400 text-center">Here's what our clients have to say about our work.</p>
+        <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div class="flex flex-col items-center text-center">
+                    <img src="assets/IMG-20220318-WA0032.jpg" alt="John Doe" class="w-24 h-24 rounded-full shadow-md">
+                    <blockquote class="mt-6 text-lg text-gray-600 dark:text-gray-300 italic leading-relaxed">"Synergistically build client feedback."</blockquote>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">John Doe</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">CEO, CompanyName</p>
+                </div>
             </div>
-            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <img src="assets/IMG-20220318-WA0032.jpg" alt="Jane Smith" class="w-16 h-16 rounded-full mx-auto">
-                <p class="mt-4 text-gray-600 dark:text-gray-400">"Holisticly create alternative frameworks."</p>
-                <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Jane Smith</h3>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">CTO, AnotherCompany</p>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div class="flex flex-col items-center text-center">
+                    <img src="assets/IMG-20220318-WA0032.jpg" alt="Jane Smith" class="w-24 h-24 rounded-full shadow-md">
+                    <blockquote class="mt-6 text-lg text-gray-600 dark:text-gray-300 italic leading-relaxed">"Holisticly create alternative frameworks."</blockquote>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Jane Smith</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">CTO, AnotherCompany</p>
+                </div>
             </div>
-            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <img src="assets/IMG-20220318-WA0032.jpg" alt="Alex Johnson" class="w-16 h-16 rounded-full mx-auto">
-                <p class="mt-4 text-gray-600 dark:text-gray-400">"Unleash cross-media integration."</p>
-                <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Alex Johnson</h3>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">Marketing Head, DifferentCompany</p>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div class="flex flex-col items-center text-center">
+                    <img src="assets/IMG-20220318-WA0032.jpg" alt="Alex Johnson" class="w-24 h-24 rounded-full shadow-md">
+                    <blockquote class="mt-6 text-lg text-gray-600 dark:text-gray-300 italic leading-relaxed">"Unleash cross-media integration."</blockquote>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Alex Johnson</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Marketing Head, DifferentCompany</p>
+                </div>
             </div>
             <!-- Add more testimonials as needed -->
         </div>
     </div>
 </section>
+
+ 
+
 
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
     <!-- Background SVG Border -->
@@ -592,11 +825,11 @@
         <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="assets/360_F_354178616_uSdqA6i1A1vkkskFPKOoxQOED0ZMIcn3.jpg" alt="Blog Post Image 1" />
+                    <img class="rounded-t-lg" src="https://i0.wp.com/futurecaps.com/wp-content/uploads/2021/02/https___specials-images.forbesimg.com_imageserve_5d9231058b5ffa0006556d13_0x0.jpg?ssl=1" alt="Blog Post Image 1" />
                 </a>
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Innovations in Digital Solutions</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Innovations in Digital Solutions</h5>
                     </a>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Synergistically innovate with our tailored solutions for your digital needs. Discover how our team can help you achieve your business goals through strategic web development services. Learn about the impact of AI and machine learning on the future of web applications. Explore case studies highlighting successful projects and client testimonials. Join us as we redefine the boundaries of possibility in the digital age.</p>
                     <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -609,11 +842,11 @@
             </div>
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="assets/360_F_354178616_uSdqA6i1A1vkkskFPKOoxQOED0ZMIcn3.jpg" alt="Blog Post Image 2" />
+                    <img class="rounded-t-lg" src="https://thinksys.com/wp-content/uploads/2022/03/website-vs-web-applications.jpg" alt="Blog Post Image 2" />
                 </a>
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Building Scalable Web Applications</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Building Scalable Web Applications</h5>
                     </a>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Monotonectally build cutting-edge solutions with our expert team of developers. Dive into our comprehensive guide to creating scalable web applications. Learn about the latest tools and technologies driving innovation in the industry. Gain insights into the importance of cybersecurity and data protection in web development. Join us as we explore the future of technology and its implications for businesses worldwide.</p>
                     <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -626,11 +859,11 @@
             </div>
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="assets/360_F_354178616_uSdqA6i1A1vkkskFPKOoxQOED0ZMIcn3.jpg" alt="Blog Post Image 3" />
+                    <img class="rounded-t-lg" src="https://pakipackages.com/wp-content/uploads/2022/12/web-development-company.jpg" alt="Blog Post Image 3" />
                 </a>
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Collaborative Web Development Strategies</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Collaborative Web Development Strategies</h5>
                     </a>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Collaboratively leverage synergistic methods to enhance your web presence. Explore our latest insights into web development trends and techniques. Learn how to optimize your website for performance and user experience. Discover practical tips for implementing responsive design and improving accessibility. Join us as we delve into the world of digital transformation and its impact on modern businesses..</p>
                     <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -657,7 +890,7 @@
             <!-- Video Card 1 -->
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
                 <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Featured Course Video 1</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Featured Course Video 1</h5>
                     <div class="aspect-w-16 aspect-h-9">
                         <iframe class="rounded-lg w-full h-full" src="https://www.youtube.com/embed/1X_Z5bDnH6c" title="YouTube video" allowfullscreen></iframe>
                     </div>
@@ -685,7 +918,7 @@
             <!-- Video Card 2 -->
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
                 <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Featured Course Video 2</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Featured Course Video 2</h5>
                     <div class="aspect-w-16 aspect-h-9">
                         <iframe class="rounded-lg w-full h-full" src="https://www.youtube.com/embed/1X_Z5bDnH6c" title="YouTube video" allowfullscreen></iframe>
                     </div>
@@ -712,7 +945,7 @@
              <!-- Video Card 2 -->
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
                 <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Featured Course Video 2</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Featured Course Video 2</h5>
                     <div class="aspect-w-16 aspect-h-9">
                         <iframe class="rounded-lg w-full h-full" src="https://www.youtube.com/embed/1X_Z5bDnH6c" title="YouTube video" allowfullscreen></iframe>
                     </div>
@@ -892,86 +1125,184 @@
             </div>
         </div>
     </footer>
+ 
 
-    <button id="dark-mode-toggle" class="fixed bottom-4 right-4 bg-yellow-500 text-white py-2 px-4 rounded">
-        Toggle Dark Mode
-    </button>
-    <button id="chatButton" class="fixed bottom-16 right-4 bg-yellow-500 text-white py-2 px-4 rounded">
-        Hello!
-    </button>
     
-    <div id="chatContainer" class="hidden fixed bottom-20 right-4 bottom-32 bg-white border border-gray-300 shadow-md rounded-lg w-96">
-        <div class="flex flex-col h-full">
-            <!-- Chat header -->
-            <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
-                <h2 class="text-lg font-bold">Hello i  Am Nayan Ray</h2>
-                <button id="closeChatButton" class="text-gray-600 hover:text-gray-800 focus:outline-none">
-                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M13.58 6.576a1 1 0 0 0-1.414 0L10 8.086 7.414 6.576a1 1 0 0 0-1.414 1.414L8.586 9l-2.17 2.17a1 1 0 1 0 1.415 1.415L10 10.415l2.17 2.17a1 1 0 0 0 1.415-1.415L11.414 9l2.165-2.165a1 1 0 0 0 0-1.414z" clip-rule="evenodd"/>
+<button id="chatButton" class="fixed bottom-16 right-4 bg-blue-500 text-white py-2 px-4 rounded shadow-md z-10">
+    Open Chat
+</button>
+
+<div id="chatContainer" class="hidden fixed bottom-20 right-4 bottom-32 bg-white border border-gray-300 shadow-lg rounded-lg w-96">
+    <div class="flex flex-col h-full">
+        <!-- Chat header -->
+        <div class="flex items-center justify-between p-4 bg-blue-500 rounded-t-lg">
+            <h2 class="text-lg font-bold text-white">Chat with Nayan Ray</h2>
+            <button id="closeChatButton" class="text-white hover:text-gray-200 focus:outline-none">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M13.58 6.576a1 1 0 0 0-1.414 0L10 8.086 7.414 6.576a1 1 0 0 0-1.414 1.414L8.586 9l-2.17 2.17a1 1 0 1 0 1.415 1.415L10 10.415l2.17 2.17a1 1 0 0 0 1.415-1.415L11.414 9l2.165-2.165a1 1 0 0 0 0-1.414z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Chat messages -->
+        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-100">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <!-- Chat input field -->
+        <div class="p-4 border-t border-gray-300 bg-white">
+            <div class="flex items-center">
+                <label for="fileInput" class="mr-3 cursor-pointer">
+                    <svg class="w-6 h-6 fill-current text-gray-600 hover:text-gray-800" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2H4a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V10a4 4 0 0 0-4-4h-2zM8 6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2H8zm0 4a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0v-3a1 1 0 0 0-1-1zm4 0a1 1 0 0 1 1 1v3a1 1 0 0 1-2 0v-3a1 1 0 0 1 1-1z" clip-rule="evenodd"/>
                     </svg>
-                </button>
-            </div>
-            <!-- Chat messages -->
-            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto">
-                <!-- Chat messages will be dynamically added here -->
-            </div>
-            <!-- Chat input field -->
-            <div class="p-4 border-t border-gray-300">
-                <div class="flex">
-                    <input type="text" id="messageInput" class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none" placeholder="Type your message...">
-                    <button id="sendMessageButton" class="px-4 py-2 bg-yellow-500 text-white rounded-r-lg hover:bg-yellow-600 focus:outline-none">Send</button>
-                </div>
+                    <input id="fileInput" type="file" class="hidden" accept="image/*, video/*, audio/*">
+                </label>
+                <input type="text" id="messageInput" class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none" placeholder="Type your message...">
+                <button id="sendMessageButton" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 focus:outline-none">Send</button>
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    
-
+</div>
     <script>
         // Toggle dark mode
         const toggle = document.getElementById('dark-mode-toggle');
         toggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
         });
-       // Get DOM elements
-const chatButton = document.getElementById('chatButton');
-const chatContainer = document.getElementById('chatContainer');
-const sendMessageButton = document.getElementById('sendMessageButton');
-const messageInput = document.getElementById('messageInput');
+      const chatButton = document.getElementById('chatButton');
+    const chatContainer = document.getElementById('chatContainer');
+    const closeChatButton = document.getElementById('closeChatButton');
+    const messageInput = document.getElementById('messageInput');
+    const sendMessageButton = document.getElementById('sendMessageButton');
+    const fileInput = document.getElementById('fileInput');
+    const chatMessages = document.getElementById('chatMessages');
 
-// Show chat container when the chat button is clicked
-chatButton.addEventListener('click', () => {
-    chatContainer.classList.remove('hidden');
-});
+    // Toggle chat container visibility
+    chatButton.addEventListener('click', function() {
+        chatContainer.classList.toggle('hidden');
+    });
 
-// Function to send a message
-function sendMessage() {
-    const message = messageInput.value;
-    if (message.trim() !== '') {
-        // Add the message to the chat messages container
-        const chatMessages = document.getElementById('chatMessages');
-        const messageElement = document.createElement('div');
-        messageElement.textContent = message;
-        chatMessages.appendChild(messageElement);
+    closeChatButton.addEventListener('click', function() {
+        chatContainer.classList.add('hidden');
+    });
 
-        // Clear the input field after sending the message
+    // Function to send a message or file
+    function sendMessage() {
+        const messageText = messageInput.value.trim();
+        const files = fileInput.files;
+
+        if (messageText === '' && files.length === 0) return;
+
+        // Prepare message HTML
+        let message = '';
+
+        // Handle files
+        if (files.length > 0) {
+            const file = files[0];
+            const fileType = file.type.split('/')[0]; // 'image', 'video', 'audio'
+
+            // Display file preview (if image)
+            if (fileType === 'image') {
+                const imageUrl = URL.createObjectURL(file);
+                message += `
+                    <div class="flex items-start mb-4">
+                        <div class="flex-shrink-0 mr-3">
+                            <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+                        </div>
+                        <div class="bg-white rounded-lg p-2 message-bubble">
+                            <img src="${imageUrl}" class="rounded-lg">
+                            <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Handle other file types (video, audio)
+                const fileTypeIcon = fileType === 'video' ? 'film' : 'volume-up';
+                message += `
+                    <div class="flex items-start mb-4">
+                        <div class="flex-shrink-0 mr-3">
+                            <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+                        </div>
+                        <div class="bg-white rounded-lg p-2 message-bubble">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 fill-current text-gray-600 mr-2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="images/sprite.svg#${fileTypeIcon}"></use>
+                                </svg>
+                                <span class="text-sm text-gray-900">${file.name}</span>
+                            </div>
+                            <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Handle text message
+        if (messageText !== '') {
+            message += `
+                <div class="flex items-start mb-4">
+                    <div class="flex-shrink-0 mr-3">
+                        <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+                    </div>
+                    <div class="bg-white rounded-lg p-2 message-bubble">
+                        <p class="text-sm text-gray-900 leading-snug">${messageText}</p>
+                        <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Append message to chatMessages
+        chatMessages.insertAdjacentHTML('beforeend', message);
+
+        // Clear inputs
         messageInput.value = '';
+        fileInput.value = '';
     }
-}
 
-// Send a message when the send button is clicked
-sendMessageButton.addEventListener('click', sendMessage);
+    sendMessageButton.addEventListener('click', sendMessage);
 
-// Send a message when Enter is pressed in the input field
-messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        sendMessage();
+    // Function to format time as HH:MM AM/PM
+    function formatTime(date) {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        return `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
     }
-});
 
     </script>
+    <!-- Slick Carousel JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.testimonial-slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
 </body>
 </html>
