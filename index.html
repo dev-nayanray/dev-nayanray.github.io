@@ -146,54 +146,46 @@
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
     <!-- Header Section -->
-    <header class="bg-white dark:bg-gray-800 shadow">
-    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Nayan Ray</h2>
-        <nav>
-            <ul class="flex space-x-2 sm:space-x-4">
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Home</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">About</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Services</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Portfolio</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Contact</a></li>
-            </ul>
-        </nav>
-        <button id="dark-mode-toggle" class=" text-white py-2 px-4 rounded">
-        <span class="light-mode-icon">☀️</span>
-        <span class="dark-mode-icon">🌙</span>
-        
-    </button>
+   <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Nayan Ray</h2>
+            <nav>
+                <ul class="flex space-x-2 sm:space-x-4">
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Home</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">About</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Services</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Portfolio</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="dark-mode-toggle" class="text-white py-2 px-4 rounded bg-gray-700 dark:bg-gray-300 dark:text-gray-800">
+                <span class="light-mode-icon">☀️</span>
+                <span class="dark-mode-icon hidden">🌙</span>
+            </button>
+        </div>
+    </header>
 
     <script>
         const darkModeToggle = document.getElementById('dark-mode-toggle');
-        let darkMode = false;
+        const lightModeIcon = document.querySelector('.light-mode-icon');
+        const darkModeIcon = document.querySelector('.dark-mode-icon');
+
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            lightModeIcon.classList.add('hidden');
+            darkModeIcon.classList.remove('hidden');
+        }
 
         darkModeToggle.addEventListener('click', () => {
-            darkMode = !darkMode;
-            applyMode();
+            document.documentElement.classList.toggle('dark');
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            lightModeIcon.classList.toggle('hidden', isDarkMode);
+            darkModeIcon.classList.toggle('hidden', !isDarkMode);
+            // Save user preference in local storage
+            localStorage.setItem('darkMode', isDarkMode);
         });
-
-        function applyMode() {
-            const lightModeIcon = document.querySelector('.light-mode-icon');
-            const darkModeIcon = document.querySelector('.dark-mode-icon');
-
-            if (darkMode) {
-                lightModeIcon.style.display = 'none';
-                darkModeIcon.style.display = 'inline';
-                // Apply dark mode styles or classes here
-                document.body.style.backgroundColor = '#333'; // Example dark mode background color
-                document.body.style.color = '#fff'; // Example dark mode text color
-            } else {
-                lightModeIcon.style.display = 'inline';
-                darkModeIcon.style.display = 'none';
-                // Apply light mode styles or classes here
-                document.body.style.backgroundColor = '#fff'; // Example light mode background color
-                document.body.style.color = '#333'; // Example light mode text color
-            }
-        }
     </script>
-    </div>
-</header>
 
     
     <div class="header-spacing"></div>
