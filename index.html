@@ -356,9 +356,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         gigs.forEach(gig => {
             const gigElement = document.createElement("div");
             gigElement.classList.add("bg-white", "dark:bg-gray-700", "p-6", "rounded-lg", "shadow-lg", "hover:shadow-xl", "transition-shadow", "duration-300");
-            gigElement.innerHTML = `
-               <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-    <img src="${gig.image}" alt="${gig.title}" class="w-full h-48 object-cover rounded-t-lg">
+<img src="${gig.image}" alt="${gig.title}" class="w-full h-48 object-cover rounded-t-lg">
     <div class="p-6">
         <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">${gig.title}</h3>
         <p class="mt-2 text-gray-600 dark:text-gray-400">${gig.description}</p>
@@ -368,6 +366,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             <span class="text-gray-600 dark:text-gray-400 ml-2">${gig.rating} (${gig.ratingCount})</span>
         </div>
         <div class="mt-4 flex justify-between items-center">
+            <a href="${gig.url}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300">Order Now</a>
             <div class="flex space-x-4">
                 <a href="https://facebook.com" class="text-blue-500 hover:underline">
                     <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -385,10 +384,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                     </svg>
                 </a>
             </div>
-            <a href="${gig.url}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300">Order Now</a>
         </div>
     </div>
-</div>
 
             `;
             gigContainer.appendChild(gigElement);
