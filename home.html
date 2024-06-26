@@ -18,8 +18,6 @@
     <meta name="twitter:description" content="Talented web developer specializing in [mention your specialties]. Explore my portfolio and projects.">
     <meta name="twitter:image" content="https://www.yourwebsite.com/path/to/image.jpg">
 
-
-    
     <!-- Canonical URL -->
     <link rel="canonical" href="https://dev-nayanray.github.io/">
     <link rel="icon" type="image/png" href="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg">
@@ -30,7 +28,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
-    
     <!-- JavaScript (if needed) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
@@ -40,80 +37,56 @@
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
     <!-- Header Section -->
     <header class="bg-white dark:bg-gray-800 shadow">
-    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Nayan Ray</h2>
-        <nav>
-            <ul class="flex space-x-2 sm:space-x-4">
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Home</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">About</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Services</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Portfolio</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Contact</a></li>
-            </ul>
-        </nav>
-       <button id="dark-mode-toggle" class="bg-yellow-500 text-white py-2 px-4 rounded">
-        <span class="light-mode-icon">☀️</span>
-        <span class="dark-mode-icon">🌙</span>
-        
-    </button>
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Nayan Ray</h2>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Home</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">About</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Services</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Portfolio</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="dark-mode-toggle" class="bg-yellow-500 text-white py-2 px-4 rounded">
+                <span class="light-mode-icon">☀️</span>
+                <span class="dark-mode-icon">🌙</span>
+            </button>
+        </div>
+    </header>
 
-    <script>
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        let darkMode = false;
-
-        darkModeToggle.addEventListener('click', () => {
-            darkMode = !darkMode;
-            applyMode();
-        });
-
-        function applyMode() {
-            const lightModeIcon = document.querySelector('.light-mode-icon');
-            const darkModeIcon = document.querySelector('.dark-mode-icon');
-
-            if (darkMode) {
-                lightModeIcon.style.display = 'none';
-                darkModeIcon.style.display = 'inline';
-                // Apply dark mode styles or classes here
-                document.body.style.backgroundColor = '#333'; // Example dark mode background color
-                document.body.style.color = '#fff'; // Example dark mode text color
-            } else {
-                lightModeIcon.style.display = 'inline';
-                darkModeIcon.style.display = 'none';
-                // Apply light mode styles or classes here
-                document.body.style.backgroundColor = '#fff'; // Example light mode background color
-                document.body.style.color = '#333'; // Example light mode text color
-            }
-        }
-    </script>
-
-    </div>
-</header>
-
-
+    <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="flex items-center justify-center">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlmvrVRf5G_L-ZgOiKcRtkYBFJJlDdn69Xlg&s" alt="Product Image" class="max-w-full rounded-lg shadow-lg">
             </div>
             <div>
-                <h2 class="text-2xl font-semibold mb-4">Product Features</h2>
+                <h2 class="text-2xl font-semibold mb-4">WP Mega Menu Plugin</h2>
+                <p class="mb-4 text-gray-700 dark:text-gray-300">WP Mega Menu is a powerful Elementor addon that allows you to create highly customizable menus and mega menus for WordPress websites.</p>
                 <ul class="space-y-2">
                     <li class="flex items-center space-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                         </svg>
-                        <span>Feature 1</span>
+                        <span>Highly customizable menu designs</span>
                     </li>
                     <li class="flex items-center space-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                         </svg>
-                        <span>Feature 2</span>
+                        <span>Integration with Elementor for easy setup</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span>Supports responsive designs</span>
                     </li>
                     <!-- Add more features as needed -->
                 </ul>
-                <div class="mt-4">
-                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Buy Now</button>
+                <div class="mt-6">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Get WP Mega Menu</button>
                 </div>
             </div>
         </div>
@@ -146,10 +119,11 @@
         </div>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-gray-200 dark:bg-gray-700 py-4">
         <div class="container mx-auto px-4 text-center text-gray-600 dark:text-gray-300">
-            &copy; 2024 Your Company. All rights reserved.
+            &copy; 2024 Nayan Ray. All rights reserved.
         </div>
     </footer>
-</body>
-</html>
+
+    <!--
