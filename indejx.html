@@ -1,286 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My GitHub Page</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <title>Nayan Kumar Ray - Web & WordPress Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-image: url('bg.jpg');
-            
-           background-size: cover;
-  
-  background-repeat: no-repeat;
-            
+        .profile-img {
+             margin-top: 60px;
+            width: 150px;
+            height: 150px;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
+
+        .header-bg {
+            background-color: #0070C9;
         }
-        h1 {
-            margin: 0;
-            font-size: 36px;
+
+        .text-header {
+            color: #0070C9;
         }
-        #profile{
-            
+
+        .section-title {
+            border-bottom: 2px solid #0070C9;
+            padding-bottom: 0.5rem;
         }
-        .repo-list {
-            list-style: none;
-            padding: 0;
+
+        .contact-links a {
+            color: #0070C9;
         }
-        .repo-item {
-            background-color: #f9f9f9;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: left;
+
+        .contact-links a:hover {
+            text-decoration: underline;
         }
-        .repo-item a {
-            text-decoration: none;
-            color: #0366d6;
-        }
-        /* Modal styles */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto; 
-            background-color: rgb(0,0,0); 
-            background-color: rgba(0,0,0,0.4); 
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; 
-            max-width: 600px;
-            border-radius: 10px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        /* Chat styles */
-        #chat {
-            margin-top: 20px;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        #chat-messages {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        form {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: #f1f1f1;
-            border-top: 1px solid #ddd;
-            border-radius: 0 0 5px 5px;
-        }
-        .chat-controls button, .chat-controls textarea {
-            border: none;
-            outline: none;
-            background: none;
-        }
-        .chat-controls textarea {
-            flex-grow: 1;
-            padding: 10px;
-            border-radius: 20px;
-            resize: none;
-            background-color: #fff;
-            border: 1px solid #ddd;
-        }
-        .chat-controls button {
-            margin: 0 5px;
-            color: #888;
-            cursor: pointer;
-        }
-        .chat-controls button:hover {
-            color: #000;
-        }
-        .chat-controls .send-button {
-            color: #0b93f6;
-        }
-        .chat-controls .send-button:hover {
-            color: #0078e7;
+
+        .list-disc li::marker {
+            color: #0070C9;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to My GitHub Page!</h1>
-    </header>
-    <div id="profile" class="w-full max-w-md mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <div class="flex justify-end px-4 pt-4">
-            <button id="dropdownButton" data-dropdown-toggle="dropdown" class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
-                <span class="sr-only">Open dropdown</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                    <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+
+<body class="bg-gray-100 text-gray-800">
+    <div class="max-w-4xl mx-auto bg-white p-8 my-10 rounded-lg shadow-lg">
+        <div class="flex flex-col md:flex-row items-center md:items-start">
+            <div>
+                <h1 class="text-3xl font-bold">Nayan Kumar Ray</h1>
+                <h2 class="text-xl font-semibold text-gray-600">Web & WordPress Developer</h2>
+                <p class="mt-4 text-gray-600">Cooperative and ambitious individual with a great passion for the web & WordPress development work. I have excellent communication skills, enabling me to effectively communicate with a wide range of people in English.</p>
+                <div class="w-full mt-4 flex justify-center items-center space-x-8 contact-links p-4 rounded-lg ">
+                    <a href="#" class="text-white hover:bg-blue-700 hover:text-gray-100 py-2 px-4 rounded">Facebook</a>
+                    <a href="#" class="text-white hover:bg-blue-700 hover:text-gray-100 py-2 px-4 rounded">GitHub</a>
+                    <a href="#" class="text-white hover:bg-blue-700 hover:text-gray-100 py-2 px-4 rounded">LinkedIn</a>
+                    <a href="#" class="text-white hover:bg-blue-700 hover:text-gray-100 py-2 px-4 rounded">Twitter</a>
+                    <a href="#" class="text-white hover:bg-blue-700 hover:text-gray-100 py-2 px-4 rounded">Pinterest</a>
+                </div>
+            </div>
+            <img src="assets/nayan.png" alt="Profile Image" class="profile-img mx-auto md:mx-0 md:ml-8">
+        </div>
+
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8 bg-white rounded-lg shadow-lg p-6">
+    <!-- Left Sidebar -->
+    <div class="col-span-1">
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold section-title mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                 </svg>
-            </button>
-            <div id="dropdown" class="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                <ul class="py-2" aria-labelledby="dropdownButton">
-                    <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Export Data</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-                    </li>
-                </ul>
-            </div>
+                Contact
+            </h3>
+            <p class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM5 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm10-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" clip-rule="evenodd"/>
+            </svg>Email: <a href="mailto:wpnayanray@gmail.com" class="text-header">wpnayanray@gmail.com</a></p>
+            <p class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM5 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm10-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" clip-rule="evenodd"/>
+            </svg>Phone: +88 01981 308611</p>
+            <p class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM5 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm10-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" clip-rule="evenodd"/>
+            </svg>Website: <a href="http://dev-nayanray.github.io" class="text-header">dev-nayanray.github.io</a></p>
+            <p class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM5 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm10-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" clip-rule="evenodd"/>
+            </svg>Location: Monirampur, Jashore, 7440</p>
+            <p class="flex items-center mt-4">
+                <a href="#" class="text-gray-500 hover:text-header mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12a7 7 0 0 1-7 7V5a7 7 0 0 1 7 7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12a7 7 0 0 0 7 7v-7m-7 0a7 7 0 0 1 7-7V19"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-header mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a9 9 0 0 1 9-9 9 9 0 0 1 5.657 15.657l-4.243-4.243m-4.414-4.242l4.242 4.242m4.243 4.243A9 9 0 0 1 5.83 4.17"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-header mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </a>
+            </p>
         </div>
-        <div class="flex flex-col items-center pb-10">
-            <img id="profile-image" class="w-24 h-24 mb-3 rounded-full shadow-lg" src="logo.png" alt="Profile image"/>
-            <h5 id="profile-name" class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Nayan Ray</h5>
-            <span id="profile-bio" class="text-sm text-gray-500 dark:text-gray-400">Web Developer</span>
-            <div class="flex mt-4 md:mt-6">
-                <a href="#" id="profile-follow" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add friend</a>
-                <a href="#" id="profile-message" class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Message</a>
-            </div>
+
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold section-title mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                </svg>
+                Education
+            </h3>
+            <ul class="list-disc list-inside">
+                <li>Bachelor of Engineering (Continuing) - BSc in CSE, Northern University of Business & Technology</li>
+                <li>Diploma in Engineering (2013-17) - Computer Engineering, BCMC College of Engineering & Technology</li>
+                <li>HSC (2012-14) - Science, Adil Uddin College, Shailkupa</li>
+            </ul>
         </div>
-        <h2 class="text-2xl font-bold dark:text-white">Repositories</h2>
-        <ul id="repo-list" class="repo-list"></ul>
+
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold section-title mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+                Software Skills
+            </h3>
+            <ul class="list-disc list-inside">
+                <li>Visual Studio Code</li>
+                <li>PHP Storm</li>
+                <li>Sublime Text</li>
+                <li>Microsoft Office Application</li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold section-title mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                Expertise
+            </h3>
+            <ul class="list-disc list-inside">
+                <li>PHP</li>
+                <li>SQL</li>
+                <li>Tailwind CSS</li>
+                <li>HTML, CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold section-title mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                Languages
+            </h3>
+            <ul class="list-disc list-inside">
+                <li>English (Fluent)</li>
+                <li>Hindi (Conversational)</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- Modal for Chat Section -->
-    <div id="chat-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="chat" class="w-full mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <div id="chat-messages"></div>
-                <form class="chat-controls">
-                    <label for="chat" class="sr-only">Your message</label>
-                    <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                            <path fill="currentColor" d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"/>
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 1H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"/>
-                        </svg>
-                        <span class="sr-only">Upload image</span>
-                    </button>
-                    <button type="button" class="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.408 7.5h.01m-6.876 0h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM4.6 11a5.5 5.5 0 0 0 10.81 0H4.6Z"/>
-                        </svg>
-                        <span class="sr-only">Add emoji</span>
-                    </button>
-                    <textarea id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
-                    <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
-                        <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                            <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
-                        </svg>
-                        <span class="sr-only">Send message</span>
-                    </button>
-                </form>
-            </div>
+    <!-- Right Sidebar -->
+    <div class="col-span-2">
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold section-title mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                </svg>
+                Work Experiences
+            </h3>
+            <ul class="list-disc list-inside">
+                <li>WordPress Developer at Couponthemes Development (2024-Now) - Jessoreit, Jessore</li>
+                <li>WordPress Ecommerce site at Turing.com (2022-2023) - Sydney, NSW</li>
+                <li>Web Design at Turing.com (2022-2023)</li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold section-title mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                </svg>
+                Training & Certifications
+            </h3>
+            <p>Jessore IT Institute - 2023</p>
         </div>
     </div>
+</div>
+<div class="mt-8 border-t pt-4">
+            <p class="text-gray-600">&copy; 2024 Nayan Kumar Ray. All rights reserved.</p>
+        </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const username = 'dev-nayanray'; // Replace with your GitHub username
-    
-            // Fetch GitHub user profile
-            fetch(`https://api.github.com/users/${username}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('profile-image').src = data.avatar_url;
-                    document.getElementById('profile-name').textContent = data.name;
-                    document.getElementById('profile-bio').textContent = data.bio;
-                    document.getElementById('profile-follow').href = data.html_url;
-                    // document.getElementById('profile-message').href = data.html_url;
-                })
-                .catch(error => console.error('Error fetching the GitHub data:', error));
-    
-            // Fetch GitHub user repositories
-            fetch(`https://api.github.com/users/${username}/repos`)
-                .then(response => response.json())
-                .then(repos => {
-                    const repoList = document.getElementById('repo-list');
-                    repos.forEach(repo => {
-                        const listItem = document.createElement('li');
-                        listItem.className = 'repo-item';
-                        listItem.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a> `;
-                        repoList.appendChild(listItem);
-                    });
-                })
-                .catch(error => console.error('Error fetching the GitHub repos:', error));
-    
-            // Modal functionality
-            const modal = document.getElementById('chat-modal');
-            const btn = document.getElementById('profile-message');
-            const span = document.getElementsByClassName('close')[0];
-    
-            btn.onclick = function() {
-                modal.style.display = 'block';
-            }
-    
-            span.onclick = function() {
-                modal.style.display = 'none';
-            }
-    
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            }
+    </div>
 
-            // WebSocket setup for chat
-            const socket = new WebSocket('ws://localhost:3001'); // Updated to port 3001
-    
-            const chatMessages = document.getElementById('chat-messages');
-            const chatInput = document.getElementById('chat');
-            const chatForm = document.querySelector('.chat-controls');
-    
-            socket.addEventListener('message', (event) => {
-                const message = document.createElement('div');
-                message.textContent = event.data;
-                chatMessages.appendChild(message);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            });
-    
-            chatForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-                const message = chatInput.value;
-                socket.send(message);
-                chatInput.value = '';
-            });
-        });
-    </script>
-    
 </body>
+
 </html>
