@@ -958,6 +958,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     
     let page = 1;
     const pageSize = 6;
+    const maxPosts = 12;  // Keep a maximum of 12 posts at all times
     let hasMorePosts = true;
     let loadedPostIds = new Set();  // To track already loaded posts
     let backupPosts = JSON.parse(localStorage.getItem('backupPosts')) || [];  // Load posts from localStorage
@@ -991,14 +992,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
-    // Function to create blog post card with correct answer checkmark SVG
+    // Function to create blog post card with title, content, and button (no badges)
     function createBlogPostCard(post) {
-        const checkmarkSVG = post.is_answered ? `
-            <svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36">
-                <path d="m6 14 8 8L30 6v8L14 30l-8-8z"></path>
-            </svg>
-        ` : '';
-
+        // Extract a snippet from the post body if available
+        const contentSnippet = post.body ? post.body.substring(0, 150) + '...' : 'No content available.';
         return `
             <article class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 dark:bg-gray-700 dark:border-gray-700">
                 <div class="p-5 flex flex-col justify-between h-full">
@@ -1006,9 +1003,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                         <h3 class="text-xl font-bold text-gray-900 dark:text-blue-200 mb-2">${post.title}</h3>
                     </a>
                     <div class="mb-3 text-gray-700 dark:text-gray-400">
-                        <p class="text-sm"><strong>Votes:</strong> ${post.score}</p>
-                        <p class="text-sm"><strong>Answers:</strong> ${post.answer_count}</p>
-                        ${checkmarkSVG}  <!-- Show the checkmark if the post has an accepted answer -->
+                        <p class="text-sm">${contentSnippet}</p>  <!-- Display the content snippet -->
                     </div>
                     <a href="${post.link}" target="_blank" class="inline-flex items-center px-3 py-2 mt-auto text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read more
@@ -1021,10 +1016,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         `;
     }
 
-    // Function to delete older posts to limit the displayed posts to 6
+    // Function to delete older posts to limit the displayed posts to 12
     function deleteOlderPosts() {
         const articles = blogContainer.querySelectorAll('article');
-        while (articles.length > 6) {
+        while (articles.length > maxPosts) {
             blogContainer.removeChild(articles[0]);  // Remove the oldest post
         }
     }
@@ -1055,7 +1050,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
         });
 
-        deleteOlderPosts();  // Ensure only 6 posts are displayed at any time
+        deleteOlderPosts();  // Ensure only 12 posts are displayed at any time
 
         page++;  // Increment page number for next set of posts
     }
@@ -1074,7 +1069,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 localStorage.setItem('backupPosts', JSON.stringify(backupPosts));  // Save to localStorage
             });
 
-            deleteOlderPosts();  // Ensure only 6 posts are displayed at any time
+            deleteOlderPosts();  // Ensure only 12 posts are displayed at any time
         }
     }
 
