@@ -937,22 +937,59 @@ document.addEventListener("DOMContentLoaded", async function() {
                 Load More Posts
             </button>
         </div>
+        
+        <!-- Auto-Update Interval Control -->
+        <div class="text-center mt-4">
+            <label for="updateInterval" class="block text-gray-700 dark:text-gray-200">Update interval (seconds):</label>
+            <input id="updateInterval" type="number" value="30" class="px-3 py-1 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200" min="10" />
+        </div>
+
+        <!-- Spinner/Loader for Updates -->
+        <div id="spinner" class="text-center mt-4 hidden">
+            <span class="inline-flex items-center px-3 py-2 text-sm font-medium text-blue-700">Fetching updates...</span>
+        </div>
     </div>
 </section>
 
 <script>
     const blogContainer = document.getElementById('blogPosts');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const spinner = document.getElementById('spinner');
+    const updateIntervalInput = document.getElementById('updateInterval');
+    
     let page = 1;
     const pageSize = 6;
     let hasMorePosts = true;
     let loadedPostIds = new Set();  // To track already loaded posts
+    let backupPosts = JSON.parse(localStorage.getItem('backupPosts')) || [];  // Load posts from localStorage
+
+    // Display the posts from backup on page load
+    function loadBackupPosts() {
+        if (backupPosts.length > 0) {
+            backupPosts.forEach(post => {
+                if (!loadedPostIds.has(post.question_id)) {
+                    const postCard = createBlogPostCard(post);
+                    blogContainer.innerHTML += postCard;
+                    loadedPostIds.add(post.question_id);  // Mark post as loaded
+                }
+            });
+        }
+    }
 
     // Function to fetch blog data from StackOverflow API
     async function fetchBlogs() {
-        const response = await fetch(`https://api.stackexchange.com/2.2/questions?order=desc&sort=votes&tagged=wordpress&site=stackoverflow&page=${page}&pagesize=${pageSize}`);
-        const data = await response.json();
-        return data.items;
+        try {
+            spinner.classList.remove('hidden');  // Show spinner when fetching
+            const response = await fetch(`https://api.stackexchange.com/2.2/questions?order=desc&sort=votes&tagged=wordpress&site=stackoverflow&page=${page}&pagesize=${pageSize}`);
+            const data = await response.json();
+            spinner.classList.add('hidden');  // Hide spinner when done
+            return data.items;
+        } catch (error) {
+            console.error('Error fetching posts:', error);
+            spinner.classList.add('hidden');
+            alert('Failed to fetch new posts. Please try again later.');
+            return [];
+        }
     }
 
     // Function to create blog post card
@@ -993,19 +1030,38 @@ document.addEventListener("DOMContentLoaded", async function() {
             loadMoreBtn.style.display = 'none';  // Hide button if no more posts
         }
 
-        // Append posts if they haven't been loaded before
-        answeredBlogs.forEach(post => {
+        // Append up to 6 new unique posts to the backup and the page
+        answeredBlogs.slice(0, pageSize).forEach(post => {
             if (!loadedPostIds.has(post.question_id)) {
                 const postCard = createBlogPostCard(post);
                 blogContainer.innerHTML += postCard;
                 loadedPostIds.add(post.question_id);  // Mark post as loaded
+                backupPosts.push(post);  // Add to backup
+                localStorage.setItem('backupPosts', JSON.stringify(backupPosts));  // Save to localStorage
             }
         });
 
         page++;  // Increment page number for next set of posts
     }
 
+    // Function to synchronize and show only new posts
+    async function syncAndShowNewPosts() {
+        const blogs = await fetchBlogs();
+        const newPosts = blogs.filter(post => post.is_answered && !loadedPostIds.has(post.question_id));
+
+        if (newPosts.length > 0) {
+            newPosts.slice(0, pageSize).forEach(post => {
+                const postCard = createBlogPostCard(post);
+                blogContainer.innerHTML += postCard;
+                loadedPostIds.add(post.question_id);  // Track newly loaded posts
+                backupPosts.push(post);  // Store posts in backup
+                localStorage.setItem('backupPosts', JSON.stringify(backupPosts));  // Save to localStorage
+            });
+        }
+    }
+
     // Initial display of 6 posts
+    loadBackupPosts();
     displayBlogs();
 
     // Load more posts on button click
@@ -1013,12 +1069,21 @@ document.addEventListener("DOMContentLoaded", async function() {
         displayBlogs();
     });
 
-    // Automatic update every 30 seconds
+    // Automatic update interval
+    let updateInterval = 30000;  // Default to 30 seconds
     setInterval(() => {
-        displayBlogs();
-    }, 30000);  // 30,000 milliseconds = 30 seconds
-</script>
+        syncAndShowNewPosts();
+    }, updateInterval);
 
+    // Allow users to change update interval
+    updateIntervalInput.addEventListener('change', (e) => {
+        updateInterval = parseInt(e.target.value, 10) * 1000;  // Convert seconds to milliseconds
+        clearInterval();  // Clear the previous interval
+        setInterval(() => {
+            syncAndShowNewPosts();
+        }, updateInterval);
+    });
+</script>
 
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
     <!-- Background SVG Border -->
