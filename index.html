@@ -919,7 +919,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         </div>
     </div>
 </section>
-
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
     <!-- Background SVG Border -->
     <div class="absolute inset-0">
@@ -992,8 +991,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
-    // Function to create blog post card
+    // Function to create blog post card with correct answer checkmark SVG
     function createBlogPostCard(post) {
+        const checkmarkSVG = post.is_answered ? `
+            <svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36">
+                <path d="m6 14 8 8L30 6v8L14 30l-8-8z"></path>
+            </svg>
+        ` : '';
+
         return `
             <article class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 dark:bg-gray-700 dark:border-gray-700">
                 <div class="p-5 flex flex-col justify-between h-full">
@@ -1002,7 +1007,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                     </a>
                     <div class="mb-3 text-gray-700 dark:text-gray-400">
                         <p class="text-sm"><strong>Votes:</strong> ${post.score}</p>
-                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full dark:bg-green-900 dark:text-green-200">Answered</span>
+                        <p class="text-sm"><strong>Answers:</strong> ${post.answer_count}</p>
+                        ${checkmarkSVG}  <!-- Show the checkmark if the post has an accepted answer -->
                     </div>
                     <a href="${post.link}" target="_blank" class="inline-flex items-center px-3 py-2 mt-auto text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read more
@@ -1013,6 +1019,14 @@ document.addEventListener("DOMContentLoaded", async function() {
                 </div>
             </article>
         `;
+    }
+
+    // Function to delete older posts to limit the displayed posts to 6
+    function deleteOlderPosts() {
+        const articles = blogContainer.querySelectorAll('article');
+        while (articles.length > 6) {
+            blogContainer.removeChild(articles[0]);  // Remove the oldest post
+        }
     }
 
     // Function to display the fetched blogs
@@ -1041,6 +1055,8 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
         });
 
+        deleteOlderPosts();  // Ensure only 6 posts are displayed at any time
+
         page++;  // Increment page number for next set of posts
     }
 
@@ -1057,6 +1073,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                 backupPosts.push(post);  // Store posts in backup
                 localStorage.setItem('backupPosts', JSON.stringify(backupPosts));  // Save to localStorage
             });
+
+            deleteOlderPosts();  // Ensure only 6 posts are displayed at any time
         }
     }
 
@@ -1084,6 +1102,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         }, updateInterval);
     });
 </script>
+
 
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
     <!-- Background SVG Border -->
