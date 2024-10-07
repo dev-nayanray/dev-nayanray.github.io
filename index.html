@@ -920,7 +920,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     </div>
 </section>
 
-
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
     <!-- Background SVG Border -->
     <div class="absolute inset-0">
@@ -947,6 +946,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     let page = 1;
     const pageSize = 6;
     let hasMorePosts = true;
+    let loadedPostIds = new Set();  // To track already loaded posts
 
     // Function to fetch blog data from StackOverflow API
     async function fetchBlogs() {
@@ -957,10 +957,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     // Function to create blog post card
     function createBlogPostCard(post) {
-        const answeredBadge = post.is_answered
-            ? '<span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full dark:bg-green-900 dark:text-green-200">Answered</span>'
-            : '<span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-200">Not Answered</span>';
-
         return `
             <article class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 dark:bg-gray-700 dark:border-gray-700">
                 <div class="p-5 flex flex-col justify-between h-full">
@@ -969,7 +965,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     </a>
                     <div class="mb-3 text-gray-700 dark:text-gray-400">
                         <p class="text-sm"><strong>Votes:</strong> ${post.score}</p>
-                        <p>${answeredBadge}</p>
+                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full dark:bg-green-900 dark:text-green-200">Answered</span>
                     </div>
                     <a href="${post.link}" target="_blank" class="inline-flex items-center px-3 py-2 mt-auto text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read more
@@ -988,14 +984,22 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         const blogs = await fetchBlogs();
 
-        if (blogs.length < pageSize) {
+        // Filter only answered posts
+        const answeredBlogs = blogs.filter(post => post.is_answered);
+
+        // If no more posts or less than pageSize, hide the load more button
+        if (answeredBlogs.length < pageSize) {
             hasMorePosts = false;
             loadMoreBtn.style.display = 'none';  // Hide button if no more posts
         }
 
-        blogs.forEach(post => {
-            const postCard = createBlogPostCard(post);
-            blogContainer.innerHTML += postCard;
+        // Append posts if they haven't been loaded before
+        answeredBlogs.forEach(post => {
+            if (!loadedPostIds.has(post.question_id)) {
+                const postCard = createBlogPostCard(post);
+                blogContainer.innerHTML += postCard;
+                loadedPostIds.add(post.question_id);  // Mark post as loaded
+            }
         });
 
         page++;  // Increment page number for next set of posts
@@ -1008,8 +1012,12 @@ document.addEventListener("DOMContentLoaded", async function() {
     loadMoreBtn.addEventListener('click', () => {
         displayBlogs();
     });
-</script>
 
+    // Automatic update every 30 seconds
+    setInterval(() => {
+        displayBlogs();
+    }, 30000);  // 30,000 milliseconds = 30 seconds
+</script>
 
 
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
