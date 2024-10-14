@@ -9,33 +9,35 @@
         /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 20px auto;
             background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         h1, h2, h3 {
             color: #333;
         }
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
             text-align: center;
-            border-bottom: 3px solid #0073e6;
+            border-bottom: 2px solid #0073e6;
             padding-bottom: 10px;
         }
         h2 {
             font-size: 1.8rem;
             margin: 15px 0;
             color: #005bb5;
+            border-bottom: 1px solid #0073e6;
+            padding-bottom: 5px;
         }
         h3 {
             font-size: 1.4rem;
@@ -51,17 +53,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #0073e6;
-            padding-bottom: 20px;
+            margin-bottom: 20px;
         }
         .header img {
-            width: 150px;
+            width: 120px;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .header-info {
-            max-width: 60%;
+            max-width: 70%;
         }
         .header-info p {
             margin: 5px 0;
@@ -69,7 +69,7 @@
         }
         /* Sections */
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             padding: 15px;
             border-left: 5px solid #0073e6;
             background: #f9f9f9;
@@ -77,34 +77,28 @@
         }
         .skills, .tools, .experience, .projects, .certifications, .education, .personal-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            gap: 15px;
         }
         .skills div, .tools div, .experience div, .projects div, .certifications div, .education div, .personal-info div {
-            flex: 1 1 calc(50% - 20px);
             background: #ffffff;
-            padding: 15px;
+            padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-        }
-        .skills div:hover, .tools div:hover, .experience div:hover, .projects div:hover, .certifications div:hover, .education div:hover, .personal-info div:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
         /* Download Button */
         .download-btn {
             display: block;
-            width: 220px;
-            margin: 30px auto;
-            padding: 12px;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
             background-color: #0073e6;
             color: white;
             text-align: center;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: background-color 0.3s, transform 0.2s;
         }
         .download-btn:hover {
@@ -130,72 +124,58 @@
         <!-- Professional Summary -->
         <div class="section">
             <h2>Professional Summary</h2>
-            <p>Experienced WordPress Developer with over 5 years of expertise in building responsive websites, custom plugins, and themes. Proven track record of improving website speed, SEO rankings, and delivering tailored solutions to meet client needs.</p>
+            <p>Detail-oriented WordPress Developer with 5+ years of experience in crafting responsive and user-centric websites. Proven ability to optimize website performance and enhance SEO rankings, providing tailored solutions that exceed client expectations.</p>
         </div>
         <!-- Skills Section -->
         <div class="section skills">
-            <div>
-                <h3>Web Development</h3>
-                <p>Proficient in HTML5, CSS3, JavaScript, and PHP for creating responsive websites and web apps.</p>
-            </div>
-            <div>
-                <h3>WordPress Development</h3>
-                <p>Expert in custom WordPress theme and plugin development, and WooCommerce integration.</p>
-            </div>
-            <div>
-                <h3>SEO Optimization</h3>
-                <p>Specialized in improving search engine rankings and optimizing site speed for better performance.</p>
-            </div>
-            <div>
-                <h3>Responsive Design</h3>
-                <p>Ensuring websites are fully responsive and compatible across all devices and screen sizes.</p>
-            </div>
+            <h2>Core Competencies</h2>
+            <div><strong>Web Development:</strong> HTML5, CSS3, JavaScript, PHP</div>
+            <div><strong>WordPress Development:</strong> Custom themes/plugins, WooCommerce</div>
+            <div><strong>SEO Optimization:</strong> Google Analytics, Yoast SEO, SEMrush</div>
+            <div><strong>Responsive Design:</strong> Mobile-first design principles</div>
         </div>
         <!-- Tools & Technologies Section -->
         <div class="section tools">
-            <div>
-                <h3>WordPress, Elementor, Divi</h3>
-                <p>Building interactive websites with page builders and CMS tools.</p>
-            </div>
-            <div>
-                <h3>SEO Tools</h3>
-                <p>Experienced with tools like Google Analytics, Yoast SEO, and SEMrush.</p>
-            </div>
-            <div>
-                <h3>Design Tools</h3>
-                <p>Proficient in Figma, Adobe XD, Photoshop for web and UI design.</p>
-            </div>
-            <div>
-                <h3>Version Control</h3>
-                <p>Proficient in Git and GitHub for source control and collaboration.</p>
-            </div>
+            <h2>Tools & Technologies</h2>
+            <div><strong>Page Builders:</strong> WordPress, Elementor, Divi</div>
+            <div><strong>Design Tools:</strong> Figma, Adobe XD, Photoshop</div>
+            <div><strong>Version Control:</strong> Git, GitHub</div>
         </div>
         <!-- Work Experience Section -->
         <div class="section experience">
+            <h2>Professional Experience</h2>
             <div>
                 <h3>Senior WordPress Developer</h3>
                 <p>Creative Agency - Chicago, IL (June 2018 - Present)</p>
-                <p>Led the development of custom WordPress websites, increasing conversion rates by 20% on client projects.</p>
+                <ul>
+                    <li>Developed and maintained over 50 custom WordPress websites.</li>
+                    <li>Increased conversion rates by 20% through strategic UX enhancements.</li>
+                </ul>
             </div>
             <div>
                 <h3>Junior Web Developer</h3>
                 <p>Design Studio - New York, NY (July 2016 - May 2018)</p>
-                <p>Assisted in developing websites using HTML, CSS, and JavaScript for high-profile clients.</p>
+                <ul>
+                    <li>Collaborated on high-profile client projects, utilizing HTML, CSS, and JavaScript.</li>
+                    <li>Supported website launches and managed post-launch performance analysis.</li>
+                </ul>
             </div>
         </div>
         <!-- Projects Section -->
         <div class="section projects">
+            <h2>Selected Projects</h2>
             <div>
                 <h3>LeMagStyle</h3>
-                <p>Developed a luxury eCommerce platform, increasing sales by 15% through improved user experience.</p>
+                <p>Created a luxury eCommerce platform, enhancing user experience and increasing sales by 15%.</p>
             </div>
             <div>
                 <h3>Sociends</h3>
-                <p>Created an online marketplace with custom payment gateways, resulting in seamless customer transactions.</p>
+                <p>Developed an online marketplace with integrated payment gateways, facilitating seamless transactions.</p>
             </div>
         </div>
         <!-- Certifications Section -->
         <div class="section certifications">
+            <h2>Certifications</h2>
             <div>
                 <h3>Certified WordPress Developer</h3>
                 <p>W3Schools (2020)</p>
@@ -207,6 +187,7 @@
         </div>
         <!-- Education Section -->
         <div class="section education">
+            <h2>Education</h2>
             <div>
                 <h3>Bachelor of Science in Computer Science</h3>
                 <p>University of Example - City, Country (Graduated: 2016)</p>
@@ -218,18 +199,10 @@
         </div>
         <!-- Personal Information Section -->
         <div class="section personal-info">
-            <div>
-                <h3>Date of Birth</h3>
-                <p>January 1, 1990</p>
-            </div>
-            <div>
-                <h3>Location</h3>
-                <p>City, Country</p>
-            </div>
-            <div>
-                <h3>Languages</h3>
-                <p>English, Bengali</p>
-            </div>
+            <h2>Personal Information</h2>
+            <div><strong>Date of Birth:</strong> January 1, 1990</div>
+            <div><strong>Location:</strong> City, Country</div>
+            <div><strong>Languages:</strong> English, Bengali</div>
         </div>
     </div>
     <!-- Download Button -->
