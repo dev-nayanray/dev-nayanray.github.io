@@ -75,12 +75,12 @@
             background: #f9f9f9;
             border-radius: 5px;
         }
-        .skills, .tools, .experience, .projects, .certifications {
+        .skills, .tools, .experience, .projects, .certifications, .education, .personal-info {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-        .skills div, .tools div, .experience div, .projects div, .certifications div {
+        .skills div, .tools div, .experience div, .projects div, .certifications div, .education div, .personal-info div {
             flex: 1 1 calc(50% - 20px);
             background: #ffffff;
             padding: 15px;
@@ -88,7 +88,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s;
         }
-        .skills div:hover, .tools div:hover, .experience div:hover, .projects div:hover, .certifications div:hover {
+        .skills div:hover, .tools div:hover, .experience div:hover, .projects div:hover, .certifications div:hover, .education div:hover, .personal-info div:hover {
             transform: scale(1.02);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
@@ -203,6 +203,32 @@
             <div>
                 <h3>SEO Expert Certification</h3>
                 <p>Udemy (2021)</p>
+            </div>
+        </div>
+        <!-- Education Section -->
+        <div class="section education">
+            <div>
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p>University of Example - City, Country (Graduated: 2016)</p>
+            </div>
+            <div>
+                <h3>Web Development Bootcamp</h3>
+                <p>Online Academy - (Completed: 2015)</p>
+            </div>
+        </div>
+        <!-- Personal Information Section -->
+        <div class="section personal-info">
+            <div>
+                <h3>Date of Birth</h3>
+                <p>January 1, 1990</p>
+            </div>
+            <div>
+                <h3>Location</h3>
+                <p>City, Country</p>
+            </div>
+            <div>
+                <h3>Languages</h3>
+                <p>English, Bengali</p>
             </div>
         </div>
     </div>
