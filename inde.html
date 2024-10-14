@@ -19,37 +19,32 @@
             margin: 20px auto;
             background: #ffffff;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         h1, h2, h3 {
             color: #333;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
-            border-bottom: 2px solid #0073e6;
-            padding-bottom: 5px;
+            text-align: center;
+            border-bottom: 3px solid #0073e6;
+            padding-bottom: 10px;
         }
         h2 {
-            font-size: 1.75rem;
-            margin-bottom: 15px;
-            color: #0073e6;
+            font-size: 1.8rem;
+            margin: 15px 0;
+            color: #005bb5;
         }
         h3 {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             margin-bottom: 5px;
-            color: #005bb5;
+            color: #0073e6;
         }
         p {
             color: #555;
             margin: 5px 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 5px;
         }
         /* Header */
         .header {
@@ -57,6 +52,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 20px;
         }
         .header img {
             width: 150px;
@@ -73,8 +70,10 @@
         /* Sections */
         .section {
             margin-bottom: 25px;
+            padding: 15px;
             border-left: 5px solid #0073e6;
-            padding-left: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
         }
         .skills, .tools, .experience, .projects, .certifications {
             display: flex;
@@ -83,29 +82,34 @@
         }
         .skills div, .tools div, .experience div, .projects div, .certifications div {
             flex: 1 1 calc(50% - 20px);
-            margin-bottom: 20px;
-            background: #f7f9fb;
+            background: #ffffff;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .skills div:hover, .tools div:hover, .experience div:hover, .projects div:hover, .certifications div:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
         /* Download Button */
         .download-btn {
             display: block;
-            width: 200px;
+            width: 220px;
             margin: 30px auto;
-            padding: 10px;
+            padding: 12px;
             background-color: #0073e6;
             color: white;
             text-align: center;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            font-size: 1.1rem;
-            transition: background-color 0.3s;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .download-btn:hover {
             background-color: #005bb5;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -117,7 +121,7 @@
             <div class="header-info">
                 <h1>Nayan Ray</h1>
                 <p>WordPress & Web Developer</p>
-                <p>Phone: +880-198-130-8611</p>
+                <p>Phone: <a href="tel:+8801981308611">+880-198-130-8611</a></p>
                 <p>Email: <a href="mailto:wpnayanray@gmail.com">wpnayanray@gmail.com</a></p>
                 <p>Portfolio: <a href="https://dev-nayanray.github.io" target="_blank">dev-nayanray.github.io</a></p>
             </div>
