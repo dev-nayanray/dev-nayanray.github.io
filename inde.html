@@ -12,12 +12,14 @@
             background-color: #f0f4f8;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
         .container {
             max-width: 900px;
             margin: 20px auto;
             background: #ffffff;
             padding: 30px;
+            border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         h1, h2, h3 {
@@ -25,23 +27,23 @@
         }
         h1 {
             font-size: 2.5rem;
-             
             margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #0073e6;
             border-bottom: 2px solid #0073e6;
             padding-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+            color: #0073e6;
         }
         h3 {
             font-size: 1.25rem;
             margin-bottom: 5px;
+            color: #005bb5;
         }
         p {
             color: #555;
-            line-height: 1.6;
+            margin: 5px 0;
         }
         ul {
             padding-left: 20px;
@@ -71,30 +73,26 @@
         /* Sections */
         .section {
             margin-bottom: 25px;
+            border-left: 5px solid #0073e6;
+            padding-left: 15px;
         }
         .skills, .tools, .experience, .projects, .certifications {
-             display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
-    column-gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         .skills div, .tools div, .experience div, .projects div, .certifications div {
-            flex-basis: 100%;
+            flex: 1 1 calc(50% - 20px);
             margin-bottom: 20px;
             background: #f7f9fb;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        .skills div h3, .tools div h3, .experience div h3, .projects div h3, .certifications div h3 {
-            color: #0073e6;
-            margin-bottom: 8px;
-        }
         /* Download Button */
         .download-btn {
             display: block;
-            width: 180px;
+            width: 200px;
             margin: 30px auto;
             padding: 10px;
             background-color: #0073e6;
@@ -103,6 +101,8 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
         }
         .download-btn:hover {
             background-color: #005bb5;
@@ -110,28 +110,24 @@
     </style>
 </head>
 <body>
-
     <!-- Resume Container -->
     <div class="container" id="resume">
-
         <!-- Header Section -->
         <div class="header">
             <div class="header-info">
                 <h1>Nayan Ray</h1>
                 <p>WordPress & Web Developer</p>
-                <p>Phone: +880-198-130-8611 </p> 
-                <p> Email: wpnayanray@gmail.com</p>
+                <p>Phone: +880-198-130-8611</p>
+                <p>Email: <a href="mailto:wpnayanray@gmail.com">wpnayanray@gmail.com</a></p>
                 <p>Portfolio: <a href="https://dev-nayanray.github.io" target="_blank">dev-nayanray.github.io</a></p>
             </div>
             <img src="https://t4.ftcdn.net/jpg/03/69/19/81/360_F_369198116_K0sFy2gRTo1lmIf5jVGeQmaIEibjC3NN.jpg" alt="Profile Picture">
         </div>
-
         <!-- Professional Summary -->
         <div class="section">
             <h2>Professional Summary</h2>
             <p>Experienced WordPress Developer with over 5 years of expertise in building responsive websites, custom plugins, and themes. Proven track record of improving website speed, SEO rankings, and delivering tailored solutions to meet client needs.</p>
         </div>
-
         <!-- Skills Section -->
         <div class="section skills">
             <div>
@@ -151,7 +147,6 @@
                 <p>Ensuring websites are fully responsive and compatible across all devices and screen sizes.</p>
             </div>
         </div>
-
         <!-- Tools & Technologies Section -->
         <div class="section tools">
             <div>
@@ -171,7 +166,6 @@
                 <p>Proficient in Git and GitHub for source control and collaboration.</p>
             </div>
         </div>
-
         <!-- Work Experience Section -->
         <div class="section experience">
             <div>
@@ -185,7 +179,6 @@
                 <p>Assisted in developing websites using HTML, CSS, and JavaScript for high-profile clients.</p>
             </div>
         </div>
-
         <!-- Projects Section -->
         <div class="section projects">
             <div>
@@ -197,7 +190,6 @@
                 <p>Created an online marketplace with custom payment gateways, resulting in seamless customer transactions.</p>
             </div>
         </div>
-
         <!-- Certifications Section -->
         <div class="section certifications">
             <div>
@@ -209,12 +201,9 @@
                 <p>Udemy (2021)</p>
             </div>
         </div>
-
     </div>
-
     <!-- Download Button -->
     <a href="#" class="download-btn" onclick="downloadResume()">Download PDF</a>
-
     <script>
         function downloadResume() {
             const element = document.getElementById('resume');
@@ -226,6 +215,5 @@
             }).save();
         }
     </script>
-
 </body>
 </html>
