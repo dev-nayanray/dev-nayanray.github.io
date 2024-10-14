@@ -4,45 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayan Ray - Professional Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
             margin: 0;
             padding: 0;
         }
         .container {
-            width: 80%;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         h1, h2, h3 {
             color: #333;
         }
         h1 {
-            text-align: center;
             font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
         }
         h2 {
             font-size: 1.5rem;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            color: #0073e6;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 5px;
         }
         h3 {
             font-size: 1.25rem;
             margin-bottom: 5px;
         }
-        .section {
-            margin-bottom: 20px;
-        }
-        .info {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .info p {
-            margin: 0;
+        p {
+            color: #555;
+            line-height: 1.6;
         }
         ul {
             padding-left: 20px;
@@ -50,53 +49,78 @@
         ul li {
             margin-bottom: 5px;
         }
-        .skills {
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .header img {
+            width: 150px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header-info {
+            max-width: 60%;
+        }
+        .header-info p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+        }
+        .skills, .tools, .experience, .projects, .certifications {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
         }
-        .skills div {
-            flex: 1;
-            padding: 5px;
-            margin: 5px;
-            background-color: #f4f4f4;
-            border-radius: 5px;
+        .skills div, .tools div, .experience div, .projects div, .certifications div {
+            flex-basis: 48%;
+            margin-bottom: 20px;
+            background: #f7f9fb;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        .social-links {
-            margin: 20px 0;
+        .skills div h3, .tools div h3, .experience div h3, .projects div h3, .certifications div h3 {
+            color: #0073e6;
+            margin-bottom: 8px;
         }
-        .social-links a {
-            color: #007bff;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-        .btn {
+        /* Download Button */
+        .download-btn {
             display: block;
-            width: 150px;
-            margin: 20px auto;
+            width: 180px;
+            margin: 30px auto;
             padding: 10px;
-            background-color: #007bff;
-            color: #fff;
+            background-color: #0073e6;
+            color: white;
             text-align: center;
             border-radius: 5px;
+            cursor: pointer;
             text-decoration: none;
+        }
+        .download-btn:hover {
+            background-color: #005bb5;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header with Professional Photo -->
-        <div class="info">
-            <div>
+
+    <!-- Resume Container -->
+    <div class="container" id="resume">
+
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-info">
                 <h1>Nayan Ray</h1>
                 <p>WordPress & Web Developer</p>
+                <p>Phone: +880-198-130-8611 | Email: wpnayanray@gmail.com</p>
+                <p>Portfolio: <a href="https://dev-nayanray.github.io" target="_blank">dev-nayanray.github.io</a></p>
             </div>
-            <div>
-                <img src="https://t4.ftcdn.net/jpg/03/69/19/81/360_F_369198116_K0sFy2gRTo1lmIf5jVGeQmaIEibjC3NN.jpg" alt="Profile Picture" style="width: 120px; border-radius: 50%;">
-            </div>
-        </div>
-        <div class="info">
-            <p>Phone: +880-198-130-8611 | Email: wpnayanray@gmail.com</p>
-            <p>Portfolio: <a href="https://dev-nayanray.github.io">dev-nayanray.github.io</a></p>
+            <img src="https://t4.ftcdn.net/jpg/03/69/19/81/360_F_369198116_K0sFy2gRTo1lmIf5jVGeQmaIEibjC3NN.jpg" alt="Profile Picture">
         </div>
 
         <!-- Professional Summary -->
@@ -105,101 +129,92 @@
             <p>Experienced WordPress Developer with over 5 years of expertise in building responsive websites, custom plugins, and themes. Proven track record of improving website speed, SEO rankings, and delivering tailored solutions to meet client needs.</p>
         </div>
 
-        <!-- Skills -->
-        <div class="section">
-            <h2>Key Skills</h2>
-            <div class="skills">
-                <div>WordPress Development</div>
-                <div>SEO Optimization</div>
-                <div>PHP & MySQL</div>
-                <div>HTML, CSS, JavaScript</div>
-                <div>WooCommerce Integration</div>
-                <div>Responsive Web Design</div>
-            </div>
-        </div>
-
-        <!-- Tools & Technologies -->
-        <div class="section">
-            <h2>Tools & Technologies</h2>
-            <ul>
-                <li>WordPress, Elementor, Divi Builder</li>
-                <li>SEO Tools (Google Analytics, Yoast SEO)</li>
-                <li>Figma, Adobe XD, Photoshop</li>
-                <li>PHPStorm, Visual Studio Code</li>
-            </ul>
-        </div>
-
-        <!-- Experience -->
-        <div class="section">
-            <h2>Work Experience</h2>
+        <!-- Skills Section -->
+        <div class="section skills">
             <div>
-                <h3>Senior WordPress Developer - Creative Agency</h3>
-                <p>Chicago, IL | June 2018 - Present</p>
-                <ul>
-                    <li>Led the development of custom WordPress websites, increasing conversion rates by 20% on client projects.</li>
-                    <li>Optimized website load speed, resulting in 30% faster performance and better SEO rankings.</li>
-                    <li>Created WooCommerce-based eCommerce platforms, boosting sales for clients by 15%.</li>
-                </ul>
+                <h3>Web Development</h3>
+                <p>Proficient in HTML5, CSS3, JavaScript, and PHP for creating responsive websites and web apps.</p>
             </div>
             <div>
-                <h3>Junior Web Developer - Design Studio</h3>
-                <p>New York, NY | July 2016 - May 2018</p>
-                <ul>
-                    <li>Assisted in developing websites using HTML, CSS, and JavaScript for high-profile clients.</li>
-                    <li>Maintained and updated websites, ensuring SEO compliance and performance improvements.</li>
-                </ul>
+                <h3>WordPress Development</h3>
+                <p>Expert in custom WordPress theme and plugin development, and WooCommerce integration.</p>
             </div>
-        </div>
-
-        <!-- Education -->
-        <div class="section">
-            <h2>Education</h2>
             <div>
-                <h3>Bachelor of Computer Science</h3>
-                <p>University of Business & Technology, Khulna | 2017 - 2021</p>
+                <h3>SEO Optimization</h3>
+                <p>Specialized in improving search engine rankings and optimizing site speed for better performance.</p>
+            </div>
+            <div>
+                <h3>Responsive Design</h3>
+                <p>Ensuring websites are fully responsive and compatible across all devices and screen sizes.</p>
             </div>
         </div>
 
-        <!-- Certifications -->
-        <div class="section">
-            <h2>Certifications</h2>
-            <ul>
-                <li>Certified WordPress Developer - W3Schools (2020)</li>
-                <li>SEO Expert - Udemy (2021)</li>
-                <li>PHP & MySQL Developer - Coursera (2019)</li>
-            </ul>
+        <!-- Tools & Technologies Section -->
+        <div class="section tools">
+            <div>
+                <h3>WordPress, Elementor, Divi</h3>
+                <p>Building interactive websites with page builders and CMS tools.</p>
+            </div>
+            <div>
+                <h3>SEO Tools</h3>
+                <p>Experienced with tools like Google Analytics, Yoast SEO, and SEMrush.</p>
+            </div>
+            <div>
+                <h3>Design Tools</h3>
+                <p>Proficient in Figma, Adobe XD, Photoshop for web and UI design.</p>
+            </div>
+            <div>
+                <h3>Version Control</h3>
+                <p>Proficient in Git and GitHub for source control and collaboration.</p>
+            </div>
         </div>
 
-        <!-- Projects -->
-        <div class="section">
-            <h2>Highlighted Projects</h2>
-            <ul>
-                <li><strong>LeMagStyle:</strong> Developed an eCommerce platform for luxury goods.</li>
-                <li><strong>Sociends:</strong> Created an online marketplace with customized payment gateways.</li>
-                <li><strong>Chapzz:</strong> Built a coupon platform integrating affiliate marketing tools.</li>
-            </ul>
+        <!-- Work Experience Section -->
+        <div class="section experience">
+            <div>
+                <h3>Senior WordPress Developer</h3>
+                <p>Creative Agency - Chicago, IL (June 2018 - Present)</p>
+                <p>Led the development of custom WordPress websites, increasing conversion rates by 20% on client projects.</p>
+            </div>
+            <div>
+                <h3>Junior Web Developer</h3>
+                <p>Design Studio - New York, NY (July 2016 - May 2018)</p>
+                <p>Assisted in developing websites using HTML, CSS, and JavaScript for high-profile clients.</p>
+            </div>
         </div>
 
-        <!-- References -->
-        <div class="section">
-            <h2>References</h2>
-            <p>Available upon request.</p>
+        <!-- Projects Section -->
+        <div class="section projects">
+            <div>
+                <h3>LeMagStyle</h3>
+                <p>Developed a luxury eCommerce platform, increasing sales by 15% through improved user experience.</p>
+            </div>
+            <div>
+                <h3>Sociends</h3>
+                <p>Created an online marketplace with custom payment gateways, resulting in seamless customer transactions.</p>
+            </div>
         </div>
 
-        <!-- Social Media Links -->
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/nayan-ray" target="_blank">LinkedIn</a>
-            <a href="https://github.com/dev-nayanray" target="_blank">GitHub</a>
-            <a href="https://dev-nayanray.github.io" target="_blank">Portfolio</a>
+        <!-- Certifications Section -->
+        <div class="section certifications">
+            <div>
+                <h3>Certified WordPress Developer</h3>
+                <p>W3Schools (2020)</p>
+            </div>
+            <div>
+                <h3>SEO Expert Certification</h3>
+                <p>Udemy (2021)</p>
+            </div>
         </div>
 
-        <!-- Download Button -->
-        <a href="#" class="btn" onclick="downloadResume()">Download PDF</a>
     </div>
+
+    <!-- Download Button -->
+    <a href="#" class="download-btn" onclick="downloadResume()">Download PDF</a>
 
     <script>
         function downloadResume() {
-            var element = document.body;
+            const element = document.getElementById('resume');
             html2pdf().from(element).set({
                 margin: 1,
                 filename: 'Nayan_Ray_Resume.pdf',
@@ -208,5 +223,6 @@
             }).save();
         }
     </script>
+
 </body>
 </html>
