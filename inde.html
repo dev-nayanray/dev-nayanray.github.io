@@ -14,6 +14,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            color: #333;
         }
         .container {
             max-width: 900px;
@@ -22,9 +23,6 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #333;
         }
         h1 {
             font-size: 2.5rem;
@@ -64,10 +62,6 @@
         .header-info {
             max-width: 70%;
         }
-        .header-info p {
-            margin: 5px 0;
-            font-size: 1.1rem;
-        }
         /* Sections */
         .section {
             margin-bottom: 20px;
@@ -88,6 +82,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
         .skills div i, .tools div i, .experience div i, .projects div i, .certifications div i, .education div i, .personal-info div i {
             margin-right: 10px;
@@ -127,6 +122,24 @@
             }
             .header img {
                 margin-bottom: 15px;
+                width: 100px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .download-btn {
+                width: 100%;
+            }
+        }
+        @media (min-width: 600px) and (max-width: 900px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -190,11 +203,11 @@
             <h2>Selected Projects</h2>
             <div>
                 <h3>LeMagStyle</h3>
-                <p>Designed a luxury eCommerce platform, improving user experience and increasing sales by 15% within the first quarter.</p>
+                <p>Designed a luxury eCommerce platform, improving user experience and increasing sales by 15%.</p>
             </div>
             <div>
                 <h3>Sociends</h3>
-                <p>Developed a comprehensive online marketplace featuring custom payment gateways, resulting in a seamless user experience.</p>
+                <p>Developed an online marketplace with custom payment gateways, enhancing transaction efficiency.</p>
             </div>
         </div>
         <!-- Certifications Section -->
