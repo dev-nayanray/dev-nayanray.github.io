@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayan Ray - Professional Resume</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
+            background-color: #f4f6f9;
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -19,7 +20,7 @@
             margin: 20px auto;
             background: #ffffff;
             padding: 30px;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         h1, h2, h3 {
@@ -36,7 +37,7 @@
             font-size: 1.8rem;
             margin: 15px 0;
             color: #005bb5;
-            border-bottom: 1px solid #0073e6;
+            border-bottom: 2px solid #0073e6;
             padding-bottom: 5px;
         }
         h3 {
@@ -85,6 +86,13 @@
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        .skills div i, .tools div i, .experience div i, .projects div i, .certifications div i, .education div i, .personal-info div i {
+            margin-right: 10px;
+            color: #0073e6;
+            font-size: 1.2rem;
         }
         /* List Styles */
         ul {
@@ -131,9 +139,9 @@
             <div class="header-info">
                 <h1>Nayan Ray</h1>
                 <p><strong>WordPress & Web Developer</strong></p>
-                <p>Phone: <a href="tel:+8801981308611">+880-198-130-8611</a></p>
-                <p>Email: <a href="mailto:wpnayanray@gmail.com">wpnayanray@gmail.com</a></p>
-                <p>Portfolio: <a href="https://dev-nayanray.github.io" target="_blank">dev-nayanray.github.io</a></p>
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+8801981308611">+880-198-130-8611</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:wpnayanray@gmail.com">wpnayanray@gmail.com</a></p>
+                <p><i class="fas fa-link"></i> Portfolio: <a href="https://dev-nayanray.github.io" target="_blank">dev-nayanray.github.io</a></p>
             </div>
             <img src="https://t4.ftcdn.net/jpg/03/69/19/81/360_F_369198116_K0sFy2gRTo1lmIf5jVGeQmaIEibjC3NN.jpg" alt="Profile Picture">
         </div>
@@ -145,17 +153,17 @@
         <!-- Skills Section -->
         <div class="section skills">
             <h2>Core Competencies</h2>
-            <div><strong>Web Development:</strong> HTML5, CSS3, JavaScript, PHP</div>
-            <div><strong>WordPress Development:</strong> Custom themes/plugins, WooCommerce</div>
-            <div><strong>SEO Optimization:</strong> Google Analytics, Yoast SEO, SEMrush</div>
-            <div><strong>Responsive Design:</strong> Mobile-first design principles</div>
+            <div><i class="fas fa-code"></i> <strong>Web Development:</strong> HTML5, CSS3, JavaScript, PHP</div>
+            <div><i class="fab fa-wordpress"></i> <strong>WordPress Development:</strong> Custom themes/plugins, WooCommerce</div>
+            <div><i class="fas fa-search"></i> <strong>SEO Optimization:</strong> Google Analytics, Yoast SEO, SEMrush</div>
+            <div><i class="fas fa-mobile-alt"></i> <strong>Responsive Design:</strong> Mobile-first design principles</div>
         </div>
         <!-- Tools & Technologies Section -->
         <div class="section tools">
             <h2>Tools & Technologies</h2>
-            <div><strong>Page Builders:</strong> WordPress, Elementor, Divi</div>
-            <div><strong>Design Tools:</strong> Figma, Adobe XD, Photoshop</div>
-            <div><strong>Version Control:</strong> Git, GitHub</div>
+            <div><i class="fab fa-wordpress"></i> <strong>Page Builders:</strong> Elementor, Divi</div>
+            <div><i class="fas fa-paint-brush"></i> <strong>Design Tools:</strong> Figma, Adobe XD, Photoshop</div>
+            <div><i class="fas fa-code-branch"></i> <strong>Version Control:</strong> Git, GitHub</div>
         </div>
         <!-- Work Experience Section -->
         <div class="section experience">
@@ -192,33 +200,23 @@
         <!-- Certifications Section -->
         <div class="section certifications">
             <h2>Certifications</h2>
-            <div>
-                <h3>Certified WordPress Developer</h3>
-                <p>W3Schools (2020)</p>
-            </div>
-            <div>
-                <h3>SEO Expert Certification</h3>
-                <p>Udemy (2021)</p>
-            </div>
+            <div><i class="fas fa-certificate"></i> <strong>Certified WordPress Developer</strong> - W3Schools (2020)</div>
+            <div><i class="fas fa-certificate"></i> <strong>SEO Expert Certification</strong> - Udemy (2021)</div>
         </div>
         <!-- Education Section -->
         <div class="section education">
             <h2>Education</h2>
             <div>
                 <h3>Bachelor of Science in Computer Science</h3>
-                <p>University of Example - City, Country (Graduated: 2016)</p>
-            </div>
-            <div>
-                <h3>Web Development Bootcamp</h3>
-                <p>Online Academy - (Completed: 2015)</p>
+                <p>University of Technology - City, Country (Graduated: 2015)</p>
             </div>
         </div>
         <!-- Personal Information Section -->
         <div class="section personal-info">
             <h2>Personal Information</h2>
-            <div><strong>Date of Birth:</strong> January 1, 1990</div>
-            <div><strong>Location:</strong> City, Country</div>
-            <div><strong>Languages:</strong> English, Bengali</div>
+            <div><i class="fas fa-birthday-cake"></i> <strong>Date of Birth:</strong> January 1, 1990</div>
+            <div><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> City, Country</div>
+            <div><i class="fas fa-language"></i> <strong>Languages:</strong> English, Bengali</div>
         </div>
     </div>
     <!-- Download Button -->
