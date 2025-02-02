@@ -784,13 +784,13 @@ html {
 
 <!-- Last Deposits & Withdrawals -->
 <section class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
-     <p class="mt-4 font-bold text-[#9ff550]">NOT HIDDEN CHARGEs</p>
+    <p class="mt-4 font-bold text-[#9ff550]">NOT HIDDEN CHARGEs</p>
     <h2 class="text-4xl font-bold text-white">Last Deposits & Withdrawals</h2>
     <p class="mt-4 text-gray-300">As a certified, registered company, we guarantee that all investments are handled with the highest standards and compliance with legal requirements.</p>
 
     <!-- Tabs for Deposit and Withdrawal -->
     <div class="mt-6">
-        <div class="flex justify-center space-x-4">
+        <div class="flex flex-wrap justify-center space-x-4 gap-4">
             <button id="depositTab" class="px-6 py-3 text-lg font-semibold text-white bg-[#9ff550] rounded-md hover:bg-[#9ff550] transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500">
                 Last Deposit
             </button>
@@ -801,7 +801,7 @@ html {
 
         <!-- Deposit Table -->
         <div id="depositContent" class="mt-6">
-            <table class="mx-auto table-auto text-white w-full   rounded-lg overflow-hidden">
+            <table class="mx-auto table-auto text-white w-full rounded-lg overflow-hidden">
                 <thead class="bg-[#9ff550]">
                     <tr>
                         <th class="py-3 px-6 text-left text-sm font-semibold">Name</th>
@@ -879,6 +879,51 @@ html {
         document.getElementById('depositTab').classList.remove('bg-gray-800');
     });
 </script>
+
+<style>
+    /* Make tables responsive */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Make text center aligned on smaller screens */
+    @media screen and (max-width: 768px) {
+        h2 {
+            font-size: 2rem;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .flex {
+            flex-direction: column;
+        }
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+    }
+
+    /* Make the tables scrollable on very small screens */
+    @media screen and (max-width: 480px) {
+        table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        th, td {
+            display: inline-block;
+        }
+    }
+</style>
 
 <!-- Referral Bonus -->
 <section class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
