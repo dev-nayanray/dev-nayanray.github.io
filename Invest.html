@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Hyippro - The best investment platform offering secure and profitable opportunities.">
+    <meta name="keywords" content="Hyippro, Investment, Finance, Secure Investment, Profitable Platform">
+    <meta name="author" content="Hyippro Team">
+    <meta property="og:title" content="Hyippro - Profitable Investment Platform">
+    <meta property="og:description" content="Join Hyippro today and explore secure and profitable investment options.">
+    <meta property="og:image" content="https://example.com/og-image.jpg">
+    <meta property="og:url" content="https://www.hyippro.com">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Hyippro - Secure & Profitable Investment Platform</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <!-- Add Font Awesome CDN for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+    <style>
+        /* Custom Scrollbar for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the track */
+    border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a90e2; /* Initial color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #f1f1f1; /* Space around the thumb */
+    animation: scrollColorChange 3s infinite alternate; /* Animation effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #357ab8; /* Darker shade on hover */
+}
+
+/* Scroll Thumb Color Animation */
+@keyframes scrollColorChange {
+    0% {
+        background: #4a90e2;
+    }
+    50% {
+        background: #6ab0f5;
+    }
+    100% {
+        background: #357ab8;
+    }
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #4a90e2 #f1f1f1; /* Thumb color and track color */
+}        /* Font Style for Headings */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--white);
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    /* Custom Font Size for H1 */
+    h1 {
+        font-size: calc(1.375rem + 1.5vw);
+    }
+
+    /* Custom Font Size and Styles for H3 */
+    h3 {
+        font-family: 'Bruno Ace SC', cursive;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    /* Media Query for Larger Screens */
+    @media (min-width: 1200px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Margin and Spacing Adjustments */
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        margin-bottom: .5rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    /* Styling for .h1 and h2 for Consistency */
+    .h1, h1 {
+        font-size: calc(1.375rem + 1.5vw);
+    }
+/* Floating Buttons */
+    .floating-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 100;
+    }
+
+    .floating-btn button {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 10px;
+    }
+
+    .floating-btn button:hover {
+        background-color: #357ab8;
+    }
+     
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+   <!-- Header (Sticky on Scroll) -->
+<header id="header" class="bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <div class="text-xl font-bold text-white">Hyippro</div>
+    <nav class="hidden md:flex space-x-6">
+        <a href="#about" class="hover:text-[#9ff550]">About Us</a>
+        <a href="#process" class="hover:text-[#9ff550]">Process</a>
+        <a href="#plans" class="hover:text-[#9ff550]">Investment Plans</a>
+        <a href="#investor" class="hover:text-[#9ff550]">Top Investors</a>
+        <a href="#investor" class="hover:text-[#9ff550]">Blog</a>
+        <a href="#investor" class="hover:text-[#9ff550]">Login</a>
+    </nav>
+
+    <!-- User Dropdown Button -->
+    <div class="relative">
+        <!-- Conditionally Render the Button and Dropdown -->
+        <button id="userButton" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="toggleDropdown()">User</button>
+
+        <!-- Dropdown Menu -->
+        <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white text-gray-900 rounded-md shadow-lg hidden">
+            <ul class="space-y-2 p-2">
+                <li><a href="login.html" class="block px-4 py-2 text-sm">Login</a></li>
+                
+                <!-- Assuming logged-in user will see these options -->
+                <li class="hidden" id="userProfile"><a href="#profile" class="block px-4 py-2 text-sm">Profile</a></li>
+                <li class="hidden" id="logout"><a href="#logout" class="block px-4 py-2 text-sm">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- Script to Toggle Dropdown (Mocking Login State) -->
+<script>
+    // Mocking user login state
+    let isLoggedIn = false;  // Change to `true` when user is logged in
+    
+    function toggleDropdown() {
+        const dropdown = document.getElementById('userDropdown');
+        dropdown.classList.toggle('hidden');
+        
+        // Show Profile and Logout if logged in
+        const loginSignUp = document.querySelectorAll('#userDropdown .block');
+        const userProfile = document.getElementById('userProfile');
+        const logout = document.getElementById('logout');
+        
+        if (isLoggedIn) {
+            loginSignUp.forEach(item => item.classList.add('hidden'));  // Hide Login/Signup
+            userProfile.classList.remove('hidden');  // Show Profile
+            logout.classList.remove('hidden');  // Show Logout
+        } else {
+            loginSignUp.forEach(item => item.classList.remove('hidden'));  // Show Login/Signup
+            userProfile.classList.add('hidden');  // Hide Profile
+            logout.classList.add('hidden');  // Hide Logout
+        }
+    }
+</script>
+
+
+    
+<!-- Hero Section -->
+<section class="relative h-auto sm:h-[950px] flex items-center justify-center text-white bg-cover bg-center bg-gradient-to-r from-gray-900 to-gray-800" style="background-image: url('https://hyip-pro.bugfinder.app/assets/upload/contents/2IHstGFbEXbvaAfbOd041lxOGTDIOT.webp');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+    <div class="absolute left-1/8 sm:left-1/4 md:left-80 top-1/2 transform -translate-y-1/2 pl-6 sm:pl-8 md:pl-16 px-4 text-left space-y-4 sm:space-y-6 md:space-y-8 max-w-xl w-full">
+        <!-- H3 with Custom Font Style -->
+        <h3 class="text-lg sm:text-xl md:text-xl text-white opacity-80 transition-transform transform hover:scale-105 hover:tracking-wide duration-300" style="font-family: 'Bruno Ace SC', cursive; font-size: 18px; font-weight: 400;">
+            A Profitable Platform for High-Margin Investment
+        </h3>
+
+        <!-- H1 with Custom Font Style -->
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight transition-transform transform hover:scale-105 hover:tracking-wide duration-300">
+            BEST INVESTMENTS PLAN FOR
+        </h1>
+
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight transition-transform transform hover:scale-105 hover:tracking-wide duration-300">
+            WORLDWIDE
+        </h1>
+
+        <!-- Learn More Button -->
+        <a href="#learn-more" class="inline-block mt-4 sm:mt-6 px-6 sm:px-8 py-3 bg-[#1e9a4e] text-white font-bold rounded-lg shadow-xl transform hover:bg-blue-500 hover:scale-105 transition duration-300">
+            Learn More
+        </a>
+    </div>
+
+    <!-- Right Side Stats Section -->
+    <div class="absolute right-8 sm:right-16 md:right-80 top-1/2 transform -translate-y-1/2 pr-6 sm:pr-8 md:pr-16 text-right space-y-4 sm:space-y-6 md:space-y-8 hidden sm:block">
+        <p class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white animate__animated animate__fadeIn animate__delay-1s">25,609</p>
+        <p class="text-sm sm:text-lg md:text-xl text-white opacity-80">All Members</p>
+
+        <p class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white animate__animated animate__fadeIn animate__delay-2s">12.5M</p>
+        <p class="text-sm sm:text-lg md:text-xl text-white opacity-80">Average Investment</p>
+
+        <p class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white animate__animated animate__fadeIn animate__delay-3s">200</p>
+        <p class="text-sm sm:text-lg md:text-xl text-white opacity-80">Countries Supported</p>
+    </div>
+</section>
+
+
+
+
+   <!-- About Us -->
+<section id="about" class="py-20 px-6 bg-gradient-to-r from-gray-900 to-gray-800" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+        <!-- Left Side: Text -->
+        <div class="md:w-1/2 text-white p-12">
+
+           
+            <p class="mt-4 font-bold text-[#9ff550]"> ABOUT US</p>
+             <h2 class="text-4xl font-bold mb-6">ABOUT US</h2>
+            <p class="text-lg mb-6">Planshyip is an investment company, whose team is working on making money from the volatility of cryptocurrencies and offering great returns to our clients.</p>
+            <p class="text-lg mb-6">We focus on secure investments with the phrasal sequence of the Lorem Ipsum text being now so widespread that many rely on it as part of the process.Lorem, ipsum dolor sit amet consectetur elit. Laboriosam hic impedit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, id!</p>
+            
+            <p class="text-lg mb-6">Cupiditate laborum ut et minima laudantium doloribus quidem sit non. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="#know-more" class="mt-6 inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500">Know More</a>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="md:w-1/2 mt-8 md:mt-0">
+            <img src="https://hyip-pro.bugfinder.app/assets/upload/contents/GdPGXoDZcl9MWyinHVQlbvqMbOSIqM.webp" alt="Hyippro Image" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </div>
+</section>
+<section id="process" class="py-24 px-6 bg-gradient-to-r from-gray-900 to-gray-800" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+     <p class="mt-4 font-bold text-xl text-center text-[#9ff550]">PROCESS</p>
+    <h2 class="text-4xl font-bold text-white mb-16 text-center animate__animated animate__fadeIn animate__delay-2s">How It Works?</h2>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 text-left">
+
+        <div class="text-white mb-8 md:mb-0 animate__animated animate__fadeIn animate__delay-1s">
+            <ol class="space-y-14 relative">
+                <!-- Step 1: Register -->
+                <li class="process-step px-4    transform transition-transform hover:scale-105 duration-300 ease-in-out">
+                    <div class="step-number bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-lg font-semibold">1</div>
+                    <div class="step-content">
+                        <h4 class="text-lg font-semibold text-white mb-3">Register & Log In</h4>
+                        <p class="text-sm text-gray-300">Create an account to access the platform. Log in to begin your investment journey and manage your profile.</p>
+                    </div>
+                </li>
+
+                <!-- Step 2: Add Funds -->
+                <li class="process-step px-4    transform transition-transform hover:scale-105 duration-300 ease-in-out">
+                    <div class="step-number bg-white text-teal-500 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-lg font-semibold">2</div>
+                    <div class="step-content">
+                        <h4 class="text-lg font-semibold text-white mb-3">Add Funds</h4>
+                        <p class="text-sm text-gray-300">Choose your preferred payment method and deposit funds to begin investing in various services.</p>
+                    </div>
+                </li>
+
+                <!-- Step 3: Select a Service -->
+                <li class="process-step px-4     transform transition-transform hover:scale-105 duration-300 ease-in-out">
+                    <div class="step-number bg-white text-yellow-500 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-lg font-semibold">3</div>
+                    <div class="step-content">
+                        <h4 class="text-lg font-semibold text-white mb-3">Select a Service</h4>
+                        <p class="text-sm text-gray-300">Choose the right services based on your goals and start building your investment portfolio for future growth.</p>
+                    </div>
+                </li>
+
+                <!-- Step 4: Enjoy Results -->
+                <li class="process-step  px-4    transform transition-transform hover:scale-105 duration-300 ease-in-out">
+                    <div class="step-number bg-white text-pink-500 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-lg font-semibold">4</div>
+                    <div class="step-content">
+                        <h4 class="text-lg font-semibold text-white mb-3">Enjoy Super Results</h4>
+                        <p class="text-sm text-gray-300">Watch your investments grow and enjoy incredible returns as your hard work pays off.</p>
+                    </div>
+                </li>
+
+                <!-- Connecting Lines -->
+                <div class="connecting-lines absolute top-0 left-1/2 transform -translate-x-1/2 w-1/4 h-full bg-gradient-to-b from-blue-500 via-teal-500 to-pink-500 opacity-80 animation-pulse"></div>
+            </ol>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="animate__animated animate__fadeIn animate__delay-7s flex justify-center items-center">
+            <img src="https://hyip-pro.bugfinder.app/assets/upload/contents/PRSKOOrKH7YCkZraJ4z1AdgW3xHJvW.webp" alt="Process Image" class="w-full h-full max-w-md h-auto rounded-lg shadow-2xl transition-transform transform hover:scale-105 duration-300 ease-in-out">
+        </div>
+    </div>
+</section>
+
+<style>
+    .process-step {
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .process-step:hover {
+        transform: translateY(-10px);
+    }
+
+    .step-number {
+        position: absolute;
+        top: 0;
+        left: -35px;
+        transform: translateY(-50%);
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .step-content {
+        padding-top: 8px;
+    }
+
+    .connecting-lines {
+        position: absolute;
+        left: -20px;
+        top: -70px;
+        height: calc(100% - 60px);
+        width: 6px;
+        background: linear-gradient(to bottom, rgba(59, 130, 246, 1), rgba(37, 99, 235, 1));
+        opacity: 0.6;
+        border-radius: 2px;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 1), rgba(37, 99, 235, 1));
+        }
+        50% {
+            background: linear-gradient(to bottom, rgba(255, 105, 180, 1), rgba(255, 100, 150, 1));
+        }
+        100% {
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 1), rgba(37, 99, 235, 1));
+        }
+    }
+
+    /* Enhanced fade-in animation for process steps */
+    .process-step {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Smooth fade-in effect */
+    .animate__fadeIn {
+        animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+
+
+
+<!-- Investment Plans -->
+<section id="plans" class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <p class="mt-4 font-bold text-[#9ff550]">INVEST OFFER</p>
+    <h2 class="text-4xl font-bold text-white mb-8">Investment Plans</h2>
+    <p class="mt-4 text-gray-300 mb-12">As a certified, registered company, we guarantee that all investments are handled with the highest standards and compliance with legal requirements.</p>
+    
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <!-- Business Plan -->
+        <div class="p-8 bg-transparent border-4 border-green-500 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-green-500 mb-4">Business Plan</h3>
+            <p class="mt-2 text-lg text-white">6% Every Day</p>
+            <p class="mt-4 text-xl font-semibold text-white">$69 - $999</p>
+            <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
+            <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
+            <p class="mt-2 text-lg text-white">Lifetime Earning</p>
+            <button class="mt-6 px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-400">Invest Now</button>
+        </div>
+        
+        <!-- Baby Plan -->
+        <div class="p-8 bg-transparent border-4 border-blue-500 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-blue-500 mb-4">Baby Plan</h3>
+            <p class="mt-2 text-lg text-white">$6.00 Every Day</p>
+            <p class="mt-4 text-xl font-semibold text-white">$99 - $888</p>
+            <p class="mt-4 text-lg text-white">Profit For Every Day</p>
+            <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
+            <p class="mt-2 text-lg text-white">Total 0 USD + Capital</p>
+            <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400">Invest Now</button>
+        </div>
+
+        <!-- Hatchling Plan -->
+        <div class="p-8 bg-transparent border-4 border-yellow-500 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-yellow-500 mb-4">Hatchling Plan</h3>
+            <p class="mt-2 text-lg text-white">6% Every Day</p>
+            <p class="mt-4 text-xl font-semibold text-white">$120</p>
+            <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
+            <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">No</span></p>
+            <p class="mt-2 text-lg text-white">Lifetime Earning</p>
+            <button class="mt-6 px-6 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-400">Invest Now</button>
+        </div>
+
+        <!-- Secondary Pack -->
+        <div class="p-8 bg-transparent border-4 border-purple-500 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-purple-500 mb-4">Secondary Pack</h3>
+            <p class="mt-2 text-lg text-white">$3.00 Every Day</p>
+            <p class="mt-4 text-xl font-semibold text-white">$89 - $666</p>
+            <p class="mt-4 text-lg text-white">Profit For Every Day</p>
+            <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
+            <p class="mt-2 text-lg text-white">Total 1080 USD + Capital</p>
+            <button class="mt-6 px-6 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-400">Invest Now</button>
+        </div>
+
+        <!-- Starter Pack 1 -->
+        <div class="p-8 bg-transparent border-4 border-teal-500 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-teal-500 mb-4">Starter Pack</h3>
+            <p class="mt-2 text-lg text-white">1% Every Day</p>
+            <p class="mt-4 text-xl font-semibold text-white">$50 - $400</p>
+            <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
+            <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
+            <p class="mt-2 text-lg text-white">Lifetime Earning</p>
+            <button class="mt-6 px-6 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-400">Invest Now</button>
+        </div>
+
+        <!-- Starter Pack 2 -->
+        <div class="p-8 bg-transparent border-4 border-teal-500 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-teal-500 mb-4">Starter Pack</h3>
+            <p class="mt-2 text-lg text-white">1% Every Day</p>
+            <p class="mt-4 text-xl font-semibold text-white">$40 - $400</p>
+            <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
+            <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
+            <p class="mt-2 text-lg text-white">Lifetime Earning</p>
+            <button class="mt-6 px-6 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-400">Invest Now</button>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Card Styles */
+    .bg-transparent {
+        background-color: transparent !important;
+    }
+
+    .border-4 {
+        border-width: 1px;
+    }
+
+    .shadow-2xl {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .hover\:shadow-3xl:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .text-green-500 {
+        color: #10B981;
+    }
+
+    .text-blue-500 {
+        color: #3B82F6;
+    }
+
+    .text-yellow-500 {
+        color: #F59E0B;
+    }
+
+    .text-purple-500 {
+        color: #8B5CF6;
+    }
+
+    .text-teal-500 {
+        color: #14B8A6;
+    }
+
+    .hover\:bg-green-400:hover {
+        background-color: #6EE7B7;
+    }
+
+    .hover\:bg-blue-400:hover {
+        background-color: #60A5FA;
+    }
+
+    .hover\:bg-yellow-400:hover {
+        background-color: #FBBF24;
+    }
+
+    .hover\:bg-purple-400:hover {
+        background-color: #A78BFA;
+    }
+
+    .hover\:bg-teal-400:hover {
+        background-color: #2DD4BF;
+    }
+</style>
+
+
+<!-- Why Choose Investment -->
+<section class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+     <p class="mt-4 font-bold text-[#9ff550]">CHOOSE INVESTMENT</p>
+    <h2 class="text-4xl font-bold text-white">Why Choose Our Investment Plans?</h2>
+    <p class="mt-6 text-lg text-gray-400">Our investment plans provide a high return with a focus on security, transparency, and customer satisfaction. Choose the plan that aligns with your goals and experience sustainable growth.</p>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <!-- Expert Management -->
+        <div class="p-8 border border-gray-700 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="flex justify-center items-center mb-6 text-4xl text-gray-300">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Expert Management</h3>
+            <p class="mt-4 text-gray-300">Our team helps agencies define their new business objectives and create professional software to achieve them. We ensure that each project is managed with the utmost care and precision.</p>
+        </div>
+
+        <!-- Registered Company -->
+        <div class="p-8 border border-gray-700 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="flex justify-center items-center mb-6 text-4xl text-gray-300">
+                <i class="fas fa-flag-checkered"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Registered Company</h3>
+            <p class="mt-4 text-gray-300">We are a legally registered company, ensuring that all investments are handled with the highest levels of professionalism and regulatory compliance.</p>
+        </div>
+
+        <!-- Secure Investment -->
+        <div class="p-8 border border-gray-700 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="flex justify-center items-center mb-6 text-4xl text-gray-300">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Secure Investment</h3>
+            <p class="mt-4 text-gray-300">Our investment plans are designed with security in mind, offering you peace of mind that your assets are protected from unforeseen risks.</p>
+        </div>
+
+        <!-- Verified Security -->
+        <div class="p-8 border border-gray-700 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="flex justify-center items-center mb-6 text-4xl text-gray-300">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Verified Security</h3>
+            <p class="mt-4 text-gray-300">We prioritize verified security protocols to ensure the safety of your personal and financial data, maintaining a secure environment for all transactions.</p>
+        </div>
+
+        <!-- Instant Withdrawal -->
+        <div class="p-8 border border-gray-700 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="flex justify-center items-center mb-6 text-4xl text-gray-300">
+                <i class="fas fa-credit-card"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Instant Withdrawal</h3>
+            <p class="mt-4 text-gray-300">Experience quick and hassle-free withdrawals, allowing you to access your funds whenever you need them, without delays.</p>
+        </div>
+
+        <!-- Registered Company (Duplicate, optional) -->
+        <div class="p-8 border border-gray-700 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="flex justify-center items-center mb-6 text-4xl text-gray-300">
+                <i class="fas fa-flag-checkered"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Registered Company</h3>
+            <p class="mt-4 text-gray-300">As a certified, registered company, we guarantee that all investments are handled with the highest standards and compliance with legal requirements.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Top Investors -->
+<section id="investor" class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <p class="mt-4 font-bold text-[#9ff550]">INVESTOR</p>
+    <h2 class="text-4xl font-bold text-white mb-12">World Wide Top Investors</h2>
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+
+        <!-- Investor 1 -->
+        <div class="p-8 bg-transparent border-2 border-gray-700 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-blue-400 mb-4">John Doe</h3>
+            <p class="text-xl text-white">Total Invested: <span class="font-bold">$50,000</span></p>
+            <p class="text-xl text-white mt-2">Total Earnings: <span class="font-bold">$25,000</span></p>
+        </div>
+
+        <!-- Investor 2 -->
+        <div class="p-8 bg-transparent border-2 border-gray-700 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-blue-400 mb-4">Jane Smith</h3>
+            <p class="text-xl text-white">Total Invested: <span class="font-bold">$30,000</span></p>
+            <p class="text-xl text-white mt-2">Total Earnings: <span class="font-bold">$15,000</span></p>
+        </div>
+
+        <!-- Investor 3 -->
+        <div class="p-8 bg-transparent border-2 border-gray-700 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-blue-400 mb-4">Michael Brown</h3>
+            <p class="text-xl text-white">Total Invested: <span class="font-bold">$20,000</span></p>
+            <p class="text-xl text-white mt-2">Total Earnings: <span class="font-bold">$10,000</span></p>
+        </div>
+
+        <!-- Investor 4 -->
+        <div class="p-8 bg-transparent border-2 border-gray-700 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-blue-400 mb-4">Emily Davis</h3>
+            <p class="text-xl text-white">Total Invested: <span class="font-bold">$40,000</span></p>
+            <p class="text-xl text-white mt-2">Total Earnings: <span class="font-bold">$18,000</span></p>
+        </div>
+
+        <!-- Investor 5 -->
+        <div class="p-8 bg-transparent border-2 border-gray-700 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-blue-400 mb-4">Olivia Martin</h3>
+            <p class="text-xl text-white">Total Invested: <span class="font-bold">$60,000</span></p>
+            <p class="text-xl text-white mt-2">Total Earnings: <span class="font-bold">$35,000</span></p>
+        </div>
+
+        <!-- Investor 6 -->
+        <div class="p-8 bg-transparent border-2 border-gray-700 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-3xl font-semibold text-blue-400 mb-4">James Wilson</h3>
+            <p class="text-xl text-white">Total Invested: <span class="font-bold">$25,000</span></p>
+            <p class="text-xl text-white mt-2">Total Earnings: <span class="font-bold">$12,000</span></p>
+        </div>
+        
+    </div>
+</section>
+
+<style>
+    /* Professional adjustments */
+    #investor {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .p-8 {
+        padding: 2rem;
+    }
+
+    .border-2 {
+        border-width: 2px;
+    }
+
+    .border-gray-700 {
+        border-color: #374151;
+    }
+
+    .rounded-lg {
+        border-radius: 0.5rem;
+    }
+
+    .shadow-md {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .hover\:shadow-2xl:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .text-blue-400 {
+        color: #60a5fa;
+    }
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+    .text-xl {
+        font-size: 1.25rem;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+</style>
+
+
+<!-- Last Deposits & Withdrawals -->
+<section class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+     <p class="mt-4 font-bold text-[#9ff550]">NOT HIDDEN CHARGEs</p>
+    <h2 class="text-4xl font-bold text-white">Last Deposits & Withdrawals</h2>
+    <p class="mt-4 text-gray-300">As a certified, registered company, we guarantee that all investments are handled with the highest standards and compliance with legal requirements.</p>
+
+    <!-- Tabs for Deposit and Withdrawal -->
+    <div class="mt-6">
+        <div class="flex justify-center space-x-4">
+            <button id="depositTab" class="px-6 py-3 text-lg font-semibold text-white bg-[#9ff550] rounded-md hover:bg-[#9ff550] transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                Last Deposit
+            </button>
+            <button id="withdrawalTab" class="px-6 py-3 text-lg font-semibold text-white bg-gray-800 rounded-md hover:bg-[#9ff550] transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                Last Withdrawal
+            </button>
+        </div>
+
+        <!-- Deposit Table -->
+        <div id="depositContent" class="mt-6">
+            <table class="mx-auto table-auto text-white w-full   rounded-lg overflow-hidden">
+                <thead class="bg-[#9ff550]">
+                    <tr>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Name</th>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Amount</th>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Gateway</th>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-[#9ff550] transition-colors">
+                        <td class="py-3 px-6">Yu Ula</td>
+                        <td class="py-3 px-6">$20,000</td>
+                        <td class="py-3 px-6">Stripe</td>
+                        <td class="py-3 px-6">12 Jan 2025</td>
+                    </tr>
+                    <tr class="hover:bg-[#9ff550] transition-colors">
+                        <td class="py-3 px-6">Yu Ula</td>
+                        <td class="py-3 px-6">$100</td>
+                        <td class="py-3 px-6">Stripe</td>
+                        <td class="py-3 px-6">28 Dec 2024</td>
+                    </tr>
+                    <tr class="hover:bg-[#9ff550] transition-colors">
+                        <td class="py-3 px-6">Yu Ula</td>
+                        <td class="py-3 px-6">$37,037.04</td>
+                        <td class="py-3 px-6">Binance</td>
+                        <td class="py-3 px-6">05 Dec 2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Withdrawal Table -->
+        <div id="withdrawalContent" class="mt-6 hidden">
+            <table class="mx-auto table-auto text-white w-full shadow-lg rounded-lg overflow-hidden">
+                <thead class="bg-gray-800">
+                    <tr>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Name</th>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Amount</th>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Gateway</th>
+                        <th class="py-3 px-6 text-left text-sm font-semibold">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-[#9ff550] transition-colors">
+                        <td class="py-3 px-6">Yu Ula</td>
+                        <td class="py-3 px-6">$10</td>
+                        <td class="py-3 px-6">Stripe</td>
+                        <td class="py-3 px-6">23 Nov 2024</td>
+                    </tr>
+                    <tr class="hover:bg-[#9ff550] transition-colors">
+                        <td class="py-3 px-6">Yu Ula</td>
+                        <td class="py-3 px-6">$70.73</td>
+                        <td class="py-3 px-6">Midtrans</td>
+                        <td class="py-3 px-6">23 Nov 2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Tab Switching -->
+<script>
+    document.getElementById('depositTab').addEventListener('click', function() {
+        document.getElementById('depositContent').classList.remove('hidden');
+        document.getElementById('withdrawalContent').classList.add('hidden');
+        document.getElementById('depositTab').classList.add('bg-gray-800');
+        document.getElementById('withdrawalTab').classList.remove('bg-gray-800');
+    });
+
+    document.getElementById('withdrawalTab').addEventListener('click', function() {
+        document.getElementById('withdrawalContent').classList.remove('hidden');
+        document.getElementById('depositContent').classList.add('hidden');
+        document.getElementById('withdrawalTab').classList.add('bg-gray-800');
+        document.getElementById('depositTab').classList.remove('bg-gray-800');
+    });
+</script>
+
+<!-- Referral Bonus -->
+<section class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <h2 class="text-4xl font-bold text-white">Referral Bonus Levels</h2>
+    <p class="mt-6 text-lg">Earn up to 60% commission for every successful referral! Invite your friends and grow your earnings.</p>
+
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div class="text-white p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold">Level 1</h3>
+            <p class="text-xl mt-4">60% Commission</p>
+        </div>
+        <div class="text-white p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold">Level 2</h3>
+            <p class="text-xl mt-4">30% Commission</p>
+        </div>
+        <div class="text-white p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold">Level 3</h3>
+            <p class="text-xl mt-4">15% Commission</p>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <div class="max-w-screen-xl mx-auto text-white">
+        <h2 class="text-4xl font-bold mb-12">What Our Clients Say</h2>
+        
+        <!-- Testimonials Slider -->
+        <div class="relative overflow-hidden">
+            <div class="testimonial-slider flex transition-transform duration-1000 ease-in-out">
+                <!-- Testimonial 1 -->
+                <div class="p-8 bg-gray-800 rounded-lg border border-gray-700 w-full max-w-md mx-auto">
+                    <p class="text-lg mb-4">"Hyippro has been a game changer for me. My investments have grown steadily, and I am earning more than I ever expected!"</p>
+                    <p class="text-xl font-semibold text-blue-500">- Sarah Lee</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-8 bg-gray-800 rounded-lg border border-gray-700 w-full max-w-md mx-auto">
+                    <p class="text-lg mb-4">"I highly recommend Hyippro to anyone looking for a trustworthy and secure investment platform. Their plans are well worth it!"</p>
+                    <p class="text-xl font-semibold text-blue-500">- David Kim</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-8 bg-gray-800 rounded-lg border border-gray-700 w-full max-w-md mx-auto">
+                    <p class="text-lg mb-4">"Excellent customer support and great returns on my investment. I am very happy with the results!"</p>
+                    <p class="text-xl font-semibold text-blue-500">- Jessica Clark</p>
+                </div>
+
+            </div>
+
+
+            <!-- Navigation Buttons -->
+            <div class="absolute inset-0 flex justify-between items-center px-4">
+                <button id="prev" class="text-white bg-black bg-opacity-50 hover:bg-opacity-70 p-3 rounded-full"><i class="fas fa-chevron-left"></i></button>
+                <button id="next" class="text-white bg-black bg-opacity-50 hover:bg-opacity-70 p-3 rounded-full"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slider > div');
+    const totalSlides = slides.length;
+    const sliderWrapper = document.querySelector('.testimonial-slider');
+
+    // Function to go to the next slide
+    function goToNextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSliderPosition();
+    }
+
+    // Function to go to the previous slide
+    function goToPrevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSliderPosition();
+    }
+
+    // Update the slider position
+    function updateSliderPosition() {
+        const offset = -currentSlide * 100;  // Each slide has 100% width
+        sliderWrapper.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Automatically slide every 5 seconds
+    setInterval(goToNextSlide, 5000);
+
+    // Event listeners for manual slide controls
+    document.getElementById('next').addEventListener('click', goToNextSlide);
+    document.getElementById('prev').addEventListener('click', goToPrevSlide);
+</script>
+
+<!-- Add Font Awesome CDN for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <!-- FAW Section -->
+<section class="py-20 px-6 bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <div class="text-center text-white">
+        <h2 class="text-4xl font-extrabold">Frequently Asked Questions</h2>
+        <p class="mt-4 text-lg">Help agencies to define their new business objectives and then create professional software.</p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Left Panel: Title and Description -->
+        <div class="space-y-6 text-white p-24">
+            <h3 class="text-3xl font-semibold">ANY QUESTIONS</h3>
+            <p class="text-lg">We've Got Answers. Help agencies to define their new business objectives and then create professional software.</p>
+        </div>
+
+        <!-- Right Panel: Question Section with Dropdown -->
+        <div class="space-y-6 text-white">
+            <!-- Question 1 -->
+            <div class="accordion-item">
+                <button class="accordion-header text-2xl font-semibold w-full text-left py-3 px-4 hover:bg-gray-700 transition-all duration-300" onclick="toggleAnswer(0)">
+                    What is the referral bonus?
+                </button>
+                <div id="answer-0" class="accordion-body hidden bg-gray-800 p-6 rounded-lg transition-all duration-300">
+                    <p class="text-lg">The referral bonus is a commission you earn when someone you referred makes a successful transaction. The percentage varies by referral level.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header text-2xl font-semibold w-full text-left py-3 px-4 hover:bg-gray-700 transition-all duration-300" onclick="toggleAnswer(1)">
+                    How do I track my referrals?
+                </button>
+                <div id="answer-1" class="accordion-body hidden bg-gray-800 p-6 rounded-lg transition-all duration-300">
+                    <p class="text-lg">You can track your referrals through your account dashboard, where you’ll see the status and commission of each referral.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header text-2xl font-semibold w-full text-left py-3 px-4 hover:bg-gray-700 transition-all duration-300" onclick="toggleAnswer(2)">
+                    How do I withdraw my earnings?
+                </button>
+                <div id="answer-2" class="accordion-body hidden bg-gray-800 p-6 rounded-lg transition-all duration-300">
+                    <p class="text-lg">To withdraw your earnings, simply navigate to the withdrawal section in your account and select your preferred payment method.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="accordion-item">
+                <button class="accordion-header text-2xl font-semibold w-full text-left py-3 px-4 hover:bg-gray-700 transition-all duration-300" onclick="toggleAnswer(3)">
+                    Is there a limit to referrals?
+                </button>
+                <div id="answer-3" class="accordion-body hidden bg-gray-800 p-6 rounded-lg transition-all duration-300">
+                    <p class="text-lg">No, there is no limit to the number of people you can refer, so you can earn as much as you want!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleAnswer(index) {
+        // Hide all answers first
+        const answers = document.querySelectorAll('.accordion-body');
+        answers.forEach((answer) => {
+            answer.classList.add('hidden');
+        });
+
+        // Toggle the selected answer
+        const selectedAnswer = document.getElementById('answer-' + index);
+        selectedAnswer.classList.toggle('hidden');
+    }
+</script>
+
+
+<!-- Latest Posts Section -->
+<section class="py-20 px-6 text-center bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <h2 class="text-4xl font-bold text-white">Read Our Blogs</h2>
+    <p class="mt-6 text-lg text-white">HELP AGENCIES TO DEFINE THEIR NEW BUSINESS OBJECTIVES AND THEN CREATE PROFESSIONAL SOFTWARE.</p>
+
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <!-- Post 1 -->
+        <div class="bg-transparent p-6 rounded-lg border-2 border-gray-700 hover:border-blue-500 shadow-lg transition-all duration-300">
+            <img src="https://pbwebdev.co.uk/wp-content/uploads/2018/12/blogs.jpg" alt="Post 1" class="w-full h-56 object-cover rounded-lg">
+            <h3 class="text-2xl font-semibold text-white mt-4 text-left">HELP AGENCIES TO DEFINE THEIR NEW BUSINESS</h3>
+            <div class="text-sm text-gray-400 text-left">
+                <span class="mr-4">Category: Technology</span> | 
+                <span>Posted on: Jan 20, 2025</span>
+            </div>
+            <p class="mt-4 text-lg text-white text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor neque eu tellus.</p>
+            <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg text-lg hover:bg-blue-600 transition-all duration-300 float-left">Read More</a>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="bg-transparent p-6 rounded-lg border-2 border-gray-700 hover:border-blue-500 shadow-lg transition-all duration-300">
+            <img src="https://pbwebdev.co.uk/wp-content/uploads/2018/12/blogs.jpg" alt="Post 2" class="w-full h-56 object-cover rounded-lg">
+            <h3 class="text-2xl font-semibold text-white mt-4 text-left">HELP AGENCIES TO DEFINE THEIR NEW BUSINESS</h3>
+            <div class="text-sm text-gray-400 text-left">
+                <span class="mr-4">Category: Business</span> | 
+                <span>Posted on: Jan 25, 2025</span>
+            </div>
+            <p class="mt-4 text-lg text-white text-left">Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra.</p>
+            <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg text-lg hover:bg-blue-600 transition-all duration-300 float-left">Read More</a>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="bg-transparent p-6 rounded-lg border-2 border-gray-700 hover:border-blue-500 shadow-lg transition-all duration-300">
+            <img src="https://pbwebdev.co.uk/wp-content/uploads/2018/12/blogs.jpg" alt="Post 3" class="w-full h-56 object-cover rounded-lg">
+            <h3 class="text-2xl font-semibold text-white mt-4 text-left">HELP AGENCIES TO DEFINE THEIR NEW BUSINESS </h3>
+            <div class="text-sm text-gray-400 text-left">
+                <span class="mr-4">Category: Marketing</span> | 
+                <span>Posted on: Feb 1, 2025</span>
+            </div>
+            <p class="mt-4 text-lg text-white text-left">Pellentesque imperdiet neque eu tellus. Nulla nec feugiat quam. Etiam euismod eu leo et elementum.</p>
+            <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg text-lg hover:bg-blue-600 transition-all duration-300 float-left">Read More</a>
+        </div>
+    </div>
+</section>
+<section class="py-16 px-6 bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+    <div class="max-w-screen-xl mx-auto text-white text-center">
+
+        <!-- Image Slider (Grid) -->
+        <div class="relative overflow-hidden">
+            <div class="slider-container">
+                <!-- Slider Images (Grid Layout) -->
+                <div class="slider-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-transform duration-1000 ease-in-out">
+                    <!-- Image 1 -->
+                    <div class="w-full">
+                        <img src="https://hyip-pro.bugfinder.app/assets/upload/gateway/9WCd4Kn4EvlDX8y4V3bEV7eazCTlla.avif" alt="Image 1" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="w-full">
+                        <img src="https://hyip-pro.bugfinder.app/assets/upload/gateway/9WCd4Kn4EvlDX8y4V3bEV7eazCTlla.avif" alt="Image 2" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="w-full">
+                        <img src="https://hyip-pro.bugfinder.app/assets/upload/gateway/9WCd4Kn4EvlDX8y4V3bEV7eazCTlla.avif" alt="Image 3" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="w-full">
+                        <img src="https://hyip-pro.bugfinder.app/assets/upload/gateway/9WCd4Kn4EvlDX8y4V3bEV7eazCTlla.avif" alt="Image 4" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+                    </div>
+
+                    <!-- Add more images if needed -->
+                </div>
+
+                <!-- Slider Navigation (Optional) -->
+                <div class="absolute inset-0 flex justify-between items-center px-4">
+                    <button id="prev" class="text-white bg-black bg-opacity-50 hover:bg-opacity-70 p-3 rounded-full"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next" class="text-white bg-black bg-opacity-50 hover:bg-opacity-70 p-3 rounded-full"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider-wrapper > div');
+    const totalSlides = slides.length;
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+
+    // Function to go to the next slide
+    function goToNextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSliderPosition();
+    }
+
+    // Function to go to the previous slide
+    function goToPrevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSliderPosition();
+    }
+
+    // Update the slider position
+    function updateSliderPosition() {
+        const offset = -currentSlide * 100;  // Each slide has 100% width
+        sliderWrapper.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Automatically slide every 3 seconds
+    setInterval(goToNextSlide, 3000);
+
+    // Event listeners for manual slide controls
+    document.getElementById('next').addEventListener('click', goToNextSlide);
+    document.getElementById('prev').addEventListener('click', goToPrevSlide);
+</script>
+
+
+
+<div class="floating-btn">
+    <!-- Chat Icon -->
+    <button id="chatIcon" title="Chat">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <!-- Back to Top Icon -->
+    <button id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</div>
+
+<script>
+    // Back to Top functionality
+    document.getElementById('backToTop').addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Chat Icon Click (you can link this to a chat widget)
+    document.getElementById('chatIcon').addEventListener('click', function () {
+        alert('Chat feature coming soon!'); // Replace this with actual chat integration
+    });
+</script>
+
+
+    <!-- Footer Section -->
+    <footer class="bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+        <div class="max-w-screen-xl mx-auto text-white text-center py-16 px-6">
+            
+            
+
+            <!-- Useful Links Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+                <div class="mb-12">
+                <h3 class="text-4xl font-semibold text-left mb-4">Get in Touch</h3>
+                <p class="text-xl text-left mb-4">Feel free to reach out to us via email or phone for any inquiries.</p>
+                <p class="text-lg text-left mb-2">  <a href="mailto:email@website.com" class="text-blue-400 hover:underline">email@website.com</a></p>
+                <p class="text-lg text-left"> <a href="tel:+442045262356" class="text-blue-400 hover:underline">+44-20-4526-2356</a></p>
+            </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-left">Useful Links</h4>
+                    <ul class="space-y-2 text-left">
+                        <li><a href="#" class="text-lg text-gray-300  hover:text-white transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Cookie & Policy</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl text-left font-semibold mb-4">Subscribe to Newsletter</h4>
+                    <p class="text-lg text-left mb-4">Get the latest updates and offers. Subscribe to our newsletter!</p>
+                    <div class="flex justify-center space-x-2">
+                        <input type="email" placeholder="Enter your email" class="p-3 text-gray-800 rounded-l-lg w-64 focus:outline-none" />
+                        <button class="p-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 transition-all duration-300">Subscribe</button>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl  text-center font-semibold mb-4">Follow Us</h4>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="border-t border-gray-600 py-4">
+                <p class="text-lg text-gray-500">© 2025 Hyip Pro. All Rights Reserved.</p>
+            </div>
+
+            <!-- Language Selector -->
+            <div class="mt-4 text-lg text-gray-500">
+                <span>Language: </span>
+                <a href="#" class="text-blue-400 hover:underline">English</a> | 
+                <a href="#" class="text-blue-400 hover:underline">Spanish</a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
