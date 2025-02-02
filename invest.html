@@ -414,7 +414,7 @@ html {
             <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
             <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
             <p class="mt-2 text-lg text-white">Lifetime Earning</p>
-            <button class="mt-6 px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-400">Invest Now</button>
+           <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="openModal('Baby Plan', '$99 - $888', '6.00 USD')">Invest Now</button>
         </div>
         
         <!-- Baby Plan -->
@@ -425,7 +425,7 @@ html {
             <p class="mt-4 text-lg text-white">Profit For Every Day</p>
             <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
             <p class="mt-2 text-lg text-white">Total 0 USD + Capital</p>
-            <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400">Invest Now</button>
+           <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="openModal('Baby Plan', '$99 - $888', '6.00 USD')">Invest Now</button>
         </div>
 
         <!-- Hatchling Plan -->
@@ -436,7 +436,7 @@ html {
             <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
             <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">No</span></p>
             <p class="mt-2 text-lg text-white">Lifetime Earning</p>
-            <button class="mt-6 px-6 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-400">Invest Now</button>
+           <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="openModal('Baby Plan', '$99 - $888', '6.00 USD')">Invest Now</button>
         </div>
 
         <!-- Secondary Pack -->
@@ -447,7 +447,7 @@ html {
             <p class="mt-4 text-lg text-white">Profit For Every Day</p>
             <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
             <p class="mt-2 text-lg text-white">Total 1080 USD + Capital</p>
-            <button class="mt-6 px-6 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-400">Invest Now</button>
+            <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="openModal('Baby Plan', '$99 - $888', '6.00 USD')">Invest Now</button>
         </div>
 
         <!-- Starter Pack 1 -->
@@ -458,7 +458,7 @@ html {
             <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
             <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
             <p class="mt-2 text-lg text-white">Lifetime Earning</p>
-            <button class="mt-6 px-6 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-400">Invest Now</button>
+           <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="openModal('Baby Plan', '$99 - $888', '6.00 USD')">Invest Now</button>
         </div>
 
         <!-- Starter Pack 2 -->
@@ -469,11 +469,96 @@ html {
             <p class="mt-4 text-lg text-white">Profit For Lifetime</p>
             <p class="mt-2 text-lg text-white">Capital will back: <span class="font-semibold">Yes</span></p>
             <p class="mt-2 text-lg text-white">Lifetime Earning</p>
-            <button class="mt-6 px-6 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-400">Invest Now</button>
+            <button class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="openModal('Baby Plan', '$99 - $888', '6.00 USD')">Invest Now</button>
         </div>
     </div>
 </section>
+<!-- Popup Modal -->
+<div id="investModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+    <div class="bg-gradient-to-t from-gray-900 via-black to-transparent p-6 rounded-lg shadow-2xl w-96 text-center relative">
+        <button class="absolute top-2 right-2 text-red-500 text-xl font-bold" onclick="closeModal()">&times;</button>
+        <h2 class="text-2xl font-bold text-white mb-4" id="modalTitle">Invest Now</h2>
+        <p class="text-lg text-gray-300 mb-2" id="modalPlan">Baby Plan</p>
+        <p class="text-sm text-gray-500" id="modalRange">Invest: $99 - $888</p>
+        <p class="text-sm text-gray-500" id="modalInterest">Interest: 6.00 USD</p>
+        <p class="text-sm text-gray-500 mb-4">Per 24 hours, 0 times</p>
 
+        <div class="mt-4">
+            <label for="amount" class="block text-gray-200 font-semibold">Enter Amount (USD)</label>
+            <input type="number" id="amount" class="mt-2 w-full px-4 py-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent text-white" placeholder="Enter amount">
+        </div>
+
+        <button class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-colors duration-300 w-full" onclick="checkout()">Invest Now</button>
+    </div>
+</div>
+
+<script>
+    function openModal(plan, range, interest) {
+        document.getElementById('investModal').style.display = 'flex';
+        document.getElementById('modalPlan').innerText = plan;
+        document.getElementById('modalRange').innerText = `Invest: ${range}`;
+        document.getElementById('modalInterest').innerText = `Interest: ${interest}`;
+    }
+
+    function closeModal() {
+        document.getElementById('investModal').style.display = 'none';
+    }
+
+    function checkout() {
+        const amount = document.getElementById('amount').value;
+        if (amount && amount > 0) {
+            alert(`You have invested $${amount}. Thank you!`);
+            closeModal();
+        } else {
+            alert('Please enter a valid amount.');
+        }
+    }
+</script>
+
+<style>
+    /* Hover shadow effect */
+    .hover\:shadow-3xl:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Modal styling */
+    #investModal {
+        display: none;
+    }
+
+    .bg-gradient-to-t {
+        background: linear-gradient(to top, #1a202c, #2d3748);
+    }
+
+    .bg-transparent {
+        background-color: transparent;
+    }
+
+    .focus:ring-blue-500 {
+        outline: 2px solid #3182ce;
+    }
+
+    /* Transition and hover effect */
+    .hover\:bg-blue-400:hover {
+        background-color: #63b3ed;
+    }
+
+    /* Modal input field */
+    input[type="number"] {
+        background-color: #2d3748;
+        color: white;
+        border-color: #4a5568;
+    }
+    
+    /* Button hover */
+    .hover\:bg-blue-500:hover {
+        background-color: #3182ce;
+    }
+
+    .transition-all {
+        transition: all 0.3s ease-in-out;
+    }
+</style>
 <style>
     /* Card Styles */
     .bg-transparent {
