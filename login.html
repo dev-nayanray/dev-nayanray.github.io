@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyippro - Login & Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white font-sans antialiased bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">">
+
+    <!-- Header (Sticky on Scroll) -->
+    <header id="header" class="bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300">
+         <div class="text-xl font-bold text-white"><a href="index.html">Hyippro</a></div>
+        <nav class="hidden md:flex space-x-6">
+            <a href="#about" class="hover:text-[#9ff550]">About Us</a>
+            <a href="#process" class="hover:text-[#9ff550]">Process</a>
+            <a href="#plans" class="hover:text-[#9ff550]">Investment Plans</a>
+            <a href="#investor" class="hover:text-[#9ff550]">Top Investors</a>
+        </nav>
+
+        <div class="relative">
+            <button id="userButton" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400" onclick="toggleDropdown()">User</button>
+            <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white text-gray-900 rounded-md shadow-lg hidden">
+                <ul class="space-y-2 p-2">
+                    <li><a href="#" onclick="toggleForm('login')" class="block px-4 py-2 text-sm">Login</a></li>
+                    <li><a href="#" onclick="toggleForm('signup')" class="block px-4 py-2 text-sm">Sign Up</a></li>
+                    <li class="hidden" id="userProfile"><a href="#profile" class="block px-4 py-2 text-sm">Profile</a></li>
+                    <li class="hidden" id="logout"><a href="#logout" class="block px-4 py-2 text-sm">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex justify-center items-center min-h-screen pt-20">
+        <div class="flex space-x-8">
+            <!-- Login Form -->
+            <div id="loginFormContainer" class="w-96 p-8 bg-gray-800 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-center mb-6">Login</h2>
+                <form id="loginForm">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="loginEmail" class="block text-sm font-medium">Email</label>
+                            <input type="email" id="loginEmail" name="loginEmail" class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" required>
+                        </div>
+                        <div>
+                            <label for="loginPassword" class="block text-sm font-medium">Password</label>
+                            <input type="password" id="loginPassword" name="loginPassword" class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" required>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-500 py-2 rounded-md text-white hover:bg-blue-400">Login</button>
+                    </div>
+                </form>
+                <div class="mt-4 text-center">
+                    <span>Don't have an account? </span><a href="#" class="text-blue-400 hover:text-blue-500" onclick="toggleForm('signup')">Sign Up</a>
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signupFormContainer" class="w-96 p-8 bg-gray-800 rounded-lg shadow-lg hidden">
+                <h2 class="text-2xl font-bold text-center mb-6">Sign Up</h2>
+                <form id="signupForm">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="signupName" class="block text-sm font-medium">Name</label>
+                            <input type="text" id="signupName" name="signupName" class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" required>
+                        </div>
+                        <div>
+                            <label for="signupEmail" class="block text-sm font-medium">Email</label>
+                            <input type="email" id="signupEmail" name="signupEmail" class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" required>
+                        </div>
+                        <div>
+                            <label for="signupPassword" class="block text-sm font-medium">Password</label>
+                            <input type="password" id="signupPassword" name="signupPassword" class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" required>
+                        </div>
+                        <div>
+                            <label for="confirmPassword" class="block text-sm font-medium">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" required>
+                        </div>
+                        <button type="submit" class="w-full bg-green-500 py-2 rounded-md text-white hover:bg-green-400">Sign Up</button>
+                    </div>
+                </form>
+                <div class="mt-4 text-center">
+                    <span>Already have an account? </span><a href="#" class="text-blue-400 hover:text-blue-500" onclick="toggleForm('login')">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Footer Section -->
+    <footer class="bg-cover bg-gradient-to-t from-gray-900 via-black to-transparent" style="background-image: url('https://hyip-pro.bugfinder.app/assets/themes/screaminlizard/img/bg/Vector-10.svg');">
+        <div class="max-w-screen-xl mx-auto text-white text-center py-16 px-6">
+            
+            
+
+            <!-- Useful Links Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+                <div class="mb-12">
+                <h3 class="text-4xl font-semibold text-left mb-4">Get in Touch</h3>
+                <p class="text-xl text-left mb-4">Feel free to reach out to us via email or phone for any inquiries.</p>
+                <p class="text-lg text-left mb-2">  <a href="mailto:email@website.com" class="text-blue-400 hover:underline">email@website.com</a></p>
+                <p class="text-lg text-left"> <a href="tel:+442045262356" class="text-blue-400 hover:underline">+44-20-4526-2356</a></p>
+            </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-left">Useful Links</h4>
+                    <ul class="space-y-2 text-left">
+                        <li><a href="#" class="text-lg text-gray-300  hover:text-white transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Cookie & Policy</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors duration-300">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl text-left font-semibold mb-4">Subscribe to Newsletter</h4>
+                    <p class="text-lg text-left mb-4">Get the latest updates and offers. Subscribe to our newsletter!</p>
+                    <div class="flex justify-center space-x-2">
+                        <input type="email" placeholder="Enter your email" class="p-3 text-gray-800 rounded-l-lg w-64 focus:outline-none" />
+                        <button class="p-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 transition-all duration-300">Subscribe</button>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl  text-center font-semibold mb-4">Follow Us</h4>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="border-t border-gray-600 py-4">
+                <p class="text-lg text-gray-500">© 2025 Hyip Pro. All Rights Reserved.</p>
+            </div>
+
+            <!-- Language Selector -->
+            <div class="mt-4 text-lg text-gray-500">
+                <span>Language: </span>
+                <a href="#" class="text-blue-400 hover:underline">English</a> | 
+                <a href="#" class="text-blue-400 hover:underline">Spanish</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleForm(formType) {
+            const loginForm = document.getElementById('loginFormContainer');
+            const signupForm = document.getElementById('signupFormContainer');
+
+            if (formType === 'signup') {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+            } else {
+                signupForm.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+            }
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
