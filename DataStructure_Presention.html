@@ -12,86 +12,294 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .progress-bar {
+            height: 6px;
+            background: linear-gradient(to right, #4F46E5, #10B981);
+            transition: width 0.3s ease;
+        }
+        .text-slide-in {
+            animation: textSlideIn 0.8s ease-out;
+        }
+        @keyframes textSlideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .code-block {
+            background: #2d3748;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .slide-content {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .slide-wireframe {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(45, 55, 72, 0.9);
+            border-radius: 8px;
+            padding: 10px;
+            width: 150px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .slide-wireframe button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            background: #4a5568;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .slide-wireframe button:hover {
+            background: #2d3748;
+        }
+        .slide-wireframe button.active {
+            background: #4F46E5;
+        }
+        /* Welcome Screen Styling */
+        .loading-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            padding: 20px;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 1s ease-in-out;
+            z-index: 9999;
+        }
+        .loading-page.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loading-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: textFadeIn 2s ease-in-out;
+        }
+        @keyframes textFadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .loading-logo {
+            width: 150px;
+            height: 150px;
+            background: url('https://via.placeholder.com/150') no-repeat center center;
+            background-size: contain;
+            margin-bottom: 30px;
+            animation: rotateLogo 2s infinite linear;
+        }
+        @keyframes rotateLogo {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .loading-subtext {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 15px;
+            color: #ddd;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
-    <div x-data="{ slide: 1 }" class="flex flex-col items-center justify-center min-h-screen p-4">
-        <div class="w-full max-w-4xl p-6 bg-gray-800 rounded-xl shadow-lg text-center">
-            <template x-for="n in 12" :key="n">
-                <div x-show="slide === n" class="fade-in">
-                    <template x-if="slide === 1">
-                        <div>
-                            <h1 class="text-4xl font-bold">Stack Implementation in C++</h1>
-                            <h2 class="text-3xl font-bold">Course: Data Structure</h2>
-                            <p class="text-lg mt-2">Using Arrays with push() and pop() Functions</p>
-                            <p class="mt-4">Presented by: Nayan Kumar Ray </p>
-                            <p class="mt-4">Presented by: Heridoy Chowdhury </p>
-                        </div>
-                    </template>
-                    <template x-if="slide === 2">
-                        <div>
-                            <h2 class="text-3xl font-bold">Introduction to Stack</h2>
-                            <p class="mt-2">A stack is a linear data structure that follows LIFO (Last In, First Out) principle.</p>
-                            <p class="mt-2">Common operations: push(), pop(), and display().</p>
-                        </div>
-                    </template>
-                    <template x-if="slide === 3">
-                        <div>
-                            <h2 class="text-3xl font-bold">Stack Operations</h2>
-                            <ul class="mt-4 text-lg space-y-2">
-                                <li><strong>Push():</strong> Adds an element to the top.</li>
-                                <li><strong>Pop():</strong> Removes the top element.</li>
-                                <li><strong>Display():</strong> Shows stack elements.</li>
-                            </ul>
-                        </div>
-                    </template>
-                    <template x-if="slide === 4">
-                        <div>
-                            <h2 class="text-3xl font-bold">Stack Implementation</h2>
-                            <pre class="bg-gray-700 p-4 rounded-lg text-left overflow-auto">#include &lt;iostream&gt;
+<body class="bg-gray-900 text-white" x-data="{ slide: 1, loading: true }" x-init="setTimeout(() => loading = false, 3000)">
+    <!-- Welcome Loading Screen -->
+    <div x-show="loading" class="loading-page">
+    <!-- Logo -->
+    <div class="loading-logo"></div>
+
+    <!-- Main Title -->
+    <h1 class="text-5xl font-bold text-blue-400 mt-8">
+        Stack Implementation in C++
+    </h1>
+
+    <!-- Course Info -->
+    <h2 class="text-2xl mt-3 text-gray-300">
+        Course: Data Structures
+    </h2>
+
+    <!-- Description -->
+    <p class="text-lg mt-3 text-white">
+        Using Arrays with push(), pop(), and display()
+    </p>
+
+    <!-- Presenter Information -->
+    <p class="mt-4 text-yellow-300">
+        Presented by: Nayan Kumar Ray & Heridoy Chowdhury
+    </p>
+
+    <!-- Loading Text -->
+    <div class="loading-text mt-6">
+        Welcome to the Stack Implementation in C++
+    </div>
+
+    <!-- Loading Animation with Text -->
+    <div class="flex items-center justify-center mt-3">
+        <!-- Spinner Animation -->
+        <div class="animate-spin border-t-4 border-blue-400 border-solid rounded-full w-12 h-12 mr-4"></div>
+        <div class="loading-subtext text-white">
+            Loading your experience, please wait...
+        </div>
+    </div>
+</div>
+
+
+    <div x-show="!loading" class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="w-full max-w-4xl p-6 bg-gray-800 rounded-xl shadow-lg text-center relative">
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-700 rounded-full h-2 mb-6">
+                <div class="progress-bar rounded-full" :style="`width: ${(slide / 12) * 100}%`"></div>
+            </div>
+
+            <!-- Slides -->
+            <div class="relative overflow-hidden">
+                <template x-for="n in 12" :key="n">
+                    <div x-show="slide === n" class="fade-in">
+                        <!-- Slide 1: Title Slide -->
+                        <template x-if="slide === 1">
+                            <div>
+                                <h1 class="text-5xl font-bold text-blue-400">Stack Implementation in C++</h1>
+                                <h2 class="text-2xl mt-3 text-gray-300">Course: Data Structures</h2>
+                                <p class="text-lg mt-3">Using Arrays with push(), pop(), and display()</p>
+                                <p class="mt-4 text-yellow-300">Presented by: Nayan Kumar Ray & Heridoy Chowdhury</p>
+                            </div>
+                        </template>
+
+                        <!-- Slide 2: Introduction to Stack -->
+                        <template x-if="slide === 2">
+    <div class="flex items-center">
+        <div class="w-1/2 pr-4">
+            <h2 class="text-3xl font-bold mb-4 text-slide-in">Introduction to Stack</h2>
+            <p class="text-lg mb-4 text-slide-in">A stack is a linear data structure that follows the <strong>LIFO (Last In, First Out)</strong> principle.</p>
+            <p class="text-lg text-slide-in">Common operations: <code class="bg-gray-700 px-2 py-1 rounded">push()</code>, <code class="bg-gray-700 px-2 py-1 rounded">pop()</code>, and <code class="bg-gray-700 px-2 py-1 rounded">display()</code>.</p>
+            <p class="text-lg mt-4 text-slide-in">Stacks are widely used in algorithms like <strong>Depth-First Search (DFS)</strong>, <strong>Expression Evaluation</strong>, and <strong>Backtracking</strong>.</p>
+        </div>
+        <div class="w-1/2">
+            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726165552/Stack-Data-Structure.png" alt="Stack Data Structure" class="rounded-lg">
+        </div>
+    </div>
+</template>
+
+
+                      <!-- Slide 3: Stack Operations -->
+<template x-if="slide === 3">
+    <div class="flex justify-between">
+        <div class="w-3/5">
+            <h2 class="text-3xl font-bold mb-4 text-slide-in">Stack Operations</h2>
+            <ul class="text-lg space-y-2 text-slide-in">
+                <li><strong>Push():</strong> Adds an element to the top of the stack.</li>
+                <li><strong>Pop():</strong> Removes the top element from the stack.</li>
+                <li><strong>Display():</strong> Displays all elements in the stack.</li>
+                <li><strong>Peek():</strong> Returns the top element without removing it.</li>
+            </ul>
+            <p class="text-lg mt-4 text-slide-in">These operations are essential for managing data in a stack efficiently.</p>
+        </div>
+        <div class="w-2/5">
+            <img src="assest\presention.jpg" alt="Stack Operations" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </div>
+</template>
+
+<!-- Slide 4: Stack Implementation -->
+<template x-if="slide === 4">
+    <div class="flex justify-between">
+        <div class="w-3/5">
+            <h2 class="text-3xl font-bold mb-4 text-slide-in">Stack Implementation</h2>
+            <pre class="code-block text-slide-in">#include &lt;iostream&gt;
 #define MAX 5</pre>
-                            <p class="mt-4">Defines the stack size and array implementation.</p>
-                        </div>
-                    </template>
-                    <template x-if="slide === 5">
-                        <div>
-                            <h2 class="text-3xl font-bold">Stack Class Definition</h2>
-                            <pre class="bg-gray-700 p-4 rounded-lg text-left overflow-auto">class Stack {
+            <p class="text-lg mt-4 text-slide-in">Defines the stack size and array implementation. The <code>MAX</code> constant ensures the stack has a fixed size.</p>
+        </div>
+        <div class="w-2/5">
+            <img src="assest\Stack Implementation.png" alt="Stack Implementation" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </div>
+</template>
+
+<!-- Slide 5: Stack Class Definition -->
+<template x-if="slide === 5">
+    <div class="flex justify-between">
+        <div class="w-3/5">
+            <h2 class="text-3xl font-bold mb-4 text-slide-in">Stack Class Definition</h2>
+            <pre class="code-block text-slide-in">class Stack {
     int top;
     int arr[MAX];
 public:
     Stack() { top = -1; }
 };</pre>
-                        </div>
-                    </template>
-                    <template x-if="slide === 6">
-                        <div>
-                            <h2 class="text-3xl font-bold">Push Operation</h2>
-                            <pre class="bg-gray-700 p-4 rounded-lg text-left overflow-auto">void push(int value) {
+            <p class="text-lg mt-4 text-slide-in">The <code>top</code> variable tracks the index of the top element, and <code>arr[MAX]</code> stores the stack elements.</p>
+        </div>
+        <div class="w-2/5">
+            <img src="assest\Stack Class Definition.png" alt="Stack Class Definition" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </div>
+</template>
+
+<!-- Slide 6: Push Operation -->
+<template x-if="slide === 6">
+    <div class="flex justify-between">
+        <div class="w-3/5">
+            <h2 class="text-3xl font-bold mb-4 text-slide-in">Push Operation</h2>
+            <pre class="code-block text-slide-in">void push(int value) {
     if (top >= MAX - 1) {
         std::cout << "Stack Overflow\n";
         return;
     }
     arr[++top] = value;
 }</pre>
-                        </div>
-                    </template>
-                    <template x-if="slide === 7">
-                        <div>
-                            <h2 class="text-3xl font-bold">Pop Operation</h2>
-                            <pre class="bg-gray-700 p-4 rounded-lg text-left overflow-auto">void pop() {
+            <p class="text-lg mt-4 text-slide-in">The <code>push()</code> function adds an element to the stack. If the stack is full, it displays a <strong>Stack Overflow</strong> error.</p>
+        </div>
+        <div class="w-2/5">
+            <img src="assest\Push Operation.png" alt="Push Operation" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </div>
+</template>
+
+<!-- Slide 7: Pop Operation -->
+<template x-if="slide === 7">
+    <div class="flex justify-between">
+        <div class="w-3/5">
+            <h2 class="text-3xl font-bold mb-4 text-slide-in">Pop Operation</h2>
+            <pre class="code-block text-slide-in">void pop() {
     if (top < 0) {
         std::cout << "Stack Underflow\n";
         return;
     }
     std::cout << arr[top--] << " popped from stack\n";
 }</pre>
-                        </div>
-                    </template>
-                    <template x-if="slide === 8">
-                        <div>
-                            <h2 class="text-3xl font-bold">Display Function</h2>
-                            <pre class="bg-gray-700 p-4 rounded-lg text-left overflow-auto">void display() {
+            <p class="text-lg mt-4 text-slide-in">The <code>pop()</code> function removes the top element. If the stack is empty, it displays a <strong>Stack Underflow</strong> error.</p>
+        </div>
+        <div class="w-2/5">
+            <img src="assest\Pop Operation.png" alt="Pop Operation" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </div>
+</template>
+
+
+                        <!-- Slide 8: Display Function -->
+                        <template x-if="slide === 8">
+                            <div>
+                                <h2 class="text-3xl font-bold mb-4 text-slide-in">Display Function</h2>
+                                <pre class="code-block text-slide-in">void display() {
     if (top < 0) {
         std::cout << "Stack is empty\n";
         return;
@@ -99,12 +307,15 @@ public:
     for (int i = top; i >= 0; i--)
         std::cout << arr[i] << " ";
 }</pre>
-                        </div>
-                    </template>
-                    <template x-if="slide === 9">
-                        <div>
-                            <h2 class="text-3xl font-bold">Main Function</h2>
-                            <pre class="bg-gray-700 p-4 rounded-lg text-left overflow-auto">int main() {
+                                <p class="text-lg mt-4 text-slide-in">The <code>display()</code> function prints all elements in the stack from top to bottom.</p>
+                            </div>
+                        </template>
+
+                        <!-- Slide 9: Main Function -->
+                        <template x-if="slide === 9">
+                            <div>
+                                <h2 class="text-3xl font-bold mb-4 text-slide-in">Main Function</h2>
+                                <pre class="code-block text-slide-in">int main() {
     Stack s;
     s.push(10);
     s.push(20);
@@ -114,38 +325,122 @@ public:
     s.display();
     return 0;
 }</pre>
-                        </div>
-                    </template>
-                    <template x-if="slide === 10">
-                        <div>
-                            <h2 class="text-3xl font-bold">Output Example</h2>
-                            <pre class="bg-gray-700 p-4 rounded-lg text-left overflow-auto">10 pushed into stack
+                                <p class="text-lg mt-4 text-slide-in">The <code>main()</code> function demonstrates the usage of the stack operations.</p>
+                            </div>
+                        </template>
+
+                        <!-- Slide 10: Output Example -->
+                        <template x-if="slide === 10">
+                            <div>
+                                <h2 class="text-3xl font-bold mb-4 text-slide-in">Output Example</h2>
+                                <pre class="code-block text-slide-in">10 pushed into stack
 20 pushed into stack
 30 pushed into stack
 Stack elements: 30 20 10
 30 popped from stack
 Stack elements: 20 10</pre>
-                        </div>
-                    </template>
-                    <template x-if="slide === 11">
-                        <div>
-                            <h2 class="text-3xl font-bold">Explanation for Lab Exam</h2>
-                            <p>Discuss stack concept, walk through code, and demonstrate execution.</p>
-                        </div>
-                    </template>
-                    <template x-if="slide === 12">
-                        <div>
-                            <h2 class="text-3xl font-bold">Conclusion & Questions</h2>
-                            <p>Summary of Stack implementation in C++.</p>
-                            <p>Use cases: Function calls, Undo feature, Expression evaluation.</p>
-                        </div>
-                    </template>
-                </div>
-            </template>
-            <div class="mt-6 flex justify-between">
-                <button @click="if(slide > 1) slide--" class="bg-blue-500 px-4 py-2 rounded-lg">Previous</button>
-                <button @click="if(slide < 12) slide++" class="bg-green-500 px-4 py-2 rounded-lg">Next</button>
+                                <p class="text-lg mt-4 text-slide-in">This output shows the stack operations in action.</p>
+                            </div>
+                        </template>
+
+                        <!-- Slide 11: Explanation for Lab Exam -->
+                        <template x-if="slide === 11">
+                            <div>
+                                <h2 class="text-3xl font-bold mb-4 text-slide-in">Explanation for Lab Exam</h2>
+                                <p class="text-lg text-slide-in">A stack is a data structure that follows the <strong>Last In, First Out (LIFO)</strong> principle. This means that the last element added is the first one to be removed.</p>
+                                <p class="text-lg text-slide-in">We can implement a stack using an array with two main functions:</p>
+                                <ul class="text-lg space-y-2 text-slide-in">
+                                    <li><code>push(value)</code> - Adds an element to the top of the stack.</li>
+                                    <li><code>pop()</code> - Removes and returns the top element from the stack.</li>
+                                </ul>
+                                <p class="text-lg mt-4 text-slide-in">Here is the C++ implementation:</p>
+                                <pre class="code-block text-slide-in">#include &lt;iostream&gt;
+#define MAX 100
+using namespace std;
+
+class Stack {
+private:
+    int arr[MAX];
+    int top;
+public:
+    Stack() { top = -1; }
+    void push(int value) {
+        if (top >= MAX - 1) {
+            cout << "Stack Overflow!" << endl;
+            return;
+        }
+        arr[++top] = value;
+    }
+    int pop() {
+        if (top < 0) {
+            cout << "Stack Underflow!" << endl;
+            return -1;
+        }
+        return arr[top--];
+    }
+    void display() {
+        if (top < 0) {
+            cout << "Stack is empty!" << endl;
+            return;
+        }
+        for (int i = 0; i <= top; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Stack s;
+    s.push(10);
+    s.push(20);
+    s.push(30);
+    s.display();
+    cout << "Popped: " << s.pop() << endl;
+    s.display();
+    return 0;
+}</pre>
+                                <p class="text-lg text-slide-in mt-4">Key points to cover:</p>
+                                <ul class="text-lg space-y-2 text-slide-in">
+                                    <li>The <strong>LIFO</strong> principle and its importance.</li>
+                                    <li>How <code>push()</code> and <code>pop()</code> maintain stack integrity.</li>
+                                    <li>Handling edge cases like stack overflow and underflow.</li>
+                                </ul>
+                            </div>
+                        </template>
+
+                        <!-- Slide 12: Conclusion & Questions -->
+                        <template x-if="slide === 12">
+                            <div>
+                                <h2 class="text-3xl font-bold mb-4 text-slide-in">Conclusion & Questions</h2>
+                                <p class="text-lg text-slide-in">Summary of Stack implementation in C++.</p>
+                                <p class="text-lg mt-4 text-slide-in">Use cases:</p>
+                                <ul class="text-lg space-y-2 text-slide-in">
+                                    <li><strong>Function Calls:</strong> Managing return addresses.</li>
+                                    <li><strong>Undo Feature:</strong> Reverting actions in applications.</li>
+                                    <li><strong>Expression Evaluation:</strong> Solving arithmetic expressions.</li>
+                                </ul>
+                                <p class="text-lg mt-4 text-slide-in">Questions? Feel free to ask!</p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
             </div>
+
+            <!-- Navigation Buttons -->
+            <div class="mt-6 flex justify-between">
+                <button @click="if(slide > 1) slide--" class="bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600 transition">Previous</button>
+                <button @click="if(slide < 12) slide++" class="bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600 transition">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide Wireframe on the Right -->
+        <div class="slide-wireframe">
+            <template x-for="n in 12" :key="n">
+                <button @click="slide = n" :class="{ 'active': slide === n }" class="text-sm">
+                    Slide <span x-text="n"></span>
+                </button>
+            </template>
         </div>
     </div>
 </body>
