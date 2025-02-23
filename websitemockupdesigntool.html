@@ -1,1 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Mockup Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for modern design */
+        .mockup-frame {
+            position: relative;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        /* Loading spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Drag and drop area */
+        .drop-zone {
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+            background-color: #f9fafb;
+        }
+        .drop-zone.dragover {
+            border-color: #3b82f6;
+            background-color: #eef2ff;
+        }
+        .drop-zone:hover {
+            border-color: #3b82f6;
+        }
+        /* Frame buttons */
+        .frame-button {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e5e7eb;
+            background-color: #ffffff;
+        }
+        .frame-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+        .frame-button.active {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        /* Canvas styling */
+        .mockup-canvas {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background-color: #ffffff;
+        }
+        /* Buttons */
+        .action-button {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-6xl mx-4">
+        <h1 class="text-4xl font-bold text-center mb-8 text-gray-900">Modern Mockup Generator</h1>
+        
+        <!-- Upload Section -->
+        <div class="mb-8">
+            <label for="imageUpload" class="block text-sm font-medium text-gray-700 mb-2">Upload Your Image</label>
+            <div id="imageDropZone" class="drop-zone">
+                <span class="text-gray-600">Drag & Drop or Click to Upload Image</span>
+                <input type="file" id="imageUpload" accept="image/*" class="hidden">
+            </div>
+        </div>
 
+        <!-- Mockup Frame Selection (Hidden by Default) -->
+        <div id="frameSelection" class="hidden grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+            <!-- Default Frames -->
+            <button data-frame="iphone" class="frame-button p-4 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-blue-500">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="iPhone" class="w-12 h-12 mx-auto">
+                <span class="text-sm mt-2 text-gray-700">iPhone</span>
+            </button>
+            <button data-frame="macbook" class="frame-button p-4 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-blue-500">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/191.png" alt="MacBook" class="w-12 h-12 mx-auto">
+                <span class="text-sm mt-2 text-gray-700">MacBook</span>
+            </button>
+            <button data-frame="ipad" class="frame-button p-4 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-blue-500">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/327.png" alt="iPad" class="w-12 h-12 mx-auto">
+                <span class="text-sm mt-2 text-gray-700">iPad</span>
+            </button>
+            <button data-frame="monitor" class="frame-button p-4 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-blue-500">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/175.png" alt="Monitor" class="w-12 h-12 mx-auto">
+                <span class="text-sm mt-2 text-gray-700">Monitor</span>
+            </button>
+            <button data-frame="poster" class="frame-button p-4 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-blue-500">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/488.png" alt="Poster" class="w-12 h-12 mx-auto">
+                <span class="text-sm mt-2 text-gray-700">Poster</span>
+            </button>
+        </div>
+
+        <!-- Mockup Preview Section -->
+        <div id="mockupPreview" class="hidden mockup-container mb-8 flex justify-center">
+            <canvas id="mockupCanvas" class="mockup-canvas border border-gray-200" width="800" height="600"></canvas>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="hidden justify-center mb-8">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Buttons (Hidden by Default) -->
+        <div id="actionButtons" class="hidden flex justify-center gap-4">
+            <button id="previewMockup" class="action-button px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Preview Mockup</button>
+            <button id="generateMockup" class="action-button px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">Generate Mockup</button>
+            <a id="downloadLink" download="mockup.png" class="action-button px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 hidden">Download Mockup</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for handling mockup generation
+        const imageUpload = document.getElementById('imageUpload');
+        const imageDropZone = document.getElementById('imageDropZone');
+        const frameSelection = document.getElementById('frameSelection');
+        const mockupPreview = document.getElementById('mockupPreview');
+        const mockupCanvas = document.getElementById('mockupCanvas');
+        const ctx = mockupCanvas.getContext('2d');
+        const previewMockupBtn = document.getElementById('previewMockup');
+        const generateMockupBtn = document.getElementById('generateMockup');
+        const downloadLink = document.getElementById('downloadLink');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const actionButtons = document.getElementById('actionButtons');
+        const frameButtons = document.querySelectorAll('[data-frame]');
+
+        let selectedFrame = 'iphone'; // Default frame
+        let uploadedImage = null; // Image uploaded by the user
+
+        // Define screen areas for each frame
+        const frameScreenAreas = {
+            iphone: { x: 120, y: 70, width: 560, height: 960 },
+            macbook: { x: 120, y: 70, width: 560, height: 360 },
+            ipad: { x: 120, y: 70, width: 560, height: 760 },
+            monitor: { x: 120, y: 70, width: 560, height: 360 },
+            poster: { x: 100, y: 50, width: 600, height: 800 }
+        };
+
+        // Handle frame selection
+        frameButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                frameButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                selectedFrame = button.getAttribute('data-frame');
+                updateMockup();
+            });
+        });
+
+        // Handle image upload
+        imageUpload.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                loadImage(file).then(img => {
+                    uploadedImage = img;
+                    frameSelection.classList.remove('hidden');
+                    actionButtons.classList.remove('hidden');
+                    updateMockup();
+                });
+            }
+        });
+
+        // Drag and drop functionality
+        function setupDropZone(dropZone, input) {
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('dragover');
+            });
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    input.files = e.dataTransfer.files;
+                    loadImage(file).then(img => {
+                        uploadedImage = img;
+                        frameSelection.classList.remove('hidden');
+                        actionButtons.classList.remove('hidden');
+                        updateMockup();
+                    });
+                }
+            });
+            dropZone.addEventListener('click', () => input.click());
+        }
+
+        setupDropZone(imageDropZone, imageUpload);
+
+        // Load image from file
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = URL.createObjectURL(file);
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+            });
+        }
+
+        // Draw frame on canvas
+        function drawFrame(frame) {
+            ctx.clearRect(0, 0, mockupCanvas.width, mockupCanvas.height);
+
+            // Draw frame based on selection
+            switch (frame) {
+                case 'iphone':
+                    drawiPhoneFrame();
+                    break;
+                case 'macbook':
+                    drawMacBookFrame();
+                    break;
+                case 'ipad':
+                    drawiPadFrame();
+                    break;
+                case 'monitor':
+                    drawMonitorFrame();
+                    break;
+                case 'poster':
+                    drawPosterFrame();
+                    break;
+                default:
+                    break;
+            }
+
+            // Draw uploaded image inside the frame's screen area
+            if (uploadedImage) {
+                const screenArea = frameScreenAreas[frame];
+                const scale = Math.min(screenArea.width / uploadedImage.width, screenArea.height / uploadedImage.height);
+                const width = uploadedImage.width * scale;
+                const height = uploadedImage.height * scale;
+                const x = screenArea.x + (screenArea.width - width) / 2;
+                const y = screenArea.y + (screenArea.height - height) / 2;
+                ctx.drawImage(uploadedImage, x, y, width, height);
+            }
+        }
+
+        // Frame designs
+        function drawiPhoneFrame() {
+            // iPhone body with gradient and shadow
+            ctx.beginPath();
+            ctx.roundRect(100, 50, 600, 1000, 50); // Rounded corners
+            ctx.fillStyle = '#1c1c1e'; // Dark gray
+            ctx.fill();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetX = 10;
+            ctx.shadowOffsetY = 10;
+
+            // Screen area
+            ctx.beginPath();
+            ctx.roundRect(120, 70, 560, 960, 30); // Rounded corners
+            ctx.fillStyle = '#000'; // Black screen
+            ctx.fill();
+        }
+
+        function drawMacBookFrame() {
+            // MacBook base with gradient and shadow
+            ctx.beginPath();
+            ctx.roundRect(100, 50, 600, 400, 20); // Rounded corners
+            ctx.fillStyle = '#d1d1d6'; // Light gray
+            ctx.fill();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetX = 10;
+            ctx.shadowOffsetY = 10;
+
+            // Screen area
+            ctx.beginPath();
+            ctx.roundRect(120, 70, 560, 360, 10); // Rounded corners
+            ctx.fillStyle = '#000'; // Black screen
+            ctx.fill();
+        }
+
+        function drawiPadFrame() {
+            // iPad body with gradient and shadow
+            ctx.beginPath();
+            ctx.roundRect(100, 50, 600, 800, 40); // Rounded corners
+            ctx.fillStyle = '#f2f2f7'; // Light gray
+            ctx.fill();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetX = 10;
+            ctx.shadowOffsetY = 10;
+
+            // Screen area
+            ctx.beginPath();
+            ctx.roundRect(120, 70, 560, 760, 20); // Rounded corners
+            ctx.fillStyle = '#000'; // Black screen
+            ctx.fill();
+        }
+
+        function drawMonitorFrame() {
+            // Monitor base with gradient and shadow
+            ctx.beginPath();
+            ctx.roundRect(100, 50, 600, 400, 10); // Rounded corners
+            ctx.fillStyle = '#2c2c2e'; // Dark gray
+            ctx.fill();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetX = 10;
+            ctx.shadowOffsetY = 10;
+
+            // Screen area
+            ctx.beginPath();
+            ctx.roundRect(120, 70, 560, 360, 5); // Rounded corners
+            ctx.fillStyle = '#000'; // Black screen
+            ctx.fill();
+        }
+
+        function drawPosterFrame() {
+            // Poster background with shadow
+            ctx.beginPath();
+            ctx.roundRect(100, 50, 600, 800, 10); // Rounded corners
+            ctx.fillStyle = '#fff'; // White background
+            ctx.fill();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetX = 10;
+            ctx.shadowOffsetY = 10;
+
+            // Poster border
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 10;
+            ctx.strokeRect(100, 50, 600, 800);
+        }
+
+        // Update mockup
+        function updateMockup() {
+            if (!uploadedImage) return;
+            drawFrame(selectedFrame);
+        }
+
+        // Preview mockup
+        previewMockupBtn.addEventListener('click', () => {
+            mockupPreview.classList.remove('hidden');
+            updateMockup();
+        });
+
+        // Generate mockup
+        generateMockupBtn.addEventListener('click', () => {
+            loadingSpinner.classList.remove('hidden');
+            mockupCanvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                downloadLink.href = url;
+                downloadLink.classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
+            }, 'image/png');
+        });
+    </script>
+</body>
+</html>
