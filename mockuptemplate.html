@@ -28,6 +28,8 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             border: 1px solid #e5e7eb;
             background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
         }
         .template-card:hover {
             transform: translateY(-5px);
@@ -35,7 +37,37 @@
             border-color: #3b82f6;
         }
         .template-card img {
-            border-radius: 8px 8px 0 0;
+            border-radius: 12px 12px 0 0;
+            transition: transform 0.3s ease;
+        }
+        .template-card:hover img {
+            transform: scale(1.05);
+        }
+        .template-card .content {
+            padding: 1.5rem;
+        }
+        .template-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .template-card p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        .template-card a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #3b82f6;
+            color: #ffffff;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .template-card a:hover {
+            background-color: #2563eb;
         }
     </style>
 </head>
@@ -47,52 +79,52 @@
         <!-- Template Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <!-- iPhone Template -->
-            <div class="template-card rounded-lg overflow-hidden">
-                <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="iPhone Mockup Template" class="w-full h-48 object-contain">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">iPhone Mockup</h3>
-                    <p class="text-sm text-gray-600">Perfect for showcasing mobile designs.</p>
-                    <a href="/mockup-generator?template=iphone" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Use Template</a>
+            <div class="template-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="iPhone Mockup Template" class="w-full h-48 object-cover">
+                <div class="content">
+                    <h3>iPhone Mockup</h3>
+                    <p>Perfect for showcasing mobile designs.</p>
+                    <a href="websitemockupdesigntool.html?template=iphone">Use Template</a>
                 </div>
             </div>
 
             <!-- MacBook Template -->
-            <div class="template-card rounded-lg overflow-hidden">
-                <img src="https://cdn-icons-png.flaticon.com/512/0/191.png" alt="MacBook Mockup Template" class="w-full h-48 object-contain">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">MacBook Mockup</h3>
-                    <p class="text-sm text-gray-600">Ideal for desktop and web designs.</p>
-                    <a href="/mockup-generator?template=macbook" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Use Template</a>
+            <div class="template-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/191.png" alt="MacBook Mockup Template" class="w-full h-48 object-cover">
+                <div class="content">
+                    <h3>MacBook Mockup</h3>
+                    <p>Ideal for desktop and web designs.</p>
+                    <a href="websitemockupdesigntool.html?template=macbook">Use Template</a>
                 </div>
             </div>
 
             <!-- iPad Template -->
-            <div class="template-card rounded-lg overflow-hidden">
-                <img src="https://cdn-icons-png.flaticon.com/512/0/327.png" alt="iPad Mockup Template" class="w-full h-48 object-contain">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">iPad Mockup</h3>
-                    <p class="text-sm text-gray-600">Great for tablet designs and presentations.</p>
-                    <a href="/mockup-generator?template=ipad" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Use Template</a>
+            <div class="template-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/327.png" alt="iPad Mockup Template" class="w-full h-48 object-cover">
+                <div class="content">
+                    <h3>iPad Mockup</h3>
+                    <p>Great for tablet designs and presentations.</p>
+                    <a href="websitemockupdesigntool.html?template=ipad">Use Template</a>
                 </div>
             </div>
 
             <!-- Monitor Template -->
-            <div class="template-card rounded-lg overflow-hidden">
-                <img src="https://cdn-icons-png.flaticon.com/512/0/175.png" alt="Monitor Mockup Template" class="w-full h-48 object-contain">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">Monitor Mockup</h3>
-                    <p class="text-sm text-gray-600">Showcase your designs on a large screen.</p>
-                    <a href="/mockup-generator?template=monitor" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Use Template</a>
+            <div class="template-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/175.png" alt="Monitor Mockup Template" class="w-full h-48 object-cover">
+                <div class="content">
+                    <h3>Monitor Mockup</h3>
+                    <p>Showcase your designs on a large screen.</p>
+                    <a href="websitemockupdesigntool.html?template=monitor">Use Template</a>
                 </div>
             </div>
 
             <!-- Poster Template -->
-            <div class="template-card rounded-lg overflow-hidden">
-                <img src="https://cdn-icons-png.flaticon.com/512/0/488.png" alt="Poster Mockup Template" class="w-full h-48 object-contain">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">Poster Mockup</h3>
-                    <p class="text-sm text-gray-600">Perfect for print and digital posters.</p>
-                    <a href="/mockup-generator?template=poster" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Use Template</a>
+            <div class="template-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/0/488.png" alt="Poster Mockup Template" class="w-full h-48 object-cover">
+                <div class="content">
+                    <h3>Poster Mockup</h3>
+                    <p>Perfect for print and digital posters.</p>
+                    <a href="websitemockupdesigntool.html?template=poster">Use Template</a>
                 </div>
             </div>
 
