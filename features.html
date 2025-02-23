@@ -64,9 +64,38 @@
             background-color: #1f2937;
             color: #f9fafb;
         }
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .language-switcher {
+            color: #4b5563;
+            transition: color 0.3s ease;
+        }
+        .language-switcher:hover {
+            color: #3b82f6;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="header py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-900 chinese-font">现代模拟生成器</div>
+            <nav class="flex items-center space-x-6">
+                <a href="#features" class="text-gray-700 hover:text-blue-500">Features</a>
+                <a href="#templates" class="text-gray-700 hover:text-blue-500">Templates</a>
+                <a href="#pricing" class="text-gray-700 hover:text-blue-500">Pricing</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a>
+                <div class="flex items-center space-x-2">
+                    <button class="language-switcher" onclick="switchLanguage('en')">EN</button>
+                    <span class="text-gray-400">|</span>
+                    <button class="language-switcher" onclick="switchLanguage('cn')">中文</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero-section py-20">
         <div class="container mx-auto px-6 text-center">
@@ -111,6 +140,69 @@
         </div>
     </section>
 
+    <!-- Templates Section -->
+    <section id="templates" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900">Templates</h2>
+            <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+                Choose from a wide range of professionally designed templates.
+            </p>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Template 1 -->
+                <div class="feature-card p-6 bg-white">
+                    <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="iPhone Mockup" class="w-full h-32 object-contain">
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">iPhone Mockup</h3>
+                    <p class="mt-2 text-gray-600">Perfect for mobile app designs.</p>
+                </div>
+                <!-- Template 2 -->
+                <div class="feature-card p-6 bg-white">
+                    <img src="https://cdn-icons-png.flaticon.com/512/0/191.png" alt="MacBook Mockup" class="w-full h-32 object-contain">
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">MacBook Mockup</h3>
+                    <p class="mt-2 text-gray-600">Ideal for web and desktop designs.</p>
+                </div>
+                <!-- Template 3 -->
+                <div class="feature-card p-6 bg-white">
+                    <img src="https://cdn-icons-png.flaticon.com/512/0/488.png" alt="Poster Mockup" class="w-full h-32 object-contain">
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">Poster Mockup</h3>
+                    <p class="mt-2 text-gray-600">Great for print and digital posters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900">Pricing</h2>
+            <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+                Affordable plans for individuals and teams.
+            </p>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Plan 1 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">Free</h3>
+                    <p class="mt-2 text-gray-600">Basic features for personal use.</p>
+                    <p class="mt-4 text-2xl font-bold text-gray-900">$0<span class="text-sm text-gray-600">/month</span></p>
+                    <button class="cta-button w-full mt-6 px-4 py-2 rounded-lg">Get Started</button>
+                </div>
+                <!-- Plan 2 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">Pro</h3>
+                    <p class="mt-2 text-gray-600">Advanced features for professionals.</p>
+                    <p class="mt-4 text-2xl font-bold text-gray-900">$9<span class="text-sm text-gray-600">/month</span></p>
+                    <button class="cta-button w-full mt-6 px-4 py-2 rounded-lg">Upgrade</button>
+                </div>
+                <!-- Plan 3 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">Team</h3>
+                    <p class="mt-2 text-gray-600">Collaboration tools for teams.</p>
+                    <p class="mt-4 text-2xl font-bold text-gray-900">$29<span class="text-sm text-gray-600">/month</span></p>
+                    <button class="cta-button w-full mt-6 px-4 py-2 rounded-lg">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action Section -->
     <section class="py-20 bg-blue-50">
         <div class="container mx-auto px-6 text-center">
@@ -134,5 +226,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Language Switcher Script -->
+    <script>
+        function switchLanguage(lang) {
+            if (lang === 'cn') {
+                document.querySelector('.hero-title').textContent = '现代模拟生成器';
+                document.querySelector('.hero-subtitle').textContent = '在线创建令人惊叹的网站模型';
+            } else {
+                document.querySelector('.hero-title').textContent = 'Modern Mockup Generator';
+                document.querySelector('.hero-subtitle').textContent = 'Create Stunning Website Mockups Online';
+            }
+        }
+    </script>
 </body>
 </html>
