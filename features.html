@@ -67,6 +67,9 @@
         .header {
             background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .language-switcher {
             color: #4b5563;
@@ -86,6 +89,8 @@
                 <a href="#features" class="text-gray-700 hover:text-blue-500">Features</a>
                 <a href="#templates" class="text-gray-700 hover:text-blue-500">Templates</a>
                 <a href="#pricing" class="text-gray-700 hover:text-blue-500">Pricing</a>
+                <a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a>
+                <a href="#upcoming" class="text-gray-700 hover:text-blue-500">Upcoming</a>
                 <a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a>
                 <div class="flex items-center space-x-2">
                     <button class="language-switcher" onclick="switchLanguage('en')">EN</button>
@@ -198,6 +203,63 @@
                     <p class="mt-2 text-gray-600">Collaboration tools for teams.</p>
                     <p class="mt-4 text-2xl font-bold text-gray-900">$29<span class="text-sm text-gray-600">/month</span></p>
                     <button class="cta-button w-full mt-6 px-4 py-2 rounded-lg">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900">Blog</h2>
+            <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+                Stay updated with the latest trends and tips in design and mockups.
+            </p>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Blog Post 1 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">Top 5 Mockup Tools for 2023</h3>
+                    <p class="mt-2 text-gray-600">Discover the best tools for creating stunning mockups.</p>
+                    <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-600">Read More →</a>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">How to Create a Mockup in 5 Easy Steps</h3>
+                    <p class="mt-2 text-gray-600">Learn how to create professional mockups quickly.</p>
+                    <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-600">Read More →</a>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">The Future of Design Mockups</h3>
+                    <p class="mt-2 text-gray-600">Explore upcoming trends in design mockups.</p>
+                    <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-600">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Features Section -->
+    <section id="upcoming" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900">Upcoming Features</h2>
+            <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+                Exciting new features are on the way. Stay tuned!
+            </p>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">3D Mockups</h3>
+                    <p class="mt-2 text-gray-600">Create immersive 3D mockups for your designs.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">Collaboration Tools</h3>
+                    <p class="mt-2 text-gray-600">Work seamlessly with your team on mockups.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-900">AI-Powered Design</h3>
+                    <p class="mt-2 text-gray-600">Leverage AI to create stunning designs effortlessly.</p>
                 </div>
             </div>
         </div>
