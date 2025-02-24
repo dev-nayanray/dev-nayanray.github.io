@@ -95,13 +95,13 @@ SMS Confirmation for WooCommerce</span>
             <!-- Left Content -->
             <div class="lg:w-1/2 text-white">
                 <div class="mb-8 flex items-center gap-2">
-                    <span class="px-4 py-1 bg-white/20 rounded-full">🔥 সর্বশেষ ভার্সন ২.১.০</span>
+                    <span class="px-4 py-1 bg-white/20 rounded-full">🔥 সর্বশেষ ভার্সন ১.০.০</span>
                     <span class="px-4 py-1 bg-green-500 rounded-full">⭐ ৫ এর মধ্যে ৪.৯</span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                     <span class="gradient-text">WooCommerce</span> জন্য এসএমএস নোটিফিকেশন সমাধান
                 </h1>
-                <p class="text-xl opacity-90 mb-8">SMS.net.bd এর সাথে ইন্টিগ্রেটেড স্বয়ংক্রিয় এসএমএস সেবা</p>
+                <p class="text-xl opacity-90 mb-8">WooCommerce এর সাথে ইন্টিগ্রেট করে অর্ডার কনফার্মেশনের সময় এসএমএস নোটিফিকেশন পাঠানোর সুবিধা প্রদান করে।</p>
                 <div class="flex flex-wrap gap-4">
                     <a href="#installation" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all transform hover:-translate-y-1">
                         📘 বিনামূল্যে ডাউনলোড করুন
@@ -356,107 +356,77 @@ SMS Confirmation for WooCommerce</span>
     </div>
 </section>
 <!-- Plugin Installation Instructions -->
-<section id="installation" class="py-20 bg-gray-50">
+<section id="installation" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">প্লাগিন ইন্সটলেশন গাইড</h2>
         <div class="max-w-4xl mx-auto">
             <!-- Timeline Container -->
             <div class="relative">
                 <!-- Timeline Line -->
-                <div class="absolute left-4 top-0 h-full w-1 bg-blue-100 transform -translate-x-1/2"></div>
+                <div class="absolute left-4 top-0 h-full w-1 bg-blue-200 transform -translate-x-1/2"></div>
 
                 <!-- Step 1 -->
                 <div class="flex items-center gap-8 mb-12">
                     <!-- Icon Circle -->
-                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center z-10 shadow-lg hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-download text-white text-2xl"></i>
                     </div>
                     <!-- Content -->
-                    <div class="flex-1 bg-white p-8 rounded-xl border border-blue-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex-1 bg-white p-8 rounded-xl border border-blue-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <h3 class="text-2xl font-bold text-blue-800 mb-4">১. প্লাগিন ডাউনলোড করুন</h3>
                         <p class="text-gray-600 mb-4">ওয়ার্ডপ্রেস অ্যাডমিন প্যানেলে যান → প্লাগিন → নতুন যোগ করুন → "SMS Confirmation for WooCommerce" সার্চ করুন → ইন্সটল করুন → অ্যাক্টিভেট করুন।</p>
-                        <p class="text-gray-500 text-sm">💡 টিপ: আপনি সরাসরি প্লাগিনের ZIP ফাইল ডাউনলোড করে ম্যানুয়ালিও ইন্সটল করতে পারেন।</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-2">
+                            <span class="text-blue-500">💡</span> টিপ: আপনি সরাসরি প্লাগিনের ZIP ফাইল ডাউনলোড করে ম্যানুয়ালিও ইন্সটল করতে পারেন।
+                        </p>
                     </div>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="flex items-center gap-8 mb-12">
                     <!-- Icon Circle -->
-                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <div class="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center z-10 shadow-lg hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-key text-white text-2xl"></i>
                     </div>
                     <!-- Content -->
-                    <div class="flex-1 bg-white p-8 rounded-xl border border-green-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex-1 bg-white p-8 rounded-xl border border-green-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <h3 class="text-2xl font-bold text-green-800 mb-4">২. API কী সেটআপ করুন</h3>
                         <p class="text-gray-600 mb-4">SMS.net.bd একাউন্ট থেকে API কী সংগ্রহ করুন → ওয়ার্ডপ্রেস অ্যাডমিন প্যানেলে প্লাগিন সেটিংসে API কী ইনপুট করুন → সংরক্ষণ করুন।</p>
-                        <p class="text-gray-500 text-sm">🔒 নিরাপত্তা: আপনার API কী কখনোই শেয়ার করবেন না এবং নিরাপদ স্থানে সংরক্ষণ করুন।</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-2">
+                            <span class="text-green-500">🔒</span> নিরাপত্তা: আপনার API কী কখনোই শেয়ার করবেন না এবং নিরাপদ স্থানে সংরক্ষণ করুন।
+                        </p>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="flex items-center gap-8 mb-12">
                     <!-- Icon Circle -->
-                    <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <div class="w-14 h-14 bg-purple-600 rounded-full flex items-center justify-center z-10 shadow-lg hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-edit text-white text-2xl"></i>
                     </div>
                     <!-- Content -->
-                    <div class="flex-1 bg-white p-8 rounded-xl border border-purple-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex-1 bg-white p-8 rounded-xl border border-purple-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <h3 class="text-2xl font-bold text-purple-800 mb-4">৩. টেমপ্লেট কাস্টমাইজ করুন</h3>
                         <p class="text-gray-600 mb-4">প্লাগিন সেটিংসে গিয়ে এসএমএস টেমপ্লেট কাস্টমাইজ করুন → অর্ডার স্ট্যাটাস অনুযায়ী মেসেজ সেট করুন → সংরক্ষণ করুন।</p>
-                        <p class="text-gray-500 text-sm">📝 নোট: আপনি ডাইনামিক ট্যাগ ব্যবহার করে অর্ডার ডিটেইলস (যেমন: অর্ডার নম্বর, গ্রাহকের নাম) এসএমএসে যোগ করতে পারেন।</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-2">
+                            <span class="text-purple-500">📝</span> নোট: আপনি ডাইনামিক ট্যাগ ব্যবহার করে অর্ডার ডিটেইলস (যেমন: অর্ডার নম্বর, গ্রাহকের নাম) এসএমএসে যোগ করতে পারেন।
+                        </p>
                     </div>
                 </div>
 
                 <!-- Step 4 -->
                 <div class="flex items-center gap-8">
                     <!-- Icon Circle -->
-                    <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <div class="w-14 h-14 bg-orange-600 rounded-full flex items-center justify-center z-10 shadow-lg hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-check-circle text-white text-2xl"></i>
                     </div>
                     <!-- Content -->
-                    <div class="flex-1 bg-white p-8 rounded-xl border border-orange-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex-1 bg-white p-8 rounded-xl border border-orange-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <h3 class="text-2xl font-bold text-orange-800 mb-4">৪. টেস্ট করুন এবং ব্যবহার শুরু করুন</h3>
                         <p class="text-gray-600 mb-4">একটি টেস্ট অর্ডার তৈরি করুন এবং অর্ডার স্ট্যাটাস "Completed" এ পরিবর্তন করুন → গ্রাহকের মোবাইলে এসএমএস নোটিফিকেশন পাঠানো হয়েছে কিনা তা যাচাই করুন।</p>
-                        <p class="text-gray-500 text-sm">🛠 সমস্যা হলে: WooCommerce লগ চেক করুন বা প্লাগিন সেটিংসে ডিবাগ মোড চালু করুন।</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-2">
+                            <span class="text-orange-500">🛠</span> সমস্যা হলে: WooCommerce লগ চেক করুন বা প্লাগিন সেটিংসে ডিবাগ মোড চালু করুন।
+                        </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Plugin Details Section -->
-<section id="plugin-details" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">প্লাগিন ডিটেইলস</h2>
-        <div class="max-w-4xl mx-auto">
-            <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl border border-blue-100 shadow-lg">
-                <h3 class="text-2xl font-bold text-blue-800 mb-4">SMS Confirmation for WooCommerce</h3>
-                <p class="text-gray-600 mb-4">এই প্লাগিনটি WooCommerce এর সাথে ইন্টিগ্রেট করে অর্ডার কনফার্মেশনের সময় এসএমএস নোটিফিকেশন পাঠানোর সুবিধা প্রদান করে।</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="text-xl font-bold text-gray-700 mb-2">ফিচারস:</h4>
-                        <ul class="list-disc list-inside text-gray-600">
-                            <li>অটোমেটিক এসএমএস নোটিফিকেশন</li>
-                            <li>SMS.net.bd API ব্যবহার</li>
-                            <li>কাস্টমাইজেবল এসএমএস টেমপ্লেট</li>
-                            <li>বাংলাদেশী ফোন নম্বর ফরম্যাটিং</li>
-                            <li>WooCommerce লগিং সাপোর্ট</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold text-gray-700 mb-2">প্রয়োজনীয়তা:</h4>
-                        <ul class="list-disc list-inside text-gray-600">
-                            <li>WordPress 5.0 বা তার উপরে</li>
-                            <li>WooCommerce ইন্সটলড এবং অ্যাক্টিভ</li>
-                            <li>PHP 7.4 বা তার উপরে</li>
-                            <li>SMS.net.bd একাউন্ট এবং API কী</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <h4 class="text-xl font-bold text-gray-700 mb-2">লাইসেন্স:</h4>
-                    <p class="text-gray-600">এই প্লাগিনটি <a href="https://www.gnu.org/licenses/gpl-2.0.html" class="text-blue-600 hover:underline" target="_blank">GNU GPL v2.0</a> লাইসেন্সের অধীনে প্রকাশিত।</p>
                 </div>
             </div>
         </div>
@@ -507,41 +477,85 @@ SMS Confirmation for WooCommerce</span>
     </div>
 </section>
 
-  <!-- FAQ Section -->
-<section class="py-20 bg-white">
+<!-- FAQ Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-16">প্রায়শই জিজ্ঞাসিত প্রশ্ন</h2>
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">প্রায়শই জিজ্ঞাসিত প্রশ্ন</h2>
         <div class="max-w-3xl mx-auto space-y-6">
             <!-- FAQ Card 1 -->
-            <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition-shadow">
-                <details open>
+            <div class="bg-white p-8 rounded-2xl border border-blue-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <details class="group">
                     <summary class="flex justify-between items-center cursor-pointer">
-                        <h3 class="text-lg font-semibold text-blue-800">এসএমএস ডেলিভারি রেট কেমন?</h3>
-                        <i class="fas fa-chevron-down text-blue-600 transform transition-transform"></i>
+                        <h3 class="text-xl font-semibold text-blue-800">এসএমএস ডেলিভারি রেট কেমন?</h3>
+                        <i class="fas fa-chevron-down text-blue-600 transform transition-transform group-open:rotate-180"></i>
                     </summary>
                     <p class="mt-4 text-gray-600">SMS.net.bd এর ৯৯.৯% ডেলিভারি সাকসেস রেট রয়েছে। বাংলাদেশের সকল অপারেটরে সরাসরি কানেকশান এর মাধ্যমে আমরা সর্বোচ্চ ডেলিভারিবিলিটি নিশ্চিত করি।</p>
                 </details>
             </div>
 
             <!-- FAQ Card 2 -->
-            <div class="bg-gradient-to-br from-green-50 to-white p-6 rounded-2xl border border-green-100 shadow-sm hover:shadow-lg transition-shadow">
-                <details>
+            <div class="bg-white p-8 rounded-2xl border border-green-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <details class="group">
                     <summary class="flex justify-between items-center cursor-pointer">
-                        <h3 class="text-lg font-semibold text-green-800">কতক্ষণে এসএমএস পৌঁছায়?</h3>
-                        <i class="fas fa-chevron-down text-green-600 transform transition-transform"></i>
+                        <h3 class="text-xl font-semibold text-green-800">কতক্ষণে এসএমএস পৌঁছায়?</h3>
+                        <i class="fas fa-chevron-down text-green-600 transform transition-transform group-open:rotate-180"></i>
                     </summary>
                     <p class="mt-4 text-gray-600">আমাদের সিস্টেমে এসএমএস সাধারণত ২-৫ সেকেন্ডের মধ্যে ডেলিভারি হয়ে থাকে। নেটওয়ার্ক কনজেশন এর ক্ষেত্রে সর্বোচ্চ ১ মিনিট সময় লাগতে পারে।</p>
                 </details>
             </div>
 
             <!-- FAQ Card 3 -->
-            <div class="bg-gradient-to-br from-purple-50 to-white p-6 rounded-2xl border border-purple-100 shadow-sm hover:shadow-lg transition-shadow">
-                <details>
+            <div class="bg-white p-8 rounded-2xl border border-purple-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <details class="group">
                     <summary class="flex justify-between items-center cursor-pointer">
-                        <h3 class="text-lg font-semibold text-purple-800">এসএমএস খরচ কত?</h3>
-                        <i class="fas fa-chevron-down text-purple-600 transform transition-transform"></i>
+                        <h3 class="text-xl font-semibold text-purple-800">এসএমএস খরচ কত?</h3>
+                        <i class="fas fa-chevron-down text-purple-600 transform transition-transform group-open:rotate-180"></i>
                     </summary>
                     <p class="mt-4 text-gray-600">আমাদের এসএমএস খরচ প্রতিটি এসএমএসের জন্য ৳০.৩০ থেকে শুরু হয়। বাল্ক এসএমএসের জন্য বিশেষ ডিসকাউন্ট উপলব্ধ।</p>
+                </details>
+            </div>
+
+            <!-- FAQ Card 4 -->
+            <div class="bg-white p-8 rounded-2xl border border-blue-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold text-blue-800">Does this plugin work with any SMS provider?</h3>
+                        <i class="fas fa-chevron-down text-blue-600 transform transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">No, this plugin is specifically built for SMS.net.bd.</p>
+                </details>
+            </div>
+
+            <!-- FAQ Card 5 -->
+            <div class="bg-white p-8 rounded-2xl border border-green-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold text-green-800">Can I customize the SMS message content?</h3>
+                        <i class="fas fa-chevron-down text-green-600 transform transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">Not yet, but we plan to add message customization in future updates.</p>
+                </details>
+            </div>
+
+            <!-- FAQ Card 6 -->
+            <div class="bg-white p-8 rounded-2xl border border-purple-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold text-purple-800">Will this plugin work outside Bangladesh?</h3>
+                        <i class="fas fa-chevron-down text-purple-600 transform transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">It is optimized for Bangladeshi phone numbers. Other countries may require modifications.</p>
+                </details>
+            </div>
+
+            <!-- FAQ Card 7 -->
+            <div class="bg-white p-8 rounded-2xl border border-orange-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold text-orange-800">Does this plugin support logging?</h3>
+                        <i class="fas fa-chevron-down text-orange-600 transform transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">Yes! The plugin uses WooCommerce’s built-in logging system for debugging.</p>
                 </details>
             </div>
         </div>
