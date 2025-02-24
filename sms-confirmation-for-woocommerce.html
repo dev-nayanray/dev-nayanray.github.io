@@ -64,22 +64,49 @@
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
 
-    <!-- Sticky Header -->
-    <header class="sticky-header bg-white shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="logo.png" alt="SMS Logo" class="h-12 w-auto" loading="lazy">
-                <span class="ml-3 text-xl font-bold text-gray-800">
-SMS Confirmation for WooCommerce</span>
-            </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#features" class="text-gray-700 hover:text-blue-600">ফিচার্স</a>
-                <a href="#pricing" class="text-gray-700 hover:text-blue-600">মূল্য</a>
-                <a href="#blog" class="text-gray-700 hover:text-blue-600">ব্লগ</a>
-                <a href="https://wordpress.org/plugins/sms-confirmation-for-woocommerce/" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">ডাউনলোড করুন</a>
-            </div>
-        </nav>
-    </header>
+<!-- Sticky Header -->
+<header class="sticky-header bg-white shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo and Brand Name -->
+        <div class="flex items-center">
+            <img src="logo.png" alt="SMS Logo" class="h-12 w-auto" loading="lazy">
+            <span class="ml-3 text-xl font-bold text-gray-800">SMS Confirmation for WooCommerce</span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="#features" class="text-gray-700 hover:text-blue-600">ফিচার্স</a>
+            <a href="#pricing" class="text-gray-700 hover:text-blue-600">মূল্য</a>
+            <a href="#blog" class="text-gray-700 hover:text-blue-600">ব্লগ</a>
+            <a href="https://wordpress.org/plugins/sms-confirmation-for-woocommerce/" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">ডাউনলোড করুন</a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by Default) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <a href="#features" class="block text-gray-700 hover:text-blue-600 py-2">ফিচার্স</a>
+            <a href="#pricing" class="block text-gray-700 hover:text-blue-600 py-2">মূল্য</a>
+            <a href="#blog" class="block text-gray-700 hover:text-blue-600 py-2">ব্লগ</a>
+            <a href="https://wordpress.org/plugins/sms-confirmation-for-woocommerce/" class="block bg-blue-600 text-white px-6 py-2 rounded-lg text-center hover:bg-blue-700">ডাউনলোড করুন</a>
+        </div>
+    </div>
+</header>
+
+<!-- JavaScript for Mobile Menu Toggle -->
+<script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
 
    <!-- Hero Section -->
 <section class="pt-32 pb-20 bg-gradient-to-br from-blue-900 to-blue-600 relative overflow-hidden">
@@ -519,10 +546,10 @@ SMS Confirmation for WooCommerce</span>
             <div class="bg-white p-8 rounded-2xl border border-blue-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <details class="group">
                     <summary class="flex justify-between items-center cursor-pointer">
-                        <h3 class="text-xl font-semibold text-blue-800">Does this plugin work with any SMS provider?</h3>
+                        <h3 class="text-xl font-semibold text-blue-800">এই প্লাগিন কি যেকোনো এসএমএস প্রোভাইডারের সাথে কাজ করে?</h3>
                         <i class="fas fa-chevron-down text-blue-600 transform transition-transform group-open:rotate-180"></i>
                     </summary>
-                    <p class="mt-4 text-gray-600">No, this plugin is specifically built for SMS.net.bd.</p>
+                    <p class="mt-4 text-gray-600">না, এই প্লাগিনটি বিশেষভাবে SMS.net.bd এর জন্য তৈরি করা হয়েছে।</p>
                 </details>
             </div>
 
@@ -530,10 +557,10 @@ SMS Confirmation for WooCommerce</span>
             <div class="bg-white p-8 rounded-2xl border border-green-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <details class="group">
                     <summary class="flex justify-between items-center cursor-pointer">
-                        <h3 class="text-xl font-semibold text-green-800">Can I customize the SMS message content?</h3>
+                        <h3 class="text-xl font-semibold text-green-800">আমি কি এসএমএস মেসেজ কাস্টমাইজ করতে পারব?</h3>
                         <i class="fas fa-chevron-down text-green-600 transform transition-transform group-open:rotate-180"></i>
                     </summary>
-                    <p class="mt-4 text-gray-600">Not yet, but we plan to add message customization in future updates.</p>
+                    <p class="mt-4 text-gray-600">এখনো না, তবে ভবিষ্যত আপডেটে মেসেজ কাস্টমাইজেশনের সুবিধা যোগ করার পরিকল্পনা রয়েছে।</p>
                 </details>
             </div>
 
@@ -541,10 +568,10 @@ SMS Confirmation for WooCommerce</span>
             <div class="bg-white p-8 rounded-2xl border border-purple-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <details class="group">
                     <summary class="flex justify-between items-center cursor-pointer">
-                        <h3 class="text-xl font-semibold text-purple-800">Will this plugin work outside Bangladesh?</h3>
+                        <h3 class="text-xl font-semibold text-purple-800">এই প্লাগিন কি বাংলাদেশের বাইরে কাজ করবে?</h3>
                         <i class="fas fa-chevron-down text-purple-600 transform transition-transform group-open:rotate-180"></i>
                     </summary>
-                    <p class="mt-4 text-gray-600">It is optimized for Bangladeshi phone numbers. Other countries may require modifications.</p>
+                    <p class="mt-4 text-gray-600">এটি বাংলাদেশী ফোন নম্বরের জন্য অপ্টিমাইজ করা হয়েছে। অন্যান্য দেশের জন্য কিছু মডিফিকেশন প্রয়োজন হতে পারে।</p>
                 </details>
             </div>
 
@@ -552,10 +579,10 @@ SMS Confirmation for WooCommerce</span>
             <div class="bg-white p-8 rounded-2xl border border-orange-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <details class="group">
                     <summary class="flex justify-between items-center cursor-pointer">
-                        <h3 class="text-xl font-semibold text-orange-800">Does this plugin support logging?</h3>
+                        <h3 class="text-xl font-semibold text-orange-800">এই প্লাগিন কি লগিং সাপোর্ট করে?</h3>
                         <i class="fas fa-chevron-down text-orange-600 transform transition-transform group-open:rotate-180"></i>
                     </summary>
-                    <p class="mt-4 text-gray-600">Yes! The plugin uses WooCommerce’s built-in logging system for debugging.</p>
+                    <p class="mt-4 text-gray-600">হ্যাঁ! এই প্লাগিনটি ডিবাগিং এর জন্য WooCommerce এর বিল্ট-ইন লগিং সিস্টেম ব্যবহার করে।</p>
                 </details>
             </div>
         </div>
