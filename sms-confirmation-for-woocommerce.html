@@ -58,11 +58,7 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <div class="text-center mt-8">
-    <a href="#top" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-        <i class="fas fa-arrow-up mr-2"></i>উপরে যান
-    </a>
-</div>
+   
     <!-- WhatsApp Chat -->
     <a href="https://wa.me/+8809613-492492" target="_blank" class="whatsapp-chat bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl">
         <i class="fab fa-whatsapp text-2xl"></i>
@@ -498,13 +494,21 @@ SMS Confirmation for WooCommerce</span>
 </section>
 <!-- Footer -->
 <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12">
-    
+    <!-- Sticky Back to Top Button -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <a href="#top" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
+            <i class="fas fa-arrow-up mr-2"></i>উপরে যান
+        </a>
+    </div>
+
     <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-4 gap-8">
             <!-- Company Info -->
             <div>
-                <h4 class="text-lg font-bold mb-4">
-SMS Confirmation for WooCommerce</h4>
+                <div class="flex items-center mb-4">
+                    <img src="logo.png" alt="SMS.net.bd Logo" class="h-12 w-auto">
+                    <span class="ml-3 text-xl font-bold">SMS Confirmation for WooCommerce</span>
+                </div>
                 <ul class="space-y-2">
                     <li>
                         <a href="https://profiles.wordpress.org/markhubs/about" class="text-gray-400 hover:text-white transition-colors">
@@ -567,16 +571,16 @@ SMS Confirmation for WooCommerce</h4>
             <div>
                 <h4 class="text-lg font-bold mb-4">সামাজিক যোগাযোগ</h4>
                 <div class="flex space-x-4">
-                    <a href="https://facebook.com/sms.net.bd" class="text-gray-400 hover:text-blue-500 transition-colors">
+                    <a href="https://facebook.com/sms.net.bd" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
                         <i class="fab fa-facebook text-2xl"></i>
                     </a>
-                    <a href="https://twitter.com/sms.net.bd" class="text-gray-400 hover:text-blue-400 transition-colors">
+                    <a href="https://twitter.com/sms.net.bd" class="text-gray-400 hover:text-blue-400 transition-colors transform hover:scale-110">
                         <i class="fab fa-twitter text-2xl"></i>
                     </a>
-                    <a href="https://linkedin.com/company/sms.net.bd" class="text-gray-400 hover:text-blue-600 transition-colors">
+                    <a href="https://linkedin.com/company/sms.net.bd" class="text-gray-400 hover:text-blue-600 transition-colors transform hover:scale-110">
                         <i class="fab fa-linkedin text-2xl"></i>
                     </a>
-                    <a href="https://youtube.com/sms.net.bd" class="text-gray-400 hover:text-red-600 transition-colors">
+                    <a href="https://youtube.com/sms.net.bd" class="text-gray-400 hover:text-red-600 transition-colors transform hover:scale-110">
                         <i class="fab fa-youtube text-2xl"></i>
                     </a>
                 </div>
@@ -590,7 +594,6 @@ SMS Confirmation for WooCommerce</h4>
         </div>
     </div>
 </footer>
-
     <script>
         // Sticky Header Scroll Effect
         window.addEventListener('scroll', function() {
