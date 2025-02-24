@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Confirmation for WooCommerce - SMS.net.bd এর অফিসিয়াল প্লাগিন</title>
+    <meta name="description" content="ওয়ুকমার্সের জন্য SMS.net.bd এর অফিসিয়াল এসএমএস নোটিফিকেশন প্লাগিন। অর্ডার কনফার্মেশন, ডেলিভারি আপডেট এবং কাস্টমার নোটিফিকেশন পাঠান স্বয়ংক্রিয়ভাবে।">
+    <meta name="keywords" content="woocommerce sms plugin, bangladesh sms service, sms.net.bd, order confirmation sms, ecommerce notification">
+    <link rel="canonical" href="https://sms.net.bd/woocommerce-plugin">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="SMS Confirmation for WooCommerce - SMS.net.bd এর অফিসিয়াল প্লাগিন">
+    <meta property="og:description" content="ওয়ুকমার্সের জন্য SMS.net.bd এর অফিসিয়াল এসএমএস নোটিফিকেশন প্লাগিন">
+    <meta property="og:image" content="https://sms.net.bd/images/plugin-og-image.jpg">
+    <meta property="og:url" content="https://sms.net.bd/woocommerce-plugin">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SMS Confirmation for WooCommerce - SMS.net.bd এর অফিসিয়াল প্লাগিন">
+    <meta name="twitter:description" content="ওয়ুকমার্সের জন্য SMS.net.bd এর অফিসিয়াল এসএমএস নোটিফিকেশন প্লাগিন">
+    <meta name="twitter:image" content="https://sms.net.bd/images/plugin-twitter-image.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out; }
+        .whatsapp-chat { 
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .feature-card {
+            @apply p-8 bg-white rounded-2xl border border-gray-200 hover:border-blue-100 transition-all;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- WhatsApp Chat -->
+    <a href="https://wa.me/+8809613-492492" target="_blank" class="whatsapp-chat bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header bg-white shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="data:image/png;base64,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" alt="SMS.net.bd Logo" class="h-12 w-auto" loading="lazy">
+                <span class="ml-3 text-xl font-bold text-gray-800">এসএমএস কনফার্মেশন</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-700 hover:text-blue-600">ফিচার্স</a>
+                <a href="#pricing" class="text-gray-700 hover:text-blue-600">মূল্য</a>
+                <a href="#blog" class="text-gray-700 hover:text-blue-600">ব্লগ</a>
+                <a href="https://wordpress.org/plugins/sms-confirmation-for-woocommerce/" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">ডাউনলোড করুন</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-900 to-blue-600">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 text-white">
+                    <div class="mb-8 flex items-center gap-2">
+                        <span class="px-4 py-1 bg-white/20 rounded-full">🔥 সর্বশেষ ভার্সন ২.১.০</span>
+                        <span class="px-4 py-1 bg-green-500 rounded-full">⭐ ৫ এর মধ্যে ৪.৯</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <span class="gradient-text">ওয়ুকমার্স</span> জন্য এসএমএস নোটিফিকেশন সমাধান
+                    </h1>
+                    <p class="text-xl opacity-90 mb-8">SMS.net.bd এর সাথে ইন্টিগ্রেটেড স্বয়ংক্রিয় এসএমএস সেবা</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#installation" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50">
+                            📘 বিনামূল্যে ডাউনলোড করুন
+                        </a>
+                        <a href="https://demo.sms.net.bd/woocommerce" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10">
+                            🎥 লাইভ ডেমো দেখুন
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-12 lg:mt-0 relative">
+                    <div class="absolute -top-8 -right-8 bg-white p-4 rounded-2xl shadow-lg">
+                        <div class="flex items-center gap-2">
+                            <div class="animate-ping w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm font-semibold">রিয়েল-টাইম আপডেট</span>
+                        </div>
+                    </div>
+                    <img src="assets/" alt="প্লাগিন ড্যাশবোর্ড" class="rounded-2xl shadow-2xl border-4 border-white" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">মূল বৈশিষ্ট্যাবলী</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-sync-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">রিয়েল-টাইম নোটিফিকেশন</h3>
+                    </div>
+                    <p class="text-gray-600">অর্ডার স্ট্যাটাস পরিবর্তনের ২ সেকেন্ডের মধ্যে এসএমএস ডেলিভারি</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-tools text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">কাস্টমাইজেশান</h3>
+                    </div>
+                    <p class="text-gray-600">এসএমএস টেমপ্লেট, টাইমিং এবং রিসিপিয়েন্ট কাস্টমাইজ করুন</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">বিস্তারিত রিপোর্ট</h3>
+                    </div>
+                    <p class="text-gray-600">প্রতিদিনের এসএমএস লগ এবং ডেলিভারি রিপোর্ট</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">মূল্য পরিকল্পনা</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <h3 class="text-2xl font-bold mb-4">স্ট্যান্ডার্ড</h3>
+                    <div class="text-4xl font-bold mb-6">৳০.৩০/এসএমএস</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            প্রতিদিন ৫০০+ এসএমএস
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            ২৪/৭ সাপোর্ট
+                        </li>
+                    </ul>
+                    <a href="https://sms.net.bd/pricing" class="bg-blue-600 text-white px-6 py-3 rounded-lg block text-center hover:bg-blue-700">শুরু করুন</a>
+                </div>
+                <!-- Add other pricing plans -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">সাম্প্রতিক ব্লগ পোস্ট</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <img src="https://sms.net.bd/blog/woocommerce-sms.jpg" alt="ওয়ুকমার্সে এসএমএস নোটিফিকেশন" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
+                    <div class="p-6">
+                        <time class="text-gray-500 text-sm">১০ জুন, ২০২৪</time>
+                        <h3 class="text-xl font-bold mt-2 mb-4">ওয়ুকমার্সে এসএমএস নোটিফিকেশন সেটআপ গাইড</h3>
+                        <p class="text-gray-600 mb-4">স্টেপ বাই স্টেপ গাইডলাইন সহ শিখুন কিভাবে ওয়ুকমার্স স্টোরে এসএমএস নোটিফিকেশন সেটআপ করবেন</p>
+                        <a href="https://blog.sms.net.bd/woocommerce-sms-guide" class="text-blue-600 hover:underline">আরও পড়ুন →</a>
+                    </div>
+                </article>
+                
+                <!-- Add other blog posts -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section with Real Data -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">প্রায়শই জিজ্ঞাসিত প্রশ্ন</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <details open>
+                        <summary class="flex justify-between items-center cursor-pointer">
+                            <h3 class="text-lg font-semibold">এসএমএস ডেলিভারি রেট কেমন?</h3>
+                            <i class="fas fa-chevron-down transform transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600">SMS.net.bd এর ৯৯.৯% ডেলিভারি সাকসেস রেট রয়েছে। বাংলাদেশের সকল অপারেটরে সরাসরি কানেকশান এর মাধ্যমে আমরা সর্বোচ্চ ডেলিভারিবিলিটি নিশ্চিত করি।</p>
+                    </details>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <details>
+                        <summary class="flex justify-between items-center cursor-pointer">
+                            <h3 class="text-lg font-semibold">কতক্ষণে এসএমএস পৌঁছায়?</h3>
+                            <i class="fas fa-chevron-down transform transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600">আমাদের সিস্টেমে এসএমএস সাধারণত ২-৫ সেকেন্ডের মধ্যে ডেলিভারি হয়ে থাকে। নেটওয়ার্ক কনজেশন এর ক্ষেত্রে সর্বোচ্চ ১ মিনিট সময় লাগতে পারে।</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">SMS.net.bd</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://sms.net.bd/about" class="text-gray-400 hover:text-white">কোম্পানি সম্পর্কে</a></li>
+                        <li><a href="https://sms.net.bd/careers" class="text-gray-400 hover:text-white">ক্যারিয়ার</a></li>
+                        <li><a href="https://sms.net.bd/contact" class="text-gray-400 hover:text-white">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">লিগ্যাল</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://sms.net.bd/terms" class="text-gray-400 hover:text-white">সেবার শর্তাবলী</a></li>
+                        <li><a href="https://sms.net.bd/privacy" class="text-gray-400 hover:text-white">প্রাইভেসি পলিসি</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© ২০২৪ SMS.net.bd - সমস্ত অধিকার সংরক্ষিত</p>
+                <p class="mt-2">রেজিস্ট্রার্ড অফিস: বসুন্ধরা সিটি, ঢাকা, বাংলাদেশ</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.sticky-header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+                header.classList.add('bg-white/95');
+                header.classList.add('backdrop-blur');
+            } else {
+                header.classList.remove('shadow-lg');
+                header.classList.remove('bg-white/95');
+                header.classList.remove('backdrop-blur');
+            }
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('details').forEach((detail) => {
+            detail.querySelector('summary').addEventListener('click', (e) => {
+                const icon = detail.querySelector('i');
+                if (detail.open) {
+                    icon.classList.add('rotate-180');
+                } else {
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
