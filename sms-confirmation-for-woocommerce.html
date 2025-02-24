@@ -453,12 +453,19 @@
                 </div>
             </div>
 
-            <!-- Timeline Cards -->
-            <div class="relative space-y-12">
-                <!-- Step 1 - Blue -->
-                <div class="group relative pl-10 animate-fade-in-up delay-100">
-                    <div class="absolute left-0 top-4 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">1</div>
+            <!-- Timeline Cards with Connecting Lines -->
+            <div class="relative space-y-24">
+                <!-- Central Timeline Line -->
+                <div class="absolute left-1/2 w-1 h-full bg-gray-200 -translate-x-1/2 timeline-line"></div>
+
+                <!-- Step 1 - Left Aligned -->
+                <div class="group relative animate-fade-in-up delay-100 md:w-3/4 md:mr-auto">
+                    <div class="absolute md:-left-14 left-0 top-4 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10 step-circle">
+                        <div class="inner-circle"></div>
+                        1
+                    </div>
                     <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-600 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="absolute right-0 top-8 -mr-[calc(25%+12px)] hidden md:block w-1/4 h-1 bg-blue-600 connector-line"></div>
                         <div class="flex items-start gap-6">
                             <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center">
                                 <i class="fas fa-download text-blue-600 text-2xl"></i>
@@ -477,11 +484,15 @@
                     </div>
                 </div>
 
-                <!-- Step 2 - Green -->
-                <div class="group relative pl-10 animate-fade-in-up delay-200">
-                    <div class="absolute left-0 top-4 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">2</div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-green-600 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="flex items-start gap-6">
+                <!-- Step 2 - Right Aligned -->
+                <div class="group relative animate-fade-in-up delay-200 md:w-3/4 md:ml-auto">
+                    <div class="absolute md:-right-14 right-0 top-4 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10 step-circle">
+                        <div class="inner-circle"></div>
+                        2
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-r-4 border-green-600 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="absolute left-0 top-8 -ml-[calc(25%+12px)] hidden md:block w-1/4 h-1 bg-green-600 connector-line"></div>
+                        <div class="flex flex-row-reverse items-start gap-6">
                             <div class="w-14 h-14 bg-gradient-to-br from-green-100 to-green-50 rounded-xl flex items-center justify-center">
                                 <i class="fas fa-key text-green-600 text-2xl"></i>
                             </div>
@@ -499,10 +510,14 @@
                     </div>
                 </div>
 
-                <!-- Step 3 - Purple -->
-                <div class="group relative pl-10 animate-fade-in-up delay-300">
-                    <div class="absolute left-0 top-4 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">3</div>
+                <!-- Step 3 - Left Aligned -->
+                <div class="group relative animate-fade-in-up delay-300 md:w-3/4 md:mr-auto">
+                    <div class="absolute md:-left-14 left-0 top-4 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10 step-circle">
+                        <div class="inner-circle"></div>
+                        3
+                    </div>
                     <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-purple-600 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="absolute right-0 top-8 -mr-[calc(25%+12px)] hidden md:block w-1/4 h-1 bg-purple-600 connector-line"></div>
                         <div class="flex items-start gap-6">
                             <div class="w-14 h-14 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl flex items-center justify-center">
                                 <i class="fas fa-edit text-purple-600 text-2xl"></i>
@@ -521,11 +536,15 @@
                     </div>
                 </div>
 
-                <!-- Step 4 - Orange -->
-                <div class="group relative pl-10 animate-fade-in-up delay-400">
-                    <div class="absolute left-0 top-4 w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">4</div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-orange-600 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="flex items-start gap-6">
+                <!-- Step 4 - Right Aligned -->
+                <div class="group relative animate-fade-in-up delay-400 md:w-3/4 md:ml-auto">
+                    <div class="absolute md:-right-14 right-0 top-4 w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10 step-circle">
+                        <div class="inner-circle"></div>
+                        4
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-r-4 border-orange-600 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="absolute left-0 top-8 -ml-[calc(25%+12px)] hidden md:block w-1/4 h-1 bg-orange-600 connector-line"></div>
+                        <div class="flex flex-row-reverse items-start gap-6">
                             <div class="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-xl flex items-center justify-center">
                                 <i class="fas fa-check-circle text-orange-600 text-2xl"></i>
                             </div>
@@ -546,149 +565,107 @@
         </div>
     </div>
 </section>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Progress Animation Controller
-    const progressBar = document.querySelector('.progress-bar');
-    const steps = document.querySelectorAll('.group');
-    const stepCircles = document.querySelectorAll('.step-item > div:first-child');
-    const colors = ['blue', 'green', 'purple', 'orange'];
 
-    // Intersection Observer for step activation
+<style>
+/* Animation Styles */
+.timeline-line {
+    background: linear-gradient(to bottom, 
+        #3b82f6 0%, 
+        #16a34a 33%, 
+        #9333ea 66%, 
+        #ea580c 100%);
+    background-size: 100% 400%;
+    animation: fillLine 2s ease-out forwards;
+}
+
+@keyframes fillLine {
+    0% { background-position: 0 100%; }
+    100% { background-position: 0 0; }
+}
+
+.step-circle {
+    transition: transform 0.3s ease;
+}
+
+.step-circle .inner-circle {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: currentColor;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+.group:hover .step-circle {
+    transform: scale(1.1);
+}
+
+.group:hover .step-circle .inner-circle {
+    width: 120%;
+    height: 120%;
+    opacity: 0.2;
+}
+
+.connector-line {
+    opacity: 0;
+    animation: drawConnector 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes drawConnector {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 25%;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .group:nth-child(odd) .connector-line {
+        right: -25%;
+        left: auto;
+    }
+    .group:nth-child(even) .connector-line {
+        left: -25%;
+        right: auto;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate elements on scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const stepIndex = Array.from(steps).indexOf(entry.target);
-                updateProgress(stepIndex);
-                animateStepCircle(stepIndex);
-                animateCard(entry.target);
+                const step = entry.target;
+                // Animate connector line
+                const connector = step.querySelector('.connector-line');
+                if (connector) {
+                    connector.style.animation = 'drawConnector 1s ease-out forwards';
+                }
+                // Animate step circle
+                const circle = step.querySelector('.step-circle');
+                if (circle) {
+                    circle.style.transform = 'scale(1.1)';
+                    setTimeout(() => circle.style.transform = 'scale(1)', 500);
+                }
             }
         });
     }, { threshold: 0.5 });
 
-    steps.forEach(step => observer.observe(step));
-
-    function updateProgress(activeIndex) {
-        const progressPercentage = (activeIndex + 1) * 25;
-        progressBar.style.width = `${progressPercentage}%`;
-        
-        // Update progress bar color gradient
-        const nextColor = colors[activeIndex + 1] || colors[colors.length - 1];
-        progressBar.style.background = 
-            `linear-gradient(to right, ${colors.map((c, i) => 
-                `#${getComputedStyle(document.documentElement).getPropertyValue(`--${c}-600`)} ${i * 25}%`
-            ).join(', ')})`;
-    }
-
-    function animateStepCircle(activeIndex) {
-        stepCircles.forEach((circle, index) => {
-            if (index <= activeIndex) {
-                circle.style.backgroundColor = `var(--${colors[index]}-600)`;
-                circle.style.transform = 'scale(1.1)';
-                circle.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-            } else {
-                circle.style.backgroundColor = '#6b7280';
-                circle.style.transform = 'scale(1)';
-                circle.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    }
-
-    function animateCard(card) {
-        const iconContainer = card.querySelector('div[class*="bg-gradient-to-br"]');
-        if (iconContainer) {
-            iconContainer.animate([
-                { transform: 'translateY(0) rotate(0)' },
-                { transform: 'translateY(-5px) rotate(-5deg)' },
-                { transform: 'translateY(0) rotate(0)' }
-            ], {
-                duration: 800,
-                easing: 'ease-in-out'
-            });
-        }
-    }
-
-    // Parallax Effect for Icons
-    window.addEventListener('scroll', () => {
-        document.querySelectorAll('.group').forEach((card, index) => {
-            const rect = card.getBoundingClientRect();
-            const icon = card.querySelector('.fa-solid');
-            if (icon) {
-                const speed = -0.3;
-                const yPos = rect.top * speed;
-                icon.style.transform = `translateY(${yPos}px)`;
-            }
-        });
-    });
-
-    // Step Click Handler
-    document.querySelectorAll('.step-item').forEach((step, index) => {
-        step.addEventListener('click', () => {
-            if (steps[index]) {
-                steps[index].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }
-        });
-    });
-
-    // Resize Observer
-    const resizeObserver = new ResizeObserver(entries => {
-        progressBar.style.transition = 'none';
-        setTimeout(() => progressBar.style.transition = '', 300);
-    });
-    resizeObserver.observe(document.body);
+    document.querySelectorAll('.group').forEach(group => observer.observe(group));
 });
 </script>
-<style>
-    :root {
-    --blue-600: #2563eb;
-    --green-600: #16a34a;
-    --purple-600: #9333ea;
-    --orange-600: #ea580c;
-    --progress-percentage: 25%;
-}
 
-.progress-bar {
-    width: var(--progress-percentage);
-    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                background 0.3s ease;
-}
-
-.group:hover .fa-solid {
-    animation: iconBounce 0.8s ease;
-}
-
-@keyframes iconBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-    .animate-fade-in-up { animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-
-    .delay-100 { animation-delay: 100ms; }
-    .delay-200 { animation-delay: 200ms; }
-    .delay-300 { animation-delay: 300ms; }
-    .delay-400 { animation-delay: 400ms; }
-
-    .progress-bar {
-        transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 2px 8px -1px rgba(59, 130, 246, 0.25);
-    }
-
-    @media (max-width: 768px) {
-        .step-item span { font-size: 0.75rem; }
-        .group.pl-10 { padding-left: 2.5rem; }
-        .absolute.left-0 { left: 1rem !important; }
-    }
-</style>
-    
+<!-- Add these scripts before closing body tag -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://kit.fontawesome.com/abc123def4.js" crossorigin="anonymous"></script>
+   
 <!-- Testimonials Section -->
 <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
