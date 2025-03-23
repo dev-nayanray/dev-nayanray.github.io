@@ -1,1 +1,1332 @@
-FITFUSION.html
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFusion Elite - Premium Fitness Experience</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-100">
+
+<!-- Navigation -->
+<nav class="bg-gradient-to-r from-gray-900 to-gray-800 fixed w-full z-50 backdrop-blur-md bg-opacity-90">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center">
+                <span class="text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">FITFUSION</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-10">
+                <a href="#home" class="text-gray-300 hover:text-red-500 uppercase font-semibold tracking-wide transition-all">Home</a>
+                <a href="#features" class="text-gray-300 hover:text-red-500 uppercase font-semibold tracking-wide transition-all">Features</a>
+                <a href="#classes" class="text-gray-300 hover:text-red-500 uppercase font-semibold tracking-wide transition-all">Classes</a>
+                <a href="#trainers" class="text-gray-300 hover:text-red-500 uppercase font-semibold tracking-wide transition-all">Trainers</a>
+                <a href="#pricing" class="text-gray-300 hover:text-red-500 uppercase font-semibold tracking-wide transition-all">Membership</a>
+            </div>
+
+            <button class="md:hidden text-gray-300 hover:text-red-500">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="pt-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+             alt="Fitness" 
+             class="w-full h-full object-cover opacity-20">
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 py-16 relative z-10">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2" data-aos="fade-right">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Forge Your Legacy at 
+                    <span class="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">FitFusion Elite</span>
+                </h1>
+                <p class="text-xl mb-10 text-gray-300">Where world-class training meets luxury wellness experience</p>
+                <div class="flex gap-6">
+                    <button class="bg-gradient-to-r from-red-600 to-orange-500 hover:from-orange-500 hover:to-red-600 px-10 py-5 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-xl">
+                        Start Free Trial
+                    </button>
+                    <button class="border-2 border-red-600 text-red-500 hover:bg-red-600 hover:text-white px-10 py-5 rounded-full text-lg font-bold transition-all transform hover:scale-105">
+                        Explore Programs
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2" data-aos="fade-left">
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-red-600 to-orange-500 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Fitness" 
+                         class="rounded-3xl shadow-2xl relative transform group-hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-600 font-bold uppercase tracking-wide">Why Choose Us</span>
+            <h2 class="text-5xl font-bold mt-4">Redefining Fitness Excellence</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Zig-Zag Layout Card -->
+            <div class="md:col-span-2 grid md:grid-cols-2 gap-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 text-white shadow-2xl" data-aos="fade-right">
+                <div class="space-y-6">
+                    <div class="w-20 h-20 bg-red-500 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-rocket text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold">Progressive Acceleration Program</h3>
+                    <p class="text-gray-300">AI-driven periodization for continuous gains</p>
+                    <div class="flex gap-4">
+                        <div class="bg-red-500/20 p-4 rounded-xl">
+                            <div class="text-2xl font-bold">97%</div>
+                            <p class="text-sm">Member Retention</p>
+                        </div>
+                        <div class="bg-red-500/20 p-4 rounded-xl">
+                            <div class="text-2xl font-bold">4.9/5</div>
+                            <p class="text-sm">Satisfaction Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group self-center">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-red-500 to-orange-400 rounded-3xl blur opacity-30 group-hover:opacity-60"></div>
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Training" 
+                         class="rounded-2xl transform group-hover:scale-105 transition duration-500">
+                </div>
+            </div>
+
+            <!-- Floating Card with Badge -->
+            <div class="relative group" data-aos="zoom-in">
+                <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-500 rounded-3xl transform rotate-2 group-hover:rotate-1 transition duration-500"></div>
+                <div class="relative bg-white rounded-3xl p-8 h-full shadow-xl">
+                    <div class="flex items-start justify-between">
+                        <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">New</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Neuro-Athletics Training</h3>
+                    <p class="text-gray-600">Cognitive performance enhancement through:</p>
+                    <ul class="mt-4 space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-red-500 text-xs"></i>
+                            </div>
+                            Reaction time optimization
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-red-500 text-xs"></i>
+                            </div>
+                            Decision-making drills
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Timeline Progress Card -->
+            <div class="bg-gray-50 rounded-3xl p-8 shadow-xl overflow-hidden" data-aos="fade-left">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold">Progress Architecture</h3>
+                    <div class="text-red-500 text-3xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="relative pt-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span>Strength Gain</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="w-4/5 h-full bg-gradient-to-r from-red-500 to-orange-400"></div>
+                        </div>
+                    </div>
+                    <div class="relative pt-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span>Mobility Improvement</span>
+                            <span>67%</span>
+                        </div>
+                        <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="w-2/3 h-full bg-gradient-to-r from-red-500 to-orange-400"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 border-t pt-6">
+                    <div class="flex items-center text-red-500">
+                        <i class="fas fa-chart-pie mr-2"></i>
+                        <span class="font-bold">Personalized Analytics Dashboard</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vertical Feature Card -->
+            <div class="md:col-span-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl p-8 text-white shadow-2xl" data-aos="fade-up">
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1">
+                        <div class="w-full h-64 bg-red-500/20 rounded-2xl p-6">
+                            <div class="text-5xl font-bold mb-2">360°</div>
+                            <p class="text-red-300">Holistic Approach</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-3xl font-bold mb-4">Comprehensive Wellness Integration</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <span>Metabolic Testing</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                                <span>Genetic Analysis</span>
+                            </div>
+                            <!-- Add more items -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Membership Tier Section -->
+<section class="py-28 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-500 font-bold uppercase tracking-wide">Exclusive Membership</span>
+            <h2 class="text-5xl font-bold mt-4">Unlock Elite Status</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+            <!-- Diamond Tier (Vertical Layout) -->
+            <div class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-3xl p-8 shadow-2xl flex flex-col" data-aos="flip-up">
+                <div class="text-center mb-6">
+                    <span class="bg-red-500 text-white px-4 py-1 rounded-full text-sm">VIP Choice</span>
+                </div>
+                <h3 class="text-4xl font-bold text-center mb-4">Diamond</h3>
+                <div class="text-center mb-8">
+                    <span class="text-5xl font-bold">$499</span>
+                    <span class="text-gray-400">/month</span>
+                </div>
+                <div class="flex-1 grid grid-cols-2 gap-4 mb-8">
+                    <div class="text-center p-4 bg-gray-700/50 rounded-xl">
+                        <div class="text-2xl font-bold mb-2">24/7</div>
+                        <p class="text-sm text-gray-300">Dedicated Trainer</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-700/50 rounded-xl">
+                        <div class="text-2xl font-bold mb-2">∞</div>
+                        <p class="text-sm text-gray-300">Guest Passes</p>
+                    </div>
+                </div>
+                <button class="w-full bg-gradient-to-r from-red-600 to-red-800 text-white py-4 rounded-xl font-bold hover:scale-105 transition-transform">
+                    Elevate to VIP
+                </button>
+            </div>
+
+            <!-- Platinum Tier (Featured Card) -->
+            <div class="relative md:col-span-2 xl:col-span-2 group" data-aos="zoom-in">
+                <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-500 rounded-3xl transform rotate-1 opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                <div class="relative bg-white text-gray-900 rounded-3xl p-12 shadow-2xl">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <h3 class="text-3xl font-bold">Platinum Pro</h3>
+                            <p class="text-red-500 font-semibold">Most Comprehensive Plan</p>
+                        </div>
+                        <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">Popular</span>
+                    </div>
+                    <div class="text-5xl font-bold mb-8">
+                        $299<span class="text-2xl text-gray-500">/month</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-infinity text-red-500"></i>
+                                </div>
+                                Unlimited Cryotherapy
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-lock text-red-500"></i>
+                                </div>
+                                Private Locker
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-calendar-star text-red-500"></i>
+                                </div>
+                                Priority Booking
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-dumbbell text-red-500"></i>
+                                </div>
+                                Premium Equipment
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-5 rounded-xl text-lg font-bold hover:shadow-xl transition-all">
+                        Start Platinum Journey
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gold Tier (Minimalist Card) -->
+            <div class="bg-gray-800 rounded-3xl p-8 border-2 border-red-500/20 hover:border-red-500/40 transition-all" data-aos="fade-left">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold mb-2">Gold</h3>
+                    <p class="text-gray-400">Essential Access</p>
+                </div>
+                <div class="text-4xl font-bold text-center mb-8">
+                    $199<span class="text-xl text-gray-400">/month</span>
+                </div>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-center justify-center">
+                        <i class="fas fa-check-circle text-red-500 mr-2"></i>Peak Hours Access
+                    </li>
+                    <li class="flex items-center text-center justify-center">
+                        <i class="fas fa-check-circle text-red-500 mr-2"></i>Group Classes
+                    </li>
+                </ul>
+                <button class="w-full bg-gray-700 hover:bg-red-500 text-white py-4 rounded-xl font-bold transition-colors">
+                    Choose Gold
+                </button>
+            </div>
+
+            <!-- On-Demand Pass (Horizontal Card) -->
+            <div class="md:col-span-2 xl:col-span-4 bg-gray-800 rounded-3xl p-8" data-aos="fade-up">
+                <div class="grid md:grid-cols-3 items-center gap-8">
+                    <div class="md:col-span-1">
+                        <div class="bg-red-500/20 p-6 rounded-2xl text-center">
+                            <div class="text-3xl font-bold">Flexi</div>
+                            <p class="text-red-300 text-sm">Pay-As-You-Go</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <div class="flex flex-wrap gap-4 mb-6">
+                            <button class="px-6 py-3 bg-red-500/20 text-red-500 rounded-full">10 Sessions - $499</button>
+                            <button class="px-6 py-3 bg-red-500/20 text-red-500 rounded-full">20 Sessions - $899</button>
+                            <button class="px-6 py-3 bg-red-500/20 text-red-500 rounded-full">50 Sessions - $1999</button>
+                        </div>
+                        <p class="text-gray-400">Includes: Open gym access, Basic amenities, Class credits</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corporate Membership -->
+            <div class="md:col-span-2 bg-gradient-to-br from-gray-900 to-red-900/20 rounded-3xl p-8 relative overflow-hidden" data-aos="fade-right">
+                <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-red-500/10 to-transparent"></div>
+                <div class="relative z-10">
+                    <h3 class="text-3xl font-bold mb-4">Corporate Wellness</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="text-4xl font-bold">
+                                Custom<br>Pricing
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-center">
+                                    <i class="fas fa-building text-red-500 mr-3"></i>
+                                    Team Packages
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-chart-network text-red-500 mr-3"></i>
+                                    Enterprise Solutions
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-red-500/10 rounded-xl flex items-center justify-center">
+                                <img src="company-logo-1.svg" class="h-8 opacity-75">
+                            </div>
+                            <div class="p-4 bg-red-500/10 rounded-xl flex items-center justify-center">
+                                <img src="company-logo-2.svg" class="h-8 opacity-75">
+                            </div>
+                            <!-- Add more company logos -->
+                        </div>
+                    </div>
+                    <button class="mt-8 w-full bg-red-500 hover:bg-red-600 text-white py-4 rounded-xl font-bold transition-colors">
+                        Request Enterprise Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Recovery & Wellness Section -->
+<section class="py-28 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-500 font-bold uppercase tracking-wide">Optimal Recovery</span>
+            <h2 class="text-5xl font-bold mt-4">Advanced Regeneration Hub</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="p-6 bg-gray-800 rounded-2xl hover:bg-gray-700 transition-all" data-aos="zoom-in">
+                <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-snowflake text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Cryotherapy Chambers</h3>
+                <p class="text-gray-400">Whole-body cold therapy for accelerated recovery</p>
+            </div>
+            
+            <div class="p-6 bg-gray-800 rounded-2xl hover:bg-gray-700 transition-all" data-aos="zoom-in">
+                <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-spa text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Luxury Spa Suite</h3>
+                <p class="text-gray-400">Sports massage & deep tissue therapies</p>
+            </div>
+            
+            <div class="p-6 bg-gray-800 rounded-2xl hover:bg-gray-700 transition-all" data-aos="zoom-in">
+                <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-brain text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Mindfulness Studio</h3>
+                <p class="text-gray-400">Guided meditation & breathing sessions</p>
+            </div>
+            
+            <div class="p-6 bg-gray-800 rounded-2xl hover:bg-gray-700 transition-all" data-aos="zoom-in">
+                <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-bone text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Physiotherapy</h3>
+                <p class="text-gray-400">Injury prevention & rehabilitation</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Events & Challenges Section -->
+<section class="py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-500 font-bold uppercase tracking-wide">Community Events</span>
+            <h2 class="text-5xl font-bold mt-4">Elite Fitness Challenges</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-3xl overflow-hidden hover:shadow-xl transition-all" data-aos="flip-up">
+                <img src="https://images.unsplash.com/photo-1599058917765-a7802fbc70fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" 
+                     alt="Challenge" 
+                     class="w-full h-64 object-cover">
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold">Iron Will Challenge</h3>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">New</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        <span>Aug 15-30, 2023</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">30-day transformation challenge with $10k prize pool</p>
+                    <button class="w-full bg-gray-900 text-white py-3 rounded-xl font-bold hover:bg-red-500 transition-all">
+                        Join Challenge
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-3xl overflow-hidden hover:shadow-xl transition-all" data-aos="flip-up">
+                <img src="https://images.unsplash.com/photo-1535743686920-55e4145369b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" 
+                     alt="Marathon" 
+                     class="w-full h-64 object-cover">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Ultra Marathon Prep</h3>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        <span>Every Saturday 6 AM</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">Endurance training program for marathon runners</p>
+                    <button class="w-full bg-gray-900 text-white py-3 rounded-xl font-bold hover:bg-red-500 transition-all">
+                        RSVP Now
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-3xl overflow-hidden hover:shadow-xl transition-all" data-aos="flip-up">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Yoga" 
+                     class="w-full h-64 object-cover">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Sunrise Yoga Series</h3>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        <span>Daily 6:30 AM</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">Morning mindfulness sessions on the rooftop terrace</p>
+                    <button class="w-full bg-gray-900 text-white py-3 rounded-xl font-bold hover:bg-red-500 transition-all">
+                        Book Session
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Success Stories Section -->
+<section class="py-28 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-500 font-bold uppercase tracking-wide">Transformations</span>
+            <h2 class="text-5xl font-bold mt-4">Life-Changing Results</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 - Bottom-aligned Content -->
+            <div class="relative group" data-aos="zoom-in">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent rounded-3xl"></div>
+                <img src="https://images.unsplash.com/photo-1549060279-7e169fbb13e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                     alt="Transformation" 
+                     class="rounded-3xl h-96 w-full object-cover">
+                <div class="absolute bottom-0 p-8">
+                    <h3 class="text-2xl font-bold mb-2">Mark Johnson</h3>
+                    <p class="text-red-500 font-semibold">-32kg in 6 Months</p>
+                    <p class="text-gray-300 mt-4">"FitFusion completely transformed my life and health"</p>
+                </div>
+            </div>
+
+            <!-- Card 2 - Top-aligned Content with Different Gradient -->
+            <div class="relative group" data-aos="fade-right">
+                <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-transparent rounded-3xl"></div>
+                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4faceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                     alt="Transformation" 
+                     class="rounded-3xl h-96 w-full object-cover">
+                <div class="absolute top-0 p-8">
+                    <h3 class="text-2xl font-bold mb-2">Sarah Miller</h3>
+                    <p class="text-red-500 font-semibold">-28kg in 5 Months</p>
+                    <p class="text-gray-300 mt-4">"I regained my confidence with FitFusion's amazing community"</p>
+                </div>
+            </div>
+
+            <!-- Card 3 - Centered Content with Quote Icon -->
+            <div class="relative group" data-aos="flip-left">
+                <div class="absolute inset-0 bg-gradient-to-tr from-gray-900 via-transparent to-transparent rounded-3xl"></div>
+                <img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Transformation" 
+                     class="rounded-3xl h-96 w-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center flex-col text-center p-8">
+                    <svg class="w-12 h-12 mb-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-2">The Davis Family</h3>
+                    <p class="text-red-500 font-semibold">Combined -75kg in 1 Year</p>
+                    <p class="text-gray-300 mt-4">"FitFusion brought our family closer through health"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Wellness Blog Section -->
+<section class="py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-500 font-bold uppercase tracking-wide">Expert Insights</span>
+            <h2 class="text-5xl font-bold mt-4">Elite Wellness Journal</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Featured Article (Full Width) -->
+            <article class="md:col-span-2 bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-3xl overflow-hidden shadow-2xl" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Featured" 
+                             class="w-full h-96 object-cover transform group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-6 left-6 bg-red-500 px-4 py-1 rounded-full">Featured Post</span>
+                    </div>
+                    <div class="p-12 flex flex-col justify-center">
+                        <div class="flex items-center mb-6">
+                            <span class="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-sm">Research</span>
+                            <span class="mx-4">•</span>
+                            <span class="text-gray-400">15 min read</span>
+                        </div>
+                        <h3 class="text-4xl font-bold mb-6">Biohacking Performance Metrics</h3>
+                        <p class="text-gray-300 mb-8">Advanced techniques used by Olympic athletes to optimize recovery and performance</p>
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                 alt="Author" 
+                                 class="w-14 h-14 rounded-full mr-4 border-2 border-red-500">
+                            <div>
+                                <p class="font-bold">Dr. Michael Chen</p>
+                                <p class="text-gray-400 text-sm">Performance Scientist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Video Tutorial Card -->
+            <article class="bg-gray-900 text-white rounded-3xl overflow-hidden group" data-aos="zoom-in">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-red-500/20 mix-blend-multiply"></div>
+                    <img src="https://images.unsplash.com/photo-1579758622668-24d937c93979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" 
+                         alt="Video" 
+                         class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                            <i class="fas fa-play text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-red-500 text-sm">Video Tutorial</span>
+                        <span class="text-gray-400 text-sm">8:24 min</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Advanced Mobility Flow</h3>
+                    <p class="text-gray-300">Full-body movement sequence for enhanced flexibility</p>
+                </div>
+            </article>
+
+            <!-- Podcast Card -->
+            <article class="bg-gray-50 rounded-3xl p-8 hover:shadow-xl transition-all" data-aos="fade-left">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-podcast text-red-500 text-2xl mr-3"></i>
+                        <span class="font-bold">Performance Podcast</span>
+                    </div>
+                    <span class="bg-red-100 text-red-500 px-3 py-1 rounded-full text-sm">New Episode</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Nutrition for Champions</h3>
+                <p class="text-gray-600 mb-6">Interview with Olympic dietitian Emma Johnson</p>
+                
+                <div class="bg-white rounded-xl p-4 shadow-sm mb-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <button class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-play text-white"></i>
+                            </button>
+                            <div>
+                                <p class="font-bold">Episode 42</p>
+                                <p class="text-sm text-gray-500">58 min</p>
+                            </div>
+                        </div>
+                        <button class="text-red-500 hover:text-red-600">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center">
+                    <img src="https://images.unsplash.com/photo-1627161683077-e34782c24d81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=703&q=80" 
+                         alt="Host" 
+                         class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <p class="font-bold">Hosted by</p>
+                        <p class="text-gray-500 text-sm">Alex Turner</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Tips Carousel -->
+            <article class="md:col-span-2 bg-gray-900 text-white rounded-3xl p-12" data-aos="fade-right">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-bold mb-6">Daily Wellness Tips</h3>
+                        <div class="relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-red-500"></div>
+                            <div class="pl-8">
+                                <div class="space-y-6">
+                                    <div>
+                                        <p class="text-red-500 text-sm">Tip #1</p>
+                                        <p class="text-xl">Morning hydration protocol</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-red-500 text-sm">Tip #2</p>
+                                        <p class="text-xl">Post-workout nutrition timing</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-red-500 text-sm">Tip #3</p>
+                                        <p class="text-xl">Evening mobility routine</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex gap-4">
+                            <button class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="relative group">
+                            <div class="absolute -inset-2 bg-gradient-to-r from-red-500 to-orange-400 rounded-3xl blur opacity-30"></div>
+                            <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Tips" 
+                                 class="rounded-2xl relative transform group-hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- App Section -->
+<section class="py-28 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8" data-aos="fade-right">
+                <span class="text-red-500 font-bold uppercase tracking-wide">Mobile Experience</span>
+                <h2 class="text-5xl font-bold leading-tight">Your Fitness Journey in Your Pocket</h2>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-red-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Real-Time Analytics</h3>
+                            <p class="text-gray-300">Track 20+ performance metrics</p>
+                        </div>
+                    </div>
+                    <!-- Add more features -->
+                </div>
+                <div class="flex gap-4 mt-8">
+                    <a href="#" class="hover:scale-105 transition-transform">
+                        <img src="app-store-badge.svg" alt="App Store" class="h-14">
+                    </a>
+                    <a href="#" class="hover:scale-105 transition-transform">
+                        <img src="play-store-badge.svg" alt="Play Store" class="h-14">
+                    </a>
+                </div>
+            </div>
+            <div class="relative" data-aos="fade-left">
+                <div class="absolute -inset-8 bg-gradient-to-r from-red-500 to-orange-400 rounded-3xl rotate-3 blur opacity-30"></div>
+                <img src="https://images.unsplash.com/photo-1616627561839-074385245ff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Mobile App" 
+                     class="relative rounded-3xl shadow-2xl">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Facility Showcase Section -->
+<section class="relative h-screen bg-gray-900 text-white">
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+             alt="Facility" 
+             class="w-full h-full object-cover opacity-40">
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
+        <div class="grid md:grid-cols-3 gap-8 w-full">
+            <div class="space-y-8" data-aos="fade-right">
+                <span class="text-red-500 font-bold uppercase tracking-wide">World-Class Facilities</span>
+                <h2 class="text-5xl font-bold leading-tight">The Ultimate Training Environment</h2>
+                <p class="text-xl text-gray-300">25,000 sq ft of premium training space featuring:</p>
+                <ul class="space-y-4 text-xl">
+                    <li class="flex items-center">
+                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        Olympic-grade lifting platforms
+                    </li>
+                    <li class="flex items-center">
+                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        High-altitude cardio zone
+                    </li>
+                    <li class="flex items-center">
+                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        3-story indoor climbing complex
+                    </li>
+                    <li class="flex items-center">
+                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        Cryotherapy recovery chambers
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="md:col-span-2 grid grid-cols-2 gap-8" data-aos="fade-left">
+                <!-- Card 1 - Standard Stat Card -->
+                <div class="bg-white text-gray-900 p-8 rounded-3xl shadow-2xl" data-aos="zoom-in">
+                    <div class="text-red-500 text-5xl mb-4">4</div>
+                    <h3 class="text-2xl font-bold mb-2">Hydrotherapy Pools</h3>
+                    <p class="text-gray-600">Recovery zones with contrast temperature therapy</p>
+                </div>
+
+                <!-- Card 2 - Icon Card with Gradient -->
+                <div class="bg-gradient-to-br from-red-500 to-red-600 text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden" data-aos="flip-up">
+                    <div class="absolute top-4 right-4 opacity-20">
+                        <i class="fas fa-dumbbell text-8xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold mb-2">300+</div>
+                    <h3 class="text-2xl font-bold mb-2">Training Stations</h3>
+                    <p class="opacity-90">Professional-grade equipment selection</p>
+                </div>
+
+                <!-- Card 3 - Image Background Card -->
+                <div class="relative text-white p-8 rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                         alt="Recovery Lounge" 
+                         class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                    <div class="relative">
+                        <div class="text-2xl font-bold mb-2">Recovery Lounge</div>
+                        <p class="text-red-400 font-semibold">Included with Membership</p>
+                        <p class="mt-2 opacity-90">Sports massage & physiotherapy</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 - Vertical Stat Card -->
+                <div class="bg-gray-800 p-8 rounded-3xl shadow-2xl border-l-4 border-red-500" data-aos="zoom-out">
+                    <div class="flex items-center h-full">
+                        <div class="text-center w-full">
+                            <div class="text-red-500 text-4xl font-bold mb-2">24/7</div>
+                            <h3 class="text-xl font-bold mb-2">Open Access</h3>
+                            <p class="text-gray-400">Keycard entry with biometric security</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nutrition Section -->
+<section class="py-28 bg-gradient-to-br from-orange-100 to-red-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-500 font-bold uppercase tracking-wide">Fuel Your Greatness</span>
+            <h2 class="text-5xl font-bold mt-4">Elite Nutrition Planning</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8" data-aos="fade-right">
+                <div class="bg-white rounded-3xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4">Macro-Optimized Meal Plans</h3>
+                    <div class="flex gap-4 mb-6">
+                        <div class="flex-1 bg-gray-100 p-4 rounded-xl">
+                            <div class="text-red-500 text-2xl font-bold mb-2">2,300</div>
+                            <p class="text-sm text-gray-600">Calorie Base Plan</p>
+                        </div>
+                        <!-- Add more nutrition stats -->
+                    </div>
+                    <p class="text-gray-600">Customized nutrition programs powered by AI analysis and expert dietitians</p>
+                </div>
+                <div class="bg-gray-900 text-white rounded-3xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4">Supplement Protocols</h3>
+                    <p class="text-gray-300">Pharmaceutical-grade supplementation plans tailored to your biometrics</p>
+                    <div class="mt-6 flex gap-4">
+                        <div class="bg-red-500 w-12 h-12 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <!-- Add more supplement icons -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative" data-aos="fade-left">
+                <div class="absolute -inset-8 bg-gradient-to-r from-red-500 to-orange-400 rounded-3xl rotate-3"></div>
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1153&q=80" 
+                     alt="Nutrition" 
+                     class="relative rounded-3xl shadow-xl">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Immersive Experience Section -->
+<section class="py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative group" data-aos="fade-right">
+                <div class="absolute -inset-2 bg-gradient-to-r from-red-600 to-orange-500 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+                <div class="relative space-y-6">
+                    <div class="bg-gray-900 rounded-3xl p-8 transform hover:-translate-y-2 transition-all duration-500">
+                        <h3 class="text-3xl font-bold text-white mb-4">Virtual Reality Training</h3>
+                        <p class="text-gray-400">Experience immersive workout environments powered by VR technology</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-3xl p-8 transform hover:-translate-y-2 transition-all duration-500">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">AI Nutrition Planning</h3>
+                        <p class="text-gray-600">Custom meal plans optimized by artificial intelligence</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-8" data-aos="fade-left">
+                <span class="text-red-500 font-bold uppercase tracking-wide">Next Generation Fitness</span>
+                <h2 class="text-5xl font-bold leading-tight">Reimagining the Fitness Experience</h2>
+                <p class="text-xl text-gray-600">At FitFusion Elite, we merge cutting-edge technology with human potential to create transformative fitness journeys.</p>
+                <div class="flex gap-6 mt-8">
+                    <button class="bg-gradient-to-r from-red-600 to-orange-500 text-white px-8 py-4 rounded-xl text-lg font-bold hover:opacity-90 transition-all">
+                        Explore Innovation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Floating Action Buttons -->
+<div class="fixed bottom-8 right-8 z-50 space-y-4">
+    <!-- Scroll to Top -->
+    <button id="scrollTop" class="hidden w-14 h-14 bg-gradient-to-r from-red-600 to-orange-500 rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform">
+        <i class="fas fa-arrow-up text-white text-xl"></i>
+    </button>
+
+    <!-- Chat Icon -->
+    <button id="chatButton" class="w-14 h-14 bg-gradient-to-r from-red-600 to-orange-500 rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform">
+        <i class="fas fa-comment-dots text-white text-xl"></i>
+    </button>
+</div>
+
+<!-- Chat Modal -->
+<div id="chatModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 backdrop-blur-sm">
+    <div class="absolute bottom-8 right-8 w-96 bg-white rounded-2xl shadow-2xl" data-aos="zoom-in">
+        <div class="bg-gradient-to-r from-red-600 to-orange-500 p-6 rounded-t-2xl">
+            <div class="flex justify-between items-center">
+                <h3 class="text-white text-xl font-bold">Elite Support</h3>
+                <button id="closeChat" class="text-white hover:text-gray-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="p-6 max-h-96 overflow-y-auto">
+            <div class="space-y-4">
+                <div class="bg-gray-100 p-4 rounded-xl">
+                    <p class="text-sm">Hi! How can we help you today?</p>
+                    <span class="text-xs text-gray-500">2:34 PM</span>
+                </div>
+                <!-- Chat messages here -->
+            </div>
+        </div>
+        <div class="p-4 border-t">
+            <div class="flex gap-2">
+                <input type="text" placeholder="Type your message..." 
+                       class="flex-1 px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500">
+                <button class="w-10 h-10 bg-red-500 text-white rounded-xl hover:bg-red-600">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter Popup -->
+<div id="newsletterPopup" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md transform-none" data-aos="zoom-in">
+        <div class="relative p-8 text-center">
+            <button id="closeNewsletter" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="mx-auto mb-6 w-fit">
+                <div class="w-20 h-20 bg-gradient-to-r from-red-600 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 
+                          transform hover:rotate-12 transition-transform duration-300">
+                    <i class="fas fa-envelope-open-text text-white text-3xl"></i>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Join Our Elite Circle</h3>
+            <p class="text-gray-600 mb-6 max-w-xs mx-auto">Get exclusive training content and special offers</p>
+            <form class="space-y-4">
+                <input type="email" placeholder="Enter your email" 
+                       class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 
+                              placeholder-gray-400 transition-all">
+                <button class="w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-3 rounded-xl font-bold 
+                            hover:opacity-90 hover:shadow-lg transition-all">
+                    Subscribe Now
+                </button>
+            </form>
+            <p class="text-xs text-gray-500 mt-4 max-w-xs mx-auto">We respect your privacy. Unsubscribe anytime.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Chat Modal Toggle
+    const chatButton = document.getElementById('chatButton');
+    const chatModal = document.getElementById('chatModal');
+    const closeChat = document.getElementById('closeChat');
+
+    chatButton.addEventListener('click', () => {
+        chatModal.classList.remove('hidden');
+    });
+
+    closeChat.addEventListener('click', () => {
+        chatModal.classList.add('hidden');
+    });
+
+    // Scroll to Top Button
+    const scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        scrollTop.style.display = window.scrollY > 500 ? 'flex' : 'none';
+    });
+
+    scrollTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Newsletter Popup (Show after 5 seconds)
+    const newsletterPopup = document.getElementById('newsletterPopup');
+    const closeNewsletter = document.getElementById('closeNewsletter');
+    
+    setTimeout(() => {
+        newsletterPopup.classList.remove('hidden');
+    }, 5000);
+
+    closeNewsletter.addEventListener('click', () => {
+        newsletterPopup.classList.add('hidden');
+    });
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+        if (event.target == chatModal) {
+            chatModal.classList.add('hidden');
+        }
+        if (event.target == newsletterPopup) {
+            newsletterPopup.classList.add('hidden');
+        }
+    }
+</script>
+<!-- FAQ Section -->
+<section class="py-28 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-red-500 font-bold uppercase tracking-wide">Support</span>
+            <h2 class="text-5xl font-bold mt-4">Elite Fitness FAQ</h2>
+            <div class="mt-8 max-w-2xl mx-auto">
+                <div class="relative group">
+                    <input type="text" placeholder="Search questions..." 
+                           class="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:border-red-500 
+                                  placeholder-gray-400 transition-all group-hover:shadow-lg">
+                    <button class="absolute right-4 top-4 text-gray-400 hover:text-red-500 transition-colors">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            <!-- Featured FAQ -->
+            <div class="md:col-span-2 bg-gradient-to-br from-gray-900 to-red-900 rounded-[2rem] p-12 text-white 
+                       transform hover:shadow-2xl transition-all duration-500" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-orange-400 rounded-2xl flex items-center justify-center
+                                  shadow-lg">
+                            <i class="fas fa-crown text-3xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold bg-gradient-to-r from-red-400 to-orange-300 bg-clip-text text-transparent">
+                            VIP Membership Benefits
+                        </h3>
+                        <p class="text-gray-300 text-lg">Unlock premium experiences and exclusive privileges</p>
+                        <button class="faq-question text-left group">
+                            <span class="text-red-300 hover:text-red-100 transition-colors flex items-center gap-2">
+                                Explore Benefits
+                                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="relative group hidden md:block">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-red-500 to-orange-400 rounded-3xl blur opacity-30 
+                                  group-hover:opacity-50 transition-opacity"></div>
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="VIP" 
+                             class="rounded-2xl shadow-xl relative transform group-hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="md:col-span-2 grid md:grid-cols-3 gap-4 mt-12">
+                <button class="category-btn px-6 py-3 rounded-xl bg-white hover:bg-gray-50 transition-all 
+                             border-2 border-transparent flex items-center justify-center gap-2 font-semibold
+                             hover:border-red-100 hover:shadow-sm" data-category="all">
+                    <i class="fas fa-layer-group text-red-500"></i>
+                    All Questions
+                </button>
+                <!-- Add other category buttons with icons -->
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all relative 
+                       overflow-hidden group" data-category="membership" data-aos="fade-up">
+                <div class="absolute inset-0 border-2 border-transparent group-hover:border-red-50 
+                          group-[.active]:border-red-100 transition-all"></div>
+                <button class="faq-question w-full px-8 py-6 text-left flex justify-between items-center 
+                             group gap-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center 
+                                   group-[.active]:bg-red-500 transition-colors">
+                            <i class="fas fa-id-card text-red-500 group-[.active]:text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold group-hover:text-red-600 transition-colors">
+                            Membership Requirements
+                        </h3>
+                    </div>
+                    <i class="fas fa-chevron-down text-red-500 ml-4 transition-transform 
+                             group-[.active]:rotate-180"></i>
+                </button>
+                <div class="faq-answer px-8 pb-6 pt-0 overflow-hidden">
+                    <!-- Answer content -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced CTA -->
+        <div class="mt-20 text-center" data-aos="fade-up">
+            <div class="bg-gradient-to-br from-gray-900 to-red-900 rounded-2xl p-1 shadow-2xl inline-block 
+                       transform hover:-translate-y-1 transition-all">
+                <div class="bg-white rounded-xl p-8">
+                    <h3 class="text-3xl font-bold mb-6">Premium Support Experience</h3>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button class="bg-gradient-to-r from-red-600 to-orange-500 text-white px-8 py-4 rounded-xl 
+                                    font-bold hover:shadow-xl transition-all flex items-center gap-2
+                                    transform hover:scale-[1.02]">
+                            <i class="fas fa-headset text-lg"></i>
+                            24/7 Priority Support
+                        </button>
+                        <!-- Add other CTA button -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-answer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-item.active .faq-answer {
+        grid-template-rows: 1fr;
+    }
+
+    .faq-answer > div {
+        overflow: hidden;
+    }
+
+    .faq-item {
+        transition: box-shadow 0.4s ease, transform 0.3s ease;
+    }
+
+    .faq-item:hover {
+        transform: translateY(-2px);
+    }
+
+    .faq-item.active {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-4px);
+    }
+
+    .category-btn.active {
+        background: linear-gradient(45deg, #ef4444, #f97316);
+        color: white;
+        box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
+    }
+</style>
+
+<script>
+    // Enhanced smooth scrolling and keyboard navigation
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const faqItem = e.target.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            
+            faqItem.classList.toggle('active');
+            
+            // Smooth scroll to keep item in view
+            if(faqItem.classList.contains('active')) {
+                const itemTop = faqItem.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: itemTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Enhanced category filtering with animation
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.classList.add('active');
+            // Add animation logic
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            // Add keyboard navigation logic
+        }
+    });
+</script>
+<footer class="bg-gradient-to-b from-gray-900 to-gray-800 text-white relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjEiLz48L3N2Zz4=')"></div>
+    <div class="absolute -right-32 -top-32 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 pt-24 pb-12 relative">
+        <div class="grid lg:grid-cols-5 gap-12 mb-20">
+            <!-- Brand Column -->
+            <div class="lg:col-span-2">
+                <div class="space-y-6">
+                    <h4 class="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent inline-block">FITFUSION</h4>
+                    <p class="text-gray-300 leading-relaxed text-lg max-w-sm">Where elite training meets holistic wellness. Transform your potential into peak performance.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-red-500 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-red-500/20">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-red-500 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-red-500/20">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-red-500 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-red-500/20">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programs & Services -->
+            <div class="lg:col-span-1">
+                <h5 class="text-lg font-bold text-red-500 mb-6">Programs</h5>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="#" class="flex items-center group">
+                            <span class="w-3 h-3 bg-red-500 rounded-full mr-3 group-hover:animate-pulse"></span>
+                            <span class="text-gray-300 group-hover:text-white transition-colors">Athlete Development</span>
+                        </a>
+                    </li>
+                    <!-- Repeat for other program items -->
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="lg:col-span-1">
+                <h5 class="text-lg font-bold text-red-500 mb-6">Explore</h5>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Success Stories</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="lg:col-span-1">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                    <h5 class="text-lg font-bold text-red-500 mb-4">Elite Insights</h5>
+                    <p class="text-gray-300 mb-6 text-sm">Get exclusive training content and member offers</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Enter your email" 
+                            class="w-full bg-white/5 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500 border border-white/10">
+                        <button class="w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-3 rounded-lg font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                            Subscribe Now
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Programs Grid -->
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mb-20">
+            <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-red-500/30 transition-all group">
+                <div class="w-12 h-12 bg-red-500/10 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-fire text-red-500"></i>
+                </div>
+                <h6 class="font-bold text-lg mb-2 group-hover:text-red-500 transition-colors">Metabolic Ignition</h6>
+                <p class="text-gray-300 text-sm">6-week intensive fat loss program</p>
+            </div>
+            <!-- Add 3 more featured program cards -->
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="border-t border-white/10 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-6">
+                    <img src="path/to/award-badge.svg" alt="Excellence Award" class="h-8 w-auto opacity-80">
+                    <span class="text-gray-400 text-sm">2023 Fitness Excellence Winner</span>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Contact</a>
+                </div>
+            </div>
+            
+            <div class="mt-6 text-center md:text-left">
+                <p class="text-gray-500 text-sm">&copy; 2023 FitFusion. All rights reserved.</p>
+                <p class="text-gray-500 text-sm mt-1">Crafted with <i class="fas fa-heart text-red-500"></i> by Fitness Visionaries</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1200,
+        once: true,
+        offset: 150
+    });
+
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.querySelector('nav button');
+    const mobileMenu = document.createElement('div');
+    mobileMenu.className = 'md:hidden fixed inset-0 bg-gray-900 z-50 hidden';
+    mobileMenu.innerHTML = `
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-2xl text-white hover:text-red-500">Home</a>
+            <a href="#features" class="text-2xl text-white hover:text-red-500">Features</a>
+            <!-- Add other menu items -->
+            <button class="absolute top-6 right-6 text-white">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+        </div>
+    `;
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.appendChild(mobileMenu);
+    });
+
+    mobileMenu.querySelector('button').addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+</script>
+
+</body>
+</html>
