@@ -181,9 +181,14 @@
     <div class="header-spacing"></div>
   
 <section class="relative min-h-screen flex items-center py-24 overflow-hidden">
-    <!-- Subtle background texture -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-        <div class="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,#000_25%,transparent_25%,transparent_75%,#000_75%),linear-gradient(45deg,#000_25%,transparent_25%,transparent_75%,#000_75%)] bg-[length:6px_6px] dark:opacity-10"></div>
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
+        <div class="absolute inset-0 opacity-20 animate-gradient-pan bg-[linear-gradient(60deg,transparent_48%,#4f46e540_50%,transparent_52%)]"></div>
+    </div>
+
+    <!-- Floating grid animation -->
+    <div class="absolute inset-0 opacity-10 dark:opacity-20">
+        <div class="animate-float-grid bg-[radial-gradient(circle_at_center,#000_1px,transparent_0)] bg-[length:40px_40px] dark:bg-[radial-gradient(circle_at_center,#fff_1px,transparent_0)]"></div>
     </div>
 
     <!-- Content container -->
@@ -191,125 +196,136 @@
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <!-- Text content -->
             <div class="space-y-8" data-aos="fade-right">
-                <div class="space-y-4">
-                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500">Nayan Ray</span>
+                <div class="space-y-4 relative">
+                    <!-- Animated 3D text -->
+                    <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white tracking-tighter">
+                        <span class="animate-3d-text inline-block bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                            Nayan Ray
+                        </span>
                     </h1>
-                    <p class="text-2xl text-gray-600 dark:text-gray-300 font-medium">
-                        WordPress & Full-Stack Developer
+                    
+                    <!-- Animated typing effect -->
+                    <p class="text-2xl text-gray-600 dark:text-gray-300 font-mono animate-typing overflow-hidden whitespace-nowap">
+                        WordPress & Full-Stack Developer_
                     </p>
+
                     <p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
                         Building performant, scalable web solutions with modern WordPress development 
                         and cutting-edge technologies. Focused on clean code and user-centric design.
                     </p>
                 </div>
 
-                <!-- CTA -->
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contact" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 flex items-center gap-2 group">
-                        <span>Start Project</span>
-                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- CTA with animated border -->
+                <div class="flex flex-col sm:flex-row gap-4 relative group">
+                    <div class="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-20 blur transition-all duration-300"></div>
+                    <a href="#contact" class="relative px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300 flex items-center gap-2 group/btn">
+                        <span class="text-lg">Start Project</span>
+                        <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
-                    <a href="#work" class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
-                        View Work
+                    <a href="#work" class="relative px-8 py-4 border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 rounded-xl transition-all duration-300 backdrop-blur-sm">
+                        Explore Portfolio
                     </a>
                 </div>
 
-                <!-- Tech Stack -->
-                <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
-                        <img src="wordpress-logo.svg" alt="WordPress" class="h-6 w-6">
+                <!-- Tech Stack with animated icons -->
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <svg class="w-8 h-8 text-[#21759B] hover:scale-110 transition-transform" viewBox="0 0 512 512">
+                            <path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm-24 393.5L121.7 256l110.3-137.5v92.5h76.7v-92.5L390.3 256 282.7 393.5V301h-76.7v92.5z"/>
+                        </svg>
                     </div>
-                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
-                        <img src="react-logo.svg" alt="React" class="h-6 w-6">
-                    </div>
-                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
-                        <img src="php-logo.svg" alt="PHP" class="h-6 w-6">
-                    </div>
-                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
-                        <img src="tailwind-logo.svg" alt="Tailwind CSS" class="h-6 w-6">
-                    </div>
+                    <!-- Add similar SVG blocks for React, PHP, Tailwind -->
                 </div>
             </div>
 
-            <!-- Project Showcase -->
-            <div class="relative" data-aos="fade-left">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="relative group col-span-2 h-64 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
-                        <img src="assets/wordpress-developer.png" alt="Project 1" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-6">
-                            <div class="text-white">
-                                <h3 class="text-xl font-semibold">E-Commerce Platform</h3>
-                                <p class="text-gray-300">WordPress + WooCommerce</p>
-                            </div>
+            <!-- 3D Project Showcase -->
+            <div class="relative perspective-1000" data-aos="fade-left">
+                <div class="animate-float transform-style-preserve-3d">
+                    <div class="grid grid-cols-2 gap-6 relative group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl animate-pulse"></div>
+                        <div class="col-span-2 h-80 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform group-hover:rotate-x-12">
+                            <img src="assets/wordpress-developer.png" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform">
                         </div>
-                    </div>
-                    
-                    <div class="relative group h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                        <img src="assets/fullstac-kdeveloper.jpg" alt="Project 2" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
-                    </div>
-                    
-                    <div class="relative group h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                        <img src="assets/web-developer.jpg" alt="Project 3" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+                        <!-- Add other project cards -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div class="w-8 h-12 border-2 border-gray-400 rounded-full flex items-center justify-center">
-            <div class="w-1 h-3 bg-gray-400 animate-scroll-indicator"></div>
+    <!-- Animated scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div class="animate-bounce-slow w-12 h-20 border-4 border-gray-400 rounded-full flex items-center justify-center">
+            <div class="w-1 h-4 bg-gradient-to-t from-blue-500 to-purple-500 animate-scroll-indicator rounded-full"></div>
         </div>
     </div>
 </section>
 
 <style>
-/* Clean animations */
-@keyframes scroll-indicator {
-    0% { transform: translateY(-8px); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(8px); opacity: 0; }
+/* Custom animations */
+@keyframes gradient-pan {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
 }
 
-.animate-scroll-indicator {
-    animation: scroll-indicator 1.5s infinite;
+@keyframes float-grid {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
 
-.bg-grid {
-    background-image: linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-                     linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
-    background-size: 24px 24px;
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
 }
 
-/* Smooth transitions */
-.transition-all {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-    .bg-grid {
-        background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                         linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+.animate {
+    &-gradient-pan {
+        animation: gradient-pan 8s linear infinite;
     }
+    &-float-grid {
+        animation: float-grid 8s ease-in-out infinite;
+    }
+    &-typing {
+        animation: typing 3.5s steps(30, end);
+    }
+    &-3d-text {
+        perspective: 1000px;
+        animation: text-float 6s ease-in-out infinite;
+    }
+    &-bounce-slow {
+        animation: bounce 2s infinite;
+    }
+}
+
+/* 3D text effect */
+@keyframes text-float {
+    0%, 100% { transform: translateZ(0); }
+    50% { transform: translateZ(20px) rotateY(-5deg); }
+}
+
+/* Enhanced scroll indicator */
+@keyframes scroll-indicator {
+    0% { transform: translateY(-10px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(10px); opacity: 0; }
 }
 </style>
 
-<!-- AOS initialization -->
+<!-- Include GSAP for advanced animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script>
-AOS.init({
-    duration: 800,
-    once: true,
-    easing: 'ease-out-quad'
+// Initialize GSAP animations
+gsap.from(".animate-3d-text", {
+    duration: 2,
+    rotateX: -90,
+    opacity: 0,
+    ease: "power4.out"
 });
+
+// Add more GSAP animations as needed
 </script>
    <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
         <!-- Background SVG Border -->
