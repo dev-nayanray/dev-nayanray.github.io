@@ -180,241 +180,135 @@
     
     <div class="header-spacing"></div>
   
-<section class="relative min-h-screen py-20 overflow-hidden isolate">
-    <!-- Advanced 3D background effects -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/30 to-purple-900/20 animate-gradient-3d"></div>
-    
-    <!-- Floating dynamic grid -->
-    <div class="absolute inset-0 opacity-15 bg-[length:120px_120px] bg-grid-slate-100/20">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent animate-grid-pulse"></div>
-    </div>
-
-    <!-- Animated curve lines -->
-    <svg class="absolute top-0 left-0 w-full opacity-20" viewBox="0 0 1440 363" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="animated-curve" d="M1440 27.4774C1352.73 19.8184 1122.41 49.0556 899.331 227.276C620.48 450.052 354.282 355.647 170.328 185.318C23.165 49.0556 -14.217 0.433447 0.487081 0.433447V363H1440V27.4774Z" fill="#4F46E5"/>
-    </svg>
-
-    <!-- Floating particles system -->
-    <div class="absolute inset-0 opacity-30 pointer-events-none">
-        <div class="particle-system">
-            <div class="particle particle-lg bg-gradient-to-r from-purple-500 to-blue-500"></div>
-            <div class="particle particle-md bg-gradient-to-r from-pink-500 to-rose-500"></div>
-            <div class="particle particle-sm bg-gradient-to-r from-cyan-400 to-blue-500"></div>
-        </div>
+<section class="relative min-h-screen flex items-center py-24 overflow-hidden">
+    <!-- Subtle background texture -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <div class="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,#000_25%,transparent_25%,transparent_75%,#000_75%),linear-gradient(45deg,#000_25%,transparent_25%,transparent_75%,#000_75%)] bg-[length:6px_6px] dark:opacity-10"></div>
     </div>
 
     <!-- Content container -->
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
-            <!-- Text content with advanced animations -->
-            <div class="max-w-2xl lg:max-w-none lg:flex-1 text-center lg:text-left space-y-12" 
-                 data-aos="fade-up" 
-                 data-aos-duration="1200">
-                <div class="space-y-6 overflow-hidden">
-                    <div class="relative inline-block">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-500 blur-3xl opacity-40"></div>
-                        <h1 class="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-200 relative tracking-tighter">
-                            Nayan Ray
-                        </h1>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Text content -->
+            <div class="space-y-8" data-aos="fade-right">
+                <div class="space-y-4">
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500">Nayan Ray</span>
+                    </h1>
+                    <p class="text-2xl text-gray-600 dark:text-gray-300 font-medium">
+                        WordPress & Full-Stack Developer
+                    </p>
+                    <p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
+                        Building performant, scalable web solutions with modern WordPress development 
+                        and cutting-edge technologies. Focused on clean code and user-centric design.
+                    </p>
+                </div>
+
+                <!-- CTA -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 flex items-center gap-2 group">
+                        <span>Start Project</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#work" class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                        View Work
+                    </a>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+                        <img src="wordpress-logo.svg" alt="WordPress" class="h-6 w-6">
                     </div>
-                    <p class="text-2xl md:text-3xl font-medium text-gray-300 mt-2 tracking-wide">
-                        Full-Stack <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">WordPress</span> Developer
-                    </p>
-                    <p class="text-xl text-gray-400 leading-relaxed font-light max-w-xl">
-                        Architecting enterprise-level WordPress solutions & modern web experiences that convert. 
-                        Focused on performance, security, and scalable growth.
-                    </p>
-                </div>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-6 items-center">
-                    <a href="#contact" 
-                       class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 font-semibold group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <span class="flex items-center gap-3 relative">
-                            Start Collaboration
-                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </span>
-                    </a>
-                    <a href="#work" 
-                       class="px-8 py-4 border-2 border-blue-500/30 hover:border-blue-500/50 text-gray-300 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 font-medium bg-gray-900/50 hover:bg-gray-900/70 backdrop-blur-sm">
-                        View Case Studies
-                    </a>
-                </div>
-
-                <!-- Tech Stack Marquee -->
-                <div class="mt-12 overflow-hidden relative before:absolute before:left-0 before:top-0 before:w-24 before:h-full before:bg-gradient-to-r before:from-gray-900 before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-24 after:h-full after:bg-gradient-to-l after:from-gray-900 after:to-transparent after:z-10">
-                    <div class="flex animate-marquee gap-8 py-4">
-                        <div class="flex items-center gap-3 px-6 py-3 bg-gray-800 rounded-full">
-                            <img src="wordpress-logo.svg" class="w-6 h-6" alt="WordPress">
-                            <span class="text-sm font-medium text-gray-300">WordPress VIP</span>
-                        </div>
-                        <!-- Repeat other tech stack items -->
+                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+                        <img src="react-logo.svg" alt="React" class="h-6 w-6">
+                    </div>
+                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+                        <img src="php-logo.svg" alt="PHP" class="h-6 w-6">
+                    </div>
+                    <div class="p-3 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+                        <img src="tailwind-logo.svg" alt="Tailwind CSS" class="h-6 w-6">
                     </div>
                 </div>
             </div>
 
-            <!-- Premium 3D Slider -->
-            <div class="relative w-full max-w-2xl lg:flex-1" 
-                 data-aos="fade-left" 
-                 data-aos-duration="1200">
-                <div class="relative mx-auto aspect-[16/10] bg-gray-900 rounded-[2rem] shadow-2xl transform perspective-1000 rotate-x-5 rotate-y-0 rotate-z-2 hover:rotate-x-7 hover:rotate-z-3 transition-transform duration-500">
-                    <div class="absolute inset-0 p-3 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900">
-                        <div class="relative h-full bg-gray-800 rounded-xl overflow-hidden">
-                            <!-- Advanced Slider -->
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="project1.jpg" class="w-full h-full object-cover" alt="Project">
-                                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-gray-900">
-                                            <h3 class="text-xl font-bold text-white">Enterprise WordPress Solution</h3>
-                                            <p class="text-gray-400">Scalable architecture with AWS integration</p>
-                                        </div>
-                                    </div>
-                                    <!-- More slides -->
-                                </div>
-                                <!-- Slider Controls -->
-                                <div class="absolute bottom-4 right-4 flex gap-3 z-10">
-                                    <div class="swiper-button-prev bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                                        </svg>
-                                    </div>
-                                    <div class="swiper-button-next bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <!-- Progress Bar -->
-                                <div class="swiper-pagination !bottom-2 !relative"></div>
+            <!-- Project Showcase -->
+            <div class="relative" data-aos="fade-left">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative group col-span-2 h-64 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+                        <img src="project1.jpg" alt="Project 1" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-semibold">E-Commerce Platform</h3>
+                                <p class="text-gray-300">WordPress + WooCommerce</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Laptop Details -->
-                    <div class="absolute -bottom-6 inset-x-0 h-3 bg-gray-800 rounded-b-2xl mx-auto w-2/5 shadow-xl"></div>
-                    <div class="absolute -bottom-8 inset-x-0 h-1 bg-gray-900/50 rounded-full mx-auto w-1/4"></div>
+                    
+                    <div class="relative group h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="project2.jpg" alt="Project 2" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+                    </div>
+                    
+                    <div class="relative group h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="project3.jpg" alt="Project 3" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Animated Scroll Indicator -->
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce-slow">
-        <div class="w-12 h-20 rounded-3xl border-2 border-gray-600 flex items-center justify-center relative">
-            <div class="w-1 h-8 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full animate-scroll-pulse"></div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div class="w-8 h-12 border-2 border-gray-400 rounded-full flex items-center justify-center">
+            <div class="w-1 h-3 bg-gray-400 animate-scroll-indicator"></div>
         </div>
     </div>
 </section>
 
 <style>
-/* Advanced Animations */
-@keyframes gradient-3d {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Clean animations */
+@keyframes scroll-indicator {
+    0% { transform: translateY(-8px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(8px); opacity: 0; }
 }
 
-@keyframes grid-pulse {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.4; }
+.animate-scroll-indicator {
+    animation: scroll-indicator 1.5s infinite;
 }
 
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+.bg-grid {
+    background-image: linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
 }
 
-@keyframes curve-animation {
-    0% { stroke-dashoffset: 1000; }
-    100% { stroke-dashoffset: 0; }
+/* Smooth transitions */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
 }
 
-.animated-curve {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: curve-animation 20s linear infinite;
-}
-
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    animation: particle-float 20s infinite linear;
-}
-
-.particle-lg { width: 120px; height: 120px; }
-.particle-md { width: 80px; height: 80px; }
-.particle-sm { width: 40px; height: 40px; }
-
-@keyframes particle-float {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-    25% { transform: translate(100px, -50px) scale(1.2); opacity: 0.4; }
-    50% { transform: translate(-80px, 80px) scale(0.8); opacity: 0.2; }
-    75% { transform: translate(-100px, -100px) scale(1.1); opacity: 0.35; }
-}
-
-.animate-gradient-3d {
-    background-size: 400% 400%;
-    animation: gradient-3d 18s ease infinite;
-}
-
-.animate-marquee {
-    animation: marquee 30s linear infinite;
-}
-
-.animate-bounce-slow {
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-.animate-scroll-pulse {
-    animation: scroll-pulse 2s ease-in-out infinite;
-}
-
-@keyframes scroll-pulse {
-    0%, 100% { transform: translateY(0); opacity: 0.8; }
-    50% { transform: translateY(10px); opacity: 0.4; }
-}
-
-.perspective-1000 {
-    perspective: 1000px;
-}
-
-.swiper-container {
-    --swiper-theme-color: #6366f1;
-    --swiper-navigation-size: 24px;
-}
-
-.swiper-pagination-bullet {
-    background: rgba(255,255,255,0.5);
-    opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-    background: #4f46e5;
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .bg-grid {
+        background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                         linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    }
 }
 </style>
 
-<!-- Swiper JS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- AOS initialization -->
 <script>
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    effect: 'creative',
-    creativeEffect: {
-        prev: { translate: [-120%, 0, -500], rotate: [0, 0, -15] },
-        next: { translate: [120%, 0, -500], rotate: [0, 0, 15] }
-    },
-    autoplay: { delay: 5000 },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+AOS.init({
+    duration: 800,
+    once: true,
+    easing: 'ease-out-quad'
 });
 </script>
    <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
