@@ -180,55 +180,145 @@
     
     <div class="header-spacing"></div>
   
-    <section class="relative py-12 overflow-hidden gradient-bg-animation">
-        <!-- Background SVG Border -->
-        <div class="absolute inset-0">
-            <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
-        </div>
-        <div class="absolute inset-0 wave"></div>
+   <section class="relative py-20 overflow-hidden">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 opacity-15 animate-gradient-xy"></div>
+    
+    <!-- Grid pattern -->
+    <div class="absolute inset-0 opacity-10 bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]" 
+         style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4xIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')">
+    </div>
 
-        <!-- Content -->
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 lg:space-x-48">
-                <div>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Hello, I'm Nayan Ray</h2>
-                    <p class="mt-4 text-lg text-gray-600 dark:text-white">Web & WordPress Developer | Based in Bangladesh</p>
-                    <p class="w-[410px] mx-auto mt-4 text-gray-700 dark:text-white">With a passion for creating seamless and visually appealing digital experiences, I am a dedicated Web and WordPress Developer with a proven track record of delivering high-quality websites and custom solutions. My expertise lies in leveraging the power of WordPress to build dynamic, user-friendly websites that meet the unique needs of each client.</p>
-                    <a href="#contact" class="mt-6 inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-justify py-2 px-4 rounded transition-all duration-300">Let's Talk</a>
+    <!-- Content container -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <!-- Text content -->
+            <div class="max-w-2xl lg:max-w-none lg:flex-1 text-center lg:text-left space-y-8" 
+                 data-aos="fade-right" 
+                 data-aos-duration="800">
+                <div class="space-y-4">
+                    <h1 class="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500 dark:from-blue-400 dark:to-purple-300 animate-text">
+                        Nayan Ray
+                    </h1>
+                    <p class="text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-300 mt-2">
+                        Web & WordPress Developer
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Crafting digital experiences that blend innovation with functionality. Specializing in WordPress development and modern web solutions that drive business growth.
+                    </p>
                 </div>
-                <div class="relative mx-auto my-12 max-w-screen-md p-4 bg-gray-100 dark:bg-gray-800 rounded-lg laptop-frame shadow-lg">
-                    <!-- Laptop Body -->
-                    <div class="relative bg-gray-200 dark:bg-gray-700 rounded-t-lg p-4 lg:p-8">
-                        <!-- Laptop Bezel -->
-                        <div class="bg-gray-900 rounded-lg p-1 lg:p-2">
-                            <!-- Laptop Screen -->
-                            <div class="laptop-screen laptop-screen-border rounded-lg overflow-hidden">
-                                <img src="assets/IMG-20220318-WA0032.jpg" alt="Nayan Ray" class="w-full h-full object-cover shadow-lg">
-                            </div>
+
+                <!-- CTA Button -->
+                <a href="#contact" 
+                   class="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-500 hover:from-blue-700 hover:to-purple-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 font-semibold group">
+                    <span class="flex items-center gap-2">
+                        Let's Collaborate
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Tech stack badges -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 mt-8">
+                    <span class="px-4 py-2 bg-white/80 dark:bg-gray-800 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-shadow">
+                        WordPress
+                    </span>
+                    <span class="px-4 py-2 bg-white/80 dark:bg-gray-800 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-shadow">
+                        PHP
+                    </span>
+                    <span class="px-4 py-2 bg-white/80 dark:bg-gray-800 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-shadow">
+                        Tailwind CSS
+                    </span>
+                </div>
+            </div>
+
+            <!-- Laptop mockup -->
+            <div class="relative w-full max-w-2xl lg:flex-1" 
+                 data-aos="fade-left" 
+                 data-aos-duration="800">
+                <div class="relative mx-auto aspect-[16/10] bg-gray-900 rounded-2xl shadow-2xl transform perspective-1000 rotate-x-5 rotate-y-0 rotate-z-2 hover:rotate-x-7 hover:rotate-z-3 transition-transform duration-500">
+                    <!-- Laptop bezel -->
+                    <div class="absolute inset-0 p-2.5 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900">
+                        <!-- Screen content -->
+                        <div class="relative h-full bg-gray-800 rounded-lg overflow-hidden">
+                            <!-- Screen gradient overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
+                            <!-- Screen image -->
+                            <img src="assets/your-image.jpg" 
+                                 alt="Portfolio Preview" 
+                                 class="w-full h-full object-cover object-top rounded-lg transform translate-y-0 hover:translate-y-[-10%] transition-transform duration-[4000ms] ease-in-out">
                         </div>
                     </div>
-                    <!-- Laptop Base -->
-                    <div class="relative bg-gray-300 dark:bg-gray-600 rounded-b-lg h-20 lg:h-24">
-                        <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gray-400 dark:bg-gray-500 rounded-b-lg"></div>
-                        <div class="absolute inset-x-0 bottom-4 lg:bottom-6 mx-auto w-1/3 h-2 bg-gray-500 dark:bg-gray-400 rounded"></div>
-                    </div>
+                    
+                    <!-- Laptop base -->
+                    <div class="absolute -bottom-4 inset-x-0 h-8 bg-gradient-to-b from-gray-700 to-gray-900 rounded-b-xl shadow-lg"></div>
+                    <div class="absolute -bottom-6 inset-x-0 h-2 bg-gray-800 rounded-b-xl mx-auto w-1/3"></div>
                 </div>
             </div>
-            <div class="flex justify-center space-x-6 mt-8">
-                <!-- WordPress SVG Icon -->
-                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#0078D4" d="M24 3C12.952 3 4 11.952 4 23s8.952 20 20 20 20-8.952 20-20S35.048 3 24 3zm0 38c-9.941 0-18-8.059-18-18s8.059-18 18-18 18 8.059 18 18-8.059 18-18 18zm-.612-23.765l-.348-.847-.348.847c-1.068 2.587-4.38 10.63-5.784 13.954h12.316c-.358-.76-.698-1.501-1.021-2.192l-1.975-4.43h-3.787l3.787-8.485H23.61zm.998 2.435l1.557 3.494h-3.114l1.557-3.494zm1.975-6.822c-.926 0-1.678.75-1.678 1.678s.752 1.678 1.678 1.678c.926 0 1.678-.75 1.678-1.678s-.752-1.678-1.678-1.678zm4.313 8.834l3.104 7.27 3.126-7.27H31.9zm-.657-2.435l-3.757 8.485h3.757l3.757-8.485h-3.757zm-2.435 5.848c-.252 0-.5-.098-.687-.283-.188-.187-.285-.435-.285-.687s.097-.5.283-.687c.187-.187.435-.285.687-.285s.5.098.687.283c.187.187.285.435.285.687s-.098.5-.283.687c-.187.187-.435.285-.687.285z"/></svg>
-
-                <!-- HTML SVG Icon -->
-                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#E44D26" d="M41.23 4.62H6.77L9.43 39.49 23.96 43.1 38.57 39.49 41.23 4.62z"/><path fill="#F16529" d="M24 5.82V39.49L35.68 36.59 38.07 7.41H24z"/><path fill="#EBEBEB" d="M24 18.69H15.92l.45 4.96H24v4.96h-7.85l.67 6.67 7.18 2.15v-4.96H24V27.51H16.13l-.45-4.96H24V18.69z"/></svg>
-
-                <!-- CSS SVG Icon -->
-                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#1572B6" d="M5.86 4.38h36.29L38.14 39.02 23.96 43.7 9.86 39.02 5.86 4.38z"/><path fill="#33A9DC" d="M24 40.98l11.92-3.46L37.4 7.85H24V40.98z"/><path fill="#FFF" d="M32.27 17.28l.9-3.81H23.96v3.81h8.31zm-6.31 5.31h-6.3l.29 3.81h6.01v3.82H16.66l-.44 4.95 7.74 2.25v-4.95h6.31v-.01H29.23l-1.44 8.09-9.83 2.81-9.83-2.81-1.43-8.09 9.83-2.81h9.83v.01l-.14.76H32.96L34.96 12H13.17l-1.41 7.41h6.31l.4 2.21H14.91L14.26 25.02l-4.33 4.27L14.02 9.55h24l-3.34 15.61-7.07 3.43 4.16 2.08z"/></svg>
-
-                <!-- Tailwind CSS SVG Icon -->
-                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#38B2AC" d="M22.96 9.15c-4.05 0-7.11 1.92-9.19 5.78 2.03-1.89 4.05-2.57 6.05-2.06 1.44.35 2.76 1.45 4.16 3.48 2.08 2.98 4.16 4.4 6.27 4.48 4.05 0 7.11-1.92 9.19-5.78-2.03 1.89-4.05 2.57-6.05 2.06-1.44-.35-2.76-1.45-4.16-3.48-2.08-2.98-4.16-4.4-6.27-4.48zM11.61 24.06c-4.05 0-7.11 1.92-9.19 5.78 2.03-1.89 4.05-2.57 6.05-2.06 1.44.35 2.76 1.45 4.16 3.48 2.08 2.98 4.16 4.4 6.27 4.48 4.05 0 7.11-1.92 9.19-5.78-2.03 1.89-4.05 2.57-6.05 2.06-1.44-.35-2.76-1.45-4.16-3.48-2.08-2.98-4.16-4.4-6.27-4.48z"/></svg>
-            </div>
         </div>
-    </section>    
+    </div>
+
+    <!-- Animated scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div class="w-8 h-14 rounded-3xl border-2 border-gray-600 dark:border-gray-400 flex items-center justify-center">
+            <div class="w-1 h-4 bg-gray-600 dark:bg-gray-400 rounded-full animate-scroll"></div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Custom animations */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes text-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes scroll {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+    100% { transform: translateY(0); }
+}
+
+.animate-gradient-xy {
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.animate-text {
+    background-image: linear-gradient(-45deg, #2563eb, #7c3aed);
+    background-size: 200% auto;
+    animation: text-gradient 5s ease-in-out infinite;
+}
+
+.animate-scroll {
+    animation: scroll 2s infinite;
+}
+
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.rotate-x-5 {
+    transform: rotateX(15deg) rotateY(-5deg) rotateZ(2deg);
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+</style>
+
+<!-- AOS library for scroll animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
    <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
         <!-- Background SVG Border -->
         <div class="absolute inset-0">
