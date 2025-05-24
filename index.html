@@ -382,135 +382,190 @@ gsap.from(".animate-3d-text", {
 
 // Add more GSAP animations as needed
 </script>
-   <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
-        <!-- Background SVG Border -->
-        <div class="absolute inset-0">
-            <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">My Specialties</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center justify-center h-20 w-20 mb-4 bg-yellow-100 dark:bg-yellow-600 text-yellow-600 dark:text-yellow-100 rounded-full">
-                        <!-- Icon placeholder -->
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m4 0V6m0 6v6m0-6h6m-6 0H5"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Web Design</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Creating user-friendly mobile app interfaces.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center justify-center h-20 w-20 mb-4 bg-green-100 dark:bg-green-600 text-green-600 dark:text-green-100 rounded-full">
-                        <!-- Icon placeholder -->
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9m-9 0H3m9-18v18m0 0l-3-3m3 3l3-3"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Wordpress Developer</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Designing intuitive and engaging user experiences.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center justify-center h-20 w-20 mb-4 bg-blue-100 dark:bg-blue-600 text-blue-600 dark:text-blue-100 rounded-full">
-                        <!-- Icon placeholder -->
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5V8m0 4v5.5m0-5.5H8.5m3.5 0H16m-3.5 0V8m0 4H8.5M16 12h-3.5M4.5 12h7M16 4.5V8m0 4v5.5m0-5.5h3.5M8.5 12H5m7-7.5V8m0 4v5.5M4.5 12h7"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Web Development</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Building responsive and dynamic websites.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="relative bg-white dark:bg-gray-900 py-20 overflow-hidden">
+    <!-- Animated background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-100/30 via-transparent to-purple-100/30 dark:from-gray-800/50 dark:to-gray-800/50 animate-gradient-x"></div>
     
-<section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
-    <!-- Background SVG Border -->
-    <div class="absolute inset-0">
-        <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">My Recent Work</h2>
-        <p class="mt-4 text-gray-600 dark:text-gray-400 text-center">Explore some of the projects I've worked on recently.</p>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects">
-            <!-- Project Cards -->
-            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <a href="https://lemagstyle.com" target="_blank">
-                    <div class="relative group">
-                        <img src="assets/lemag.png" alt="LeMagStyle Project" class="w-full h-72 object-cover rounded-t-lg transform transition duration-300 ease-in-out group-hover:scale-105">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <h2 class="text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-16">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Expertise Areas</span>
+            <div class="mt-2 h-1 w-24 bg-blue-600 dark:bg-blue-400 mx-auto animate-underline"></div>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 - Web Design -->
+            <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-transparent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative">
+                    <div class="flex items-center justify-center h-20 w-20 mb-6 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18V4m-5 3l5-3 5 3m-5 11a8 8 0 100-16 8 8 0 000 16z"></path>
+                        </svg>
                     </div>
-                </a>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">LeMagStyle Project</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">Developed an eCommerce platform for LeMagStyle.</p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Web Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Crafting pixel-perfect interfaces with modern design principles and user-centric approach.</p>
+                    <div class="mt-4 flex items-center text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="mr-2">Explore more</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <a href="https://chapzz.com" target="_blank">
-                    <div class="relative group">
-                        <img src="assets/chapzz.png" alt="Chapzz Project" class="w-full h-72 object-cover rounded-t-lg transform transition duration-300 ease-in-out group-hover:scale-105">
+            <!-- Card 2 - WordPress -->
+            <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-transparent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-50 to-cyan-50 dark:from-gray-700 dark:to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative">
+                    <div class="flex items-center justify-center h-20 w-20 mb-6 bg-gradient-to-br from-green-600 to-cyan-600 text-white rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 9h16M4 13h12M4 17h8"></path>
+                        </svg>
                     </div>
-                </a>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Chapzz Project</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">Built a coupon platform integrating affiliate marketing tools.</p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">WordPress</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Building scalable solutions with custom themes, plugins, and headless architectures.</p>
+                    <div class="mt-4 flex items-center text-green-600 dark:text-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="mr-2">Explore more</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
                 </div>
             </div>
 
-             <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <a href="invest.html" target="_blank">
-                    <div class="relative group">
-                        <img src="assets/hyippro.png" alt="WBLB Admin Panel" class="w-full h-72 object-cover rounded-t-lg transform transition duration-300 ease-in-out group-hover:scale-105">
+            <!-- Card 3 - Web Dev -->
+            <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-transparent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-700 dark:to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative">
+                    <div class="flex items-center justify-center h-20 w-20 mb-6 bg-gradient-to-br from-purple-600 to-pink-600 text-white rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
                     </div>
-                </a>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">promozoneitalia.it</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">Secure & Profitable Investment Platform.</p>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <a href="https://wblb.net" target="_blank">
-                    <div class="relative group">
-                        <img src="assets/wblbn.png" alt="WBLB Loan Application" class="w-full h-72 object-cover rounded-t-lg transform transition duration-300 ease-in-out group-hover:scale-105">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Web Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Full-stack development with modern frameworks and cloud-native architectures.</p>
+                    <div class="mt-4 flex items-center text-purple-600 dark:text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="mr-2">Explore more</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
                     </div>
-                </a>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">WBLB Loan Application</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">Developed a loan application system for WBLB.</p>
-                </div>
-            </div>
-
-            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <a href="invest.html" target="_blank">
-                    <div class="relative group">
-                        <img src="assets/hyippro.png" alt="WBLB Admin Panel" class="w-full h-72 object-cover rounded-t-lg transform transition duration-300 ease-in-out group-hover:scale-105">
-                    </div>
-                </a>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">Hyippro</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">Secure & Profitable Investment Platform.</p>
-                </div>
-            </div>
-
-            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <a href="DataStructure_Presention.html" target="_blank">
-                    <div class="relative group">
-                        <img src="assets/allbdjob.png" alt="AllBDJobs Project" class="w-full h-72 object-cover rounded-t-lg transform transition duration-300 ease-in-out group-hover:scale-105">
-                    </div>
-                </a>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-blue-400">AllBDJobs Project</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">Built a job listing platform for AllBDJobs.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-    // Optional: Add JS to dynamically adjust image size if needed
-</script>
+<style>
+@keyframes gradient-x {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+.animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 15s ease infinite;
+}
+
+@keyframes underline {
+    from { transform: scaleX(0) }
+    to { transform: scaleX(1) }
+}
+
+.animate-underline {
+    animation: underline 1s ease-out forwards;
+}
+
+.group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+}
+</style>
+    
+<section class="relative bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-16 overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-20 dark:opacity-30">
+        <div class="absolute w-96 h-96 bg-purple-500/20 rounded-full -top-48 -left-48 mix-blend-multiply blur-2xl animate-pulse"></div>
+        <div class="absolute w-96 h-96 bg-blue-500/20 rounded-full -bottom-48 -right-48 mix-blend-multiply blur-2xl animate-pulse delay-300"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-300 mb-4">Crafted Innovations</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Exploring the intersection of design and technology through impactful digital solutions</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects">
+            <!-- Project Card 1 - LeMagStyle -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-700 dark:to-gray-900 opacity-0 group-hover:opacity-50 rounded-2xl transition-opacity duration-300"></div>
+                <a href="https://lemagstyle.com" target="_blank" class="block overflow-hidden rounded-t-2xl">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="assets/lemag.png" alt="LeMagStyle Project" 
+                             class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="space-y-2">
+                                <div class="flex gap-2">
+                                    <span class="px-3 py-1 text-xs font-medium bg-blue-600/80 text-white rounded-full">Laravel</span>
+                                    <span class="px-3 py-1 text-xs font-medium bg-purple-600/80 text-white rounded-full">Vue.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">LeMagStyle eCommerce</h3>
+                    <p class="text-gray-600 dark:text-gray-300 line-clamp-2">Modern eCommerce platform featuring AI-powered product recommendations and seamless payment integrations</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <a href="https://lemagstyle.com" target="_blank" 
+                           class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+                            Live Demo
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 - Chapzz -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-100 to-cyan-100 dark:from-gray-700 dark:to-gray-900 opacity-0 group-hover:opacity-50 rounded-2xl transition-opacity duration-300"></div>
+                <a href="https://chapzz.com" target="_blank" class="block overflow-hidden rounded-t-2xl">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="assets/chapzz.png" alt="Chapzz Project" 
+                             class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="space-y-2">
+                                <div class="flex gap-2">
+                                    <span class="px-3 py-1 text-xs font-medium bg-green-600/80 text-white rounded-full">React</span>
+                                    <span class="px-3 py-1 text-xs font-medium bg-cyan-600/80 text-white rounded-full">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Chapzz Coupon Platform</h3>
+                    <p class="text-gray-600 dark:text-gray-300 line-clamp-2">Affiliate marketing ecosystem with real-time analytics and automated commission tracking</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <a href="https://chapzz.com" target="_blank" 
+                           class="inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 transition-colors">
+                            Explore
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add other project cards following the same pattern -->
+        </div>
+    </div>
+</section>
 
 
 <section class="relative bg-gray-100 dark:bg-gray-800 py-12">
