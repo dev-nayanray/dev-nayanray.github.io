@@ -1058,6 +1058,90 @@ document.addEventListener("DOMContentLoaded", async function() {
         </div>
     </div>
 </section>
+    <!-- Case Study Card -->
+<div class="case-study" data-project="autism-detection">
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('challenges')">Challenges</button>
+    <button class="tab" onclick="switchTab('tech-stack')">Tech Stack</button>
+    <button class="tab" onclick="switchTab('impact')">Impact</button>
+  </div>
+  
+  <div class="tab-content active" id="challenges">
+    <h3>Imbalanced Dataset Challenge</h3>
+    <p>Achieved 93% accuracy using SVM optimization techniques</p>
+    <div class="metric-box">
+      <span class="metric">40%</span>
+      <span class="metric-label">Reduction in diagnostic delays</span>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tech-stack">
+    <div class="tech-stack">
+      <div class="tech-item" data-tooltip="Chosen for real-time processing">
+        <img src="opencv-logo.svg" alt="OpenCV">
+        <span>OpenCV 4.5</span>
+      </div>
+      <!-- Add more tech items -->
+    </div>
+  </div>
+</div>
+
+<style>
+.case-study {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 1rem 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  border-bottom: 3px solid #e94560;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+function switchTab(tabId) {
+  // Tab switching logic
+  document.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
 <section class="relative bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 py-16 overflow-hidden">
     <!-- Animated background elements -->
     <div class="absolute top-0 left-0 w-full h-full opacity-10 dark:opacity-5">
