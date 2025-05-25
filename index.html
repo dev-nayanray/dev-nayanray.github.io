@@ -1498,199 +1498,262 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }, 30000);
 </script>
-<section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
-    <!-- Background SVG Border -->
-    <div class="absolute inset-0">
-        <img class="w-full h-full object-cover opacity-20 dark:opacity-10" src="assets/pattern-randomized-square-grid-bg.png" alt="Background Border">
+<section class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-10 dark:opacity-5">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 animate-gradient"></div>
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Download Course Videos</h2>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-300">
+                Premium Course Content
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Access high-quality video lessons with professional resources and downloadable materials.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Video Card 1 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
-                <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Featured Course Video 1</h5>
-                    <div class="aspect-w-16 aspect-h-9">
-                        <iframe class="rounded-lg w-full h-full" src="https://www.youtube.com/embed/1X_Z5bDnH6c" title="YouTube video" allowfullscreen></iframe>
+            <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="p-6">
+                    <div class="relative overflow-hidden rounded-xl aspect-video">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/1X_Z5bDnH6c" 
+                                title="YouTube video" allowfullscreen></iframe>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="p-2 bg-white/10 backdrop-blur-sm rounded-full">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <p class="mt-3 font-normal text-gray-700 dark:text-gray-400">Watch our featured course video to get started.</p>
+                    <h3 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">
+                        Advanced Web Development
+                    </h3>
+                    <p class="mt-2 text-gray-500 dark:text-gray-400">
+                        Master modern web development techniques with real-world projects.
+                    </p>
                     
-                    <!-- Download & Share Buttons -->
-                    <div class="flex justify-between items-center mt-4">
-                        <a href="#" class="text-blue-500 hover:underline">Download</a>
-                        <div class="flex space-x-2">
-                            <a href="#" class="text-gray-500 hover:text-gray-700" aria-label="Share on Facebook">
-                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.408 8.592h-2.317V6.25c0-.69.56-1.25 1.25-1.25h1.067V2.505a14.138 14.138 0 0 0-1.942-.192c-2.155 0-3.412 1.29-3.412 3.472v2.507H9.827v2.342h2.544v7.392h2.601v-7.392h2.343l.304-2.342z"/>
+                    <!-- Action Buttons -->
+                    <div class="mt-6 flex justify-between items-center">
+                        <button class="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download
+                        </button>
+                        <div class="flex space-x-3">
+                            <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18 2.0845C15.3533 3.71029 13.1081 5.89849 11.4286 8.5C9.749 5.89849 7.5038 3.71029 4.85714 2.0845C5.14421 6.73072 7.772 10.7857 11.4286 12.5C7.772 14.2143 5.14421 18.2693 4.85714 22.9155C7.5038 21.2897 9.749 19.1015 11.4286 16.5C13.1081 19.1015 15.3533 21.2897 18 22.9155C17.713 18.2693 15.0852 14.2143 11.4286 12.5C15.0852 10.7857 17.713 6.73072 18 2.0845Z"/>
                                 </svg>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-700" aria-label="Share on Twitter">
-                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M23.954 4.569c-.885.388-1.835.65-2.835.772a5.12 5.12 0 0 0 2.234-2.827c-.985.584-2.073 1.01-3.234 1.246a5.092 5.092 0 0 0-8.624 4.642c-4.235-.213-7.992-2.243-10.511-5.342-.442.756-.69 1.635-.69 2.568a5.09 5.09 0 0 0 2.295 4.243 5.04 5.04 0 0 1-2.308-.64v.064c0 2.362 1.678 4.325 3.912 4.773-.41.113-.843.17-1.286.17a5.082 5.082 0 0 1-1.007-.085c.713 2.207 2.786 3.81 5.245 3.854a10.18 10.18 0 0 1-6.317 2.18c-.41 0-.81-.023-1.21-.067a14.393 14.393 0 0 0 7.75 2.256c9.33 0 14.433-7.73 14.433-14.433 0-.22-.005-.44-.014-.659a10.264 10.264 0 0 0 2.53-2.615"/>
+                            </button>
+                            <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                 </svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
+                <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-md">
+                    New
+                </div>
             </div>
+
+            <!-- Repeat other video cards with similar structure -->
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
+                Recommended Tools
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Premium resources and tools we trust and recommend for your success
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Affiliate Product 1 -->
+            <a href="#" class="group relative block overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="relative pt-[70%]">
+                    <img src="https://control.putulhost.com/Affiliate/1044.gif" 
+                         class="absolute top-0 left-0 w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                         alt="Product">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-center text-white">
+                            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
+                                Get Exclusive Deal
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-gray-100 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Web Hosting Pro</h3>
+                    <div class="mt-2 flex items-center justify-between">
+                        <span class="text-blue-600 dark:text-blue-400 font-medium">Special Offer</span>
+                        <div class="flex items-center space-x-1">
+                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">4.9</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Repeat other affiliate products with similar structure -->
+        </div>
+    </div>
+</section>
+
+
+ <section class="relative bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-24 overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-20 dark:opacity-10">
+        <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-r from-purple-400 to-pink-300 rounded-full mix-blend-soft-light filter blur-[100px] animate-float"></div>
+        <div class="absolute top-2/3 right-1/4 w-72 h-72 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mix-blend-soft-light filter blur-[100px] animate-float animation-delay-3000"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+            <h2 class="text-5xl font-bold mb-4">
+                <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-300 px-4 animate-text-shine">
+                    Let's Create Something Amazing
+                </span>
+            </h2>
+            <p class="mt-4 text-xl text-gray-700 dark:text-gray-300/80 max-w-3xl mx-auto leading-relaxed font-medium">
+                Ready to transform your vision into reality? Let's collaborate and build something extraordinary
+            </p>
             
-            <!-- Video Card 2 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
-                <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Featured Course Video 2</h5>
-                    <div class="aspect-w-16 aspect-h-9">
-                        <iframe class="rounded-lg w-full h-full" src="https://www.youtube.com/embed/1X_Z5bDnH6c" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                    <p class="mt-3 font-normal text-gray-700 dark:text-gray-400">Watch our featured course video to get started.</p>
-                    
-                    <!-- Download & Share Buttons -->
-                    <div class="flex justify-between items-center mt-4">
-                        <a href="#" class="text-blue-500 hover:underline">Download</a>
-                        <div class="flex space-x-2">
-                            <a href="#" class="text-gray-500 hover:text-gray-700" aria-label="Share on Facebook">
-                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.408 8.592h-2.317V6.25c0-.69.56-1.25 1.25-1.25h1.067V2.505a14.138 14.138 0 0 0-1.942-.192c-2.155 0-3.412 1.29-3.412 3.472v2.507H9.827v2.342h2.544v7.392h2.601v-7.392h2.343l.304-2.342z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-700" aria-label="Share on Twitter">
-                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M23.954 4.569c-.885.388-1.835.65-2.835.772a5.12 5.12 0 0 0 2.234-2.827c-.985.584-2.073 1.01-3.234 1.246a5.092 5.092 0 0 0-8.624 4.642c-4.235-.213-7.992-2.243-10.511-5.342-.442.756-.69 1.635-.69 2.568a5.09 5.09 0 0 0 2.295 4.243 5.04 5.04 0 0 1-2.308-.64v.064c0 2.362 1.678 4.325 3.912 4.773-.41.113-.843.17-1.286.17a5.082 5.082 0 0 1-1.007-.085c.713 2.207 2.786 3.81 5.245 3.854a10.18 10.18 0 0 1-6.317 2.18c-.41 0-.81-.023-1.21-.067a14.393 14.393 0 0 0 7.75 2.256c9.33 0 14.433-7.73 14.433-14.433 0-.22-.005-.44-.014-.659a10.264 10.264 0 0 0 2.53-2.615"/>
-                                </svg>
-                            </a>
+            <!-- Animated Contact Button -->
+            <div class="mt-8 group relative inline-block">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <a href="mailto:nayanroyjsr22@gmail.com" class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl hover:rounded-3xl hover:shadow-2xl">
+                    <span class="mr-3">📬</span>
+                    Start Conversation
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <!-- Completed Projects -->
+            <div class="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/30 dark:border-gray-700/50 hover:border-blue-100/50 dark:hover:border-blue-400/30">
+                <div class="flex items-start">
+                    <div class="relative flex-shrink-0">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl -z-10 animate-spin-slow"></div>
+                        <div class="p-3 bg-white/80 dark:bg-gray-900/80 rounded-xl backdrop-blur-sm border border-white/30 dark:border-gray-700/50">
+                            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
                         </div>
+                    </div>
+                    <div class="ml-6">
+                        <span class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-300 countup">25</span>
+                        <p class="mt-2 text-lg font-medium text-gray-700 dark:text-gray-300">Completed Projects</p>
                     </div>
                 </div>
             </div>
-             <!-- Video Card 2 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
-                <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-blue-900">Featured Course Video 2</h5>
-                    <div class="aspect-w-16 aspect-h-9">
-                        <iframe class="rounded-lg w-full h-full" src="https://www.youtube.com/embed/1X_Z5bDnH6c" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                    <p class="mt-3 font-normal text-gray-700 dark:text-gray-400">Watch our featured course video to get started.</p>
-                    
-                    <!-- Download & Share Buttons -->
-                    <div class="flex justify-between items-center mt-4">
-                        <a href="#" class="text-blue-500 hover:underline">Download</a>
-                        <div class="flex space-x-2">
-                            <a href="#" class="text-gray-500 hover:text-gray-700" aria-label="Share on Facebook">
-                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.408 8.592h-2.317V6.25c0-.69.56-1.25 1.25-1.25h1.067V2.505a14.138 14.138 0 0 0-1.942-.192c-2.155 0-3.412 1.29-3.412 3.472v2.507H9.827v2.342h2.544v7.392h2.601v-7.392h2.343l.304-2.342z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-700" aria-label="Share on Twitter">
-                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M23.954 4.569c-.885.388-1.835.65-2.835.772a5.12 5.12 0 0 0 2.234-2.827c-.985.584-2.073 1.01-3.234 1.246a5.092 5.092 0 0 0-8.624 4.642c-4.235-.213-7.992-2.243-10.511-5.342-.442.756-.69 1.635-.69 2.568a5.09 5.09 0 0 0 2.295 4.243 5.04 5.04 0 0 1-2.308-.64v.064c0 2.362 1.678 4.325 3.912 4.773-.41.113-.843.17-1.286.17a5.082 5.082 0 0 1-1.007-.085c.713 2.207 2.786 3.81 5.245 3.854a10.18 10.18 0 0 1-6.317 2.18c-.41 0-.81-.023-1.21-.067a14.393 14.393 0 0 0 7.75 2.256c9.33 0 14.433-7.73 14.433-14.433 0-.22-.005-.44-.014-.659a10.264 10.264 0 0 0 2.53-2.615"/>
-                                </svg>
-                            </a>
+
+            <!-- Happy Clients -->
+            <div class="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/30 dark:border-gray-700/50 hover:border-green-100/50 dark:hover:border-green-400/30">
+                <div class="flex items-start">
+                    <div class="relative flex-shrink-0">
+                        <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl -z-10 animate-spin-slow"></div>
+                        <div class="p-3 bg-white/80 dark:bg-gray-900/80 rounded-xl backdrop-blur-sm border border-white/30 dark:border-gray-700/50">
+                            <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
                         </div>
+                    </div>
+                    <div class="ml-6">
+                        <span class="text-4xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent dark:from-green-400 dark:to-teal-300 countup">50</span>
+                        <p class="mt-2 text-lg font-medium text-gray-700 dark:text-gray-300">Happy Clients</p>
                     </div>
                 </div>
             </div>
-    </div>
-</section>
-<section class="py-16 bg-gradient-to-b from-white to-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-extrabold text-gray-800 text-center mb-12">
-      🚀 Our Affiliate Products
-    </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Loop Banners -->
-      <a href="https://control.putulhost.com/aff.php?aff=3501" class="group block transform hover:scale-105 transition duration-300 ease-in-out">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <img src="https://control.putulhost.com/Affiliate/1044.gif" alt="Banner 1" class="w-full h-56 object-contain p-4">
-        </div>
-      </a>
-
-      <a href="https://control.putulhost.com/aff.php?aff=3501" class="group block transform hover:scale-105 transition duration-300 ease-in-out">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <img src="https://control.putulhost.com/Affiliate/728.gif" alt="Banner 2" class="w-full h-56 object-contain p-4">
-        </div>
-      </a>
-
-      <a href="https://control.putulhost.com/aff.php?aff=3501" class="group block transform hover:scale-105 transition duration-300 ease-in-out">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <img src="https://control.putulhost.com/Affiliate/60.gif" alt="Banner 3" class="w-full h-56 object-contain p-4">
-        </div>
-      </a>
-
-      <a href="https://control.putulhost.com/aff.php?aff=3501" class="group block transform hover:scale-105 transition duration-300 ease-in-out">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <img src="https://control.putulhost.com/Affiliate/250.gif" alt="Banner 4" class="w-full h-56 object-contain p-4">
-        </div>
-      </a>
-
-      <a href="https://control.putulhost.com/aff.php?aff=3501" class="group block transform hover:scale-105 transition duration-300 ease-in-out">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <img src="https://control.putulhost.com/Affiliate/300.gif" alt="Banner 5" class="w-full h-56 object-contain p-4">
-        </div>
-      </a>
-
-      <a href="https://control.putulhost.com/aff.php?aff=3501&pid=66" class="group block transform hover:scale-105 transition duration-300 ease-in-out">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <img src="https://control.putulhost.com/Affiliate/468.gif" alt="Product Banner" class="w-full h-56 object-contain p-4">
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-
-  <section class="bg-gray-100 dark:bg-gray-800 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Get in Touch</h2>
-        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">I'd love to hear from you.</p>
-        <a href="mailto:nayanroyjsr22@gmail.com" class="mt-6 inline-block bg-yellow-500 text-white py-2 px-4 rounded">Contact Me</a>
-<div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3 text-center">
-    <!-- Counter: Completed Projects -->
-    <div class="flex flex-col items-center p-4 border border-gray-200 rounded-lg shadow-md dark:border-gray-700">
-        <div class="flex items-center">
-            <!-- SVG Icon for Completed Projects -->
-            <svg class="w-12 h-12 text-blue-500 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 2a1 1 0 00-.894.553l-3 6A1 1 0 002 10h1.382l-.74 3.292a1 1 0 00.554 1.105l5 2a1 1 0 00.748 0l5-2a1 1 0 00.554-1.105L15.618 10H17a1 1 0 00.894-1.447l-3-6A1 1 0 0013 2H6z"></path>
-            </svg>
-            <div class="ml-4 text-left">
-                <span class="text-5xl font-bold text-gray-900 dark:text-white">25+</span>
-                <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">Completed Projects</p>
+            <!-- Ongoing Projects -->
+            <div class="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/30 dark:border-gray-700/50 hover:border-purple-100/50 dark:hover:border-purple-400/30">
+                <div class="flex items-start">
+                    <div class="relative flex-shrink-0">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl -z-10 animate-spin-slow"></div>
+                        <div class="p-3 bg-white/80 dark:bg-gray-900/80 rounded-xl backdrop-blur-sm border border-white/30 dark:border-gray-700/50">
+                            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="ml-6">
+                        <span class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent dark:from-purple-400 dark:to-pink-300 countup">10</span>
+                        <p class="mt-2 text-lg font-medium text-gray-700 dark:text-gray-300">Ongoing Projects</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Counter: Happy Clients -->
-    <div class="flex flex-col items-center p-4 border border-gray-200 rounded-lg shadow-md dark:border-gray-700">
-        <div class="flex items-center">
-            <!-- SVG Icon for Happy Clients -->
-            <svg class="w-12 h-12 text-green-500 dark:text-green-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-3-8a1 1 0 112 0 1 1 0 01-2 0zm4-1a1 1 0 10-2 0 1 1 0 002 0zm2 1a1 1 0 112 0 1 1 0 01-2 0zm-1.196 2.264a4.978 4.978 0 01-2.608-.688 5.034 5.034 0 01-1.278-1.278.5.5 0 00-.9.417 6.034 6.034 0 001.532 1.532A6.978 6.978 0 0010 14a6.978 6.978 0 002.45-.446 6.034 6.034 0 001.532-1.532.5.5 0 00-.9-.417 5.034 5.034 0 01-1.278 1.278 4.978 4.978 0 01-2.608.688z" clip-rule="evenodd"></path>
-            </svg>
-            <div class="ml-4 text-left">
-                <span class="text-5xl font-bold text-gray-900 dark:text-white">50+</span>
-                <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">Happy Clients</p>
-            </div>
-        </div>
-    </div>
-    <!-- Counter: Upcoming Projects -->
-    <div class="flex flex-col items-center p-4 border border-gray-200 rounded-lg shadow-md dark:border-gray-700">
-        <div class="flex items-center">
-            <!-- SVG Icon for Upcoming Projects -->
-            <svg class="w-12 h-12 text-purple-500 dark:text-purple-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.5 2.5A.5.5 0 017 3v2.5H9V3a.5.5 0 111 0v2.5h2V3a.5.5 0 011 0v2.5h2V3a.5.5 0 111 0v2.5h.5a2.5 2.5 0 012.5 2.5V17a2.5 2.5 0 01-2.5 2.5H3.5A2.5 2.5 0 011 17V8a2.5 2.5 0 012.5-2.5H4V3a.5.5 0 011 0v2.5h2V3a.5.5 0 01.5-.5z"></path>
-            </svg>
-            <div class="ml-4 text-left">
-                <span class="text-5xl font-bold text-gray-900 dark:text-white">10+</span>
-                <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">Upcoming Projects</p>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-    </div>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            30% { transform: translateY(-20px) rotate(3deg); }
+            70% { transform: translateY(10px) rotate(-3deg); }
+        }
+        @keyframes text-shine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+        .animate-text-shine {
+            background-size: 200% auto;
+            animation: text-shine 3s linear infinite;
+        }
+        .animate-spin-slow {
+            animation: spin 15s linear infinite;
+        }
+    </style>
 </section>
 
+<script>
+    // Number animation script
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.countup');
+        const animationDuration = 2000;
+        const frameDuration = 1000 / 60;
+
+        counters.forEach(counter => {
+            const target = parseInt(counter.textContent);
+            const totalFrames = Math.round(animationDuration / frameDuration);
+            let frame = 0;
+            
+            const counterAnimation = setInterval(() => {
+                frame++;
+                const progress = frame / totalFrames;
+                const currentCount = Math.round(target * progress);
+                
+                if (currentCount >= target) {
+                    clearInterval(counterAnimation);
+                }
+                
+                counter.textContent = currentCount + '+';
+            }, frameDuration);
+        });
+    });
+</script>
 <footer class="bg-white dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 border-t dark:border-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="flex flex-col lg:flex-row justify-between gap-8">
