@@ -424,6 +424,103 @@ gsap.from(".animate-3d-text", {
 
 // Add more GSAP animations as needed
 </script>
+
+    <section class="relative py-20 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-10 dark:opacity-5">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900 dark:to-blue-900 animate-gradient"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Profile Column -->
+            <div class="relative group flex justify-center lg:justify-end">
+                <div class="relative w-72 h-72 rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-600 opacity-20"></div>
+                    <img src="assets/nayan-ray.png" alt="Nayan Ray" 
+                         class="w-full h-full object-cover object-top rounded-2xl border-8 border-white/20 dark:border-gray-800">
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-lg">
+                        <div class="flex items-center space-x-2">
+                            <div class="flex text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <span class="text-sm font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                                Top Rated
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -right-8 -top-8 w-32 h-32 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+            </div>
+
+            <!-- Bio Column -->
+            <div class="space-y-6">
+                <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
+                    Crafting Digital Excellence
+                </h2>
+                
+                <div class="space-y-4 text-gray-600 dark:text-gray-300 text-lg">
+                    <p class="flex items-start">
+                        <span class="shrink-0 mt-1.5 w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3"></span>
+                        <span>Full-stack developer with 3+ years experience specializing in WordPress, Laravel, and modern JavaScript frameworks</span>
+                    </p>
+                    
+                    <p class="flex items-start">
+                        <span class="shrink-0 mt-1.5 w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3"></span>
+                        <span>Lead Developer at Coupon Themes & Founder of NexGen Devs - Delivering enterprise-grade solutions</span>
+                    </p>
+
+                    <p class="flex items-start">
+                        <span class="shrink-0 mt-1.5 w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3"></span>
+                        <span>Expert in performance optimization, SEO-friendly development, and responsive design systems</span>
+                    </p>
+                </div>
+
+                <!-- Stats & Social -->
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                            3+
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            Years Experience
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                            50+
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            Projects Delivered
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="p-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all border border-gray-100 dark:border-gray-700">
+                        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="p-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all border border-gray-100 dark:border-gray-700">
+                        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.499 6.203a3.008 3.008 0 00-2.089-2.089c-1.618-.423-5.968-.423-5.968-.423s-4.35 0-5.967.423a3.008 3.008 0 00-2.089 2.09A31.258 31.258 0 000 12.01a31.258 31.258 0 003.386 5.785 3.008 3.008 0 002.089 2.089c1.868.489 5.968.489 5.968.489s4.35 0 5.969-.489a3.008 3.008 0 002.089-2.09 31.258 31.258 0 003.384-5.785 31.258 31.258 0 00-3.384-5.808zm-14.954 6.635V8.356l5.629 3.14-5.629 3.14z"/>
+                        </svg>
+                    </a>
+                    <!-- Add other social icons -->
+                </div>
+
+                <a href="#contact" class="mt-8 inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl hover:shadow-lg transition-all transform hover:scale-[1.02]">
+                    <span>Let's Connect</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="relative bg-white dark:bg-gray-900 py-20 overflow-hidden">
     <!-- Animated background gradient -->
     <div class="absolute inset-0 bg-gradient-to-r from-blue-100/30 via-transparent to-purple-100/30 dark:from-gray-800/50 dark:to-gray-800/50 animate-gradient-x"></div>
