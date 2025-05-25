@@ -125,58 +125,100 @@
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-    <!-- Header Section -->
-  <header class="bg-white dark:bg-gray-800 shadow">
-    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Nayan Ray</h2>
-        <nav>
-            <ul class="flex space-x-2 sm:space-x-4">
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Home</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">About</a></li>
-                <li><a href="#" class="text-gray-900 dark:text-white text-sm sm:text-base">Services</a></li>
-                <li><a href="home.html" class="text-gray-900 dark:text-white text-sm sm:text-base">Product</a></li>
-                <li><a href="inde.html
-" class="text-gray-900 dark:text-white text-sm sm:text-base">Portfolio</a></li>
-                <li><a href="indejx.html" class="text-gray-900 dark:text-white text-sm sm:text-base">Contact</a></li>
-            </ul>
-        </nav>
-        <button id="dark-mode-toggle" class=" text-white py-2 px-4 rounded">
-        <span class="light-mode-icon">☀️</span>
-        <span class="dark-mode-icon">🌙</span>
-        
-    </button>
+ <!-- Header Section -->
+<header class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b dark:border-gray-700 shadow-sm sticky top-0 z-50 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 sm:h-20">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent dark:from-purple-400 dark:to-blue-300 transition-all duration-300 group-hover:opacity-80">
+                    Nayan Ray
+                </span>
+            </a>
 
-    <script>
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        let darkMode = false;
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <div class="flex space-x-4 sm:space-x-6">
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Home
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        About
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Services
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Portfolio
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Contact
+                    </a>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="dark-mode-toggle" class="ml-4 p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+                    <svg class="w-5 h-5 text-gray-800 dark:text-yellow-400 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </nav>
 
-        darkModeToggle.addEventListener('click', () => {
-            darkMode = !darkMode;
-            applyMode();
-        });
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
 
-        function applyMode() {
-            const lightModeIcon = document.querySelector('.light-mode-icon');
-            const darkModeIcon = document.querySelector('.dark-mode-icon');
-
-            if (darkMode) {
-                lightModeIcon.style.display = 'none';
-                darkModeIcon.style.display = 'inline';
-                // Apply dark mode styles or classes here
-                document.body.style.backgroundColor = '#333'; // Example dark mode background color
-                document.body.style.color = '#fff'; // Example dark mode text color
-            } else {
-                lightModeIcon.style.display = 'inline';
-                darkModeIcon.style.display = 'none';
-                // Apply light mode styles or classes here
-                document.body.style.backgroundColor = '#fff'; // Example light mode background color
-                document.body.style.color = '#333'; // Example light mode text color
-            }
-        }
-    </script>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-16 inset-x-0 bg-white dark:bg-gray-900 border-b dark:border-gray-700">
+        <div class="px-4 py-4 space-y-4">
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Home</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">About</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Services</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Portfolio</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Contact</a>
+        </div>
     </div>
 </header>
 
+<script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        htmlElement.classList.add('dark');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark');
+        localStorage.setItem('dark-mode', 
+            htmlElement.classList.contains('dark') ? 'enabled' : 'disabled'
+        );
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+</script>
     
     <div class="header-spacing"></div>
   
