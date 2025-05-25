@@ -2220,6 +2220,106 @@ document.addEventListener("DOMContentLoaded", async function() {
         </div>
     </div>
 </section>
+<script>
+
+    // Dark Mode Toggle
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const htmlElement = document.documentElement;
+
+function setDarkMode(enabled) {
+    htmlElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    htmlElement.classList.toggle('dark', enabled);
+    localStorage.setItem('dark-mode', enabled ? 'enabled' : 'disabled');
+    setTimeout(() => htmlElement.style.transition = '', 300);
+}
+
+if (localStorage.getItem('dark-mode') === 'enabled') setDarkMode(true);
+
+darkModeToggle?.addEventListener('click', () => setDarkMode(!htmlElement.classList.contains('dark')));
+
+// FAQ Toggle Functionality
+document.querySelectorAll('.faq-group button').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.closest('.faq-group');
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = button.querySelector('.toggle-icon');
+        
+        // Toggle states
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+        
+        // Toggle answer
+        answer.style.maxHeight = isOpen ? '0' : `${answer.scrollHeight}px`;
+        
+        // Rotate icon
+        icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        
+        // Update aria attributes
+        button.setAttribute('aria-expanded', !isOpen);
+    });
+});
+
+// Close FAQ when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.faq-group')) {
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.maxHeight = '0';
+            answer.closest('.faq-group').querySelector('.toggle-icon').style.transform = 'rotate(0deg)';
+        });
+    }
+});
+</script>
+    <style>
+        /* Custom CSS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.faq-answer {
+    will-change: max-height, opacity;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.pattern-dots {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+
+/* Smooth transitions */
+.faq-group {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode overrides */
+.dark .faq-group {
+    background-color: rgba(17, 24, 39, 0.8);
+    border-color: rgba(55, 65, 81, 0.5);
+}
+
+.dark .pattern-dots {
+    background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+}
+
+.dark .faq-group:hover {
+    border-color: rgba(79, 70, 229, 0.3);
+    background-color: rgba(17, 24, 39, 1);
+}
+
+/* Print styles */
+@media print {
+    .faq-answer {
+        max-height: none !important;
+        display: block !important;
+    }
+    .toggle-icon {
+        display: none !important;
+    }
+}
+    </style>
 <footer class="bg-white dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 border-t dark:border-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="flex flex-col lg:flex-row justify-between gap-8">
