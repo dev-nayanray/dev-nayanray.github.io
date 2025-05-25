@@ -1988,6 +1988,86 @@ document.addEventListener("DOMContentLoaded", async function() {
         });
     });
 </script>
+    <section class="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900/95 py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-400 dark:to-blue-300 bg-clip-text text-transparent mb-4">
+                Frequently Asked Questions
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Find quick answers to common questions about our services, process, and pricing.
+            </p>
+        </div>
+
+        <!-- FAQ Grid -->
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+            <!-- FAQ Items -->
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+                <button class="flex justify-between items-center w-full group" onclick="toggleFAQ(1)">
+                    <h3 class="text-left text-lg font-semibold text-gray-900 dark:text-white">What services do you offer?</h3>
+                    <svg class="w-6 h-6 text-purple-600 dark:text-purple-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-answer mt-4 overflow-hidden transition-all duration-300 ease-out" style="max-height: 0">
+                    <p class="text-gray-600 dark:text-gray-300">
+                        We provide complete web development solutions including WordPress website design, custom development, eCommerce solutions, SEO optimization, and ongoing maintenance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Repeat similar structure for other FAQs -->
+            <!-- FAQ Item 2 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+                <button class="flex justify-between items-center w-full" onclick="toggleFAQ(2)">
+                    <h3 class="text-left text-lg font-semibold text-gray-900 dark:text-white">How much does a website cost?</h3>
+                    <svg class="w-6 h-6 text-purple-600 dark:text-purple-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-answer mt-4 overflow-hidden transition-all duration-300 ease-out" style="max-height: 0">
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Website pricing depends on your requirements. We offer packages starting from $50 for basic websites. Custom features or eCommerce platforms may vary in pricing. Contact us for a free quote.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Add remaining FAQ items following the same pattern -->
+            <!-- ... (Continue with other FAQ items) ... -->
+
+            <!-- CTA Card -->
+            <div class="md:col-span-2 bg-gradient-to-r from-purple-600 to-blue-500 rounded-2xl p-8 lg:p-12 text-center shadow-xl mt-8">
+                <div class="max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-4">Still have questions?</h3>
+                    <p class="text-purple-100 mb-8">Can't find the answer you're looking for? We're here to help!</p>
+                    <a href="#" class="inline-block bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Get Free Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleFAQ(number) {
+        const faqItem = event.currentTarget.closest('.group');
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = faqItem.querySelector('svg');
+
+        // Toggle max-height
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+        answer.style.maxHeight = isOpen ? '0' : `${answer.scrollHeight}px`;
+        
+        // Rotate icon
+        icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        
+        // Add open styles
+        faqItem.classList.toggle('bg-gray-50', !isOpen);
+        faqItem.classList.toggle('dark:bg-gray-700', !isOpen);
+    }
+</script>
 <footer class="bg-white dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 border-t dark:border-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="flex flex-col lg:flex-row justify-between gap-8">
