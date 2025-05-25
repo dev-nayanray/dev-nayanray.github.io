@@ -1214,69 +1214,84 @@ document.addEventListener("DOMContentLoaded", async function() {
     let loadedPostIds = new Set();
     let backupPosts = JSON.parse(localStorage.getItem('backupPosts')) || [];
 
-    // Random placeholder images for demonstration
-    const placeholderImages = [
-        'https://picsum.photos/600/400?random=1',
-        'https://picsum.photos/600/400?random=2',
-        'https://picsum.photos/600/400?random=3'
-    ];
-
-    function loadBackupPosts() {
-        if (backupPosts.length > 0) {
-            backupPosts.forEach(post => {
-                if (!loadedPostIds.has(post.question_id)) {
-                    blogContainer.innerHTML += createBlogPostCard(post);
-                    loadedPostIds.add(post.question_id);
-                }
-            });
-        }
-    }
+    // WordPress REST API configuration
+    const apiBase = 'https://readforlearn.com/wp-json/wp/v2';
+    const defaultImage = 'https://readforlearn.com/wp-content/uploads/default-featured-image.jpg';
 
     async function fetchBlogs() {
         try {
             spinner.classList.remove('hidden');
-            const response = await fetch(`https://api.stackexchange.com/2.2/questions?order=desc&sort=votes&tagged=wordpress&site=stackoverflow&page=${page}&pagesize=${pageSize}`);
+            const response = await fetch(
+                `${apiBase}/posts?_embed&per_page=${pageSize}&page=${page}`
+            );
+            
+            if (!response.ok) throw new Error('Network response was not ok');
+            
             const data = await response.json();
             spinner.classList.add('hidden');
-            return data.items;
+            return data.map(post => ({
+                id: post.id,
+                title: post.title.rendered,
+                excerpt: post.excerpt.rendered,
+                content: post.content.rendered,
+                image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || defaultImage,
+                link: post.link,
+                categories: post._embedded?.['wp:term']?.[0] || [],
+                date: post.date
+            }));
+            
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error fetching posts:', error);
             spinner.classList.add('hidden');
-            return [];
+            showWarning('Failed to load posts. Showing cached content...');
+            return backupPosts.slice(0, pageSize); // Return cached posts
         }
     }
 
     function createBlogPostCard(post) {
-        const randomImage = placeholderImages[Math.floor(Math.random() * placeholderImages.length)];
-        const contentSnippet = post.body ? post.body.substring(0, 100) + '...' : 'Explore this insightful article...';
-        const tags = post.tags?.slice(0, 3) || [];
+        const cleanExcerpt = post.excerpt.replace(/<\/?[^>]+(>|$)/g, '');
+        const categories = post.categories.map(cat => cat.name).slice(0, 3);
         
         return `
             <article class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                 <div class="relative h-48 overflow-hidden">
-                    <img src="${randomImage}" alt="Featured" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <img src="${post.image}" alt="${post.title}" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                         loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50"></div>
                 </div>
                 <div class="p-6 space-y-4">
                     <div class="flex flex-wrap gap-2">
-                        ${tags.map(tag => `
+                        ${categories.map(cat => `
                             <span class="px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-300 rounded-full">
-                                ${tag}
+                                ${cat}
                             </span>
                         `).join('')}
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-                        <a href="${post.link}" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        <a href="${post.link}" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             ${post.title}
                         </a>
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-300 line-clamp-3">${contentSnippet}</p>
-                    <a href="${post.link" target="_blank" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:underline">
-                        Read Article
-                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
+                    <p class="text-gray-600 dark:text-gray-300 line-clamp-3">${cleanExcerpt}</p>
+                    <div class="flex justify-between items-center">
+                        <a href="${post.link}" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                            Read Article
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                      stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <time class="text-sm text-gray-500 dark:text-gray-400" 
+                              datetime="${post.date}">
+                            ${new Date(post.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric'
+                            })}
+                        </time>
+                    </div>
                 </div>
             </article>
         `;
@@ -1292,56 +1307,77 @@ document.addEventListener("DOMContentLoaded", async function() {
     async function displayBlogs() {
         if (!hasMorePosts) return;
 
-        const blogs = await fetchBlogs();
-        const answeredBlogs = blogs.filter(post => post.is_answered);
+        const posts = await fetchBlogs();
+        if (posts.length === 0) return;
 
-        if (answeredBlogs.length < pageSize) {
-            hasMorePosts = false;
-            loadMoreBtn.classList.add('hidden');
-        }
-
-        answeredBlogs.slice(0, pageSize).forEach(post => {
-            if (!loadedPostIds.has(post.question_id)) {
+        posts.forEach(post => {
+            if (!loadedPostIds.has(post.id)) {
                 blogContainer.innerHTML += createBlogPostCard(post);
-                loadedPostIds.add(post.question_id);
+                loadedPostIds.add(post.id);
                 backupPosts.push(post);
                 localStorage.setItem('backupPosts', JSON.stringify(backupPosts));
             }
         });
 
+        // Check if we've reached the end of available posts
+        if (posts.length < pageSize) {
+            hasMorePosts = false;
+            loadMoreBtn.classList.add('hidden');
+        }
+
         deleteOlderPosts();
         page++;
     }
 
-    async function syncAndShowNewPosts() {
-        const blogs = await fetchBlogs();
-        const newPosts = blogs.filter(post => post.is_answered && !loadedPostIds.has(post.question_id));
-
-        if (newPosts.length > 0) {
-            newPosts.slice(0, pageSize).forEach(post => {
-                blogContainer.innerHTML += createBlogPostCard(post);
-                loadedPostIds.add(post.question_id);
-                backupPosts.push(post);
-                localStorage.setItem('backupPosts', JSON.stringify(backupPosts));
+    function loadBackupPosts() {
+        if (backupPosts.length > 0) {
+            backupPosts.slice(0, maxPosts).forEach(post => {
+                if (!loadedPostIds.has(post.id)) {
+                    blogContainer.innerHTML += createBlogPostCard(post);
+                    loadedPostIds.add(post.id);
+                }
             });
-
-            deleteOlderPosts();
         }
+    }
+
+    function showWarning(message) {
+        const warning = document.createElement('div');
+        warning.className = 'bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4';
+        warning.role = 'alert';
+        warning.innerHTML = `<p>${message}</p>`;
+        blogContainer.parentElement.insertBefore(warning, blogContainer);
     }
 
     // Event Listeners
     loadMoreBtn.addEventListener('click', displayBlogs);
+    
     updateIntervalInput.addEventListener('input', (e) => {
         clearInterval(window.updateInterval);
-        window.updateInterval = setInterval(syncAndShowNewPosts, e.target.value * 1000);
+        window.updateInterval = setInterval(() => {
+            if (document.visibilityState === 'visible') {
+                displayBlogs();
+            }
+        }, e.target.value * 1000);
     });
 
     // Initial Load
     loadBackupPosts();
     displayBlogs();
-    window.updateInterval = setInterval(syncAndShowNewPosts, 30000);
-</script>
 
+    // Set up visibility change listener
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            displayBlogs();
+        }
+    });
+
+    // Initialize auto-update
+    window.updateInterval = setInterval(() => {
+        if (document.visibilityState === 'visible') {
+            displayBlogs();
+        }
+    }, 30000);
+</script>
 <section class="relative bg-white dark:bg-gray-900 py-12 overflow-hidden">
     <!-- Background SVG Border -->
     <div class="absolute inset-0">
