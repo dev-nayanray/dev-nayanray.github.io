@@ -1,1 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Nayan Ray - Web Developer | Code Creativity Bd </title>
 
+<!-- Primary Meta Tags -->
+<meta name="description" content="Nayan Ray is a talented web developer specializing in Web Design and WordPress Development. Explore my portfolio and recent projects.">
+<meta name="keywords" content="Nayan Ray, web developer, WordPress developer, web designer, portfolio, responsive design, HTML, CSS, JavaScript, PHP, jQuery, Bootstrap, UI/UX, SEO, website development, freelance, CMS, website optimization, mobile development, e-commerce, graphic design, digital marketing, domain hosting">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="Nayan Ray - Web Developer">
+<meta property="og:description" content="Talented web developer specializing in Web Design and WordPress Development. Explore my portfolio and projects.">
+<meta property="og:image" content="https://dev-nayanray.github.io/assets/nayan-ray.png">
+<meta property="og:url" content="https://dev-nayanray.github.io/">
+<meta property="og:type" content="website">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nayan Ray - Web Developer">
+<meta name="twitter:description" content="Talented web developer specializing in Web Design and WordPress Development. Explore my portfolio and projects.">
+<meta name="twitter:image" content="https://dev-nayanray.github.io/assets/nayan-ray.png">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://dev-nayanray.github.io/">
+
+<!-- Blog Section Meta Tags (Optional, if shown on same page) -->
+<!-- If blog is on a different page, these should be placed there instead -->
+<!--
+<meta name="description" content="Explore the top voted WordPress-related questions and blog posts from StackOverflow. Stay updated with the latest web development trends.">
+<meta name="keywords" content="WordPress, Web Development, Blog, StackOverflow, Digital Solutions">
+
+<meta property="og:title" content="Top Voted WordPress Posts from StackOverflow">
+<meta property="og:description" content="Explore the top voted WordPress-related questions and blog posts from StackOverflow.">
+<meta property="og:image" content="https://dev-nayanray.github.io/assets/nayan-ray.png">
+<meta property="og:url" content="https://dev-nayanray.github.io/">
+
+<meta name="twitter:title" content="Top Voted WordPress Posts from StackOverflow">
+<meta name="twitter:description" content="Explore the top voted WordPress-related questions and blog posts from StackOverflow.">
+-->
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://dev-nayanray.github.io/assets/nayan-ray.png">
+
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
+
+    <style>
+        /* Custom styles for dark mode */
+        .dark .dark\:bg-gray-900 {
+            background-color: #1a202c;
+        }
+        .dark .dark\:text-white {
+            color: #fff;
+        }
+        .dark .dark\:bg-gray-800 {
+            background-color: #2d3748;
+        }
+        .dark .dark\:text-gray-400 {
+            color: #cbd5e0;
+        }
+        /* Fixed header styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        .header-spacing {
+            height: 68px; /* Adjust based on header height */
+        }
+          .laptop-screen {
+            background: linear-gradient(145deg, #1e293b, #1e40af);
+        }
+        .laptop-frame {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25), 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+        .laptop-screen-border {
+            border-width: 5px;
+            border-image: linear-gradient(90deg, red, yellow, green, blue) 1;
+        }
+        .laptop-screen:hover .laptop-screen-border {
+            border-image: linear-gradient(90deg, pink, orange, purple, cyan) 1;
+        }
+        
+         .testimonial-card {
+            background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
+            transition: transform 0.3s ease-in-out;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .slick-prev, .slick-next {
+            font-size: 2rem;
+            color: #4b5563;
+        }
+        /* Additional custom styles */
+    .message-container {
+        max-height: 70vh; /* Limit chat container height */
+    }
+    .message-bubble {
+        max-width: 70%; /* Limit width of message bubbles */
+    }
+.dark-mode-icon {
+            display: none; /* Hide dark mode icon by default */
+        }
+        .light-mode-icon {
+            display: inline; /* Show light mode icon by default */
+        }
+
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+ <!-- Header Section -->
+<header class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b dark:border-gray-700 shadow-sm sticky top-0 z-50 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 sm:h-20">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent dark:from-purple-400 dark:to-blue-300 transition-all duration-300 group-hover:opacity-80">
+                    Nayan Ray
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <div class="flex space-x-4 sm:space-x-6">
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Home
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        About
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Services
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Portfolio
+                    </a>
+                    <a href="#" class="relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-purple-500 hover:before:w-full before:transition-all before:duration-300">
+                        Contact
+                    </a>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-4 ml-4">
+                    <a href="#" class="bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-500 dark:to-blue-400 text-white px-6 py-1.5 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105">
+                        Hire Me
+                    </a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300 relative">
+                        <div class="relative w-5 h-5">
+                            <svg class="w-5 h-5 text-gray-800 dark:text-yellow-400 absolute inset-0 opacity-100 dark:opacity-0 transition-opacity duration-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-gray-600 dark:text-yellow-400 absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-16 inset-x-0 bg-white dark:bg-gray-900 border-b dark:border-gray-700 transition-all duration-300">
+        <div class="px-4 py-4 space-y-4">
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300">Home</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300">About</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300">Services</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300">Portfolio</a>
+            <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300">Contact</a>
+            <a href="#" class="block bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-500 dark:to-blue-400 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105">
+                Hire Me
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Dark Mode Toggle with Smooth Transition
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const htmlElement = document.documentElement;
+
+    // Function to set dark mode with transition
+    function setDarkMode(enabled) {
+        htmlElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        if (enabled) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+        localStorage.setItem('dark-mode', enabled ? 'enabled' : 'disabled');
+        
+        // Remove transition after animation completes
+        setTimeout(() => {
+            htmlElement.style.transition = '';
+        }, 300);
+    }
+
+    // Initialize dark mode
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        setDarkMode(true);
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        const isDark = htmlElement.classList.contains('dark');
+        setDarkMode(!isDark);
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+
+    // Close menu on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+</script>
+<!-- Add this right after the header section -->
+<main class="dark:bg-gray-900">
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-32 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+                <!-- Profile Image -->
+                <div class="relative lg:w-1/3 group">
+                    <div class="relative z-10 rounded-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-all duration-500">
+                        <img src="assets/nayan-ray.png" alt="Nayan Ray" class="w-full h-auto object-cover shadow-2xl">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl opacity-20 blur-3xl group-hover:opacity-30 transition-opacity duration-300"></div>
+                </div>
+
+                <!-- Profile Content -->
+                <div class="lg:w-2/3 mt-12 lg:mt-0">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Crafting Digital Experiences <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">That Matter</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        Hi, I'm Nayan Ray - a full-stack developer specializing in creating beautiful, functional web experiences. With 5+ years in the industry, I bridge the gap between design and technology, delivering solutions that drive real business results.
+                    </p>
+                    <div class="flex items-center space-x-6">
+                        <a href="#contact" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105">
+                            Get In Touch
+                        </a>
+                        <div class="flex space-x-4">
+                            <a href="#" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                                <img src="assets/github-icon.svg" class="w-6 h-6" alt="GitHub">
+                            </a>
+                            <a href="#" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                                <img src="assets/linkedin-icon.svg" class="w-6 h-6" alt="LinkedIn">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20 dark:bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    Technical Expertise
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Mastery across the full development stack with focus on performance, accessibility, and cutting-edge solutions
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Frontend Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        React, Vue.js, HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, Webpack
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-300 rounded-full text-sm">Expert</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 rounded-full text-sm">TypeScript</span>
+                    </div>
+                </div>
+
+                <!-- Repeat similar cards for other skills -->
+                <!-- Add Backend, DevOps, CMS, etc. -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    Professional Journey
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Building digital solutions for global clients and innovative startups
+                </p>
+            </div>
+
+            <div class="relative pl-8 sm:pl-32 space-y-16">
+                <!-- Timeline Item -->
+                <div class="relative">
+                    <div class="absolute left-0 sm:left-24 h-full w-0.5 bg-purple-200 dark:bg-gray-700 origin-top">
+                        <div class="absolute w-full h-4 bg-gradient-to-b from-purple-200 dark:from-gray-700 to-transparent"></div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-start gap-8">
+                        <div class="hidden sm:block sm:w-24 text-right">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">2022-Present</span>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-11 top-4 w-6 h-6 bg-purple-600 rounded-full border-4 border-white dark:border-gray-900"></div>
+                            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                    Lead Developer @ TechSolutions Inc
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Spearheaded development of enterprise-scale applications, leading a team of 8 developers
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">React</span>
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">Node.js</span>
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more timeline items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section class="py-20 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    Education & Credentials
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Education Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">BSc in Computer Science</h3>
+                            <p class="text-gray-600 dark:text-gray-300">University of Technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Focused on software architecture, AI fundamentals, and advanced web development techniques
+                    </p>
+                </div>
+
+                <!-- Certification Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center">
+                            <img src="assets/aws-certified-icon.svg" class="w-8 h-8" alt="AWS Certified">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">AWS Certified Developer</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Amazon Web Services</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Specialized in cloud architecture, serverless solutions, and DevOps practices
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-20 bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-700 dark:to-blue-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">
+                Ready to Bring Your Vision to Life?
+            </h2>
+            <p class="text-purple-100 mb-8 max-w-2xl mx-auto">
+                Whether you need a complete web solution or technical consultation, I'm here to turn your ideas into reality.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Start Your Project
+                </a>
+                <a href="#portfolio" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+                    View Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+   <footer class="bg-white dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 border-t dark:border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col lg:flex-row justify-between gap-8">
+            <!-- Company Info -->
+            <div class="lg:w-1/3 mb-8 lg:mb-0">
+                <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                    Nayan Ray
+                </a>
+                <p class="mt-4 text-gray-600 dark:text-gray-300">
+                    Crafting digital experiences that merge innovation with purpose. Let's build the future together.
+                </p>
+                <div class="mt-6 flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 flex-1">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase">Solutions</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Web Development</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Mobile Apps</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cloud Solutions</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase">Company</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase">Legal</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Terms</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cookies</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Licenses</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="lg:w-1/4">
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase">Stay Updated</h3>
+                <form class="mt-4 sm:flex sm:max-w-md">
+                    <label for="email" class="sr-only">Email address</label>
+                    <input type="email" id="email" autocomplete="email" required 
+                        class="w-full min-w-0 px-4 py-2 text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" 
+                        placeholder="Enter your email">
+                    <button type="submit" 
+                        class="mt-2 sm:mt-0 sm:ml-2 px-4 py-2 border border-transparent text-base font-medium rounded-r-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+                    Join our newsletter for product updates and tech insights.
+                </p>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                <p class="order-2 md:order-1 mt-4 md:mt-0">
+                    &copy; 2024 Nayan Ray. All rights reserved.
+                </p>
+                <div class="order-1 md:order-2 flex space-x-4">
+                    <a href="#" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+ 
+
+    
+<button id="chatButton" class="fixed bottom-16 right-4 bg-blue-500 text-white py-2 px-4 rounded shadow-md z-10">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4a2 2 0 00-2 2v14a2 2 0 002 2h8l4 4V4a2 2 0 00-2-2z"/>
+    </svg>
+</button>
+
+
+<div id="chatContainer" class="hidden fixed bottom-20 right-4 bottom-32 bg-white border border-gray-300 shadow-lg rounded-lg w-96">
+    <div class="flex flex-col h-full">
+        <!-- Chat header -->
+        <div class="flex items-center justify-between p-4 bg-blue-500 rounded-t-lg">
+            <h2 class="text-lg font-bold text-white">Supports | 24/7</h2>
+            <button id="closeChatButton" class="text-white hover:text-gray-200 focus:outline-none">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M13.58 6.576a1 1 0 0 0-1.414 0L10 8.086 7.414 6.576a1 1 0 0 0-1.414 1.414L8.586 9l-2.17 2.17a1 1 0 1 0 1.415 1.415L10 10.415l2.17 2.17a1 1 0 0 0 1.415-1.415L11.414 9l2.165-2.165a1 1 0 0 0 0-1.414z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Chat messages -->
+        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-100">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <!-- Chat input field -->
+        <div class="p-4 border-t border-gray-300 bg-white">
+            <div class="flex items-center">
+                <label for="fileInput" class="mr-3 cursor-pointer">
+                    <svg class="w-6 h-6 fill-current text-gray-600 hover:text-gray-800" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2H4a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V10a4 4 0 0 0-4-4h-2zM8 6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2H8zm0 4a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0v-3a1 1 0 0 0-1-1zm4 0a1 1 0 0 1 1 1v3a1 1 0 0 1-2 0v-3a1 1 0 0 1 1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    <input id="fileInput" type="file" class="hidden" accept="image/*, video/*, audio/*">
+                </label>
+                <input type="text" id="messageInput" class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none" placeholder="Type your message...">
+                <button id="sendMessageButton" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 focus:outline-none">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        // Toggle dark mode
+        const toggle = document.getElementById('dark-mode-toggle');
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+      const chatButton = document.getElementById('chatButton');
+    const chatContainer = document.getElementById('chatContainer');
+    const closeChatButton = document.getElementById('closeChatButton');
+    const messageInput = document.getElementById('messageInput');
+    const sendMessageButton = document.getElementById('sendMessageButton');
+    const fileInput = document.getElementById('fileInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    // Toggle chat container visibility
+    chatButton.addEventListener('click', function() {
+        chatContainer.classList.toggle('hidden');
+    });
+
+    closeChatButton.addEventListener('click', function() {
+        chatContainer.classList.add('hidden');
+    });
+
+    // Function to send a message or file
+    function sendMessage() {
+        const messageText = messageInput.value.trim();
+        const files = fileInput.files;
+
+        if (messageText === '' && files.length === 0) return;
+
+        // Prepare message HTML
+        let message = '';
+
+        // Handle files
+        if (files.length > 0) {
+            const file = files[0];
+            const fileType = file.type.split('/')[0]; // 'image', 'video', 'audio'
+
+            // Display file preview (if image)
+            if (fileType === 'image') {
+                const imageUrl = URL.createObjectURL(file);
+                message += `
+                    <div class="flex items-start mb-4">
+                        <div class="flex-shrink-0 mr-3">
+                            <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+                        </div>
+                        <div class="bg-white rounded-lg p-2 message-bubble">
+                            <img src="${imageUrl}" class="rounded-lg">
+                            <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Handle other file types (video, audio)
+                const fileTypeIcon = fileType === 'video' ? 'film' : 'volume-up';
+                message += `
+                    <div class="flex items-start mb-4">
+                        <div class="flex-shrink-0 mr-3">
+                            <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+                        </div>
+                        <div class="bg-white rounded-lg p-2 message-bubble">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 fill-current text-gray-600 mr-2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="images/sprite.svg#${fileTypeIcon}"></use>
+                                </svg>
+                                <span class="text-sm text-gray-900">${file.name}</span>
+                            </div>
+                            <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Handle text message
+        if (messageText !== '') {
+            message += `
+                <div class="flex items-start mb-4">
+                    <div class="flex-shrink-0 mr-3">
+                        <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+                    </div>
+                    <div class="bg-white rounded-lg p-2 message-bubble">
+                        <p class="text-sm text-gray-900 leading-snug">${messageText}</p>
+                        <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Append message to chatMessages
+        chatMessages.insertAdjacentHTML('beforeend', message);
+
+        // Clear inputs
+        messageInput.value = '';
+        fileInput.value = '';
+    }
+
+    sendMessageButton.addEventListener('click', sendMessage);
+
+    // Function to format time as HH:MM AM/PM
+    function formatTime(date) {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        return `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+    }
+
+    </script>
+    <!-- Slick Carousel JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.testimonial-slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Nayan Ray",
+      "url": "https://dev-nayanray.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/wpnayanray",
+        "https://github.com/dev-nayanray"
+      ]
+    }
+    </script>
+    
+  
+</body>
