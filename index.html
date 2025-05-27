@@ -254,320 +254,159 @@
 </script>
    
   
-<section class="relative min-h-screen flex items-center py-24 overflow-hidden">
-    <!-- Animated gradient background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
-        <div class="absolute inset-0 opacity-20 animate-gradient-pan bg-[linear-gradient(60deg,transparent_48%,#4f46e540_50%,transparent_52%)]"></div>
-    </div>
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden isolate">
+    <!-- Animated gradient veil -->
+    <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_20%,hsl(var(--primary)/.03)_50%,transparent_80%)] opacity-40 animate-gradient-veil"></div>
 
-    <!-- Floating grid animation -->
-    <div class="absolute inset-0 opacity-10 dark:opacity-20">
-        <div class="animate-float-grid bg-[radial-gradient(circle_at_center,#000_1px,transparent_0)] bg-[length:40px_40px] dark:bg-[radial-gradient(circle_at_center,#fff_1px,transparent_0)]"></div>
-    </div>
+    <!-- Geometric background pattern -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,#fff_1px,transparent_0)] bg-[size:40px_40px] opacity-[0.02] dark:opacity-[0.03]"></div>
 
     <!-- Content container -->
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <!-- Text content -->
-            <div class="space-y-8" data-aos="fade-right">
-                <div class="space-y-4 relative">
-                    <!-- Animated 3D text -->
-                    <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white tracking-tighter">
-                        <span class="animate-3d-text inline-block bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                            Nayan Ray
-                        </span>
-                    </h1>
-                    
-                    <!-- Animated typing effect -->
-                    <p class="text-2xl text-gray-600 dark:text-gray-300 font-mono animate-typing overflow-hidden whitespace-nowap">
-                        WordPress & Full-Stack Developer_
-                    </p>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24">
+        <div class="flex flex-col items-center text-center">
+            <!-- Animated badge -->
+            <div class="mb-8 animate-fade-in-up">
+                <span class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-full py-2 px-4 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50/50 dark:hover:bg-gray-900 transition-all">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Available for new projects
+                </span>
+            </div>
 
-                    <p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
-                        Building performant, scalable web solutions with modern WordPress development 
-                        and cutting-edge technologies. Focused on clean code and user-centric design.
+            <!-- Hero content -->
+            <div class="max-w-3xl mx-auto space-y-8">
+                <!-- Name with gradient stroke effect -->
+                <h1 class="text-6xl md:text-8xl font-black tracking-tight text-center">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900/90 via-gray-900 to-gray-900/90 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 relative">
+                        <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text animate-text-shine opacity-20"></span>
+                        Nayan Ray
+                    </span>
+                </h1>
+
+                <!-- Animated typing title -->
+                <div class="relative inline-block">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-2xl opacity-20 animate-pulse"></div>
+                    <p class="text-2xl md:text-3xl font-medium bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 bg-clip-text text-transparent relative">
+                        WordPress & Full-Stack Developer
+                        <span class="typing-cursor">|</span>
                     </p>
                 </div>
 
-                <!-- CTA with animated border -->
-                <div class="flex flex-col sm:flex-row gap-4 relative group">
-                    <div class="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-20 blur transition-all duration-300"></div>
-                    <a href="#contact" class="relative px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300 flex items-center gap-2 group/btn">
-                        <span class="text-lg">Start Project</span>
-                        <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Description with animated border -->
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="absolute -inset-2 rounded-2xl bg-gradient-to-r from-blue-500/30 to-purple-500/30 blur-xl opacity-30 animate-gradient-rotate"></div>
+                    <p class="relative text-lg text-gray-600 dark:text-gray-300 leading-relaxed bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm rounded-2xl p-6">
+                        Crafting high-performance web experiences with modern WordPress development
+                        and cutting-edge full-stack solutions. Focused on scalable architecture
+                        and intuitive user experiences.
+                    </p>
+                </div>
+
+                <!-- CTA buttons with holographic effect -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center relative group pt-8">
+                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-lg"></div>
+                    <a href="#contact" class="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 flex items-center gap-2 group/btn">
+                        <span>Start Project</span>
+                        <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
-                    <a href="#work" class="relative px-8 py-4 border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 rounded-xl transition-all duration-300 backdrop-blur-sm">
-                        Explore Portfolio
+                    <a href="#work" class="relative px-8 py-4 border-2 border-gray-200/50 dark:border-gray-800 text-gray-600 dark:text-gray-300 rounded-xl transition-all duration-300 hover:bg-white/5 hover:border-transparent hover:shadow-lg backdrop-blur-sm">
+                        View Case Studies
                     </a>
                 </div>
-
-                <div class="mt-8 flex flex-wrap gap-3">
-    <!-- WordPress -->
-   <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-    <svg class="w-8 h-8 text-[#21759B] hover:scale-110 transition-transform" viewBox="0 0 512 512">
-        <path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm-24.6 382.9L138.2 256l93.2-116.9v81.4h58.3v-81.4L373.8 256 267.7 382.9V301h-58.3v81.9z"/>
-    </svg>
-</div>
-
-    <!-- React -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-[#61DAFB] hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M14.62 13.608c-.494 1.027-1.095 1.986-1.8 2.857.61.156 1.235.265 1.873.323 1.402.12 2.847.004 4.195-.34 1.3-.33 2.463-.91 3.41-1.72-.688.14-1.376.253-2.076.318-2.4.22-4.86-.013-7.16-.644-.126-.034-.25-.07-.374-.107-.1.14-.198.28-.298.42-.58.81-1.25 1.55-2 2.2.057.02.113.04.17.06 1.772.66 3.65 1.01 5.54 1.01 1.01 0 2.02-.12 3-.34-1.17.87-2.44 1.62-3.79 2.22-2.56 1.15-5.33 1.78-8.15 1.78H0v-1.5c.084 0 .166-.01.25-.01 3.03-.24 5.95-1.31 8.57-3.12 1.58-1.09 2.99-2.41 4.19-3.92-.58-.38-1.15-.79-1.69-1.24-.95-.8-1.82-1.7-2.58-2.67-.12-.15-.24-.3-.35-.45-1.43 1.5-3.15 2.73-5.06 3.6-2.2 1.01-4.6 1.54-7.06 1.54H0V12h.03c3.87 0 7.52-.98 10.8-2.7 1.95-1.03 3.73-2.37 5.26-3.94.34.45.67.91.98 1.38.12.17.23.35.34.53.65 1.07 1.2 2.2 1.64 3.37.3-.02.6-.05.9-.08 1.83-.17 3.66-.53 5.42-1.06.84-.25 1.67-.55 2.48-.9-.54.45-1.1.88-1.67 1.28-1.08.76-2.23 1.4-3.43 1.92-1.57.68-3.23 1.16-4.93 1.43z"/>
-        </svg>
-    </div>
-
-    <!-- PHP -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-[#777BB4] hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM5.758 16.243c.39.39.902.585 1.414.585s1.024-.195 1.414-.585c.78-.78.78-2.048 0-2.828-.78-.78-2.048-.78-2.828 0-.78.78-.78 2.048 0 2.828zm4.465-4.95c-.673.673-1.558 1.01-2.443 1.01s-1.77-.337-2.443-1.01c-1.347-1.347-1.347-3.54 0-4.887.673-.673 1.558-1.01 2.443-1.01s1.77.337 2.443 1.01c1.347 1.347 1.347 3.54 0 4.887zm7.535 4.95c.39.39.902.585 1.414.585s1.024-.195 1.414-.585c.78-.78.78-2.048 0-2.828-.78-.78-2.048-.78-2.828 0-.78.78-.78 2.048 0 2.828zm-1.414-7.414c.78.78.78 2.048 0 2.828-.39.39-.902.585-1.414.585s-1.024-.195-1.414-.585c-.78-.78-.78-2.048 0-2.828.78-.78 2.048-.78 2.828 0z"/>
-        </svg>
-    </div>
-
-    <!-- Tailwind CSS -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-[#38B2AC] hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 6.036c-2.667 0-4.333 1.325-5 3.975 1-1.325 2.167-1.822 3.5-1.491.76.189 1.305.738 1.906 1.345C13.387 10.855 14.522 12 17 12c2.667 0 4.333-1.325 5-3.975-1 1.325-2.166 1.822-3.5 1.491-.76-.189-1.304-.738-1.907-1.345-.98-.99-2.114-2.134-4.593-2.134zM7 12c-2.667 0-4.333 1.325-5 3.975 1-1.326 2.167-1.822 3.5-1.491.76.189 1.304.738 1.907 1.345.98.989 2.115 2.135 4.594 2.135 2.667 0 4.333-1.325 5-3.975-1 1.325-2.167 1.822-3.5 1.491-.76-.189-1.304-.738-1.906-1.345C10.613 13.145 9.478 12 7 12z"/>
-        </svg>
-    </div>
-
-    <!-- JavaScript -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-[#F7DF1E] hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.165-.528-1.385-1.04-.058-.159-.087-.382-.031-.573.113-.454.687-.629 1.137-.495.293.09.563.315.732.676.775-.507.775-.507 1.316-.844-.203-.314-.304-.451-.439-.586-.473-.528-1.103-.798-2.126-.775l-.528.067c-.507.124-.992.395-1.283.754-.855.968-.608 2.655.427 3.19 1.075.598 2.671.782 3.013 1.382.393.67.117 1.793-.538 2.022-.238.081-.568.061-.882-.108-.296-.16-.46-.37-.617-.647-.329-.603-.688-1.23-1.403-1.697-.753-.516-1.798-.642-2.468-.54-.894.132-1.718.71-2.078 1.539-.573 1.221-.247 3.048.876 3.831 1.411.995 3.473.99 4.657 0 .672-.543.964-1.307 1.04-2.095.087-.818-.171-1.607-.53-2.293l-.42.27c-.23.149-.298.377-.227.564.112.355.646.498 1.051.408.603-.149.894-.647.895-1.307.001-.563-.324-.914-.875-1.109zM13.5 13.5h-2v-7h2v7z"/>
-        </svg>
-    </div>
-
-    <!-- Python -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-[#3776AB] hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M11.847 0C5.505 0 .388 5.116.388 11.458v1.073c0 6.343 5.117 11.46 11.459 11.46h1.073c6.342 0 11.458-5.117 11.458-11.46v-1.073C24.388 5.116 19.272 0 12.93 0h-1.083zm-.193 3.22h1.17c1.28 0 2.408.07 3.485.203 1.01.133 1.95.345 2.818.69.87.345 1.598.833 2.195 1.465.597.63 1.03 1.38 1.33 2.25.298.87.448 1.81.448 2.82v2.818H16.17V8.985c0-.597-.12-1.12-.36-1.57-.24-.448-.57-.81-.99-1.085-.42-.275-.915-.46-1.485-.555-.57-.095-1.17-.14-1.8-.14h-.9c-1.68 0-2.88.345-3.6 1.035-.72.69-1.08 1.68-1.08 2.97v3.6h-3v-5.4c0-1.01.18-1.95.54-2.82.36-.87.855-1.62 1.485-2.25.63-.63 1.38-1.125 2.25-1.485.87-.36 1.81-.54 2.82-.54zM9.75 5.4a1.35 1.35 0 011.35 1.35 1.35 1.35 0 01-1.35 1.35 1.35 1.35 0 01-1.35-1.35A1.35 1.35 0 019.75 5.4zm6.3 13.2c1.68 0 2.88-.345 3.6-1.035.72-.69 1.08-1.68 1.08-2.97v-3.6h3v5.4c0 1.01-.18 1.95-.54 2.82-.36.87-.855 1.62-1.485 2.25-.63.63-1.38 1.125-2.25 1.485-.87.36-1.81.54-2.82.54h-1.17c-1.28 0-2.408-.07-3.485-.203-1.01-.133-1.95-.345-2.818-.69-.87-.345-1.598-.833-2.195-1.465-.597-.63-1.03-1.38-1.33-2.25-.298-.87-.448-1.81-.448-2.82v-2.818h7.65v2.818c0 .597.12 1.12.36 1.57.24.448.57.81.99 1.085.42.275.915.46 1.485.555.57.095 1.17.14 1.8.14h.9zm-1.35-2.7a1.35 1.35 0 01-1.35-1.35 1.35 1.35 0 011.35-1.35 1.35 1.35 0 011.35 1.35 1.35 1.35 0 01-1.35 1.35z"/>
-        </svg>
-    </div>
-
-    <!-- Node.js -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-[#339933] hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2.25 18.75c-1.24 0-2.25-1.01-2.25-2.25s1.01-2.25 2.25-2.25 2.25 1.01 2.25 2.25-1.01 2.25-2.25 2.25zm6.75 0c-1.24 0-2.25-1.01-2.25-2.25s1.01-2.25 2.25-2.25 2.25 1.01 2.25 2.25-1.01 2.25-2.25 2.25zm-3-6.75c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
-        </svg>
-    </div>
-
-    <!-- GitHub -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-gray-800 dark:text-gray-200 hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-        </svg>
-    </div>
-
-    <!-- AWS -->
-    <div class="p-3 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <svg class="w-8 h-8 text-[#FF9900] hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.594 18.75H9.422v-5.156l-1.86 1.86-.938-.938 3.328-3.328 3.328 3.328-.938.938-1.86-1.86V18.75zm3.328 0h-1.734v-5.156l1.86 1.86.938-.938-3.328-3.328-3.328 3.328.938.938 1.86-1.86V18.75zm3.328 0h-1.734v-5.156l1.86 1.86.938-.938-3.328-3.328-3.328 3.328.938.938 1.86-1.86V18.75z"/>
-        </svg>
-    </div>
-</div>
             </div>
 
-            <!-- Add this CSS to your stylesheet -->
-<style>
-    @keyframes smoothFloat {
-        0%, 100% { transform: translateY(0) rotateZ(0deg); }
-        50% { transform: translateY(-20px) rotateZ(3deg); }
-    }
-    .smooth-float {
-        animation: smoothFloat 8s ease-in-out infinite;
-    }
-    .perspective-2000 {
-        perspective: 2000px;
-    }
-    .card-3d {
-        transform-style: preserve-3d;
-        transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .card-inner {
-        transform: translateZ(50px);
-    }
-    .swiper-slide-active .card-3d {
-        transform: rotateY(0deg) scale(1);
-    }
-    .swiper-slide-next .card-3d,
-    .swiper-slide-prev .card-3d {
-        transform: rotateY(25deg) scale(0.9);
-        filter: brightness(0.8);
-    }
-</style>
-
-<div class="relative overflow-hidden py-20">
-    <!-- Slider main container -->
-    <div class="swiper premium-slider perspective-2000">
-        <!-- Additional navigation elements -->
-        <div class="swiper-pagination !-bottom-6 !relative gold-pagination"></div>
-        <div class="swiper-button-next !text-white !right-10"></div>
-        <div class="swiper-button-prev !text-white !left-10"></div>
-
-        <div class="swiper-wrapper">
-      <style>
-    @keyframes floatAndGlow {
-        0%, 100% { transform: translateY(0) rotateZ(0deg); filter: drop-shadow(0 15px 30px rgba(255,223,0,0.3)); }
-        50% { transform: translateY(-20px) rotateZ(2deg); filter: drop-shadow(0 25px 50px rgba(255,223,0,0.5)); }
-    }
-    .gold-frame {
-        border: 2px solid rgba(255,223,0,0.3);
-        border-radius: 20px;
-        overflow: hidden;
-        position: relative;
-    }
-    .gold-frame::before {
-        content: '';
-        position: absolute;
-        inset: -100px;
-        background: linear-gradient(45deg, transparent 40%, rgba(255,223,0,0.1) 50%, transparent 60%);
-        animation: shine 6s infinite;
-    }
-    @keyframes shine {
-        0% { transform: translateX(-100%) rotate(25deg); }
-        100% { transform: translateX(100%) rotate(25deg); }
-    }
-    .hover-3d {
-        transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .hover-3d:hover {
-        transform: rotateY(5deg) rotateX(5deg) scale(1.05);
-    }
-</style>
-
-<div class="relative overflow-hidden py-20 bg-gradient-to-br from-gray-900 to-black">
-    <div class="swiper premium-slider">
-        <div class="swiper-wrapper">
-            <!-- Personal Photo Slide -->
-            <div class="swiper-slide">
-                <div class="relative group max-w-4xl mx-auto">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-amber-400/20 to-transparent rounded-3xl animate-pulse"></div>
-                    <div class="gold-frame hover-3d">
-                        <img src="assets/nayan-ray.png" 
-                             class="w-full h-[700px] object-cover animate-floatAndGlow"
-                             alt="My Portfolio"
-                             data-swiper-parallax-scale="0.9"
-                             data-swiper-parallax-opacity="0.5">
-                    </div>
-                    <div class="absolute bottom-8 left-8 text-amber-400 text-lg font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        Nayan Ray - Digital Creator
-                    </div>
+            <!-- Tech stack grid -->
+            <div class="mt-16 grid grid-cols-4 sm:grid-cols-8 gap-4 opacity-90 hover:opacity-100 transition-opacity">
+                <!-- WordPress -->
+                <div class="p-3 bg-white dark:bg-gray-900 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <svg class="w-8 h-8 text-[#21759B]" viewBox="0 0 512 512">
+                        <path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm-24.6 382.9L138.2 256l93.2-116.9v81.4h58.3v-81.4L373.8 256 267.7 382.9V301h-58.3v81.9z"/>
+                    </svg>
                 </div>
-            </div>
 
-            <!-- Project 1 -->
-            <div class="swiper-slide">
-                <div class="relative group max-w-4xl mx-auto">
-                    <div class="absolute inset-0 bg-gradient-to-bl from-emerald-400/20 to-transparent rounded-3xl"></div>
-                    <div class="gold-frame hover-3d">
-                        <img src="assets/nayanr.png"
-                             class="w-full h-[700px] object-cover"
-                             data-swiper-parallax-scale="0.9"
-                             data-swiper-parallax-opacity="0.5">
-                    </div>
+                <!-- React -->
+                <div class="p-3 bg-white dark:bg-gray-900 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <svg class="w-8 h-8 text-[#61DAFB]" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M14.62 13.608c-.494 1.027-1.095 1.986-1.8 2.857.61.156 1.235.265 1.873.323 1.402.12 2.847.004 4.195-.34 1.3-.33 2.463-.91 3.41-1.72-.688.14-1.376.253-2.076.318-2.4.22-4.86-.013-7.16-.644-.126-.034-.25-.07-.374-.107-.1.14-.198.28-.298.42-.58.81-1.25 1.55-2 2.2.057.02.113.04.17.06 1.772.66 3.65 1.01 5.54 1.01 1.01 0 2.02-.12 3-.34-1.17.87-2.44 1.62-3.79 2.22-2.56 1.15-5.33 1.78-8.15 1.78H0v-1.5c.084 0 .166-.01.25-.01 3.03-.24 5.95-1.31 8.57-3.12 1.58-1.09 2.99-2.41 4.19-3.92-.58-.38-1.15-.79-1.69-1.24-.95-.8-1.82-1.7-2.58-2.67-.12-.15-.24-.3-.35-.45-1.43 1.5-3.15 2.73-5.06 3.6-2.2 1.01-4.6 1.54-7.06 1.54H0V12h.03c3.87 0 7.52-.98 10.8-2.7 1.95-1.03 3.73-2.37 5.26-3.94.34.45.67.91.98 1.38.12.17.23.35.34.53.65 1.07 1.2 2.2 1.64 3.37.3-.02.6-.05.9-.08 1.83-.17 3.66-.53 5.42-1.06.84-.25 1.67-.55 2.48-.9-.54.45-1.1.88-1.67 1.28-1.08.76-2.23 1.4-3.43 1.92-1.57.68-3.23 1.16-4.93 1.43z"/>
+                    </svg>
                 </div>
-            </div>
 
-            <!-- Add more project slides -->
+                <!-- ... other tech icons ... -->
+            </div>
         </div>
-
-        <!-- Custom Navigation -->
-        <div class="swiper-pagination !bottom-8 space-x-2 [--swiper-pagination-color:theme(colors.amber.400)]"></div>
-        <div class="swiper-button-next !text-amber-400 !right-16 !border-2 !border-amber-400/30 !h-14 !w-14 rounded-full hover:!border-amber-400/50"></div>
-        <div class="swiper-button-prev !text-amber-400 !left-16 !border-2 !border-amber-400/30 !h-14 !w-14 rounded-full hover:!border-amber-400/50"></div>
     </div>
-</div>
 
-<script>
-    new Swiper('.premium-slider', {
-        loop: true,
-        speed: 1200,
-        parallax: true,
-        spaceBetween: 40,
-        centeredSlides: true,
-        effect: 'creative',
-        creativeEffect: {
-            prev: { shadow: true, translate: ['-120%', 0, -500] },
-            next: { shadow: true, translate: ['120%', 0, -500] },
-        },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        breakpoints: {
-            640: { slidesPerView: 1 },
-            1024: { slidesPerView: 1.1, spaceBetween: 60 },
-            1280: { slidesPerView: 1.2, spaceBetween: 80 }
-        }
-    });
-</script>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
+        <div class="w-8 h-12 border-2 border-gray-300 dark:border-gray-700 rounded-2xl flex items-center justify-center">
+            <div class="w-1 h-3 bg-gray-400 dark:bg-gray-500 rounded-full animate-scroll-indicator"></div>
+        </div>
+    </div>
 </section>
 
 <style>
-/* Custom animations */
-@keyframes gradient-pan {
-    from { background-position: 0% 50%; }
-    to { background-position: 200% 50%; }
+@keyframes gradient-veil {
+    0% { background-position: -100% 50% }
+    100% { background-position: 200% 50% }
 }
 
-@keyframes float-grid {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+@keyframes text-shine {
+    from { background-position: 0 50% }
+    to { background-position: 100% 50% }
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+@keyframes gradient-rotate {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+}
+
+@keyframes scroll-indicator {
+    0%, 100% { transform: translateY(-5px); opacity: 0.4 }
+    50% { transform: translateY(5px); opacity: 1 }
 }
 
 .animate {
-    &-gradient-pan {
-        animation: gradient-pan 8s linear infinite;
+    &-gradient-veil {
+        background-size: 400% 400%;
+        animation: gradient-veil 12s linear infinite;
     }
-    &-float-grid {
-        animation: float-grid 8s ease-in-out infinite;
+    
+    &-text-shine {
+        background: linear-gradient(
+            to right,
+            #3b82f6 20%,
+            #8b5cf6 30%,
+            #3b82f6 70%
+        );
+        background-size: 200% auto;
+        background-clip: text;
+        animation: text-shine 3s linear infinite;
     }
-    &-typing {
-        animation: typing 3.5s steps(30, end);
+
+    &-gradient-rotate {
+        animation: gradient-rotate 8s linear infinite;
     }
-    &-3d-text {
-        perspective: 1000px;
-        animation: text-float 6s ease-in-out infinite;
-    }
-    &-bounce-slow {
-        animation: bounce 2s infinite;
+
+    &-fade-in-up {
+        animation: fadeInUp 0.8s ease-out;
     }
 }
 
-/* 3D text effect */
-@keyframes text-float {
-    0%, 100% { transform: translateZ(0); }
-    50% { transform: translateZ(20px) rotateY(-5deg); }
-}
-
-/* Enhanced scroll indicator */
-@keyframes scroll-indicator {
-    0% { transform: translateY(-10px); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(10px); opacity: 0; }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
-
-<!-- Include GSAP for advanced animations -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script>
-// Initialize GSAP animations
-gsap.from(".animate-3d-text", {
-    duration: 2,
-    rotateX: -90,
-    opacity: 0,
-    ease: "power4.out"
-});
-
-// Add more GSAP animations as needed
-</script>
-
     <section class="relative py-20 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
     <!-- Animated Background -->
     <div class="absolute inset-0 opacity-10 dark:opacity-5">
