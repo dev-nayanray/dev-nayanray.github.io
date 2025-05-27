@@ -407,62 +407,100 @@
         <div class="swiper-button-prev !text-white !left-10"></div>
 
         <div class="swiper-wrapper">
-            <!-- Slide 1 -->
+      <style>
+    @keyframes floatAndGlow {
+        0%, 100% { transform: translateY(0) rotateZ(0deg); filter: drop-shadow(0 15px 30px rgba(255,223,0,0.3)); }
+        50% { transform: translateY(-20px) rotateZ(2deg); filter: drop-shadow(0 25px 50px rgba(255,223,0,0.5)); }
+    }
+    .gold-frame {
+        border: 2px solid rgba(255,223,0,0.3);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+    .gold-frame::before {
+        content: '';
+        position: absolute;
+        inset: -100px;
+        background: linear-gradient(45deg, transparent 40%, rgba(255,223,0,0.1) 50%, transparent 60%);
+        animation: shine 6s infinite;
+    }
+    @keyframes shine {
+        0% { transform: translateX(-100%) rotate(25deg); }
+        100% { transform: translateX(100%) rotate(25deg); }
+    }
+    .hover-3d {
+        transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .hover-3d:hover {
+        transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+    }
+</style>
+
+<div class="relative overflow-hidden py-20 bg-gradient-to-br from-gray-900 to-black">
+    <div class="swiper premium-slider">
+        <div class="swiper-wrapper">
+            <!-- Personal Photo Slide -->
             <div class="swiper-slide">
-                <div class="card-3d relative group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-purple-600/30 rounded-3xl blur-3xl opacity-50 animate-pulse"></div>
-                    <div class="card-inner relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 shadow-2xl overflow-hidden transform transition-all duration-700 group-hover:shadow-3xl">
-                        <div class="relative z-10">
-                            <div class="smooth-float">
-                                <img src="assets/nayan-ray.png" class="w-full h-auto rounded-2xl transform transition-transform duration-500 group-hover:scale-105">
-                            </div>
-                            <div class="pt-6 space-y-4">
-                                <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Project Title</h3>
-                                <p class="text-gray-300">Premium project description with elegant typography and smooth transitions.</p>
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 border border-white/10 rounded-3xl"></div>
+                <div class="relative group max-w-4xl mx-auto">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-amber-400/20 to-transparent rounded-3xl animate-pulse"></div>
+                    <div class="gold-frame hover-3d">
+                        <img src="assets/my-photo.jpg" 
+                             class="w-full h-[700px] object-cover animate-floatAndGlow"
+                             alt="My Portfolio"
+                             data-swiper-parallax-scale="0.9"
+                             data-swiper-parallax-opacity="0.5">
+                    </div>
+                    <div class="absolute bottom-8 left-8 text-amber-400 text-lg font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        Nayan Ray - Digital Creator
                     </div>
                 </div>
             </div>
 
-            <!-- Add more slides here -->
+            <!-- Project 1 -->
+            <div class="swiper-slide">
+                <div class="relative group max-w-4xl mx-auto">
+                    <div class="absolute inset-0 bg-gradient-to-bl from-emerald-400/20 to-transparent rounded-3xl"></div>
+                    <div class="gold-frame hover-3d">
+                        <img src="assets/project1.jpg"
+                             class="w-full h-[700px] object-cover"
+                             data-swiper-parallax-scale="0.9"
+                             data-swiper-parallax-opacity="0.5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more project slides -->
         </div>
+
+        <!-- Custom Navigation -->
+        <div class="swiper-pagination !bottom-8 space-x-2 [--swiper-pagination-color:theme(colors.amber.400)]"></div>
+        <div class="swiper-button-next !text-amber-400 !right-16 !border-2 !border-amber-400/30 !h-14 !w-14 rounded-full hover:!border-amber-400/50"></div>
+        <div class="swiper-button-prev !text-amber-400 !left-16 !border-2 !border-amber-400/30 !h-14 !w-14 rounded-full hover:!border-amber-400/50"></div>
     </div>
 </div>
 
-<!-- Initialize Swiper -->
 <script>
-    const swiper = new Swiper('.premium-slider', {
+    new Swiper('.premium-slider', {
         loop: true,
-        speed: 1000,
+        speed: 1200,
         parallax: true,
         spaceBetween: 40,
         centeredSlides: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+        effect: 'creative',
+        creativeEffect: {
+            prev: { shadow: true, translate: ['-120%', 0, -500] },
+            next: { shadow: true, translate: ['120%', 0, -500] },
         },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { el: '.swiper-pagination', clickable: true },
         breakpoints: {
             640: { slidesPerView: 1 },
-            1024: { slidesPerView: 1.2 },
-            1280: { slidesPerView: 1.5 }
+            1024: { slidesPerView: 1.1, spaceBetween: 60 },
+            1280: { slidesPerView: 1.2, spaceBetween: 80 }
         }
     });
 </script>
-        </div>
-    </div>
-
-    <!-- Animated scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div class="animate-bounce-slow w-12 h-20 border-4 border-gray-400 rounded-full flex items-center justify-center">
-            <div class="w-1 h-4 bg-gradient-to-t from-blue-500 to-purple-500 animate-scroll-indicator rounded-full"></div>
-        </div>
-    </div>
 </section>
 
 <style>
