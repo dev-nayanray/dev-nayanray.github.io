@@ -1536,7 +1536,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 title: post.title.rendered,
                 excerpt: post.excerpt.rendered,
                 content: post.content.rendered,
-                image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || defaultImage,
+                
                 link: post.link,
                 categories: post._embedded?.['wp:term']?.[0] || [],
                 date: post.date
@@ -1557,9 +1557,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         return `
             <article class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                 <div class="relative h-48 overflow-hidden">
-                    <img src="${post.image}" alt="${post.title}" 
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                         loading="lazy">
+                     
                     <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50"></div>
                 </div>
                 <div class="p-6 space-y-4">
