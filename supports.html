@@ -1,1 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Nayan Ray | Web & WordPress Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://dev-nayanray.github.io/assets/nayan-ray.png" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        'primary-dark': '#4f46e5',
+                        secondary: '#8b5cf6',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                        gray: '#64748b',
+                        'gray-light': '#e2e8f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        }
+        
+        .dark-mode .gradient-bg {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+        }
+        
+        .support-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+        }
+        
+        .dark-mode .support-card {
+            background: #1e293b;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode .support-card:hover {
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        .contact-item {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 400px;
+        }
+        
+        .dark-mode .map-container {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-link {
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-lg shadow-md dark:bg-dark/95 dark:shadow-gray-800/10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">Nayan Ray</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition-colors">Home</a></li>
+                    <li><a href="about.html" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition-colors">About</a></li>
+                    <li><a href="service.html" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition-colors">Services</a></li>
+                    <li><a href="portfolio.html" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition-colors">Portfolio</a></li>
+                    <li><a href="contact.html" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition-colors">Contact</a></li>
+                    <li><a href="support.html" class="text-primary font-medium">Support</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="gradient-bg pt-32 pb-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate">
+                <span class="gradient-text">Support & Contact</span>
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10 animate delay-100">
+                Welcome to the Support Center. I'm here to help you with any questions, technical issues, or project inquiries.
+            </p>
+            <div class="flex justify-center gap-4 animate delay-200">
+                <a href="#contact" class="bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    Contact Me
+                </a>
+                <a href="#help" class="bg-white dark:bg-gray-800 text-primary font-semibold py-3 px-8 rounded-lg shadow hover:shadow-md transition-all duration-300">
+                    Get Help
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Can I Help You? -->
+    <section id="help" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate">
+                    How Can I Help You?
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate delay-100">
+                    Whether you're a client, collaborator, or visitor, feel free to reach out if you need support with:
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="support-card bg-white dark:bg-gray-800 rounded-xl p-8 animate delay-100">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-bug text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Website issues or bugs</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Experiencing technical problems? I'll help you troubleshoot and resolve them quickly.
+                    </p>
+                </div>
+                
+                <div class="support-card bg-white dark:bg-gray-800 rounded-xl p-8 animate delay-200">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Project updates or revisions</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Need changes to your existing project? Let me know what adjustments you require.
+                    </p>
+                </div>
+                
+                <div class="support-card bg-white dark:bg-gray-800 rounded-xl p-8 animate delay-300">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mb-6">
+                        <i class="fab fa-wordpress text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">WordPress troubleshooting</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        WordPress issues? I specialize in solving plugin conflicts, theme problems, and more.
+                    </p>
+                </div>
+                
+                <div class="support-card bg-white dark:bg-gray-800 rounded-xl p-8 animate delay-400">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pre-sale questions</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Considering my services? Ask anything before making a decision.
+                    </p>
+                </div>
+                
+                <div class="support-card bg-white dark:bg-gray-800 rounded-xl p-8 animate delay-500">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-info-circle text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Service information</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Need details about my offerings? I'll provide comprehensive information.
+                    </p>
+                </div>
+                
+                <div class="support-card bg-white dark:bg-gray-800 rounded-xl p-8 animate delay-500">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">General inquiries</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Have other questions? Don't hesitate to reach out for any reason.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate">
+                    Contact Methods
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate delay-100">
+                    Reach out to me through any of these convenient channels
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Email Support -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md animate delay-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Email Support</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        For detailed inquiries, project proposals, or documentation.
+                    </p>
+                    <a href="mailto:wpnayanray@gmail.com" class="text-primary font-semibold text-lg hover:underline">
+                        wpnayanray@gmail.com
+                    </a>
+                </div>
+                
+                <!-- WhatsApp Support -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md animate delay-200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fab fa-whatsapp text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">WhatsApp Support</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        For quick questions, instant support, and real-time communication.
+                    </p>
+                    <a href="https://wa.me/yournumber" class="bg-gradient-to-r from-primary to-secondary text-white font-semibold py-2 px-6 rounded-lg inline-block hover:shadow-lg transition-all">
+                        <i class="fab fa-whatsapp mr-2"></i> Click to Chat
+                    </a>
+                </div>
+                
+                <!-- Business Address -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md animate delay-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Business Address</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        NexGen Devs, Manirampur, Jashore 7440, Khulna, Bangladesh
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Hours & Form -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Support Hours -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 relative pb-3 animate">
+                        Support Hours
+                        <span class="absolute bottom-0 left-0 w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
+                    </h3>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md mb-8 animate delay-100">
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-clock text-xl text-primary mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Regular Support Hours</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Monday – Saturday: 9:00 AM – 8:00 PM (GMT+6)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-calendar-times text-xl text-primary mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Closed</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Sunday: Closed
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-xl p-8 shadow-lg animate delay-200">
+                        <h3 class="text-xl font-bold mb-4">Emergency Support</h3>
+                        <p class="mb-4">
+                            For critical issues outside regular hours, contact me directly via WhatsApp for priority assistance.
+                        </p>
+                        <a href="https://wa.me/yournumber" class="bg-white text-primary font-semibold py-2 px-6 rounded-lg inline-flex items-center hover:bg-gray-100 transition-all">
+                            <i class="fab fa-whatsapp mr-2"></i> Emergency Contact
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Support Form -->
+                <div class="animate delay-300">
+                    <h3 class="text-2xl font-bold mb-6 relative pb-3">
+                        Submit a Support Request
+                        <span class="absolute bottom-0 left-0 w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Need technical support? Fill out the form below with the following details:
+                    </p>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md mb-6">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                            <li>Your Name</li>
+                            <li>Project Name / Order ID</li>
+                            <li>Description of the issue</li>
+                            <li>Attachments/screenshots (if any)</li>
+                        </ul>
+                    </div>
+                    
+                    <form class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2" for="name">
+                                Your Name
+                            </label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2" for="project">
+                                Project Name / Order ID
+                            </label>
+                            <input type="text" id="project" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Enter project or order details">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2" for="issue">
+                                Description of the Issue
+                            </label>
+                            <textarea id="issue" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Describe your issue in detail"></textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2" for="attachment">
+                                Attachments (Screenshots, etc.)
+                            </label>
+                            <div class="flex items-center justify-center w-full">
+                                <label for="attachment" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <i class="fas fa-cloud-upload-alt text-2xl text-gray-400 mb-2"></i>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">Click to upload or drag and drop</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF up to 10MB</p>
+                                    </div>
+                                    <input id="attachment" type="file" class="hidden" />
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate">
+                    My Location
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate delay-100">
+                    Based in Khulna, Bangladesh - serving clients worldwide
+                </p>
+            </div>
+            
+            <div class="map-container animate delay-200">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58953.80705330162!2d89.5278335!3d22.80843055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff901efac79b59%3A0x5be01a1bc0dc7eba!2sKhulna!5e0!3m2!1sen!2sbd!4v1690201023416!5m2!1sen!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <i class="fas fa-hands-helping text-5xl mb-6"></i>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Thank You for Choosing My Services
+                </h2>
+                <p class="text-xl mb-8 opacity-90">
+                    I appreciate your trust and will respond to your inquiries as quickly as possible. Your satisfaction is my top priority.
+                </p>
+                <a href="#contact" class="bg-white text-primary font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition-all inline-flex items-center">
+                    <i class="fas fa-paper-plane mr-2"></i> Contact Me Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Nayan Ray</h3>
+                    <p class="text-gray-400 mb-4">
+                        Full-stack developer specializing in WordPress, Laravel, and modern JavaScript frameworks.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-link text-gray-400 hover:text-white">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="social-link text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="social-link text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="social-link text-gray-400 hover:text-white">
+                            <i class="fab fa-dribbble text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 relative pb-2">
+                        Quick Links
+                        <span class="absolute bottom-0 left-0 w-10 h-1 bg-primary rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Me</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 relative pb-2">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-10 h-1 bg-primary rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">WordPress Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">eCommerce Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">SEO Optimization</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Custom Web Applications</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 relative pb-2">
+                        Contact Info
+                        <span class="absolute bottom-0 left-0 w-10 h-1 bg-primary rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary"></i>
+                            <span>wpnayanray@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span>NexGen Devs, Manirampur, Jashore 7440, Khulna, Bangladesh</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-primary"></i>
+                            <span>Mon-Sat: 9:00 AM - 8:00 PM (GMT+6)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2023 Nayan Ray. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate');
+            elements.forEach(el => {
+                const elementPosition = el.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize animations
+        window.addEventListener('load', () => {
+            animateOnScroll();
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                
+                // In a real application, you would send this data to your server
+                // For demo purposes, we'll just show a success message
+                alert(`Thank you ${name}! Your support request has been submitted successfully. I'll get back to you soon.`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
