@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium AI Blog Post Prompt Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#059669',
+                        accent: '#7c3aed',
+                        dark: '#1e293b',
+                        light: '#f1f5f9'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #eff6ff 100%);
+            min-height: 100vh;
+        }
+        .gradient-bg {
+            background: linear-gradient(120deg, #dbeafe 0%, #ede9fe 100%);
+        }
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+        .prompt-card {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+        .copy-btn {
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover {
+            filter: brightness(110%);
+            transform: translateY(-2px);
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-header {
+            background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tab-active {
+            border-bottom: 3px solid #2563eb;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        .prompt-content {
+            max-height: 300px;
+            overflow-y: auto;
+            background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+        }
+        .prompt-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .prompt-content::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .prompt-content::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .tone-btn.active, .content-type-btn.active {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+        .prose {
+            max-width: 100%;
+        }
+        .prose h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        .prose h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #334155;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+        .keyword-badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #2563eb;
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.85rem;
+            margin: 0 3px;
+            font-weight: 500;
+        }
+        .ai-watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0.05;
+            font-size: 4rem;
+            font-weight: 800;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="py-12 px-4 gradient-bg">
+    <div class="max-w-6xl mx-auto relative">
+        <div class="ai-watermark">AI CONTENT</div>
+        
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                <span class="gradient-header">Premium AI Blog Post Prompt Generator</span>
+            </h1>
+            <p class="text-xl text-slate-700 max-w-3xl mx-auto mb-6">
+                Create SEO-optimized, human-like content prompts that rank on Google's first page
+            </p>
+            <div class="inline-flex items-center bg-white rounded-full py-2 px-4 shadow-sm">
+                <div class="w-3 h-3 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+                <span class="text-sm font-medium text-slate-700">Generating top 1% content prompts since 2023</span>
+            </div>
+        </header>
+
+        <!-- Generator Section -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-16 card relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div>
+                    <div class="mb-8">
+                        <label for="keyword" class="block text-lg font-semibold text-slate-800 mb-3">
+                            <i class="fas fa-key mr-2 text-primary"></i>Target Keyword
+                        </label>
+                        <div class="flex">
+                            <input 
+                                type="text" 
+                                id="keyword" 
+                                placeholder="Enter your primary keyword (e.g., how to use chatgpt for blogging)" 
+                                class="w-full px-5 py-4 border border-slate-300 rounded-l-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-lg"
+                                value="how to use chatgpt for blogging"
+                            >
+                            <button id="generate-btn" class="bg-primary text-white px-8 py-4 rounded-r-xl font-bold hover:bg-blue-700 transition flex items-center text-lg">
+                                <i class="fas fa-bolt mr-2"></i> Generate
+                            </button>
+                        </div>
+                        <div class="mt-3 text-sm text-slate-600">
+                            <i class="fas fa-lightbulb text-amber-500 mr-1"></i> 
+                            Use long-tail keywords for better targeting (e.g., "how to use chatgpt for blogging in 2025")
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-slate-800 mb-3">
+                            <i class="fas fa-file-alt mr-2 text-primary"></i>Content Type
+                        </label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button data-type="howto" class="content-type-btn bg-blue-50 text-blue-800 px-4 py-3 rounded-xl font-semibold hover:bg-blue-100 transition active">
+                                <i class="fas fa-list-ol mr-2"></i>How-To Guide
+                            </button>
+                            <button data-type="list" class="content-type-btn bg-emerald-50 text-emerald-800 px-4 py-3 rounded-xl font-semibold hover:bg-emerald-100 transition">
+                                <i class="fas fa-list mr-2"></i>List Article
+                            </button>
+                            <button data-type="problem" class="content-type-btn bg-purple-50 text-purple-800 px-4 py-3 rounded-xl font-semibold hover:bg-purple-100 transition">
+                                <i class="fas fa-lightbulb mr-2"></i>Problem-Solution
+                            </button>
+                            <button data-type="comparison" class="content-type-btn bg-amber-50 text-amber-800 px-4 py-3 rounded-xl font-semibold hover:bg-amber-100 transition">
+                                <i class="fas fa-balance-scale mr-2"></i>Comparison
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-slate-800 mb-3">
+                            <i class="fas fa-sliders-h mr-2 text-primary"></i>Content Enhancements
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <input type="checkbox" id="include-stats" class="w-5 h-5 text-primary rounded focus:ring-primary" checked>
+                                <label for="include-stats" class="ml-3 text-slate-700 font-medium">Statistics & Data</label>
+                            </div>
+                            <div class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <input type="checkbox" id="include-examples" class="w-5 h-5 text-primary rounded focus:ring-primary" checked>
+                                <label for="include-examples" class="ml-3 text-slate-700 font-medium">Practical Examples</label>
+                            </div>
+                            <div class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <input type="checkbox" id="include-faq" class="w-5 h-5 text-primary rounded focus:ring-primary" checked>
+                                <label for="include-faq" class="ml-3 text-slate-700 font-medium">FAQ Section</label>
+                            </div>
+                            <div class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <input type="checkbox" id="include-resources" class="w-5 h-5 text-primary rounded focus:ring-primary" checked>
+                                <label for="include-resources" class="ml-3 text-slate-700 font-medium">Resources</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-slate-800 mb-3">
+                            <i class="fas fa-pen-fancy mr-2 text-primary"></i>Tone & Voice
+                        </label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button data-tone="professional" class="tone-btn bg-slate-100 text-slate-800 px-4 py-3 rounded-xl font-semibold hover:bg-slate-200 transition active">
+                                <i class="fas fa-suitcase mr-2"></i>Professional
+                            </button>
+                            <button data-tone="conversational" class="tone-btn bg-slate-100 text-slate-800 px-4 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">
+                                <i class="fas fa-comments mr-2"></i>Conversational
+                            </button>
+                            <button data-tone="authoritative" class="tone-btn bg-slate-100 text-slate-800 px-4 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">
+                                <i class="fas fa-graduation-cap mr-2"></i>Authoritative
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label for="complexity" class="block text-lg font-semibold text-slate-800 mb-3">
+                            <i class="fas fa-brain mr-2 text-primary"></i>Content Depth
+                        </label>
+                        <div>
+                            <input type="range" id="complexity" min="1" max="3" value="2" class="w-full">
+                            <div class="flex justify-between text-sm font-medium text-slate-600 mt-2">
+                                <span>Beginner <br><span class="text-xs">(800-1,200 words)</span></span>
+                                <span>Intermediate <br><span class="text-xs">(1,500-2,000 words)</span></span>
+                                <span>Advanced <br><span class="text-xs">(2,500+ words)</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+                        <h3 class="font-bold text-blue-800 text-lg mb-3 flex items-center">
+                            <i class="fas fa-star text-amber-500 mr-2"></i> SEO Pro Tips
+                        </h3>
+                        <ul class="text-blue-700 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Include 3-5 semantically related keywords like <span class="keyword-badge">AI content creation</span> and <span class="keyword-badge">blog automation</span></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Optimize for featured snippets with clear headings and bullet points</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Add internal links to your cornerstone content</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prompt Output Section -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-16 card">
+            <div class="flex border-b border-slate-200 mb-6">
+                <button id="tab-prompt" class="tab-btn px-5 py-3 font-semibold text-slate-600 hover:text-primary transition mr-6 tab-active">
+                    <i class="fas fa-code mr-2"></i>Generated Prompt
+                </button>
+                <button id="tab-preview" class="tab-btn px-5 py-3 font-semibold text-slate-600 hover:text-primary transition">
+                    <i class="fas fa-eye mr-2"></i>Content Preview
+                </button>
+                <button id="tab-seo" class="tab-btn px-5 py-3 font-semibold text-slate-600 hover:text-primary transition">
+                    <i class="fas fa-chart-line mr-2"></i>SEO Analysis
+                </button>
+            </div>
+            
+            <div id="prompt-output" class="mb-6">
+                <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                    <div class="prompt-content font-mono text-slate-800 text-base leading-relaxed p-4 rounded-lg">
+                        <p class="font-semibold text-lg text-primary"># Comprehensive Content Prompt</p>
+                        <p class="mt-4"><span class="font-bold">Role:</span> Act as a professional content creator with expertise in SEO and blogging.</p>
+                        <p class="mt-2"><span class="font-bold">Objective:</span> Create a comprehensive, 2,500-word how-to guide titled "How to Use ChatGPT for Blogging: The Ultimate 2025 Guide".</p>
+                        
+                        <p class="mt-4"><span class="font-bold">Primary Keyword:</span> "how to use chatgpt for blogging"</p>
+                        <p><span class="font-bold">Secondary Keywords:</span> "AI blogging tools", "ChatGPT content creation", "automated blogging", "AI writing assistant", "blog automation"</p>
+                        
+                        <p class="mt-4"><span class="font-bold">Structure:</span></p>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li><span class="font-medium">Introduction (200 words):</span> Discuss the state of blogging in 2025 and how AI tools are transforming content creation. Include a compelling hook and statistics about AI adoption in content marketing.</li>
+                            <li><span class="font-medium">Section 1: Understanding ChatGPT for Blogging:</span> Explain what ChatGPT is using simple analogies. Cover why it's essential for modern bloggers.</li>
+                            <li><span class="font-medium">Section 2: Getting Started:</span> Step-by-step guide to setting up ChatGPT for blogging, including signup process and choosing between free/paid versions.</li>
+                            <li><span class="font-medium">Section 3: Content Creation Workflow:</span> Detailed process for using ChatGPT to research, outline, draft, and refine blog posts. Include 3 practical examples with screenshots.</li>
+                            <li><span class="font-medium">Section 4: Advanced Techniques:</span> Prompt engineering, maintaining brand voice, and SEO optimization.</li>
+                            <li><span class="font-medium">Section 5: Real-World Case Study:</span> Show a before/after example of a blog post improved with ChatGPT.</li>
+                            <li><span class="font-medium">Section 6: Limitations & Best Practices:</span> Ethical considerations and how to avoid AI detection.</li>
+                            <li><span class="font-medium">Conclusion:</span> Actionable steps to implement these strategies and future outlook.</li>
+                        </ul>
+                        
+                        <p class="mt-4"><span class="font-bold">Content Requirements:</span></p>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li>Write in an authoritative yet accessible tone</li>
+                            <li>Include 5 statistics from reputable sources (content marketing institute, hubspot, etc.)</li>
+                            <li>Add 3 practical examples with step-by-step instructions</li>
+                            <li>Create 2 comparison tables (free vs paid features, ChatGPT vs competitors)</li>
+                            <li>Use H2 and H3 headings with keyword variations</li>
+                            <li>Keep paragraphs under 4 sentences with ample white space</li>
+                            <li>Include 5 internal linking opportunities to related content</li>
+                            <li>Add FAQ section answering: "Is AI content detectable?", "Can ChatGPT replace human writers?", "How to maintain originality?"</li>
+                            <li>End with a strong CTA encouraging comments and social shares</li>
+                        </ul>
+                        
+                        <p class="mt-4"><span class="font-bold">SEO Specifications:</span></p>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li>Primary keyword in title, first 100 words, and 3 headings</li>
+                            <li>Natural keyword density of 1.2-1.5% with semantic variations</li>
+                            <li>Optimized meta description under 155 characters</li>
+                            <li>URL slug: /how-to-use-chatgpt-for-blogging</li>
+                            <li>Schema markup for how-to guide</li>
+                            <li>Mobile-friendly formatting with short paragraphs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between items-center mt-6">
+                    <div class="text-sm text-slate-600">
+                        <i class="fas fa-sync-alt mr-2"></i> Prompt optimized for EEAT (Experience, Expertise, Authoritativeness, Trustworthiness)
+                    </div>
+                    <button id="copy-prompt-btn" class="bg-gradient-to-r from-primary to-accent text-white py-3 px-8 rounded-xl font-bold hover:opacity-90 transition flex items-center">
+                        <i class="fas fa-copy mr-2"></i> Copy Prompt
+                    </button>
+                </div>
+            </div>
+            
+            <div id="content-preview" class="hidden bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <div class="prose max-w-none">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-6">How to Use ChatGPT for Blogging: The Ultimate 2025 Guide</h1>
+                    
+                    <div class="flex items-center text-slate-600 mb-8">
+                        <div class="flex items-center mr-6">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>15 min read</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>Updated: August 15, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-8">
+                        <p class="font-bold text-blue-800">Key Takeaway:</p>
+                        <p>ChatGPT can increase blogging productivity by 40% when used strategically, but requires human oversight for optimal results.</p>
+                    </div>
+                    
+                    <p>In 2025, blogging remains one of the most effective content marketing strategies, with businesses that blog generating <span class="font-bold">67% more leads</span> than those that don't (HubSpot, 2025). However, creating consistent, high-quality content has become increasingly challenging. This is where AI tools like ChatGPT transform content creation, helping bloggers overcome writer's block and scale their output.</p>
+                    
+                    <h2>Why ChatGPT is Essential for Modern Bloggers</h2>
+                    
+                    <p>ChatGPT has evolved significantly since its launch, with the GPT-5 version offering unprecedented capabilities:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                                <i class="fas fa-bolt text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-800 mb-2">Content Ideation</h3>
+                            <p class="text-slate-600">Generate dozens of blog post ideas in seconds based on trending topics in your niche.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                                <i class="fas fa-pen-fancy text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-800 mb-2">Draft Creation</h3>
+                            <p class="text-slate-600">Create comprehensive outlines and full drafts in a fraction of traditional time.</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Step-by-Step: Creating Your First AI-Assisted Blog Post</h2>
+                    
+                    <p>Follow this proven workflow to create high-quality content with ChatGPT:</p>
+                    
+                    <div class="overflow-x-auto my-8">
+                        <table class="w-full table-auto border-collapse">
+                            <thead class="bg-slate-100">
+                                <tr>
+                                    <th class="px-4 py-3 text-left border border-slate-200">Step</th>
+                                    <th class="px-4 py-3 text-left border border-slate-200">ChatGPT Prompt Example</th>
+                                    <th class="px-4 py-3 text-left border border-slate-200">Output Quality</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-3 border border-slate-200 font-medium">1. Topic Research</td>
+                                    <td class="px-4 py-3 border border-slate-200 font-mono">"Generate 10 blog topic ideas about [your niche] that target long-tail keywords with monthly search volume over 1,000"</td>
+                                    <td class="px-4 py-3 border border-slate-200">★★★★☆</td>
+                                </tr>
+                                <tr class="bg-slate-50">
+                                    <td class="px-4 py-3 border border-slate-200 font-medium">2. Outline Creation</td>
+                                    <td class="px-4 py-3 border border-slate-200 font-mono">"Create a detailed SEO-optimized outline for a blog post titled '[your title]' with H2 and H3 headings targeting keyword '[primary keyword]'"</td>
+                                    <td class="px-4 py-3 border border-slate-200">★★★★★</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 border border-slate-200 font-medium">3. Content Drafting</td>
+                                    <td class="px-4 py-3 border border-slate-200 font-mono">"Using this outline, write a 1,500-word draft in a [your brand voice] tone. Include 3 practical examples and 2 statistics from reputable sources."</td>
+                                    <td class="px-4 py-3 border border-slate-200">★★★☆☆</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-xl my-8">
+                        <h3 class="font-bold text-lg text-purple-800 mb-3 flex items-center">
+                            <i class="fas fa-gem mr-2"></i> Pro Tip: Human Editing is Crucial
+                        </h3>
+                        <p>Always add your personal experiences and insights to AI-generated content. As marketing expert Ann Handley says: <span class="italic">"Your unique perspective is your competitive advantage in a world of AI-generated content."</span></p>
+                    </div>
+                    
+                    <h2>Advanced Techniques for Seasoned Bloggers</h2>
+                    
+                    <p>Once you've mastered the basics, implement these advanced strategies:</p>
+                    
+                    <div class="border-l-4 border-primary pl-4 my-6">
+                        <h3 class="font-semibold text-lg">Prompt Engineering</h3>
+                        <p>Learn to craft precise prompts that yield better results. Example: Instead of "Write about content marketing," try "As a content marketing expert with 10 years experience, explain the top 5 content marketing trends for B2B SaaS companies in 2025, including statistics and case studies."</p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6">
+                        <p class="font-bold text-yellow-800">Important:</p>
+                        <p>Always fact-check statistics and claims generated by AI tools. While ChatGPT has improved, it can still produce inaccurate or outdated information.</p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border border-slate-300 shadow-md mt-10">
+                        <h3 class="font-bold text-center text-xl text-slate-800 mb-4">Content Quality Checklist</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Added unique insights and personal experiences</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Verified all statistics and facts</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Optimized for target keywords</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Included relevant internal links</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="seo-analysis" class="hidden bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <h3 class="font-bold text-xl text-slate-800 mb-6">SEO Analysis Report</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto">
+                                <i class="fas fa-95 text-green-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="font-bold text-lg text-center text-slate-800 mb-2">SEO Score</h4>
+                        <div class="text-center">
+                            <div class="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full font-bold">
+                                95/100
+                            </div>
+                            <p class="text-slate-600 mt-2 text-sm">Excellent optimization for target keywords</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto">
+                                <i class="fas fa-keyboard text-blue-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="font-bold text-lg text-center text-slate-800 mb-2">Keyword Optimization</h4>
+                        <div class="text-center">
+                            <div class="space-y-2">
+                                <div>
+                                    <span class="font-medium">Primary Keyword:</span>
+                                    <span class="keyword-badge">how to use chatgpt for blogging</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium">Semantic Keywords:</span>
+                                    <div class="mt-1">
+                                        <span class="keyword-badge">AI content creation</span>
+                                        <span class="keyword-badge">blog automation</span>
+                                        <span class="keyword-badge">ChatGPT prompts</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mx-auto">
+                                <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="font-bold text-lg text-center text-slate-800 mb-2">Ranking Potential</h4>
+                        <div class="text-center">
+                            <div class="mb-3">
+                                <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-green-400 to-emerald-500" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 text-sm">High probability of ranking on page 1 for target keywords</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 class="font-bold text-lg text-slate-800 mb-4">Technical SEO Recommendations</h4>
+                <ul class="bg-white p-5 rounded-xl border border-slate-200 space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Add schema markup for "HowTo" content type</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Optimize images with descriptive alt text containing keywords</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Ensure mobile responsiveness with fast loading times</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Interlink to related articles on your site</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-16 card">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">Why Our Prompts Generate Better Content</h2>
+            <p class="text-lg text-slate-600 mb-12 text-center max-w-3xl mx-auto">Our AI prompt engineering combines SEO expertise with content psychology to create posts that rank and engage</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 text-center border border-slate-200 transition h-full">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4 transition feature-icon">
+                        <i class="fas fa-trophy text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Topical Authority</h3>
+                    <p class="text-slate-600">Prompts designed to cover topics comprehensively, establishing your expertise to search engines.</p>
+                </div>
+                
+                <div class="feature-card bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 text-center border border-slate-200 transition h-full">
+                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4 transition feature-icon">
+                        <i class="fas fa-brain text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Human-Like Quality</h3>
+                    <p class="text-slate-600">Instructions for personal stories, unique insights, and natural language patterns.</p>
+                </div>
+                
+                <div class="feature-card bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 text-center border border-slate-200 transition h-full">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-4 transition feature-icon">
+                        <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">SEO-Optimized</h3>
+                    <p class="text-slate-600">Built-in SEO best practices for structure, keywords, and user engagement signals.</p>
+                </div>
+                
+                <div class="feature-card bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 text-center border border-slate-200 transition h-full">
+                    <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4 transition feature-icon">
+                        <i class="fas fa-layer-group text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Content Depth</h3>
+                    <p class="text-slate-600">Prompts for comprehensive coverage with examples, data, and practical applications.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl shadow-xl p-8 mb-16 text-white">
+            <h2 class="text-2xl font-bold text-center mb-2">Trusted by Content Professionals</h2>
+            <p class="text-center text-blue-100 mb-10 max-w-2xl mx-auto">Join thousands of marketers who have transformed their content strategy with our prompts</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-blue-400 bg-opacity-20 p-6 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <span class="font-bold text-blue-600">SJ</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-blue-100 text-sm">Content Director</p>
+                        </div>
+                    </div>
+                    <p class="italic">"These prompts helped us increase organic traffic by 150% in just 3 months. The SEO optimizations are spot on!"</p>
+                </div>
+                
+                <div class="bg-blue-400 bg-opacity-20 p-6 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <span class="font-bold text-blue-600">MR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Mike Rodriguez</h4>
+                            <p class="text-blue-100 text-sm">SEO Specialist</p>
+                        </div>
+                    </div>
+                    <p class="italic">"The generated content ranks incredibly well. We've had 5 articles reach position #1 on Google using these prompts."</p>
+                </div>
+                
+                <div class="bg-blue-400 bg-opacity-20 p-6 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <span class="font-bold text-blue-600">TL</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Taylor Lee</h4>
+                            <p class="text-blue-100 text-sm">Blog Manager</p>
+                        </div>
+                    </div>
+                    <p class="italic">"Our content team's productivity has doubled while maintaining quality. The human-like tone instructions are game-changing."</p>
+                </div>
+            </div>
+        </div>
+
+       
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition duration-300">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+            <span>Prompt copied to clipboard!</span>
+        </div>
+    </div>
+
+    <script>
+        // Initialize tabs
+        document.getElementById('tab-prompt').addEventListener('click', function() {
+            document.getElementById('prompt-output').classList.remove('hidden');
+            document.getElementById('content-preview').classList.add('hidden');
+            document.getElementById('seo-analysis').classList.add('hidden');
+            document.getElementById('tab-prompt').classList.add('tab-active');
+            document.getElementById('tab-preview').classList.remove('tab-active');
+            document.getElementById('tab-seo').classList.remove('tab-active');
+        });
+        
+        document.getElementById('tab-preview').addEventListener('click', function() {
+            document.getElementById('prompt-output').classList.add('hidden');
+            document.getElementById('content-preview').classList.remove('hidden');
+            document.getElementById('seo-analysis').classList.add('hidden');
+            document.getElementById('tab-preview').classList.add('tab-active');
+            document.getElementById('tab-prompt').classList.remove('tab-active');
+            document.getElementById('tab-seo').classList.remove('tab-active');
+        });
+        
+        document.getElementById('tab-seo').addEventListener('click', function() {
+            document.getElementById('prompt-output').classList.add('hidden');
+            document.getElementById('content-preview').classList.add('hidden');
+            document.getElementById('seo-analysis').classList.remove('hidden');
+            document.getElementById('tab-seo').classList.add('tab-active');
+            document.getElementById('tab-prompt').classList.remove('tab-active');
+            document.getElementById('tab-preview').classList.remove('tab-active');
+        });
+        
+        // Content type buttons
+        document.querySelectorAll('.content-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.content-type-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                generatePrompt();
+            });
+        });
+        
+        // Tone buttons
+        document.querySelectorAll('.tone-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tone-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                generatePrompt();
+            });
+        });
+        
+        // Complexity slider
+        document.getElementById('complexity').addEventListener('input', generatePrompt);
+        
+        // Checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', generatePrompt);
+        });
+        
+        // Generate prompt function
+        function generatePrompt() {
+            const keyword = document.getElementById('keyword').value.trim() || "how to use chatgpt for blogging";
+            const contentType = document.querySelector('.content-type-btn.active').dataset.type;
+            const tone = document.querySelector('.tone-btn.active').dataset.tone;
+            const complexity = document.getElementById('complexity').value;
+            const includeStats = document.getElementById('include-stats').checked;
+            const includeExamples = document.getElementById('include-examples').checked;
+            const includeFAQ = document.getElementById('include-faq').checked;
+            const includeResources = document.getElementById('include-resources').checked;
+            
+            let promptText = "";
+            
+            // Determine word count based on complexity
+            let wordCount = "1,500";
+            if(complexity == 1) wordCount = "1,000";
+            if(complexity == 3) wordCount = "2,500";
+            
+            // Content type variations
+            if(contentType === "howto") {
+                promptText = `# Comprehensive Content Prompt
+Role: Act as a professional content creator with expertise in SEO and blogging.
+
+Objective: Create a comprehensive, ${wordCount}-word how-to guide titled "How to Use ${keyword}: The Ultimate 2025 Guide".
+
+Primary Keyword: "${keyword}"
+Secondary Keywords: "AI blogging tools", "ChatGPT content creation", "automated blogging", "AI writing assistant", "blog automation"
+
+Structure:
+- Introduction (200 words): Discuss the state of blogging in 2025 and how AI tools are transforming content creation. Include a compelling hook and ${includeStats ? 'statistics about AI adoption in content marketing' : 'anecdotal evidence'}.
+- Section 1: Understanding ${keyword}: Explain what ChatGPT is using simple analogies. Cover why it's essential for modern bloggers.
+- Section 2: Getting Started: Step-by-step guide to setting up ChatGPT for blogging, including signup process and choosing between free/paid versions.
+- Section 3: Content Creation Workflow: Detailed process for using ChatGPT to research, outline, draft, and refine blog posts. ${includeExamples ? 'Include 3 practical examples with screenshots' : ''}.
+- Section 4: Advanced Techniques: Prompt engineering, maintaining brand voice, and SEO optimization.
+- ${includeResources ? 'Section 5: Resource Toolkit: Recommended plugins, tools, and resources' : 'Section 5: Real-World Case Study: Show a before/after example of a blog post improved with ChatGPT'}.
+- Section 6: Limitations & Best Practices: Ethical considerations and how to avoid AI detection.
+- Conclusion: Actionable steps to implement these strategies and future outlook.
+
+Content Requirements:
+- Write in a ${tone} tone that ${tone === 'professional' ? 'builds authority' : tone === 'conversational' ? 'creates connection with readers' : 'establishes expertise'}
+- ${includeStats ? 'Include 5 statistics from reputable sources (content marketing institute, hubspot, etc.)' : ''}
+- ${includeExamples ? 'Add 3 practical examples with step-by-step instructions' : ''}
+- Create 2 comparison tables (free vs paid features, ChatGPT vs competitors)
+- Use H2 and H3 headings with keyword variations
+- Keep paragraphs under 4 sentences with ample white space
+- Include 5 internal linking opportunities to related content
+- ${includeFAQ ? 'Add FAQ section answering: "Is AI content detectable?", "Can ChatGPT replace human writers?", "How to maintain originality?"' : ''}
+- End with a strong CTA encouraging comments and social shares
+
+SEO Specifications:
+- Primary keyword in title, first 100 words, and 3 headings
+- Natural keyword density of 1.2-1.5% with semantic variations
+- Optimized meta description under 155 characters
+- URL slug: /${keyword.toLowerCase().replace(/ /g, '-')}
+- Schema markup for how-to guide
+- Mobile-friendly formatting with short paragraphs`;
+            }
+            else if(contentType === "list") {
+                promptText = `# Comprehensive Content Prompt
+Role: Act as a top content strategist.
+
+Objective: Create a comprehensive list-based article titled "7 Advanced Ways to ${keyword}" targeting the keyword "${keyword}".
+
+Primary Keyword: "${keyword}"
+Secondary Keywords: "AI content strategies", "blog productivity hacks", "content automation"
+
+Structure:
+1. Introduction: Discuss the evolution of AI content creation in 2025 and its impact on blogging
+2. The 7 Methods:
+   ${includeExamples ? '- Each with a real-world example and implementation tips' : ''}
+   - Include unexpected strategies beyond the obvious
+   - Show how each method solves specific blogger pain points
+3. Comparison: Traditional vs AI-assisted blogging workflows
+4. Implementation Guide: How to integrate these methods into existing workflows
+5. ${includeFAQ ? 'FAQ: Answering top reader questions about ethical AI use' : ''}
+6. ${includeResources ? 'Resource Section: Tools and templates for implementation' : 'Case Study: Results from implementing these strategies'}
+7. Conclusion: Next steps for implementing these strategies
+
+Content Requirements:
+- Write in an ${tone} style with ${complexity == 1 ? 'beginner-friendly explanations' : complexity == 2 ? 'balanced approach' : 'advanced insights'}
+- ${includeStats ? 'Include 3-5 recent statistics about content marketing ROI' : ''}
+- Use relatable analogies to explain technical concepts
+- Add 2 case studies showing successful implementation
+- Include a resources section with tools and further reading
+- Create 3 custom tables comparing different approaches
+
+SEO Specifications:
+- Primary keyword in title and first paragraph
+- Semantic keywords naturally incorporated throughout
+- Optimize for featured snippets with bullet-point lists
+- URL slug: /7-advanced-${keyword.toLowerCase().replace(/ /g, '-')}
+- Social media optimized excerpts`;
+            }
+            else if(contentType === "problem") {
+                promptText = `# Comprehensive Content Prompt
+Role: As an expert blogger and content strategist.
+
+Objective: Create a problem-solution article titled "Solving Content Creation Challenges: How to ${keyword}". 
+
+Primary Keyword: "${keyword}"
+Secondary Keywords: "content creation problems", "AI blogging solutions", "overcoming writer's block"
+
+Structure:
+1. Introduction: The content creation crisis in 2025
+2. The 5 Biggest Blogging Challenges Today (with ${includeStats ? 'statistics' : 'examples'})
+3. How ${keyword} Solves Each Problem:
+   - Specific solutions with implementation steps
+   ${includeExamples ? '- Real examples from successful bloggers' : ''}
+4. Limitations and Ethical Considerations
+5. Step-by-Step Implementation Plan
+6. ${includeFAQ ? 'FAQ: Addressing common concerns about AI content' : ''}
+7. ${includeResources ? 'Resource Toolkit: Tools and templates' : 'Case Study: Before/after implementing these solutions'}
+8. Conclusion: The future of human-AI collaboration in blogging
+
+Content Requirements:
+- Adopt a ${tone} tone that ${tone === 'professional' ? 'establishes credibility' : tone === 'conversational' ? 'creates rapport' : 'demonstrates expertise'}
+- Use storytelling elements with relatable scenarios
+- ${includeStats ? 'Include 3 data points from recent industry reports' : ''}
+- Create 2 comparison visuals (describe them)
+- Add practical exercises for readers to implement
+- Provide downloadable resources (mention as [Downloadable Resource])
+- Include 4 internal linking opportunities
+
+SEO Specifications:
+- Target keyword in H1 and at least two H2 headings
+- Semantic keywords: "content challenges", "AI solutions", "writing efficiency"
+- Meta description highlighting the core solution
+- URL slug: /solving-content-creation-challenges`;
+            }
+            else { // Comparison
+                promptText = `# Comprehensive Content Prompt
+Role: Act as an impartial content technology analyst.
+
+Objective: Create a comprehensive comparison guide titled "${keyword}: ChatGPT vs Top Alternatives".
+
+Primary Keyword: "${keyword}"
+Secondary Keywords: "AI writing tools comparison", "best AI for blogging", "ChatGPT alternatives"
+
+Structure:
+1. Introduction: The evolving AI content landscape in 2025
+2. Evaluation Criteria:
+   - Content quality
+   - SEO capabilities
+   - Ease of use
+   - Pricing
+   - Special features
+3. Tool-by-Tool Analysis:
+   - ChatGPT
+   - Top 3 alternatives
+   ${includeExamples ? '- Output examples for each tool' : ''}
+4. Use Case Recommendations:
+   - Best for beginners
+   - Best for SEO-focused content
+   - Best for long-form content
+5. ${includeFAQ ? 'FAQ: Answering common questions about AI tools' : ''}
+6. Conclusion: How to choose the right tool for your needs
+
+Content Requirements:
+- Maintain a ${tone} tone throughout
+- ${includeStats ? 'Include performance benchmarks from independent tests' : ''}
+- Create comparison tables for easy scanning
+- ${includeExamples ? 'Provide sample outputs for each tool' : ''}
+- Discuss ethical considerations for each platform
+- Include pros/cons for each tool
+- Add a "Key Takeaways" section at the end
+
+SEO Specifications:
+- Primary keyword in title and meta description
+- Semantic keywords: "AI tool comparison", "content creation tools"
+- Optimize for "best [tool] for [use case]" long-tail keywords
+- URL slug: /${keyword.toLowerCase().replace(/ /g, '-')}-comparison
+- Schema markup for comparison table`;
+            }
+            
+            document.querySelector('.prompt-content').textContent = promptText;
+        }
+        
+        // Copy to clipboard functionality
+        document.getElementById('copy-prompt-btn').addEventListener('click', function() {
+            const promptText = document.querySelector('.prompt-content').textContent;
+            
+            navigator.clipboard.writeText(promptText).then(() => {
+                // Show toast notification
+                const toast = document.getElementById('toast');
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+                
+                // Hide toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 3000);
+            });
+        });
+        
+        // Generate prompt on keyword input change
+        document.getElementById('keyword').addEventListener('keyup', function(e) {
+            if(e.key === 'Enter') {
+                generatePrompt();
+            }
+        });
+        
+        document.getElementById('generate-btn').addEventListener('click', generatePrompt);
+        
+        // Initialize
+        generatePrompt();
+    </script>
+</body>
+</html>
