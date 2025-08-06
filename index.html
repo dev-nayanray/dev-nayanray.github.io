@@ -70,7 +70,41 @@
 
   gtag('config', 'G-7XJFTXZYPT');
 </script>
-    
+    <script>
+// Define dataLayer and the gtag function.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Set default consent to 'denied' as a placeholder
+// Determine actual values based on your own requirements
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied'
+});
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=TAG_ID">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+  gtag('config', 'TAG_ID');
+</script>
+
+<!-- Create one update function for each consent parameter -->
+<script>
+  function consentGrantedAdStorage() {
+    gtag('consent', 'update', {
+      'ad_storage': 'granted'
+    });
+  }
+</script>
+<!-- Invoke your consent functions when a user interacts with your banner -->
+ 
     <style>
         /* Custom styles for dark mode */
         .dark .dark\:bg-gray-900 {
@@ -139,6 +173,7 @@
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <button onclick="consentGrantedAdStorage">Yes</button>
  <!-- Header Section -->
     <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-7510411789737814">
@@ -2660,4 +2695,5 @@ document.addEventListener('click', (e) => {
   
 </body>
 </html>
+
 
