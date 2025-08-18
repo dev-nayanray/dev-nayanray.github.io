@@ -2507,133 +2507,170 @@ document.addEventListener('click', (e) => {
     </div>
 </footer>
  
- <button id="openChatButton" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition">
-    💬
-  </button>
-<div id="chatContainer" class="hidden fixed bottom-20 right-4 bottom-32 bg-white border border-gray-300 shadow-lg rounded-lg w-96">
-    <div class="flex flex-col h-full">
-        <!-- Chat header -->
-        <div class="flex items-center justify-between p-4 bg-blue-500 rounded-t-lg">
-            <h2 class="text-lg font-bold text-white">Supports | 24/7</h2>
-            <button id="closeChatButton" class="text-white hover:text-gray-200 focus:outline-none">
-                <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M13.58 6.576a1 1 0 0 0-1.414 0L10 8.086 7.414 6.576a1 1 0 0 0-1.414 1.414L8.586 9l-2.17 2.17a1 1 0 1 0 1.415 1.415L10 10.415l2.17 2.17a1 1 0 0 0 1.415-1.415L11.414 9l2.165-2.165a1 1 0 0 0 0-1.414z" clip-rule="evenodd"/>
-                </svg>
-            </button>
-        </div>
-        <!-- Chat messages -->
-        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-100">
-            <!-- Messages will be dynamically added here -->
-        </div>
-        <!-- Chat input field -->
-        <div class="p-4 border-t border-gray-300 bg-white">
-            <div class="flex items-center">
-                <label for="fileInput" class="mr-3 cursor-pointer">
-                    <svg class="w-6 h-6 fill-current text-gray-600 hover:text-gray-800" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M14 6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2H4a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V10a4 4 0 0 0-4-4h-2zM8 6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2H8zm0 4a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0v-3a1 1 0 0 0-1-1zm4 0a1 1 0 0 1 1 1v3a1 1 0 0 1-2 0v-3a1 1 0 0 1 1-1z" clip-rule="evenodd"/>
-                    </svg>
-                    <input id="fileInput" type="file" class="hidden" accept="image/*, video/*, audio/*">
-                </label>
-                <input type="text" id="messageInput" class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none" placeholder="Type your message...">
-                <button id="sendMessageButton" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 focus:outline-none">Send</button>
-            </div>
-        </div>
+   <!-- Chat Widget -->
+  <div id="chatWidget">
+    <!-- Floating Chat Icon -->
+    <div id="chatIcon" class="fixed bottom-6 right-6 w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl transition-all hover:scale-110 z-50">
+      <i class="fas fa-comments text-white text-xl"></i>
     </div>
-</div>
-
-<script>
-const chatButton = document.getElementById('chatButton');
-const chatContainer = document.getElementById('chatContainer');
-const closeChatButton = document.getElementById('closeChatButton');
-const messageInput = document.getElementById('messageInput');
-const sendMessageButton = document.getElementById('sendMessageButton');
-const fileInput = document.getElementById('fileInput');
-const chatMessages = document.getElementById('chatMessages');
-  closeBtn.addEventListener("click", () => {
-      document.querySelector(".max-w-md").classList.add("hidden");
-    });
-// Toggle chat container visibility
-chatButton.addEventListener('click', function() {
-    chatContainer.classList.toggle('hidden');
-});
-closeChatButton.addEventListener('click', function() {
-    chatContainer.classList.add('hidden');
-});
-
-// Function to format time as HH:MM AM/PM
-function formatTime(date) {
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    return `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
-}
-
-// Function to add a chat message to the UI
-function addMessage(sender, text) {
-    const bubbleClass = sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800';
-    const alignment = sender === 'user' ? 'justify-end' : 'justify-start';
-
-    const messageHTML = `
-        <div class="flex ${alignment} mb-4">
-            <div class="flex-shrink-0 mr-3">
-                <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
-            </div>
-            <div class="rounded-lg p-2 ${bubbleClass} message-bubble max-w-xs break-words">
-                <p class="text-sm leading-snug">${text}</p>
-                <span class="text-xs text-gray-200">${formatTime(new Date())}</span>
-            </div>
+    
+    <!-- Chat Window -->
+    <div id="chatWindow" class="fixed bottom-24 right-6 w-80 h-96 bg-white rounded-xl shadow-xl flex flex-col hidden z-50">
+      <!-- Header -->
+      <div class="bg-blue-600 text-white p-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-robot text-white text-sm"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-sm">Nayan Ray AI Assistant</h3>
+            <p class="text-xs text-blue-200">Web Developer & Tech Consultant</p>
+          </div>
         </div>
-    `;
-    chatMessages.insertAdjacentHTML('beforeend', messageHTML);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
+        <button id="closeChat" class="text-white hover:text-blue-200">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <!-- Messages -->
+      <div id="chatMessages" class="flex-1 p-4 space-y-3 overflow-y-auto bg-gray-50">
+        <div class="flex justify-start">
+          <div class="flex items-start space-x-2 max-w-[85%]">
+            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-robot text-white text-xs"></i>
+            </div>
+            <div class="bg-white rounded-lg p-3 shadow-sm">
+              <p class="text-sm text-gray-700">Hello! I'm Nayan Ray's AI Assistant. How can I help you today?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Actions -->
+      <div class="p-3 bg-gray-50 border-t">
+        <div class="flex flex-wrap gap-2">
+          <button class="quick-btn bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs hover:bg-gray-200 transition">
+            WordPress Help
+          </button>
+          <button class="quick-btn bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs hover:bg-gray-200 transition">
+            Code Review
+          </button>
+          <button class="quick-btn bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs hover:bg-gray-200 transition">
+            Tech Support
+          </button>
+        </div>
+      </div>
+      
+      <!-- Input -->
+      <div class="p-4 bg-white border-t">
+        <div class="flex items-center space-x-2">
+          <input 
+            type="text" 
+            id="messageInput" 
+            placeholder="Type your message..."
+            class="flex-1 bg-gray-100 text-gray-900 placeholder-gray-500 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 text-sm"
+          />
+          <button id="sendMessage" class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition">
+            <i class="fas fa-paper-plane text-sm"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-// Send message to Flask chatbot
-async function sendMessage() {
-    const messageText = messageInput.value.trim();
-    const files = fileInput.files;
+  <script>
+    // Chat widget functionality
+    const chatIcon = document.getElementById('chatIcon');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChat = document.getElementById('closeChat');
+    const messageInput = document.getElementById('messageInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const chatMessages = document.getElementById('chatMessages');
+    const quickBtns = document.querySelectorAll('.quick-btn');
 
-    if (messageText === '' && files.length === 0) return;
+    // Toggle chat window
+    chatIcon.addEventListener('click', () => {
+      chatWindow.style.display = 'flex';
+      chatWindow.classList.add('flex-col');
+      messageInput.focus();
+    });
 
-    // Display user's message first
-    if (messageText !== '') {
-        addMessage('user', messageText);
+    closeChat.addEventListener('click', () => {
+      chatWindow.style.display = 'none';
+    });
+
+    // Add message
+    function addMessage(sender, text) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+      
+      const content = sender === 'user' 
+        ? `<div class="flex items-start space-x-2 max-w-[85%]">
+            <div class="bg-blue-600 text-white rounded-lg p-3">
+              <p class="text-sm">${text}</p>
+            </div>
+          </div>`
+        : `<div class="flex items-start space-x-2 max-w-[85%]">
+            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-robot text-white text-xs"></i>
+            </div>
+            <div class="bg-white rounded-lg p-3 shadow-sm">
+              <p class="text-sm text-gray-700">${text}</p>
+            </div>
+          </div>`;
+      
+      messageDiv.innerHTML = content;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    messageInput.value = '';
-    fileInput.value = '';
+    // Send message
+    async function sendMessageToServer(text) {
+      if (!text.trim()) return;
 
-    // Send text message to chatbot backend
-    if (messageText !== '') {
-        try {
-            const response = await fetch('http://127.0.0.1:5000/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: messageText })
-            });
+      addMessage('user', text);
+      messageInput.value = '';
 
-            const data = await response.json();
-            if (data && data.response) {
-                addMessage('bot', data.response);
-            } else {
-                addMessage('bot', 'Error: No response from chatbot.');
-            }
-        } catch (err) {
-            console.error(err);
-            addMessage('bot', 'Error: Could not reach chatbot server.');
-        }
+      try {
+        const response = await fetch('http://127.0.0.1:5000/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text })
+        });
+
+        const data = await response.json();
+        addMessage('bot', data.response);
+
+      } catch (error) {
+        addMessage('bot', 'Sorry, I encountered an error. Please try again.');
+      }
     }
 
-    // Optional: handle files (you can add image/video/audio preview here if needed)
-}
+    // Event listeners
+    sendMessage.addEventListener('click', () => {
+      sendMessageToServer(messageInput.value);
+    });
 
-// Event listeners
-sendMessageButton.addEventListener('click', sendMessage);
-messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
-});
-</script>
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessageToServer(messageInput.value);
+      }
+    });
 
+    // Quick actions
+    quickBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        sendMessageToServer(btn.textContent.trim());
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!chatWindow.contains(e.target) && !chatIcon.contains(e.target)) {
+        chatWindow.style.display = 'none';
+      }
+    });
+  </script>
 
     <!-- Slick Carousel JS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -2684,6 +2721,7 @@ messageInput.addEventListener('keypress', (e) => {
   
 </body>
 </html>
+
 
 
 
