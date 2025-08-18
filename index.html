@@ -2547,113 +2547,96 @@ document.addEventListener('click', (e) => {
     </div>
 </div>
     <script>
-        // Toggle dark mode
-        const toggle = document.getElementById('dark-mode-toggle');
-        toggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-        });
-      const chatButton = document.getElementById('chatButton');
-    const chatContainer = document.getElementById('chatContainer');
-    const closeChatButton = document.getElementById('closeChatButton');
-    const messageInput = document.getElementById('messageInput');
-    const sendMessageButton = document.getElementById('sendMessageButton');
-    const fileInput = document.getElementById('fileInput');
-    const chatMessages = document.getElementById('chatMessages');
+const chatButton = document.getElementById('chatButton');
+const chatContainer = document.getElementById('chatContainer');
+const closeChatButton = document.getElementById('closeChatButton');
+const messageInput = document.getElementById('messageInput');
+const sendMessageButton = document.getElementById('sendMessageButton');
+const fileInput = document.getElementById('fileInput');
+const chatMessages = document.getElementById('chatMessages');
 
-    // Toggle chat container visibility
-    chatButton.addEventListener('click', function() {
-        chatContainer.classList.toggle('hidden');
-    });
+// Toggle chat container visibility
+chatButton.addEventListener('click', function() {
+    chatContainer.classList.toggle('hidden');
+});
+closeChatButton.addEventListener('click', function() {
+    chatContainer.classList.add('hidden');
+});
 
-    closeChatButton.addEventListener('click', function() {
-        chatContainer.classList.add('hidden');
-    });
+// Function to format time as HH:MM AM/PM
+function formatTime(date) {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    return `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+}
 
-    // Function to send a message or file
-    function sendMessage() {
-        const messageText = messageInput.value.trim();
-        const files = fileInput.files;
+// Function to add a chat message to the UI
+function addMessage(sender, text) {
+    const bubbleClass = sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800';
+    const alignment = sender === 'user' ? 'justify-end' : 'justify-start';
 
-        if (messageText === '' && files.length === 0) return;
+    const messageHTML = `
+        <div class="flex ${alignment} mb-4">
+            <div class="flex-shrink-0 mr-3">
+                <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+            </div>
+            <div class="rounded-lg p-2 ${bubbleClass} message-bubble max-w-xs break-words">
+                <p class="text-sm leading-snug">${text}</p>
+                <span class="text-xs text-gray-200">${formatTime(new Date())}</span>
+            </div>
+        </div>
+    `;
+    chatMessages.insertAdjacentHTML('beforeend', messageHTML);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
-        // Prepare message HTML
-        let message = '';
+// Send message to Flask chatbot
+async function sendMessage() {
+    const messageText = messageInput.value.trim();
+    const files = fileInput.files;
 
-        // Handle files
-        if (files.length > 0) {
-            const file = files[0];
-            const fileType = file.type.split('/')[0]; // 'image', 'video', 'audio'
+    if (messageText === '' && files.length === 0) return;
 
-            // Display file preview (if image)
-            if (fileType === 'image') {
-                const imageUrl = URL.createObjectURL(file);
-                message += `
-                    <div class="flex items-start mb-4">
-                        <div class="flex-shrink-0 mr-3">
-                            <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
-                        </div>
-                        <div class="bg-white rounded-lg p-2 message-bubble">
-                            <img src="${imageUrl}" class="rounded-lg">
-                            <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
-                        </div>
-                    </div>
-                `;
+    // Display user's message first
+    if (messageText !== '') {
+        addMessage('user', messageText);
+    }
+
+    messageInput.value = '';
+    fileInput.value = '';
+
+    // Send text message to chatbot backend
+    if (messageText !== '') {
+        try {
+            const response = await fetch('http://127.0.0.1:5000/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: messageText })
+            });
+
+            const data = await response.json();
+            if (data && data.response) {
+                addMessage('bot', data.response);
             } else {
-                // Handle other file types (video, audio)
-                const fileTypeIcon = fileType === 'video' ? 'film' : 'volume-up';
-                message += `
-                    <div class="flex items-start mb-4">
-                        <div class="flex-shrink-0 mr-3">
-                            <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
-                        </div>
-                        <div class="bg-white rounded-lg p-2 message-bubble">
-                            <div class="flex items-center">
-                                <svg class="w-6 h-6 fill-current text-gray-600 mr-2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <use xlink:href="images/sprite.svg#${fileTypeIcon}"></use>
-                                </svg>
-                                <span class="text-sm text-gray-900">${file.name}</span>
-                            </div>
-                            <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
-                        </div>
-                    </div>
-                `;
+                addMessage('bot', 'Error: No response from chatbot.');
             }
+        } catch (err) {
+            console.error(err);
+            addMessage('bot', 'Error: Could not reach chatbot server.');
         }
-
-        // Handle text message
-        if (messageText !== '') {
-            message += `
-                <div class="flex items-start mb-4">
-                    <div class="flex-shrink-0 mr-3">
-                        <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
-                    </div>
-                    <div class="bg-white rounded-lg p-2 message-bubble">
-                        <p class="text-sm text-gray-900 leading-snug">${messageText}</p>
-                        <span class="text-xs text-gray-500">${formatTime(new Date())}</span>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Append message to chatMessages
-        chatMessages.insertAdjacentHTML('beforeend', message);
-
-        // Clear inputs
-        messageInput.value = '';
-        fileInput.value = '';
     }
 
-    sendMessageButton.addEventListener('click', sendMessage);
+    // Optional: handle files (you can add image/video/audio preview here if needed)
+}
 
-    // Function to format time as HH:MM AM/PM
-    function formatTime(date) {
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        return `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
-    }
+// Event listeners
+sendMessageButton.addEventListener('click', sendMessage);
+messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+</script>
 
-    </script>
     <!-- Slick Carousel JS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -2703,6 +2686,7 @@ document.addEventListener('click', (e) => {
   
 </body>
 </html>
+
 
 
 
