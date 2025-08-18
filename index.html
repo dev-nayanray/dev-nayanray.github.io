@@ -2550,6 +2550,57 @@ document.addEventListener('click', (e) => {
       </div>
     </div>
   </div>
+     <script>
+    const chatContainer = document.getElementById("chatContainer");
+    const openChatButton = document.getElementById("openChatButton");
+    const closeChatButton = document.getElementById("closeChatButton");
+    const chatMessages = document.getElementById("chatMessages");
+    const messageInput = document.getElementById("messageInput");
+    const sendMessageButton = document.getElementById("sendMessageButton");
+
+    // Open chat
+    openChatButton.addEventListener("click", () => {
+      chatContainer.classList.remove("hidden");
+      openChatButton.classList.add("hidden");
+    });
+
+    // Close chat
+    closeChatButton.addEventListener("click", () => {
+      chatContainer.classList.add("hidden");
+      openChatButton.classList.remove("hidden");
+    });
+
+    // Add message bubble
+    function addMessage(sender, text) {
+      const msg = document.createElement("div");
+      msg.className = sender === "user" ? "flex justify-end" : "flex justify-start";
+      msg.innerHTML = `
+        <div class="max-w-xs px-4 py-2 rounded-2xl shadow ${sender === "user" ? "bg-blue-600 text-white rounded-br-none" : "bg-gray-200 text-gray-800 rounded-bl-none"}">
+          ${text}
+        </div>
+      `;
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Send message
+    function sendMessage() {
+      const msg = messageInput.value.trim();
+      if (!msg) return;
+      addMessage("user", msg);
+      messageInput.value = "";
+
+      // Simulate bot reply
+      setTimeout(() => {
+        addMessage("bot", "🤖 Thanks for your message! We'll get back to you shortly.");
+      }, 800);
+    }
+
+    sendMessageButton.addEventListener("click", sendMessage);
+    messageInput.addEventListener("keypress", e => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
     <script>
 const chatButton = document.getElementById('chatButton');
 const chatContainer = document.getElementById('chatContainer');
@@ -2690,6 +2741,7 @@ messageInput.addEventListener('keypress', (e) => {
   
 </body>
 </html>
+
 
 
 
