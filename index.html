@@ -2549,7 +2549,9 @@ const messageInput = document.getElementById('messageInput');
 const sendMessageButton = document.getElementById('sendMessageButton');
 const fileInput = document.getElementById('fileInput');
 const chatMessages = document.getElementById('chatMessages');
-
+  closeBtn.addEventListener("click", () => {
+      document.querySelector(".max-w-md").classList.add("hidden");
+    });
 // Toggle chat container visibility
 chatButton.addEventListener('click', function() {
     chatContainer.classList.toggle('hidden');
@@ -2682,6 +2684,7 @@ messageInput.addEventListener('keypress', (e) => {
   
 </body>
 </html>
+
 
 
 
