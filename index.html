@@ -2508,100 +2508,38 @@ document.addEventListener('click', (e) => {
 </footer>
  
 
-    
-<!-- Floating Chat Widget Button -->
-  <button id="openChatButton" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition">
-    💬
-  </button>
+ <!-- Floating chat button -->
+<button id="chatButton" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition">
+  💬
+</button>
 
-  <!-- Chat Container -->
-  <div id="chatContainer" class="hidden fixed bottom-20 right-6 bg-white border border-gray-200 shadow-2xl rounded-2xl w-96 h-[500px] flex flex-col overflow-hidden transition-all duration-300">
-    
-    <!-- Chat header -->
-    <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-600 to-blue-500">
-      <div>
-        <h2 class="text-lg font-bold text-white">Support Chat</h2>
-        <p class="text-xs text-blue-100">We usually reply in minutes</p>
-      </div>
-      <button id="closeChatButton" class="text-white hover:text-gray-200 transition">
-        ✖
-      </button>
+<!-- Chat container -->
+<div id="chatContainer" class="hidden fixed bottom-20 right-6 w-96 h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all">
+  
+  <!-- Header -->
+  <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-600 to-blue-500">
+    <div>
+      <h2 class="text-lg font-bold text-white">Support Chat</h2>
+      <p class="text-xs text-blue-100">24/7 assistance</p>
     </div>
-
-    <!-- Chat messages -->
-    <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-3">
-      <!-- Messages will be dynamically added -->
-    </div>
-
-    <!-- Chat input field -->
-    <div class="p-3 border-t border-gray-200 bg-white">
-      <div class="flex items-center gap-2">
-        <!-- File upload -->
-        <label for="fileInput" class="cursor-pointer text-gray-500 hover:text-blue-600">
-          📎
-          <input id="fileInput" type="file" class="hidden" accept="image/*, video/*, audio/*">
-        </label>
-        <!-- Message input -->
-        <input id="messageInput" type="text" class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Type a message...">
-        <!-- Send button -->
-        <button id="sendMessageButton" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transition">
-          ➤
-        </button>
-      </div>
-    </div>
+    <button id="closeChatButton" class="text-white hover:text-gray-200 transition">✖</button>
   </div>
-     <script>
-    const chatContainer = document.getElementById("chatContainer");
-    const openChatButton = document.getElementById("openChatButton");
-    const closeChatButton = document.getElementById("closeChatButton");
-    const chatMessages = document.getElementById("chatMessages");
-    const messageInput = document.getElementById("messageInput");
-    const sendMessageButton = document.getElementById("sendMessageButton");
 
-    // Open chat
-    openChatButton.addEventListener("click", () => {
-      chatContainer.classList.remove("hidden");
-      openChatButton.classList.add("hidden");
-    });
+  <!-- Chat messages -->
+  <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-3"></div>
 
-    // Close chat
-    closeChatButton.addEventListener("click", () => {
-      chatContainer.classList.add("hidden");
-      openChatButton.classList.remove("hidden");
-    });
+  <!-- Input -->
+  <div class="p-3 border-t border-gray-200 bg-white flex items-center gap-2">
+    <label for="fileInput" class="cursor-pointer text-gray-500 hover:text-blue-600">📎
+      <input type="file" id="fileInput" class="hidden" accept="image/*,video/*,audio/*">
+    </label>
+    <input type="text" id="messageInput" placeholder="Type a message..."
+      class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+    <button id="sendMessageButton" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transition">➤</button>
+  </div>
+</div>
 
-    // Add message bubble
-    function addMessage(sender, text) {
-      const msg = document.createElement("div");
-      msg.className = sender === "user" ? "flex justify-end" : "flex justify-start";
-      msg.innerHTML = `
-        <div class="max-w-xs px-4 py-2 rounded-2xl shadow ${sender === "user" ? "bg-blue-600 text-white rounded-br-none" : "bg-gray-200 text-gray-800 rounded-bl-none"}">
-          ${text}
-        </div>
-      `;
-      chatMessages.appendChild(msg);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    // Send message
-    function sendMessage() {
-      const msg = messageInput.value.trim();
-      if (!msg) return;
-      addMessage("user", msg);
-      messageInput.value = "";
-
-      // Simulate bot reply
-      setTimeout(() => {
-        addMessage("bot", "🤖 Thanks for your message! We'll get back to you shortly.");
-      }, 800);
-    }
-
-    sendMessageButton.addEventListener("click", sendMessage);
-    messageInput.addEventListener("keypress", e => {
-      if (e.key === "Enter") sendMessage();
-    });
-  </script>
-    <script>
+<script>
 const chatButton = document.getElementById('chatButton');
 const chatContainer = document.getElementById('chatContainer');
 const closeChatButton = document.getElementById('closeChatButton');
@@ -2610,85 +2548,98 @@ const sendMessageButton = document.getElementById('sendMessageButton');
 const fileInput = document.getElementById('fileInput');
 const chatMessages = document.getElementById('chatMessages');
 
-// Toggle chat container visibility
-chatButton.addEventListener('click', function() {
-    chatContainer.classList.toggle('hidden');
+// Toggle chat visibility
+chatButton.addEventListener('click', () => {
+  chatContainer.classList.toggle('hidden');
 });
-closeChatButton.addEventListener('click', function() {
-    chatContainer.classList.add('hidden');
+closeChatButton.addEventListener('click', () => {
+  chatContainer.classList.add('hidden');
 });
 
-// Function to format time as HH:MM AM/PM
+// Format time HH:MM AM/PM
 function formatTime(date) {
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    return `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+  const h = date.getHours();
+  const m = date.getMinutes();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  return `${h % 12 || 12}:${m < 10 ? '0' + m : m} ${ampm}`;
 }
 
-// Function to add a chat message to the UI
+// Add message to chat
 function addMessage(sender, text) {
-    const bubbleClass = sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800';
-    const alignment = sender === 'user' ? 'justify-end' : 'justify-start';
-
-    const messageHTML = `
-        <div class="flex ${alignment} mb-4">
-            <div class="flex-shrink-0 mr-3">
-                <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
-            </div>
-            <div class="rounded-lg p-2 ${bubbleClass} message-bubble max-w-xs break-words">
-                <p class="text-sm leading-snug">${text}</p>
-                <span class="text-xs text-gray-200">${formatTime(new Date())}</span>
-            </div>
-        </div>
-    `;
-    chatMessages.insertAdjacentHTML('beforeend', messageHTML);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+  const alignment = sender === 'user' ? 'justify-end' : 'justify-start';
+  const bubbleClass = sender === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-200 text-gray-800 rounded-bl-none';
+  const msgHTML = `
+    <div class="flex ${alignment} mb-4">
+      <div class="flex-shrink-0 mr-3">
+        <img class="w-10 h-10 rounded-full" src="assets/360_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg" alt="Avatar">
+      </div>
+      <div class="max-w-xs px-4 py-2 rounded-2xl shadow ${bubbleClass} break-words">
+        ${text} <span class="text-xs text-gray-200 block mt-1">${formatTime(new Date())}</span>
+      </div>
+    </div>
+  `;
+  chatMessages.insertAdjacentHTML('beforeend', msgHTML);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// Send message to Flask chatbot
-async function sendMessage() {
-    const messageText = messageInput.value.trim();
-    const files = fileInput.files;
+// Simple role-play bot logic
+function nayanRayResponse(userMessage) {
+  const msg = userMessage.toLowerCase();
 
-    if (messageText === '' && files.length === 0) return;
+  if (msg.includes('hello') || msg.includes('hi')) {
+    return "Hello! I'm Nayan Ray. How can I help you today?";
+  }
+  if (msg.includes('your name')) {
+    return "I'm Nayan Ray, your friendly support assistant.";
+  }
+  if (msg.includes('help')) {
+    return "Sure! Tell me what you need help with, and I'll assist you.";
+  }
+  if (msg.includes('thank')) {
+    return "You're welcome! 😊";
+  }
+  if (msg.includes('bye')) {
+    return "Goodbye! Have a great day!";
+  }
 
-    // Display user's message first
-    if (messageText !== '') {
-        addMessage('user', messageText);
-    }
-
-    messageInput.value = '';
-    fileInput.value = '';
-
-    // Send text message to chatbot backend
-    if (messageText !== '') {
-        try {
-            const response = await fetch('http://127.0.0.1:5000/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: messageText })
-            });
-
-            const data = await response.json();
-            if (data && data.response) {
-                addMessage('bot', data.response);
-            } else {
-                addMessage('bot', 'Error: No response from chatbot.');
-            }
-        } catch (err) {
-            console.error(err);
-            addMessage('bot', 'Error: Could not reach chatbot server.');
-        }
-    }
-
-    // Optional: handle files (you can add image/video/audio preview here if needed)
+  // Default response
+  return "I'm Nayan Ray. Could you please elaborate?";
 }
 
-// Event listeners
+// Send message
+function sendMessage() {
+  const messageText = messageInput.value.trim();
+  const files = fileInput.files;
+
+  if (messageText === '' && files.length === 0) return;
+
+  // Show user message
+  if (messageText !== '') addMessage('user', messageText);
+  messageInput.value = '';
+  fileInput.value = '';
+
+  // Handle file preview (optional)
+  if (files.length > 0) {
+    const file = files[0];
+    const type = file.type.split('/')[0];
+    if (type === 'image') {
+      const url = URL.createObjectURL(file);
+      addMessage('user', `<img src="${url}" class="rounded-lg max-w-full" />`);
+    } else {
+      addMessage('user', `📎 ${file.name}`);
+    }
+  }
+
+  // Nayan Ray bot response after delay
+  setTimeout(() => {
+    const reply = nayanRayResponse(messageText);
+    addMessage('bot', reply);
+  }, 800);
+}
+
 sendMessageButton.addEventListener('click', sendMessage);
-messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
+messageInput.addEventListener('keypress', e => {
+  if (e.key === 'Enter') sendMessage();
 });
 </script>
 
@@ -2741,6 +2692,7 @@ messageInput.addEventListener('keypress', (e) => {
   
 </body>
 </html>
+
 
 
 
