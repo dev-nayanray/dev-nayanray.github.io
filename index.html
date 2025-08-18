@@ -2509,43 +2509,47 @@ document.addEventListener('click', (e) => {
  
 
     
-<button id="chatButton" class="fixed bottom-16 right-4 bg-blue-500 text-white py-2 px-4 rounded shadow-md z-10">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 2H4a2 2 0 00-2 2v14a2 2 0 002 2h8l4 4V4a2 2 0 00-2-2z"/>
-    </svg>
-</button>
+<!-- Floating Chat Widget Button -->
+  <button id="openChatButton" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition">
+    💬
+  </button>
 
-
-<div id="chatContainer" class="hidden fixed bottom-20 right-4 bottom-32 bg-white border border-gray-300 shadow-lg rounded-lg w-96">
-    <div class="flex flex-col h-full">
-        <!-- Chat header -->
-        <div class="flex items-center justify-between p-4 bg-blue-500 rounded-t-lg">
-            <h2 class="text-lg font-bold text-white">Supports | 24/7</h2>
-            <button id="closeChatButton" class="text-white hover:text-gray-200 focus:outline-none">
-                <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M13.58 6.576a1 1 0 0 0-1.414 0L10 8.086 7.414 6.576a1 1 0 0 0-1.414 1.414L8.586 9l-2.17 2.17a1 1 0 1 0 1.415 1.415L10 10.415l2.17 2.17a1 1 0 0 0 1.415-1.415L11.414 9l2.165-2.165a1 1 0 0 0 0-1.414z" clip-rule="evenodd"/>
-                </svg>
-            </button>
-        </div>
-        <!-- Chat messages -->
-        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-100">
-            <!-- Messages will be dynamically added here -->
-        </div>
-        <!-- Chat input field -->
-        <div class="p-4 border-t border-gray-300 bg-white">
-            <div class="flex items-center">
-                <label for="fileInput" class="mr-3 cursor-pointer">
-                    <svg class="w-6 h-6 fill-current text-gray-600 hover:text-gray-800" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M14 6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2H4a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V10a4 4 0 0 0-4-4h-2zM8 6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2H8zm0 4a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0v-3a1 1 0 0 0-1-1zm4 0a1 1 0 0 1 1 1v3a1 1 0 0 1-2 0v-3a1 1 0 0 1 1-1z" clip-rule="evenodd"/>
-                    </svg>
-                    <input id="fileInput" type="file" class="hidden" accept="image/*, video/*, audio/*">
-                </label>
-                <input type="text" id="messageInput" class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none" placeholder="Type your message...">
-                <button id="sendMessageButton" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 focus:outline-none">Send</button>
-            </div>
-        </div>
+  <!-- Chat Container -->
+  <div id="chatContainer" class="hidden fixed bottom-20 right-6 bg-white border border-gray-200 shadow-2xl rounded-2xl w-96 h-[500px] flex flex-col overflow-hidden transition-all duration-300">
+    
+    <!-- Chat header -->
+    <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-600 to-blue-500">
+      <div>
+        <h2 class="text-lg font-bold text-white">Support Chat</h2>
+        <p class="text-xs text-blue-100">We usually reply in minutes</p>
+      </div>
+      <button id="closeChatButton" class="text-white hover:text-gray-200 transition">
+        ✖
+      </button>
     </div>
-</div>
+
+    <!-- Chat messages -->
+    <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-3">
+      <!-- Messages will be dynamically added -->
+    </div>
+
+    <!-- Chat input field -->
+    <div class="p-3 border-t border-gray-200 bg-white">
+      <div class="flex items-center gap-2">
+        <!-- File upload -->
+        <label for="fileInput" class="cursor-pointer text-gray-500 hover:text-blue-600">
+          📎
+          <input id="fileInput" type="file" class="hidden" accept="image/*, video/*, audio/*">
+        </label>
+        <!-- Message input -->
+        <input id="messageInput" type="text" class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Type a message...">
+        <!-- Send button -->
+        <button id="sendMessageButton" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transition">
+          ➤
+        </button>
+      </div>
+    </div>
+  </div>
     <script>
 const chatButton = document.getElementById('chatButton');
 const chatContainer = document.getElementById('chatContainer');
@@ -2686,6 +2690,7 @@ messageInput.addEventListener('keypress', (e) => {
   
 </body>
 </html>
+
 
 
 
