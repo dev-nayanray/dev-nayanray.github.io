@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DealsPoint Expense Manager</title>
+  <title>DealsPoint Import & Partner Expenses</title>
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 min-h-screen py-10">
 
   <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8">
-    <h2 class="text-2xl font-bold mb-6 text-center">DealsPoint Import & Partner Expenses</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">
+      DealsPoint Import & Partner Expenses
+    </h2>
 
     <form id="expenseForm" class="space-y-4">
 
@@ -27,7 +29,7 @@
 
       <div>
         <label class="font-semibold">Expense Title</label>
-        <input type="text" name="title" required class="w-full border p-2 rounded" placeholder="Example: Product Purchase, Customs Fee, Supplier Payment">
+        <input type="text" name="title" required class="w-full border p-2 rounded" placeholder="Example: Product Purchase">
       </div>
 
       <div>
@@ -35,7 +37,6 @@
         <select name="category" required class="w-full border p-2 rounded">
           <option value="">Select Category</option>
 
-          <!-- Import Categories -->
           <option>Product Buying Cost (China)</option>
           <option>Supplier Payment</option>
           <option>Product Shipping Cost</option>
@@ -43,26 +44,24 @@
           <option>Delivery to BD Warehouse</option>
           <option>China Agent Cost</option>
 
-          <!-- Business Categories -->
           <option>Marketing</option>
           <option>Office Expense</option>
           <option>Tools / Software</option>
           <option>Business Expense</option>
           <option>Partner Expense</option>
 
-          <!-- Extra -->
           <option>Other</option>
         </select>
       </div>
 
       <div>
         <label class="font-semibold">Amount</label>
-        <input type="number" name="amount" required class="w-full border p-2 rounded" placeholder="Example: 5000">
+        <input type="number" name="amount" required class="w-full border p-2 rounded" placeholder="5000">
       </div>
 
       <div>
         <label class="font-semibold">Description (optional)</label>
-        <textarea name="description" class="w-full border p-2 rounded" placeholder="Example: Paid to Alibaba supplier, shipping from Shenzhen to Dhaka..."></textarea>
+        <textarea name="description" class="w-full border p-2 rounded" placeholder="Example: Supplier paid, shipping Shenzhen → Dhaka"></textarea>
       </div>
 
       <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
@@ -74,23 +73,42 @@
     <p id="successMsg" class="text-green-600 font-semibold mt-5 hidden text-center">
       Expense saved successfully!
     </p>
+
+    <p id="errorMsg" class="text-red-600 font-semibold mt-5 hidden text-center"></p>
+
   </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzeCp2Tf5Cm30rbegtGQ8nix14Mj4uEt-GZSTo7oO-SyFRh-CD5Fm2CTLBxo7BXVr89/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbySpvLAYWmFzyYlucv3GNKyBgwQawEtuQ06wgUFEhZ31g24H7ZjkWYEn_weURC99_20/exec";  
 
-    document.getElementById("expenseForm").addEventListener("submit", e => {
+    document.getElementById("expenseForm").addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const formData = new FormData(e.target);
 
-      fetch(scriptURL, { method: "POST", body: formData })
-        .then(res => {
+      try {
+        const res = await fetch(scriptURL, {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
           document.getElementById("successMsg").classList.remove("hidden");
+          document.getElementById("errorMsg").classList.add("hidden");
           e.target.reset();
-        })
-        .catch(err => alert("Error: " + err.message));
+        } else {
+          document.getElementById("errorMsg").innerText = data.error || "Something went wrong";
+          document.getElementById("errorMsg").classList.remove("hidden");
+        }
+
+      } catch (err) {
+        document.getElementById("errorMsg").innerText = err.message;
+        document.getElementById("errorMsg").classList.remove("hidden");
+      }
     });
   </script>
+
 </body>
 </html>
