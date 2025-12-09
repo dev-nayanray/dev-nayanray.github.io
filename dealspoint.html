@@ -3,575 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DealsPoint | Expense Management</title>
-  <!-- Fixed: Using local Tailwind CSS with Production CDN -->
+  <title>DealsPoint Import & Partner Expenses</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Inline Tailwind to avoid CDN warning */
-    /* This is a production-safe approach */
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-    
-    .toast {
-      position: fixed;
-      top: 25px;
-      right: 25px;
-      padding: 16px 24px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transform: translateX(150%);
-      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      z-index: 1000;
-      max-width: 350px;
-      border-left: 5px solid;
-    }
-    
-    .toast.show {
-      transform: translateX(0);
-    }
-    
-    .toast.success {
-      border-left-color: #10b981;
-    }
-    
-    .toast.error {
-      border-left-color: #ef4444;
-    }
-    
-    .toast-icon {
-      font-size: 20px;
-    }
-    
-    .toast.success .toast-icon {
-      color: #10b981;
-    }
-    
-    .toast.error .toast-icon {
-      color: #ef4444;
-    }
-    
-    .form-input:focus {
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-      outline: none;
-      border-color: #3b82f6;
-    }
-    
-    .category-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      margin: 2px;
-    }
-    
-    .animate-pulse {
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.5;
-      }
-    }
-    
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    
-    .btn-submit {
-      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-      transition: all 0.3s ease;
-    }
-    
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-    }
-    
-    .btn-submit:active {
-      transform: translateY(0);
-    }
-    
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Custom utility classes to replace Tailwind CDN */
-    .bg-gradient-to-br { background: linear-gradient(to bottom right, #dbeafe, #e0e7ff); }
-    .from-blue-50 { background-color: #eff6ff; }
-    .to-indigo-100 { background-color: #e0e7ff; }
-    .border-gray-300 { border-color: #d1d5db; }
-    .text-gray-700 { color: #374151; }
-    .text-gray-600 { color: #4b5563; }
-    .text-gray-800 { color: #1f2937; }
-    .text-blue-500 { color: #3b82f6; }
-    .text-blue-100 { color: #dbeafe; }
-    .text-white { color: #ffffff; }
-    .bg-white { background-color: #ffffff; }
-    .bg-blue-100 { background-color: #dbeafe; }
-    .text-blue-800 { color: #1e40af; }
-    .bg-green-100 { background-color: #d1fae5; }
-    .text-green-800 { color: #065f46; }
-    .bg-purple-100 { background-color: #e9d5ff; }
-    .text-purple-800 { color: #5b21b6; }
-    .bg-yellow-100 { background-color: #fef3c7; }
-    .text-yellow-800 { color: #92400e; }
-    .bg-red-100 { background-color: #fee2e2; }
-    .text-red-800 { color: #991b1b; }
-    .bg-blue-600 { background-color: #2563eb; }
-    .bg-indigo-600 { background-color: #4f46e5; }
-    .border-t { border-top-width: 1px; }
-    .border-gray-200 { border-color: #e5e7eb; }
-    .text-yellow-500 { color: #f59e0b; }
-    .text-gray-500 { color: #6b7280; }
-    
-    /* Grid and layout utilities */
-    .grid { display: grid; }
-    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-    @media (min-width: 768px) {
-      .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .md\:py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-      .md\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .md\:mb-10 { margin-bottom: 2.5rem; }
-      .md\:p-8 { padding: 2rem; }
-      .md\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-    }
-    
-    /* Spacing utilities */
-    .gap-6 { gap: 1.5rem; }
-    .gap-2 { gap: 0.5rem; }
-    .gap-3 { gap: 0.75rem; }
-    .mb-2 { margin-bottom: 0.5rem; }
-    .mb-3 { margin-bottom: 0.75rem; }
-    .mb-4 { margin-bottom: 1rem; }
-    .mb-8 { margin-bottom: 2rem; }
-    .mt-8 { margin-top: 2rem; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .mx-2 { margin-left: 0.5rem; margin-right: 0.5rem; }
-    .mr-1 { margin-right: 0.25rem; }
-    .mr-2 { margin-right: 0.5rem; }
-    .ml-1 { margin-left: 0.25rem; }
-    
-    /* Sizing utilities */
-    .w-10 { width: 2.5rem; }
-    .h-10 { height: 2.5rem; }
-    .w-full { width: 100%; }
-    .max-w-md { max-width: 28rem; }
-    .max-w-2xl { max-width: 42rem; }
-    
-    /* Typography utilities */
-    .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-    .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-    .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-    .text-2xl { font-size: 1.5rem; line-height: 2rem; }
-    .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-    .font-semibold { font-weight: 600; }
-    .font-bold { font-weight: 700; }
-    .font-medium { font-weight: 500; }
-    
-    /* Border utilities */
-    .rounded-full { border-radius: 9999px; }
-    .rounded-xl { border-radius: 0.75rem; }
-    .rounded-2xl { border-radius: 1rem; }
-    .rounded-lg { border-radius: 0.5rem; }
-    .border { border-width: 1px; }
-    
-    /* Padding utilities */
-    .p-3\.5 { padding: 0.875rem; }
-    .p-4 { padding: 1rem; }
-    .p-6 { padding: 1.5rem; }
-    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-    .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
-    .px-4 { padding-left: 1rem; padding-right: 1rem; }
-    .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .pt-4 { padding-top: 1rem; }
-    .pt-6 { padding-top: 1.5rem; }
-    .pl-10 { padding-left: 2.5rem; }
-    
-    /* Flex utilities */
-    .flex { display: flex; }
-    .flex-wrap { flex-wrap: wrap; }
-    .items-center { align-items: center; }
-    .justify-center { justify-content: center; }
-    
-    /* Position utilities */
-    .relative { position: relative; }
-    .absolute { position: absolute; }
-    .fixed { position: fixed; }
-    
-    /* Shadow utilities */
-    .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-    
-    /* Other utilities */
-    .hidden { display: none; }
-    .pointer-events-none { pointer-events: none; }
-    .appearance-none { appearance: none; }
-    .resize-none { resize: none; }
-    .text-center { text-align: center; }
-    .overflow-hidden { overflow: hidden; }
-    .block { display: block; }
-    .z-1000 { z-index: 1000; }
-    
-    /* Custom focus styles to replace Tailwind ring */
-    .form-input:focus {
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-      border-color: #3b82f6;
-      outline: none;
-    }
-  </style>
 </head>
 
-<body class="min-h-screen py-8 px-4">
-  <!-- Toast Notification -->
-  <div id="toast" class="toast">
-    <div class="toast-icon">
-      <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="toast-content">
-      <p class="font-semibold text-gray-800" id="toast-title">Success</p>
-      <p class="text-sm text-gray-600" id="toast-message">Expense saved successfully!</p>
-    </div>
-  </div>
+<body class="bg-gray-100 min-h-screen py-10">
 
-  <div class="max-w-2xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-8">
-      <div class="flex items-center justify-center gap-3 mb-4">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center">
-          <i class="fas fa-chart-line text-white"></i>
-        </div>
-        <h1 class="text-3xl font-bold text-gray-800">DealsPoint</h1>
+  <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8">
+    <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">
+      DealsPoint Import & Partner Expenses
+    </h2>
+
+    <form id="expenseForm" class="space-y-4">
+
+      <div>
+        <label class="font-semibold">Date</label>
+        <input type="date" name="date" required class="w-full border p-2 rounded">
       </div>
-      <p class="text-gray-600 max-w-md mx-auto">Track import & partner expenses with precision and clarity</p>
-    </div>
 
-    <!-- Main Form Card -->
-    <div class="glass-effect card-hover rounded-2xl shadow-xl overflow-hidden">
-      <div class="gradient-bg px-6 py-4">
-        <h2 class="text-xl font-bold text-white">
-          <i class="fas fa-receipt mr-2"></i> New Expense Entry
-        </h2>
-        <p class="text-blue-100 text-sm">Fill in the details below to record a new expense</p>
+      <div>
+        <label class="font-semibold">Partner Name</label>
+        <input type="text" name="partner" required class="w-full border p-2 rounded" placeholder="Example: Asif, Nayan, etc">
       </div>
-      
-      <form id="expenseForm" class="p-6 space-y-6">
-        <!-- Date & Partner Row -->
-        <div class="grid grid-cols-1 gap-6">
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">
-              <i class="far fa-calendar-alt mr-2 text-blue-500"></i>Date
-            </label>
-            <input type="date" name="date" required 
-                   class="w-full border border-gray-300 rounded-xl p-3.5 form-input">
-          </div>
-          
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">
-              <i class="fas fa-user-tie mr-2 text-blue-500"></i>Partner Name
-            </label>
-            <div class="relative">
-              <input type="text" name="partner" required 
-                     class="w-full border border-gray-300 rounded-xl p-3.5 form-input"
-                     placeholder="Example: Asif, Nayan, etc">
-              <div class="absolute right-3 top-3.5 text-gray-400">
-                <i class="fas fa-users"></i>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Title & Category Row -->
-        <div class="grid grid-cols-1 gap-6">
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">
-              <i class="fas fa-heading mr-2 text-blue-500"></i>Expense Title
-            </label>
-            <input type="text" name="title" required 
-                   class="w-full border border-gray-300 rounded-xl p-3.5 form-input"
-                   placeholder="Example: Product Purchase">
-          </div>
-          
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">
-              <i class="fas fa-tags mr-2 text-blue-500"></i>Expense Category
-            </label>
-            <div class="relative">
-              <select name="category" required 
-                      class="w-full border border-gray-300 rounded-xl p-3.5 form-input appearance-none">
-                <option value="">Select a category</option>
-                <optgroup label="Import Costs">
-                  <option>Product Buying Cost (China)</option>
-                  <option>Supplier Payment</option>
-                  <option>Product Shipping Cost</option>
-                  <option>Customs / Tax</option>
-                  <option>Delivery to BD Warehouse</option>
-                  <option>China Agent Cost</option>
-                </optgroup>
-                <optgroup label="Operational Costs">
-                  <option>Marketing</option>
-                  <option>Office Expense</option>
-                  <option>Tools / Software</option>
-                  <option>Business Expense</option>
-                  <option>Partner Expense</option>
-                </optgroup>
-                <optgroup label="Other">
-                  <option>Other</option>
-                </optgroup>
-              </select>
-              <div class="absolute right-3 top-3.5 text-gray-400 pointer-events-none">
-                <i class="fas fa-chevron-down"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div>
+        <label class="font-semibold">Expense Title</label>
+        <input type="text" name="title" required class="w-full border p-2 rounded" placeholder="Example: Product Purchase">
+      </div>
 
-        <!-- Amount -->
-        <div>
-          <label class="block text-sm font-semibold text-gray-700 mb-2">
-            <i class="fas fa-money-bill-wave mr-2 text-blue-500"></i>Amount (BDT)
-          </label>
-          <div class="relative">
-            <div class="absolute left-3 top-3.5 text-gray-500 font-medium">
-              ৳
-            </div>
-            <input type="number" name="amount" required 
-                   class="w-full border border-gray-300 rounded-xl p-3.5 pl-10 form-input"
-                   placeholder="5000" min="0" step="0.01">
-          </div>
-        </div>
+      <div>
+        <label class="font-semibold">Expense Category</label>
+        <select name="category" required class="w-full border p-2 rounded">
+          <option value="">Select Category</option>
 
-        <!-- Description -->
-        <div>
-          <label class="block text-sm font-semibold text-gray-700 mb-2">
-            <i class="fas fa-align-left mr-2 text-blue-500"></i>Description (Optional)
-          </label>
-          <textarea name="description" rows="3"
-                    class="w-full border border-gray-300 rounded-xl p-3.5 form-input resize-none"
-                    placeholder="Example: Supplier paid, shipping Shenzhen → Dhaka, tracking #XYZ123"></textarea>
-        </div>
+          <option>Product Buying Cost (China)</option>
+          <option>Supplier Payment</option>
+          <option>Product Shipping Cost</option>
+          <option>Customs / Tax</option>
+          <option>Delivery to BD Warehouse</option>
+          <option>China Agent Cost</option>
 
-        <!-- Submit Button -->
-        <div class="pt-4">
-          <button type="submit" id="submitBtn" 
-                  class="btn-submit w-full text-white font-semibold py-4 rounded-xl text-lg flex items-center justify-center gap-2">
-            <i class="fas fa-paper-plane"></i>
-            <span id="btnText">Save Expense</span>
-            <span id="btnSpinner" class="hidden">
-              <i class="fas fa-spinner fa-spin"></i>
-            </span>
-          </button>
-        </div>
+          <option>Marketing</option>
+          <option>Office Expense</option>
+          <option>Tools / Software</option>
+          <option>Business Expense</option>
+          <option>Partner Expense</option>
 
-        <!-- Quick Category Tips -->
-        <div class="pt-6 border-t border-gray-200">
-          <p class="text-sm font-medium text-gray-600 mb-3">
-            <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>Quick Category Guide
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <div class="category-chip bg-blue-100 text-blue-800">
-              <i class="fas fa-shopping-cart mr-1 text-xs"></i>Product Buying
-            </div>
-            <div class="category-chip bg-green-100 text-green-800">
-              <i class="fas fa-shipping-fast mr-1 text-xs"></i>Shipping
-            </div>
-            <div class="category-chip bg-purple-100 text-purple-800">
-              <i class="fas fa-landmark mr-1 text-xs"></i>Customs/Tax
-            </div>
-            <div class="category-chip bg-yellow-100 text-yellow-800">
-              <i class="fas fa-bullhorn mr-1 text-xs"></i>Marketing
-            </div>
-            <div class="category-chip bg-red-100 text-red-800">
-              <i class="fas fa-user-friends mr-1 text-xs"></i>Partner
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+          <option>Other</option>
+        </select>
+      </div>
 
-    <!-- Footer Note -->
-    <div class="text-center mt-8 text-gray-500 text-sm">
-      <p>
-        <i class="fas fa-lock mr-1"></i> Your data is securely stored in Google Sheets
-        <span class="mx-2">•</span>
-        <i class="fas fa-history mr-1"></i> All entries are timestamped
-      </p>
-    </div>
+      <div>
+        <label class="font-semibold">Amount</label>
+        <input type="number" name="amount" required class="w-full border p-2 rounded" placeholder="5000">
+      </div>
+
+      <div>
+        <label class="font-semibold">Description (optional)</label>
+        <textarea name="description" class="w-full border p-2 rounded" placeholder="Example: Supplier paid, shipping Shenzhen → Dhaka"></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
+        Save Expense
+      </button>
+
+    </form>
+
+    <!-- Success Message -->
+    <p id="successMsg" class="text-green-600 font-semibold mt-5 hidden text-center">
+      Expense saved successfully!
+    </p>
+
+    <!-- Error Message -->
+    <p id="errorMsg" class="text-red-600 font-semibold mt-5 hidden text-center"></p>
+
   </div>
 
   <script>
-    // IMPORTANT: FIX FOR CORS ERROR
-    // You need to modify your Google Apps Script to allow CORS
-    // Add this to the top of your Google Apps Script:
-    // 
-    // function doPost(e) {
-    //   // Set CORS headers
-    //   const response = ContentService.createTextOutput();
-    //   response.setHeader('Access-Control-Allow-Origin', '*');
-    //   response.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
-    //   response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    //   
-    //   // If it's an OPTIONS request (preflight), just return the headers
-    //   if (e.parameter && e.parameter.request === 'OPTIONS') {
-    //     return response;
-    //   }
-    //   
-    //   // ... rest of your code ...
-    // }
-    
     const scriptURL = "https://script.google.com/macros/s/AKfycbySpvLAYWmFzyYlucv3GNKyBgwQawEtuQ06wgUFEhZ31g24H7ZjkWYEn_weURC99_20/exec";
-    const toast = document.getElementById('toast');
-    const toastTitle = document.getElementById('toast-title');
-    const toastMessage = document.getElementById('toast-message');
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = document.getElementById('btnText');
-    const btnSpinner = document.getElementById('btnSpinner');
-
-    function showToast(type, title, message) {
-      // Set toast content
-      toastTitle.textContent = title;
-      toastMessage.textContent = message;
-      
-      // Remove previous classes
-      toast.classList.remove('success', 'error');
-      
-      // Add new class based on type
-      toast.classList.add(type);
-      
-      // Update icon
-      const icon = toast.querySelector('.toast-icon i');
-      if (type === 'success') {
-        icon.className = 'fas fa-check-circle';
-      } else {
-        icon.className = 'fas fa-exclamation-circle';
-      }
-      
-      // Show toast
-      toast.classList.add('show');
-      
-      // Hide after 4 seconds
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 4000);
-    }
-
-    // Set today's date as default
-    const today = new Date().toISOString().split('T')[0];
-    document.querySelector('input[name="date"]').value = today;
 
     document.getElementById("expenseForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      
-      // Show loading state
-      submitBtn.disabled = true;
-      btnText.textContent = 'Processing...';
-      btnSpinner.classList.remove('hidden');
-      
+
       const formData = new FormData(e.target);
-      
-      // For debugging - show what's being sent
-      console.log('Submitting form data:', Object.fromEntries(formData));
 
       try {
-        // FIXED: Use a CORS proxy or JSONP approach for Google Apps Script
-        // Method 1: Try with mode 'no-cors' (but limited)
-        // Method 2: Use a proxy server
-        // Method 3: Deploy as web app with proper CORS headers
-        
-        // For now, let's try with proper error handling
         const res = await fetch(scriptURL, {
           method: "POST",
-          mode: "no-cors", // Change to 'no-cors' for testing
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams(formData).toString(),
+          mode: "cors",
+          body: formData,
         });
 
-        // If we get here with 'no-cors', we can't read the response
-        // but the request might still succeed
-        showToast('success', 'Success!', 'Expense saved successfully to the database.');
-        e.target.reset();
-        // Reset to today's date after form reset
-        document.querySelector('input[name="date"]').value = today;
+        let data;
+
+        // Sometimes GAS returns plain text, so we catch JSON errors
+        try {
+          data = await res.json();
+        } catch (jsonError) {
+          data = { success: true }; // treat as success if backend responded without JSON
+        }
+
+        if (data.success) {
+          document.getElementById("successMsg").classList.remove("hidden");
+          document.getElementById("errorMsg").classList.add("hidden");
+          document.getElementById("errorMsg").innerText = "";
+          e.target.reset();
+        } else {
+          document.getElementById("successMsg").classList.add("hidden");
+          document.getElementById("errorMsg").classList.remove("hidden");
+          document.getElementById("errorMsg").innerText = data.error || "Something went wrong";
+        }
 
       } catch (err) {
-        console.error('Fetch error:', err);
-        // Even if we get an error, the request might have succeeded
-        // Google Apps Script sometimes returns CORS errors even when data is saved
-        showToast('success', 'Submitted!', 'Expense data has been submitted. Check your Google Sheet to confirm.');
-        e.target.reset();
-        document.querySelector('input[name="date"]').value = today;
-      } finally {
-        // Reset button state
-        submitBtn.disabled = false;
-        btnText.textContent = 'Save Expense';
-        btnSpinner.classList.add('hidden');
+        document.getElementById("successMsg").classList.add("");
+        document.getElementById("errorMsg").classList.remove("hidden");
+        document.getElementById("errorMsg").innerText = "Submit Success";
       }
     });
-
-    // Add input focus effects
-    const inputs = document.querySelectorAll('.form-input');
-    inputs.forEach(input => {
-      input.addEventListener('focus', function() {
-        this.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
-        this.style.borderColor = '#3b82f6';
-      });
-      
-      input.addEventListener('blur', function() {
-        this.style.boxShadow = '';
-        this.style.borderColor = '#d1d5db';
-      });
-    });
-
-    // Auto-hide toast when clicked
-    toast.addEventListener('click', () => {
-      toast.classList.remove('show');
-    });
-
-    // Handle responsive design for larger screens
-    function updateLayout() {
-      const formGrids = document.querySelectorAll('.grid');
-      if (window.innerWidth >= 768) {
-        formGrids.forEach(grid => {
-          grid.style.gridTemplateColumns = 'repeat(2, minmax(0, 1fr))';
-        });
-      } else {
-        formGrids.forEach(grid => {
-          grid.style.gridTemplateColumns = 'repeat(1, minmax(0, 1fr))';
-        });
-      }
-    }
-
-    // Initialize layout
-    updateLayout();
-    window.addEventListener('resize', updateLayout);
   </script>
+
 </body>
 </html>
-
