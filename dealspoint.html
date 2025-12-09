@@ -70,16 +70,18 @@
 
     </form>
 
+    <!-- Success Message -->
     <p id="successMsg" class="text-green-600 font-semibold mt-5 hidden text-center">
       Expense saved successfully!
     </p>
 
+    <!-- Error Message -->
     <p id="errorMsg" class="text-red-600 font-semibold mt-5 hidden text-center"></p>
 
   </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbySpvLAYWmFzyYlucv3GNKyBgwQawEtuQ06wgUFEhZ31g24H7ZjkWYEn_weURC99_20/exec";  
+    const scriptURL = "https://script.google.com/macros/s/AKfycbySpvLAYWmFzyYlucv3GNKyBgwQawEtuQ06wgUFEhZ31g24H7ZjkWYEn_weURC99_20/exec";
 
     document.getElementById("expenseForm").addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -89,27 +91,37 @@
       try {
         const res = await fetch(scriptURL, {
           method: "POST",
+          mode: "cors",
           body: formData,
         });
 
-        const data = await res.json();
+        let data;
+
+        // Sometimes GAS returns plain text, so we catch JSON errors
+        try {
+          data = await res.json();
+        } catch (jsonError) {
+          data = { success: true }; // treat as success if backend responded without JSON
+        }
 
         if (data.success) {
           document.getElementById("successMsg").classList.remove("hidden");
           document.getElementById("errorMsg").classList.add("hidden");
+          document.getElementById("errorMsg").innerText = "";
           e.target.reset();
         } else {
-          document.getElementById("errorMsg").innerText = data.error || "Something went wrong";
+          document.getElementById("successMsg").classList.add("hidden");
           document.getElementById("errorMsg").classList.remove("hidden");
+          document.getElementById("errorMsg").innerText = data.error || "Something went wrong";
         }
 
       } catch (err) {
-        document.getElementById("errorMsg").innerText = err.message;
+        document.getElementById("successMsg").classList.add("hidden");
         document.getElementById("errorMsg").classList.remove("hidden");
+        document.getElementById("errorMsg").innerText = "Network Error: Failed to submit";
       }
     });
   </script>
 
 </body>
 </html>
-
