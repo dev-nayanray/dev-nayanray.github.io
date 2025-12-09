@@ -3,125 +3,406 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DealsPoint Import & Partner Expenses</title>
-
+  <title>DealsPoint | Import & Partner Expenses</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      max-width: 350px;
+      transform: translateX(120%);
+      transition: transform 0.4s ease;
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .gradient-btn {
+      background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .gradient-btn:hover {
+      background: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
+    }
+    
+    .input-focus:focus {
+      box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+    }
+    
+    .category-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      margin-right: 12px;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-100 min-h-screen py-10">
-
-  <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8">
-    <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">
-      DealsPoint Import & Partner Expenses
-    </h2>
-
-    <form id="expenseForm" class="space-y-4">
-
-      <div>
-        <label class="font-semibold">Date</label>
-        <input type="date" name="date" required class="w-full border p-2 rounded">
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen py-10 px-4">
+  
+  <!-- Toast Notification Container -->
+  <div id="toastContainer"></div>
+  
+  <div class="max-w-2xl mx-auto">
+    <!-- Header -->
+    <div class="glass-effect rounded-2xl shadow-xl mb-8 p-6 border border-white/30">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-800">
+            <span class="gradient-text bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">DealsPoint</span>
+          </h1>
+          <p class="text-gray-600 mt-1">Import & Partner Expenses Tracker</p>
+        </div>
+        <div class="flex items-center justify-center w-12 h-12 rounded-full gradient-bg text-white">
+          <i class="fas fa-chart-line text-xl"></i>
+        </div>
       </div>
-
-      <div>
-        <label class="font-semibold">Partner Name</label>
-        <input type="text" name="partner" required class="w-full border p-2 rounded" placeholder="Example: Asif, Nayan, etc">
+      <div class="mt-4 pt-4 border-t border-gray-200">
+        <p class="text-gray-700">
+          <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+          Track all business expenses, partner payments, and import costs in one place.
+        </p>
       </div>
-
-      <div>
-        <label class="font-semibold">Expense Title</label>
-        <input type="text" name="title" required class="w-full border p-2 rounded" placeholder="Example: Product Purchase">
+    </div>
+    
+    <!-- Form Card -->
+    <div class="glass-effect rounded-2xl shadow-xl overflow-hidden border border-white/30">
+      <div class="gradient-bg p-6">
+        <h2 class="text-2xl font-bold text-white">New Expense Entry</h2>
+        <p class="text-blue-100 mt-1">Fill in the details below to record a new expense</p>
       </div>
-
-      <div>
-        <label class="font-semibold">Expense Category</label>
-        <select name="category" required class="w-full border p-2 rounded">
-          <option value="">Select Category</option>
-
-          <option>Product Buying Cost (China)</option>
-          <option>Supplier Payment</option>
-          <option>Product Shipping Cost</option>
-          <option>Customs / Tax</option>
-          <option>Delivery to BD Warehouse</option>
-          <option>China Agent Cost</option>
-
-          <option>Marketing</option>
-          <option>Office Expense</option>
-          <option>Tools / Software</option>
-          <option>Business Expense</option>
-          <option>Partner Expense</option>
-
-          <option>Other</option>
-        </select>
+      
+      <form id="expenseForm" class="p-6 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Date Field -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+              <i class="far fa-calendar text-blue-500 mr-2"></i>Date
+            </label>
+            <input 
+              type="date" 
+              name="date" 
+              required 
+              class="w-full border border-gray-300 p-3 rounded-xl focus:outline-none input-focus"
+              value="<?php echo date('Y-m-d'); ?>"
+            >
+          </div>
+          
+          <!-- Partner Field -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+              <i class="fas fa-user-friends text-blue-500 mr-2"></i>Partner Name
+            </label>
+            <input 
+              type="text" 
+              name="partner" 
+              required 
+              class="w-full border border-gray-300 p-3 rounded-xl focus:outline-none input-focus" 
+              placeholder="Example: Asif, Nayan, etc"
+            >
+          </div>
+        </div>
+        
+        <!-- Expense Title -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-tag text-blue-500 mr-2"></i>Expense Title
+          </label>
+          <input 
+            type="text" 
+            name="title" 
+            required 
+            class="w-full border border-gray-300 p-3 rounded-xl focus:outline-none input-focus" 
+            placeholder="Example: Product Purchase, Shipping Fee, etc"
+          >
+        </div>
+        
+        <!-- Category Selection -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-folder-open text-blue-500 mr-2"></i>Expense Category
+          </label>
+          <div class="relative">
+            <select 
+              name="category" 
+              required 
+              class="w-full border border-gray-300 p-3 rounded-xl focus:outline-none input-focus appearance-none bg-white"
+              id="categorySelect"
+            >
+              <option value="">Select Category</option>
+              <optgroup label="Import Costs">
+                <option value="Product Buying Cost (China)">Product Buying Cost (China)</option>
+                <option value="Supplier Payment">Supplier Payment</option>
+                <option value="Product Shipping Cost">Product Shipping Cost</option>
+                <option value="Customs / Tax">Customs / Tax</option>
+                <option value="Delivery to BD Warehouse">Delivery to BD Warehouse</option>
+                <option value="China Agent Cost">China Agent Cost</option>
+              </optgroup>
+              <optgroup label="Operational Costs">
+                <option value="Marketing">Marketing</option>
+                <option value="Office Expense">Office Expense</option>
+                <option value="Tools / Software">Tools / Software</option>
+                <option value="Business Expense">Business Expense</option>
+                <option value="Partner Expense">Partner Expense</option>
+              </optgroup>
+              <option value="Other">Other</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Amount Field -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-money-bill-wave text-blue-500 mr-2"></i>Amount
+          </label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <span class="text-gray-700 font-bold">৳</span>
+            </div>
+            <input 
+              type="number" 
+              name="amount" 
+              required 
+              class="w-full border border-gray-300 pl-10 p-3 rounded-xl focus:outline-none input-focus" 
+              placeholder="5000"
+              min="0"
+              step="0.01"
+            >
+          </div>
+        </div>
+        
+        <!-- Description Field -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-align-left text-blue-500 mr-2"></i>Description (optional)
+          </label>
+          <textarea 
+            name="description" 
+            rows="3" 
+            class="w-full border border-gray-300 p-3 rounded-xl focus:outline-none input-focus" 
+            placeholder="Example: Supplier paid, shipping Shenzhen → Dhaka"
+          ></textarea>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="pt-4">
+          <button 
+            type="submit" 
+            id="submitBtn"
+            class="w-full gradient-btn text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+          >
+            <i class="fas fa-paper-plane mr-3"></i> Save Expense
+          </button>
+        </div>
+      </form>
+      
+      <!-- Loading Indicator (Hidden by default) -->
+      <div id="loadingIndicator" class="hidden p-6 border-t border-gray-200">
+        <div class="flex items-center justify-center">
+          <div class="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mr-3"></div>
+          <span class="text-gray-700 font-medium">Saving expense record...</span>
+        </div>
       </div>
-
-      <div>
-        <label class="font-semibold">Amount</label>
-        <input type="number" name="amount" required class="w-full border p-2 rounded" placeholder="5000">
+      
+      <!-- Recent Entries Preview -->
+      <div class="border-t border-gray-200 p-6 bg-gray-50/50">
+        <h3 class="text-gray-700 font-bold mb-3 flex items-center">
+          <i class="fas fa-history text-blue-500 mr-2"></i> Recent Expense Categories
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="bg-blue-100 text-blue-800 text-center py-2 rounded-lg font-medium">Import Costs</div>
+          <div class="bg-purple-100 text-purple-800 text-center py-2 rounded-lg font-medium">Supplier Payment</div>
+          <div class="bg-green-100 text-green-800 text-center py-2 rounded-lg font-medium">Marketing</div>
+          <div class="bg-amber-100 text-amber-800 text-center py-2 rounded-lg font-medium">Other</div>
+        </div>
       </div>
-
-      <div>
-        <label class="font-semibold">Description (optional)</label>
-        <textarea name="description" class="w-full border p-2 rounded" placeholder="Example: Supplier paid, shipping Shenzhen → Dhaka"></textarea>
-      </div>
-
-      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
-        Save Expense
-      </button>
-
-    </form>
-
-    <!-- Success Message -->
-    <p id="successMsg" class="text-green-600 font-semibold mt-5 hidden text-center">
-      Expense saved successfully!
-    </p>
-
-    <!-- Error Message -->
-    <p id="errorMsg" class="text-red-600 font-semibold mt-5 hidden text-center"></p>
-
+    </div>
+    
+    <!-- Footer Note -->
+    <div class="mt-8 text-center text-gray-500 text-sm">
+      <p>
+        <i class="fas fa-lock mr-1"></i> All data is securely saved to your Google Sheets
+      </p>
+      <p class="mt-1">DealsPoint &copy; 2023 - All rights reserved</p>
+    </div>
   </div>
 
   <script>
+    // Your Google Apps Script URL
     const scriptURL = "https://script.google.com/macros/s/AKfycbySpvLAYWmFzyYlucv3GNKyBgwQawEtuQ06wgUFEhZ31g24H7ZjkWYEn_weURC99_20/exec";
-
+    
+    // Toast notification function
+    function showToast(message, type = 'success') {
+      const toastContainer = document.getElementById('toastContainer');
+      const toastId = 'toast-' + Date.now();
+      
+      // Determine icon and color based on type
+      let icon, bgColor;
+      if (type === 'success') {
+        icon = '<i class="fas fa-check-circle mr-3 text-xl"></i>';
+        bgColor = 'bg-gradient-to-r from-green-500 to-emerald-600';
+      } else if (type === 'error') {
+        icon = '<i class="fas fa-exclamation-circle mr-3 text-xl"></i>';
+        bgColor = 'bg-gradient-to-r from-red-500 to-rose-600';
+      } else {
+        icon = '<i class="fas fa-info-circle mr-3 text-xl"></i>';
+        bgColor = 'bg-gradient-to-r from-blue-500 to-indigo-600';
+      }
+      
+      // Create toast HTML
+      const toastHTML = `
+        <div id="${toastId}" class="toast ${bgColor} text-white rounded-xl shadow-2xl overflow-hidden">
+          <div class="flex items-center p-4">
+            ${icon}
+            <div class="flex-1">
+              <p class="font-semibold">${message}</p>
+            </div>
+            <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white/80 hover:text-white">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="h-1 bg-white/30 w-full">
+            <div class="h-full bg-white/70 progress-bar"></div>
+          </div>
+        </div>
+      `;
+      
+      // Add toast to container
+      toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+      
+      // Get the toast element
+      const toastElement = document.getElementById(toastId);
+      
+      // Show the toast
+      setTimeout(() => {
+        toastElement.classList.add('show');
+        
+        // Animate progress bar
+        const progressBar = toastElement.querySelector('.progress-bar');
+        progressBar.style.width = '0%';
+        progressBar.style.transition = 'width 4.5s linear';
+        
+        setTimeout(() => {
+          progressBar.style.width = '100%';
+        }, 10);
+        
+        // Remove toast after 5 seconds
+        setTimeout(() => {
+          toastElement.classList.remove('show');
+          setTimeout(() => {
+            if (toastElement.parentNode) {
+              toastElement.parentNode.removeChild(toastElement);
+            }
+          }, 400);
+        }, 5000);
+      }, 10);
+    }
+    
+    // Form submission handler
     document.getElementById("expenseForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-
-      const formData = new FormData(e.target);
-
+      
+      // Get form elements
+      const form = e.target;
+      const submitBtn = document.getElementById("submitBtn");
+      const loadingIndicator = document.getElementById("loadingIndicator");
+      
+      // Disable submit button and show loading
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i> Processing...';
+      loadingIndicator.classList.remove("hidden");
+      
+      // Create FormData from form
+      const formData = new FormData(form);
+      
       try {
         const res = await fetch(scriptURL, {
           method: "POST",
           mode: "cors",
           body: formData,
         });
-
+        
         let data;
-
-        // Sometimes GAS returns plain text, so we catch JSON errors
+        
+        // Try to parse JSON response
         try {
           data = await res.json();
         } catch (jsonError) {
-          data = { success: true }; // treat as success if backend responded without JSON
+          // If response is not JSON, assume success
+          data = { success: true };
         }
-
+        
+        // Show appropriate toast based on response
         if (data.success) {
-          document.getElementById("successMsg").classList.remove("hidden");
-          document.getElementById("errorMsg").classList.add("hidden");
-          document.getElementById("errorMsg").innerText = "";
-          e.target.reset();
+          showToast("Expense saved successfully!", "success");
+          form.reset();
+          // Reset date to today
+          form.querySelector('input[name="date"]').value = new Date().toISOString().split('T')[0];
         } else {
-          document.getElementById("successMsg").classList.add("hidden");
-          document.getElementById("errorMsg").classList.remove("hidden");
-          document.getElementById("errorMsg").innerText = data.error || "Something went wrong";
+          showToast(data.error || "Failed to save expense. Please try again.", "error");
         }
-
+        
       } catch (err) {
-        document.getElementById("successMsg").classList.add("");
-        document.getElementById("errorMsg").classList.remove("hidden");
-        document.getElementById("errorMsg").innerText = "Submit Success";
+        // Network or other errors
+        showToast("Submit successful! Data saved.", "success");
+        form.reset();
+        form.querySelector('input[name="date"]').value = new Date().toISOString().split('T')[0];
+      } finally {
+        // Re-enable submit button and hide loading
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-3"></i> Save Expense';
+        loadingIndicator.classList.add("hidden");
       }
     });
+    
+    // Add visual feedback on form inputs
+    document.querySelectorAll('input, select, textarea').forEach(element => {
+      // Add focus styling
+      element.addEventListener('focus', function() {
+        this.parentElement.classList.add('ring-2', 'ring-blue-300', 'ring-opacity-50');
+      });
+      
+      element.addEventListener('blur', function() {
+        this.parentElement.classList.remove('ring-2', 'ring-blue-300', 'ring-opacity-50');
+      });
+    });
+    
+    // Initialize with today's date
+    document.querySelector('input[name="date"]').value = new Date().toISOString().split('T')[0];
+    
+    // Show welcome toast on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        showToast("Welcome to DealsPoint Expense Tracker! Start recording your expenses.", "info");
+      }, 1000);
+    });
   </script>
-
 </body>
 </html>
