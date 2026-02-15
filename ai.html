@@ -841,6 +841,103 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
+
+        /* Language Selector */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-btn .flag {
+            font-size: 16px;
+        }
+
+        .lang-btn .arrow {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 8px;
+            min-width: 160px;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .lang-selector.open .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-selector.open .lang-btn .arrow {
+            transform: rotate(180deg);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .lang-option:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+        }
+
+        .lang-option.active {
+            background: rgba(123, 97, 255, 0.15);
+            color: var(--primary-light);
+        }
+
+        .lang-option .flag {
+            font-size: 16px;
+        }
+
+        /* Header actions container */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
     </style>
 </head>
 <body>
@@ -850,6 +947,342 @@
 <script>
     // --- Data & Configuration ---
     const API_URL = "http://161.35.231.208:3000/api/slots";
+    
+    // Multi-language Support
+    const languages = {
+        en: { name: 'English', flag: '🇬🇧' },
+        fr: { name: 'Français', flag: '🇫🇷' },
+        nl: { name: 'Nederlands', flag: '🇳🇱' },
+        it: { name: 'Italiano', flag: '🇮🇹' },
+        es: { name: 'Español', flag: '🇪🇸' },
+        de: { name: 'Deutsch', flag: '🇩🇪' }
+    };
+    
+    // Translations
+    const translations = {
+        en: {
+            // Header
+            logoTitle: "RTP King",
+            logoSubtitle: "Professional RTP Scanner",
+            // Home Page
+            heroTitle: "Find the Highest RTP Casinos",
+            heroDesc: "Our AI scans 200+ licensed casinos in real-time to find where you get the best payout for each slot.",
+            casinos: "Casinos",
+            slots: "Slots",
+            updates: "Real-time",
+            updatesLabel: "Updates",
+            trendingSlots: "Trending Slots",
+            liveData: "Live Data",
+            searchAllSlots: "Search All Slots",
+            whyRTP: "Why RTP Matters",
+            whyRTPDdesc: "The same slot can have different payout percentages at different casinos. A 2% difference can save you hundreds over time.",
+            readFullGuide: "Read Full Guide",
+            footerText: "SlotScan AI uses real-time data from licensed casinos. Gambling should be entertaining, not a way to make money.",
+            footerCopyright: "© 2023 SlotScan AI. For entertainment purposes only.",
+            // Scan Page
+            scanning: "Scanning",
+            initializing: "Initializing...",
+            estimatedTime: "Estimated time",
+            // Results Page
+            analysisComplete: "Analysis Complete",
+            resultsReady: "Results Ready",
+            yourSavings: "Your Potential Savings",
+            saveUpTo: "Save up to",
+            per1000Wagered: "per $1,000 wagered",
+            worstRTP: "Worst RTP",
+            bestRTP: "Best RTP",
+            recommendedCasinos: "Recommended Casinos",
+            sortedByValue: "Sorted by value",
+            bestMatch: "Best Match",
+            playNow: "Play Now",
+            scanAnother: "Scan Another Slot",
+            howWeCalculate: "How we calculate RTP",
+            // Learn Page
+            rtpExplained: "RTP Explained",
+            theBasics: "The Basics",
+            rtpBasics: "RTP (Return to Player) is the percentage of wagered money a slot returns to players over time.",
+            example: "Example",
+            whyRTPVaries: "Why RTP Varies",
+            whyRTPVariesDesc: "Game providers allow casinos to adjust RTP settings within a range. This means the same slot can have different payouts at different casinos.",
+            realSavings: "The Real Savings",
+            realSavingsDesc: "A small difference in RTP creates massive savings over time. Here's what you save by choosing the highest RTP:",
+            startScanning: "Start Scanning Now",
+            // Common
+            back: "Back",
+            low: "Low",
+            medium: "Medium",
+            high: "High",
+            highest: "Highest",
+            highRTP: "High"
+        },
+        fr: {
+            logoTitle: "RTP King",
+            logoSubtitle: "Scanner RTP Professionnel",
+            heroTitle: "Trouvez les Casinos RTP le Plus Élevé",
+            heroDesc: "Notre IA analyse plus de 200 casinos sous licence en temps réel pour trouver où vous pouvez obtenir le meilleur paiement pour chaque machine à sous.",
+            casinos: "Casinos",
+            slots: "Machines",
+            updates: "Temps réel",
+            updatesLabel: "Mises à jour",
+            trendingSlots: "Machines Tendance",
+            liveData: "Données en Direct",
+            searchAllSlots: "Rechercher Toutes les Machines",
+            whyRTP: "Pourquoi le RTP Est Important",
+            whyRTPDdesc: "La même machine à sous peut avoir différents pourcentages de paiement selon les casinos. Une différence de 2% peut vous faire économiser des centaines d'euros.",
+            readFullGuide: "Lire le Guide Complet",
+            footerText: "SlotScan AI utilise des données en temps réel provenant de casinos sous licence. Le jeu doit rester divertissant, pas un moyen de gagner de l'argent.",
+            footerCopyright: "© 2023 SlotScan AI. À des fins de divertissement uniquement.",
+            scanning: "Analyse en cours",
+            initializing: "Initialisation...",
+            estimatedTime: "Temps estimé",
+            analysisComplete: "Analyse Terminée",
+            resultsReady: "Résultats Prêts",
+            yourSavings: "Vos Économies Potentielles",
+            saveUpTo: "Économisez jusqu'à",
+            per1000Wagered: "par 1 000 € misés",
+            worstRTP: "RTP le Plus Bas",
+            bestRTP: "RTP le Plus Élevé",
+            recommendedCasinos: "Casinos Recommandés",
+            sortedByValue: "Triés par valeur",
+            bestMatch: "Meilleur Choix",
+            playNow: "Jouer Maintenant",
+            scanAnother: "Analyser une Autre Machine",
+            howWeCalculate: "Comment nous calculons le RTP",
+            rtpExplained: "RTP Expliqué",
+            theBasics: "Les Bases",
+            rtpBasics: "Le RTP (Return to Player) est le pourcentage de l'argent misé qu'une machine à sous reversé aux joueurs au fil du temps.",
+            example: "Exemple",
+            whyRTPVaries: "Pourquoi le RTP Varie",
+            whyRTPVariesDesc: "Les fournisseurs de jeux permettent aux casinos d'ajuster les paramètres du RTP dans une plage. Cela signifie que la même machine peut avoir des paiements différents selon les casinos.",
+            realSavings: "les Économies Réelles",
+            realSavingsDesc: "Une petite différence de RTP crée des économies massives au fil du temps. Voici ce que vous économisez en choisissant le RTP le plus élevé:",
+            startScanning: "Commencer l'Analyse",
+            back: "Retour",
+            low: "Faible",
+            medium: "Moyen",
+            high: "Élevé",
+            highest: "Le Plus Élevé",
+            highRTP: "Élevé"
+        },
+        nl: {
+            logoTitle: "RTP King",
+            logoSubtitle: "Professionele RTP Scanner",
+            heroTitle: "Vind de Hoogste RTP Casino's",
+            heroDesc: "Onze AI scant meer dan 200 gelicentieerde casino's in realtime om te vinden waar je de beste uitbetaling krijgt voor elke gokkast.",
+            casinos: "Casino's",
+            slots: "Gokkasten",
+            updates: "Real-time",
+            updatesLabel: "Updates",
+            trendingSlots: "Populaire Gokkasten",
+            liveData: "Live Data",
+            searchAllSlots: "Alle Gokkasten Zoeken",
+            whyRTP: "Waarom RTP Belangrijk Is",
+            whyRTPDdesc: "Dezelfde gokkast kan verschillende uitbetalingspercentages hebben bij verschillende casino's. Een verschil van 2% kan je honderden euro's besparen.",
+            readFullGuide: "Volledige Gids Lezen",
+            footerText: "SlotScan AI gebruikt realtime data van gelicentieerde casino's. Gokken moet leuk blijven, geen manier om geld te verdienen.",
+            footerCopyright: "© 2023 SlotScan AI. Alleen voor entertainment doeleinden.",
+            scanning: "Scannen",
+            initializing: "Initialiseren...",
+            estimatedTime: "Geschatte tijd",
+            analysisComplete: "Analyse Compleet",
+            resultsReady: "Resultaten Gereed",
+            yourSavings: "Je Potentiële Besparingen",
+            saveUpTo: "Bespaar tot",
+            per1000Wagered: "per €1.000 ingezet",
+            worstRTP: "Laagste RTP",
+            bestRTP: "Hoogste RTP",
+            recommendedCasinos: "Aanbevolen Casino's",
+            sortedByValue: "Gesorteerd op waarde",
+            bestMatch: "Beste Keuze",
+            playNow: "Nu Spelen",
+            scanAnother: "Andere Gokkast Scannen",
+            howWeCalculate: "Hoe we RTP berekenen",
+            rtpExplained: "RTP Uitgelegd",
+            theBasics: "De Basis",
+            rtpBasics: "RTP (Return to Player) is het percentage van ingezet geld dat een gokkast teruggeeft aan spelers over tijd.",
+            example: "Voorbeeld",
+            whyRTPVaries: "Waarom RTP Varieert",
+            whyRTPVariesDesc: "Spelproviders stellen casino's in staat om RTP-instellingen aan te passen binnen een bereik. Dit betekent dat dezelfde gokkast verschillende uitbetalingen kan hebben bij verschillende casino's.",
+            realSavings: "De Ware Besparingen",
+            realSavingsDesc: "Een klein verschil in RTP levert enorme besparingen op. Hier is wat je bespaart door te kiezen voor de hoogste RTP:",
+            startScanning: "Nu Scannen",
+            back: "Terug",
+            low: "Laag",
+            medium: "Medium",
+            high: "Hoog",
+            highest: "Hoogste",
+            highRTP: "Hoog"
+        },
+        it: {
+            logoTitle: "RTP King",
+            logoSubtitle: "Scanner RTP Professionale",
+            heroTitle: "Trova i Casino con RTP Più Alto",
+            heroDesc: "La nostra IA analizza più di 200 casino autorizzati in tempo reale per trovare dove ottieni le migliori vincite per ogni slot.",
+            casinos: "Casino",
+            slots: "Slot",
+            updates: "Tempo Reale",
+            updatesLabel: "Aggiornamenti",
+            trendingSlots: "Slot Popolari",
+            liveData: "Dati in Diretta",
+            searchAllSlots: "Cerca Tutte le Slot",
+            whyRTP: "Perché il RTP È Importante",
+            whyRTPDdesc: "La stessa slot può avere diverse percentuali di pagamento in diversi casino. Una differenza del 2% può farti risparmiare centinaia di euro.",
+            readFullGuide: "Leggi la Guida Completa",
+            footerText: "SlotScan AI utilizza dati in tempo reale da casino autorizzati. Il gioco deve essere divertente, non un modo per fare soldi.",
+            footerCopyright: "© 2023 SlotScan AI. Solo a scopo di intrattenimento.",
+            scanning: "Scansione",
+            initializing: "Inizializzazione...",
+            estimatedTime: "Tempo stimato",
+            analysisComplete: "Analisi Completata",
+            resultsReady: "Risultati Pronti",
+            yourSavings: "I Tuoi Risparmi Potenziali",
+            saveUpTo: "Risparmia fino a",
+            per1000Wagered: "per €1.000 scommessi",
+            worstRTP: "RTP Peggiore",
+            bestRTP: "Miglior RTP",
+            recommendedCasinos: "Casino Consigliati",
+            sortedByValue: "Ordinati per valore",
+            bestMatch: "Miglior Scelta",
+            playNow: "Gioca Ora",
+            scanAnother: "Scansiona un'Altra Slot",
+            howWeCalculate: "Come calcoliamo il RTP",
+            rtpExplained: "RTP Spiegato",
+            theBasics: "Le Basi",
+            rtpBasics: "RTP (Return to Player) è la percentuale di denaro scommesso che una slot restituisce ai giocatori nel tempo.",
+            example: "Esempio",
+            whyRTPVaries: "Perché il RTP Varia",
+            whyRTPVariesDesc: "I fornitori di giochi permettono ai casino di regolare le impostazioni RTP entro un range. Questo significa che la stessa slot può avere diverse vincite in diversi casino.",
+            realSavings: "I Veri Risparmi",
+            realSavingsDesc: "Una piccola differenza nel RTP crea enormi risparmi nel tempo. Ecco cosa risparmi scegliendo il RTP più alto:",
+            startScanning: "Inizia la Scansione",
+            back: "Indietro",
+            low: "Basso",
+            medium: "Medio",
+            high: "Alto",
+            highest: "Più Alto",
+            highRTP: "Alto"
+        },
+        es: {
+            logoTitle: "RTP King",
+            logoSubtitle: "Escáner RTP Profesional",
+            heroTitle: "Encuentra los Casinos con RTP Más Alto",
+            heroDesc: "Nuestra IA escanea más de 200 casinos con licencia en tiempo real para encontrar dónde obtienes los mejores pagos en cada tragaperras.",
+            casinos: "Casinos",
+            slots: "Tragaperras",
+            updates: "Tiempo Real",
+            updatesLabel: "Actualizaciones",
+            trendingSlots: "Tragaperras Populares",
+            liveData: "Datos en Vivo",
+            searchAllSlots: "Buscar Todas las Tragaperras",
+            whyRTP: "Por Qué el RTP Es Importante",
+            whyRTPDdesc: "La misma tragaperras puede tener diferentes porcentajes de pago en diferentes casinos. Una diferencia del 2% puede ahorrarte cientos de euros.",
+            readFullGuide: "Leer Guía Completa",
+            footerText: "SlotScan AI utiliza datos en tiempo real de casinos con licencia. El juego debe ser entretenido, no una forma de ganar dinero.",
+            footerCopyright: "© 2023 SlotScan AI. Solo con fines de entretenimiento.",
+            scanning: "Escaneando",
+            initializing: "Inicializando...",
+            estimatedTime: "Tiempo estimado",
+            analysisComplete: "Análisis Completado",
+            resultsReady: "Resultados Listos",
+            yourSavings: "Tus Ahorros Potenciales",
+            saveUpTo: "Ahorra hasta",
+            per1000Wagered: "por €1,000 apostados",
+            worstRTP: "Peor RTP",
+            bestRTP: "Mejor RTP",
+            recommendedCasinos: "Casinos Recomendados",
+            sortedByValue: "Ordenados por valor",
+            bestMatch: "Mejor Opción",
+            playNow: "Jugar Ahora",
+            scanAnother: "Escanear Otra Tragaperras",
+            howWeCalculate: "Cómo calculamos el RTP",
+            rtpExplained: "RTP Explicado",
+            theBasics: "Lo Básico",
+            rtpBasics: "RTP (Return to Player) es el porcentaje de dinero apostado que una tragaperras devuelve a los jugadores con el tiempo.",
+            example: "Ejemplo",
+            whyRTPVaries: "Por Qué el RTP Varía",
+            whyRTPVariesDesc: "Los proveedores de juegos permiten a los casinos ajustar la configuración del RTP dentro de un rango. Esto significa que la misma tragaperras puede tener diferentes pagos en diferentes casinos.",
+            realSavings: "Los Ahorros Reales",
+            realSavingsDesc: "Una pequeña diferencia en el RTP crea ahorros masivos con el tiempo. Esto es lo que ahorras eligiendo el RTP más alto:",
+            startScanning: "Comenzar Escaneo",
+            back: "Volver",
+            low: "Bajo",
+            medium: "Medio",
+            high: "Alto",
+            highest: "Más Alto",
+            highRTP: "Alto"
+        },
+        de: {
+            logoTitle: "RTP King",
+            logoSubtitle: "Professioneller RTP Scanner",
+            heroTitle: "Finde die Casinos mit dem Höchsten RTP",
+            heroDesc: "Unsere KI analysiert mehr als 200 lizenzierte Casinos in Echtzeit, um zu finden, wo du die besten Auszahlungen für jeden Spielautomaten erhältst.",
+            casinos: "Casinos",
+            slots: "Spielautomaten",
+            updates: "Echtzeit",
+            updatesLabel: "Aktualisierungen",
+            trendingSlots: "Beliebte Spielautomaten",
+            liveData: "Live-Daten",
+            searchAllSlots: "Alle Spielautomaten Suchen",
+            whyRTP: "Warum RTP Wichtig Ist",
+            whyRTPDdesc: "Derselbe Spielautomat kann bei verschiedenen Casinos unterschiedliche Auszahlungsprozente haben. Ein Unterschied von 2% kann dir Hunderte Euro sparen.",
+            readFullGuide: "Vollständige Anleitung Lesen",
+            footerText: "SlotScan AI verwendet Echtzeitdaten von lizenzierten Casinos. Glücksspiel sollte unterhaltsam sein, kein Weg um Geld zu verdienen.",
+            footerCopyright: "© 2023 SlotScan AI. Nur zu Unterhaltungszwecken.",
+            scanning: "Scannen",
+            initializing: "Initialisierung...",
+            estimatedTime: "Geschätzte Zeit",
+            analysisComplete: "Analyse Abgeschlossen",
+            resultsReady: "Ergebnisse Bereit",
+            yourSavings: "Ihre Potenziellen Einsparungen",
+            saveUpTo: "Sparen Sie bis zu",
+            per1000Wagered: "pro €1.000 eingesetzt",
+            worstRTP: "Niedrigster RTP",
+            bestRTP: "Höchster RTP",
+            recommendedCasinos: "Empfohlene Casinos",
+            sortedByValue: "Nach Wert sortiert",
+            bestMatch: "Beste Wahl",
+            playNow: "Jetzt Spielen",
+            scanAnother: "Anderen Spielautomaten Scannen",
+            howWeCalculate: "Wie wir RTP berechnen",
+            rtpExplained: "RTP Erklärt",
+            theBasics: "Die Grundlagen",
+            rtpBasics: "RTP (Return to Player) ist der Prozentsatz des eingesetzten Geldes, den ein Spielautomat im Laufe der Zeit an die Spieler zurückgibt.",
+            example: "Beispiel",
+            whyRTPVaries: "Warum RTP Variiert",
+            whyRTPVariesDesc: "Spielanbieter erlauben Casinos, RTP-Einstellungen innerhalb eines Bereichs anzupassen. Das bedeutet, dass derselbe Spielautomat bei verschiedenen Casinos unterschiedliche Auszahlungen haben kann.",
+            realSavings: "Die Echten Einsparungen",
+            realSavingsDesc: "Ein kleiner Unterschied im RTP erzeugt massive Einsparungen im Laufe der Zeit. So viel sparen Sie durch die Wahl des höchsten RTP:",
+            startScanning: "Jetzt Scannen",
+            back: "Zurück",
+            low: "Niedrig",
+            medium: "Mittel",
+            high: "Hoch",
+            highest: "Höchster",
+            highRTP: "Hoch"
+        }
+    };
+    
+    // Current language
+    let currentLang = localStorage.getItem('rtpking_lang') || 'en';
+    
+    // Translation helper function
+    function t(key) {
+        return translations[currentLang]?.[key] || translations.en[key] || key;
+    }
+    
+    // Change language function
+    function setLanguage(lang) {
+        if (languages[lang]) {
+            currentLang = lang;
+            localStorage.setItem('rtpking_lang', lang);
+            render();
+        }
+    }
+    
+    // Get current language flag
+    function getCurrentLangFlag() {
+        return languages[currentLang]?.flag || '🇬🇧';
+    }
     
     // Data Fallback
     const defaultSlots = [
@@ -1001,6 +1434,14 @@
     }
 
     function renderHome(container) {
+        // Generate language selector HTML
+        const langOptionsHtml = Object.entries(languages).map(([code, lang]) => `
+            <div class="lang-option ${code === currentLang ? 'active' : ''}" onclick="setLanguage('${code}')">
+                <span class="flag">${lang.flag}</span>
+                <span>${lang.name}</span>
+            </div>
+        `).join('');
+
         const slotsHtml = state.slots.map(s => `
             <div class="slot-card animate-in" onclick='startScan(${JSON.stringify(s)})' style="animation-delay: ${state.slots.indexOf(s) * 0.05}s">
                 <div class="slot-provider">${s.provider}</div>
@@ -1010,7 +1451,7 @@
                     Best: ${s.bestRTP}%
                 </div>
                 <div class="mt-4" style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted);">
-                    <span>Vol: ${s.volatility || "Medium"}</span>
+                    <span>Vol: ${t(s.volatility?.toLowerCase() || 'medium')}</span>
                     <span><i class="fas fa-star" style="color: var(--accent-gold); font-size: 10px;"></i> ${s.popularity || "8.5"}</span>
                 </div>
             </div>
@@ -1024,18 +1465,29 @@
                             <i class="fas fa-robot"></i>
                         </div>
                         <div class="logo-text">
-                            <div class="logo-title">RTP King</div>
-                            <div class="logo-subtitle">Professional RTP Scanner</div>
+                            <div class="logo-title">${t('logoTitle')}</div>
+                            <div class="logo-subtitle">${t('logoSubtitle')}</div>
                         </div>
                     </div>
-                    <button class="btn-icon" onclick="navigate('learn')">
-                        <i class="fas fa-question-circle"></i>
-                    </button>
+                    <div class="header-actions">
+                        <div class="lang-selector" id="langSelector">
+                            <button class="lang-btn" onclick="toggleLangDropdown()">
+                                <span class="flag">${getCurrentLangFlag()}</span>
+                                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                            </button>
+                            <div class="lang-dropdown">
+                                ${langOptionsHtml}
+                            </div>
+                        </div>
+                        <button class="btn-icon" onclick="navigate('learn')">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
                 </header>
 
                 <div class="glass-panel animate-in" style="animation-delay: 0.1s;">
-                    <h2>Find the <span class="text-gradient">Highest RTP</span> Casinos</h2>
-                    <p class="mt-2">Our AI scans 200+ licensed casinos in real-time to find where you get the best payout for each slot.</p>
+                    <h2>${t('heroTitle').replace('Highest RTP', '<span class="text-gradient">Highest RTP</span>')}</h2>
+                    <p class="mt-2">${t('heroDesc')}</p>
                     
                     <div class="stats-grid mt-6">
                         <div class="stat-card">
@@ -1043,36 +1495,36 @@
                                 <i class="fas fa-database"></i>
                             </div>
                             <div class="stat-card-value">200+</div>
-                            <div class="stat-card-label">Casinos</div>
+                            <div class="stat-card-label">${t('casinos')}</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-card-icon">
                                 <i class="fas fa-gamepad"></i>
                             </div>
                             <div class="stat-card-value">5,000+</div>
-                            <div class="stat-card-label">Slots</div>
+                            <div class="stat-card-label">${t('slots')}</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-card-icon">
                                 <i class="fas fa-bolt"></i>
                             </div>
-                            <div class="stat-card-value">Real-time</div>
-                            <div class="stat-card-label">Updates</div>
+                            <div class="stat-card-value">${t('updates')}</div>
+                            <div class="stat-card-label">${t('updatesLabel')}</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-panel animate-in" style="animation-delay: 0.2s;">
                     <div class="flex-between mb-6">
-                        <h3 style="margin: 0;">Trending Slots</h3>
-                        <span class="badge badge-success">Live Data</span>
+                        <h3 style="margin: 0;">${t('trendingSlots')}</h3>
+                        <span class="badge badge-success">${t('liveData')}</span>
                     </div>
                     <div class="slot-grid">
                         ${slotsHtml}
                     </div>
                     <div class="text-center mt-6">
                         <button class="btn-ghost" onclick="scrollToSearch()">
-                            <i class="fas fa-search"></i> Search All Slots
+                            <i class="fas fa-search"></i> ${t('searchAllSlots')}
                         </button>
                     </div>
                 </div>
@@ -1083,21 +1535,38 @@
                             <i class="fas fa-lightbulb"></i>
                         </div>
                         <div>
-                            <h3>Why RTP Matters</h3>
-                            <p class="mb-4">The same slot can have different payout percentages at different casinos. A 2% difference can save you hundreds over time.</p>
+                            <h3>${t('whyRTP')}</h3>
+                            <p class="mb-4">${t('whyRTPDdesc')}</p>
                             <button class="btn-ghost" onclick="navigate('learn')">
-                                Read Full Guide <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                                ${t('readFullGuide')} <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="app-footer animate-in" style="animation-delay: 0.4s;">
-                    <p>SlotScan AI uses real-time data from licensed casinos. Gambling should be entertaining, not a way to make money.</p>
-                    <p class="mt-2" style="font-size: 11px;">© 2023 SlotScan AI. For entertainment purposes only.</p>
+                    <p>${t('footerText')}</p>
+                    <p class="mt-2" style="font-size: 11px;">${t('footerCopyright')}</p>
                 </div>
             </div>
         `;
+        
+        // Re-attach dropdown close listener
+        document.addEventListener('click', handleOutsideClick);
+    }
+
+    function toggleLangDropdown() {
+        const selector = document.getElementById('langSelector');
+        if (selector) {
+            selector.classList.toggle('open');
+        }
+    }
+
+    function handleOutsideClick(event) {
+        const selector = document.getElementById('langSelector');
+        if (selector && !selector.contains(event.target)) {
+            selector.classList.remove('open');
+        }
     }
 
     function renderScan(container) {
